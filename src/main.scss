@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+$primary-font: 'Jost', sans-serif;
+
+$font-weights: (
+    'light': 300,
+    'regular': 400,
+    'medium': 500,
+    'semi-bold': 600,
+    'bold': 700
+);
+
+$colors: (
+    'purple': hsl(283, 83, 52), // #AD1FEA
+    'blue': hsl(230, 76, 59), // #4661E6
+    'dark-purple-black': hsl(230, 31, 31),
+    'white': hsl(0, 0, 100), // #FFFFFF
+    'dark-grey': hsl(231, 100, 97), // #F2F4FF
+    'light-grey': hsl(230, 60, 98), // #F7F8FD
+    'purple-black': hsl(231, 33, 34), // #3A4374
+    'grey-purple': hsl(224, 20, 49), // #647196
+    'orange': hsl(14, 83, 74), // #F49F85
+    'light-blue': hsl(204, 94, 68) // #62BCFA
+);
+
+@function getColor($color) {
+    @return map-get($map: $colors, $key: $color);
+}
+
+@function getFontWeight($weight) {
+    @return map-get($map: $font-weights, $key: $weight);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.screen-reader-only {
+    position: absolute;
+    left: -100000px;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+body { font-family: $primary-font; }
+
+ul { list-style: none; }
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a { 
+    text-decoration: none;
+    cursor: pointer;
+}
