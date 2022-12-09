@@ -1,10 +1,14 @@
 function Tags() {
     return ( 
-        <div className="tags-container">
+        <section className="tags-container">
+            <h2 className="screen-reader-only">
+                Suggestions tags
+            </h2>
+
             <ul className="tags">
                 
             </ul>
-        </div>
+        </section>
      );
 }
 
