@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
 $primary-font: 'Jost', sans-serif;
+$border-radius: 10px;
 
 $font-weights: (
     'light': 300,
@@ -75,7 +76,7 @@ a {
     font-weight: getFontWeight('bold');
 
     border: none;
-    border-radius: 10px;
+    border-radius: $border-radius;
 
     cursor: pointer;
     background-color: transparent;
@@ -92,6 +93,8 @@ a {
     }
 }
 
+.feedback-button-svg { margin-right: .25em; }
+
 .container {
     width: 87%;
     max-width: 1000px;
@@ -99,6 +102,11 @@ a {
 }
 
 .suggestions {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
     .app-info {
         color: getColor('white');
     
@@ -113,6 +121,18 @@ a {
         &__title { font-size: 1.1rem; }
     
         &__sub-heading { font-weight: getFontWeight('medium'); }
+    }
+
+    &__content {
+        /*
+            ? This is a flex child of .suggestions.
+            ? Adding flex property to make it occupy remaining space
+            ? below .app-info on mobile
+        */
+        flex: 1 auto;
+
+        display: flex;
+        flex-direction: column;
     }
 
     &__header {
@@ -142,8 +162,69 @@ a {
         }
 
         &-button-text { margin-right: .4em; }
+    }
 
-        .feedback-button-svg { margin-right: .25em; }
+
+    &__main {
+        /* 
+            ? Make .suggestions__main fill remaining space.
+            ? This is a flex child of .suggestions__content
+        */
+        flex: 1 auto;
+
+        display: flex;
+        flex-direction: column;
+
+        background-color: getColor('light-grey');
+        padding: 2em 0;
+    }
+
+    &__main-content { 
+        /* 
+            ? Make .suggestions__main-content fill remaining space.
+            ? This is a flex child of .suggestions__main
+        */
+        flex: 1 auto;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__empty {
+        /* 
+            ? Make .suggestions__empty fill remaining space.
+            ? This is a flex child of .suggestions__main-content
+        */
+        flex: 1 auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        text-align: center;
+        
+
+        border-radius: $border-radius;
+        background-color: getColor('white');
+
+        padding: 0 1.5em;
+
+        &-img-container { margin-bottom: 2.25em; }
+
+        &-title { 
+            font-size: 1.2rem;
+            line-height: 1.1;
+            color: getColor('purple-black');
+
+            margin-bottom: 1em; 
+        }
+
+        &-message {
+            color: getColor('grey-purple');
+            line-height: 1.38;
+
+            margin-bottom: 1.5em;
+        }
     }
 }
 

@@ -54,10 +54,25 @@ a {
   background-color: #b11fea;
 }
 
+.feedback-button-svg {
+  margin-right: .25em;
+}
+
 .container {
   width: 87%;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.suggestions {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .suggestions .app-info {
@@ -86,6 +101,24 @@ a {
 
 .suggestions .app-info__sub-heading {
   font-weight: 500;
+}
+
+.suggestions__content {
+  /*
+            ? This is a flex child of .suggestions.
+            ? Adding flex property to make it occupy remaining space
+            ? below .app-info on mobile
+        */
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .suggestions__header {
@@ -135,7 +168,80 @@ a {
   margin-right: .4em;
 }
 
-.suggestions__header .feedback-button-svg {
-  margin-right: .25em;
+.suggestions__main {
+  /* 
+            ? Make .suggestions__main fill remaining space.
+            ? This is a flex child of .suggestions__content
+        */
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f7f8fd;
+  padding: 2em 0;
+}
+
+.suggestions__main-content {
+  /* 
+            ? Make .suggestions__main-content fill remaining space.
+            ? This is a flex child of .suggestions__main
+        */
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.suggestions__empty {
+  /* 
+            ? Make .suggestions__empty fill remaining space.
+            ? This is a flex child of .suggestions__main-content
+        */
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0 1.5em;
+}
+
+.suggestions__empty-img-container {
+  margin-bottom: 2.25em;
+}
+
+.suggestions__empty-title {
+  font-size: 1.2rem;
+  line-height: 1.1;
+  color: #3a4373;
+  margin-bottom: 1em;
+}
+
+.suggestions__empty-message {
+  color: #647196;
+  line-height: 1.38;
+  margin-bottom: 1.5em;
 }
 /*# sourceMappingURL=main.css.map */

@@ -3,7 +3,9 @@ import SuggestionsEmpty from "./SuggestionsEmpty";
 function SuggestionsMain() {
     return ( 
         <main className="suggestions__main">
-            <SuggestionsEmpty />
+            <div className="suggestions__main-content container">
+                <SuggestionsEmpty />
+            </div>
         </main>
     );
 }
