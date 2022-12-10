@@ -47,7 +47,10 @@ $colors: (
     overflow: hidden;
 }
 
-body { font-family: $primary-font; }
+body { 
+    font-family: $primary-font; 
+    font-size: 1rem;
+}
 
 ul { list-style: none; }
 
@@ -59,4 +62,36 @@ img {
 a { 
     text-decoration: none;
     cursor: pointer;
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.container {
+    width: 87%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.app-info {
+    color: getColor('white');
+
+    background-image: url('../assets/suggestions/mobile/background-header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 1em 0;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title { font-size: 1.1rem; }
+
+    &__sub-heading { font-weight: getFontWeight('medium'); }
 }

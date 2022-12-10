@@ -4,7 +4,7 @@ import SuggestionsContent from "./main/SuggestionsContent";
 
 function SuggestionsPage() {
     return ( 
-        <div className="suggestions container">
+        <div className="suggestions">
             {/* Mobile laayout */}
             <AppInfo />
 
