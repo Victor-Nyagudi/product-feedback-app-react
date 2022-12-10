@@ -1,6 +1,8 @@
 function SuggestionsPage() {
     return ( 
-        <div></div>
+        <div className="suggestions container">
+            
+        </div>
     );
 }
 
