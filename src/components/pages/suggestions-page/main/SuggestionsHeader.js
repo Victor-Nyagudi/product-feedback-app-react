@@ -1,3 +1,5 @@
+import Button from "../../../shared/Button";
+
 function SuggestionsHeader({ totalSuggestions }) {
     return ( 
         <header className="suggestions__header">
@@ -18,7 +20,7 @@ function SuggestionsHeader({ totalSuggestions }) {
             </div>
 
             <div className="suggestions__header-button-container">
-
+                <Button text={ 'Add Feedback' } className={ 'button--add-feedback' } />
             </div>
         </header>
      );

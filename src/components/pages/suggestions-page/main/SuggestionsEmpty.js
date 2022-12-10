@@ -1,3 +1,5 @@
+import Button from "../../../shared/Button";
+
 function SuggestionsEmpty() {
     return (
         <section className="suggestions__empty">
@@ -14,7 +16,7 @@ function SuggestionsEmpty() {
             </p>
 
             <div className="suggestions__empty-button-container">
-
+                <Button text={ 'Add Feedback' } className={ 'button--add-feedback' } />
             </div>
         </section>
     );
