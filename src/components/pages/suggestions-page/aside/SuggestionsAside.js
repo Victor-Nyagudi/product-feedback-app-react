@@ -2,7 +2,7 @@ import AppInfo from "./AppInfo";
 import RoadmapInfo from "./RoadmapInfo";
 import Tags from "./Tags";
 
-function DesktopAside() {
+function SuggestionsAside() {
     return ( 
         <aside className="suggestions__aside">
             <AppInfo />
@@ -12,4 +12,4 @@ function DesktopAside() {
     );
 }
 
-export default DesktopAside;
+export default SuggestionsAside;

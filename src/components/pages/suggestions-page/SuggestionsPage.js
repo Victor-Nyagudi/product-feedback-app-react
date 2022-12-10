@@ -1,5 +1,5 @@
 import AppInfo from "./aside/AppInfo";
-import DesktopAside from "./aside/DesktopAside";
+import SuggestionsAside from "./aside/SuggestionsAside";
 import SuggestionsContent from "./main/SuggestionsContent";
 
 function SuggestionsPage() {
