@@ -64,10 +64,32 @@ a {
     cursor: pointer;
 }
 
-.btn {
+@mixin flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    font-family: $primary-font;
+    font-weight: getFontWeight('bold');
+
     border: none;
+    border-radius: 10px;
+
     cursor: pointer;
     background-color: transparent;
+
+    &--main { 
+        font-size: .75rem;
+        padding: .8em 1.2em; 
+    }
+
+    &--add-feedback {
+        color: getColor('white');
+
+        background-color: getColor('purple');
+    }
 }
 
 .container {
@@ -76,22 +98,52 @@ a {
     margin: 0 auto;
 }
 
-.app-info {
-    color: getColor('white');
-
-    background-image: url('../assets/suggestions/mobile/background-header.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    padding: 1em 0;
-
-    &__content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+.suggestions {
+    .app-info {
+        color: getColor('white');
+    
+        background-image: url('../assets/suggestions/mobile/background-header.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+        padding: 1em 0;
+    
+        &__content { @include flex-space-between; }
+    
+        &__title { font-size: 1.1rem; }
+    
+        &__sub-heading { font-weight: getFontWeight('medium'); }
     }
 
-    &__title { font-size: 1.1rem; }
+    &__header {
+        color: getColor('white');
+        background-color: getColor('purple-black');
 
-    &__sub-heading { font-weight: getFontWeight('medium'); }
+        &-content { 
+            @include flex-space-between;
+            padding: .6em 0; 
+        }
+
+        &-info { font-size: .8rem; }
+
+        &-filter { 
+            display: flex;
+            align-items: center;
+        }
+
+        &-sort { 
+            display: flex;
+            align-items: center;
+
+            font-weight: getFontWeight('bold'); 
+            color: getColor('white');
+
+            margin-left: .35em;
+        }
+
+        &-button-text { margin-right: .4em; }
+
+        .feedback-button-svg { margin-right: .25em; }
+    }
 }
+

@@ -14,11 +14,9 @@ function AppInfo() {
                     </p>
                 </div>
 
-                <div className="app-info__container">
-                    <button className="app-info__hamburger-btn btn">
-                        <img src={ hamburgerIcon } alt="" className="app-info__hamburger-img" aria-hidden="true" />
-                    </button>
-                </div>
+                <button className="app-info__hamburger-button button">
+                    <img src={ hamburgerIcon } alt="" className="app-info__hamburger-img" aria-hidden="true" />
+                </button>
             </div>
         </section>
     );

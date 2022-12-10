@@ -42,9 +42,13 @@ function App() {
     setIsMobileScreen(window.outerWidth < mobileLayoutUpperBound);
   }
 
+  const sharedProps = {
+    isMobileScreen
+  }
+
   return (
     <>
-      <SuggestionsPage />
+      <SuggestionsPage sharedProps={ sharedProps } />
     </>
   );
 }

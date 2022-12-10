@@ -1,7 +1,7 @@
-function Button({ text, className }) {
+function Button({ text, className, icon }) {
     return ( 
-        <button className={ className ? `${className} btn btn--main` : 'button--add-feedback btn btn--main' }>
-            <img src="" alt="" className="button__img" aria-hidden="true" />
+        <button className={ className ? `${className} button button--main` : 'button--add-feedback button button--main' }>
+            { icon }
             { text }
         </button>
     );

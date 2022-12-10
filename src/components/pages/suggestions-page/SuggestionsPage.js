@@ -2,7 +2,7 @@ import AppInfo from "./aside/AppInfo";
 import SuggestionsAside from "./aside/SuggestionsAside";
 import SuggestionsContent from "./main/SuggestionsContent";
 
-function SuggestionsPage() {
+function SuggestionsPage({ sharedProps }) {
     return ( 
         <div className="suggestions">
             {/* Mobile laayout */}
@@ -13,7 +13,7 @@ function SuggestionsPage() {
                 <DesktopAside /> 
             */}
 
-            <SuggestionsContent />
+            <SuggestionsContent isMobileScreen={ sharedProps.isMobileScreen } />
         </div>
     );
 }
