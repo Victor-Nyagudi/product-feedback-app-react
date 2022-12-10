@@ -1,3 +1,5 @@
+import Tag from './Tag';
+
 function Tags() {
     return ( 
         <section className="tags-container">
@@ -6,7 +8,12 @@ function Tags() {
             </h2>
 
             <ul className="tags">
-                
+                <Tag tagName={ 'All' } isSelected={ true } />
+                <Tag tagName={ 'UI' } />
+                <Tag tagName={ 'UX' } />
+                <Tag tagName={ 'Enhancement' } />
+                <Tag tagName={ 'Bug' } />
+                <Tag tagName={ 'Feature' } />
             </ul>
         </section>
      );

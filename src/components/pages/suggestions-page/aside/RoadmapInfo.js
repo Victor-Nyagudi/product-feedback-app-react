@@ -1,3 +1,5 @@
+import RoadmapInfoCategory from "./RoadmapInfoCategory";
+
 function RoadmapInfo() {
     return ( 
         <section className="roadmap_info">
@@ -14,7 +16,9 @@ function RoadmapInfo() {
             </div>
 
             <ul className="roadmap-info__categories">
-                
+                <RoadmapInfoCategory category={ 'Planned' } quantity={ 0 } />
+                <RoadmapInfoCategory category={ 'In Progress' } quantity={ 0 } />
+                <RoadmapInfoCategory category={ 'Live' } quantity={ 0 } />
             </ul>
         </section>
     );

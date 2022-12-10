@@ -1,6 +1,6 @@
-function Tag({ tagName }) {
+function Tag({ tagName, isSelected }) {
     return ( 
-        <li className="tags__tag">
+        <li className={ isSelected ? "tags__tag suggestions__tag--active" : "tags__tag" }>
             { tagName }
         </li>
     );
