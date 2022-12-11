@@ -423,5 +423,18 @@ a {
   .suggestions__header-data {
     font-weight: 700;
   }
+  .suggestions__main {
+    padding: 1.25em 0;
+  }
+  .suggestions__main-content.container {
+    width: 100%;
+    margin: 0;
+  }
+  .suggestions__empty {
+    padding: 8em;
+  }
+  .suggestions__empty-message {
+    margin-bottom: 2.5em;
+  }
 }
 /*# sourceMappingURL=main.css.map */

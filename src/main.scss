@@ -382,5 +382,21 @@ a {
 
             &-data { font-weight: getFontWeight('bold'); }
         }
+
+        &__main {
+            padding: 1.25em 0;
+
+            &-content.container {
+                width: 100%;
+                margin: 0;
+            }
+        }
+
+
+        &__empty {
+            padding: 8em;
+
+            &-message { margin-bottom: 2.5em; }
+        }
     }
 }
