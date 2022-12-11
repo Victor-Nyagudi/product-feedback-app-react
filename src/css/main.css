@@ -19,6 +19,7 @@
 body {
   font-family: "Jost", sans-serif;
   font-size: 1rem;
+  background-color: #f7f8fd;
 }
 
 ul {
@@ -282,7 +283,7 @@ a {
             justify-content: flex-end;
   }
   .suggestions__aside > :not(.app-info) {
-    background-color: red;
+    background-color: white;
   }
   .suggestions__aside .tags {
     display: -webkit-box;
@@ -296,11 +297,23 @@ a {
   .suggestions__aside .tags__tag {
     font-size: .9rem;
     font-weight: 600;
-    background-color: aqua;
+    color: #4761e6;
+    background-color: #f0f2ff;
     border-radius: 10px;
     padding: .5em 1.5em;
   }
+  .suggestions__aside .tags__tag.tag--active {
+    color: white;
+    background-color: #4761e6;
+  }
   .suggestions__aside .roadmap-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding: 1.5em;
   }
   .suggestions__aside .roadmap-info__header {
@@ -313,9 +326,43 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin-bottom: 1.15em;
+  }
+  .suggestions__aside .roadmap-info__link {
+    font-size: .95rem;
+    color: #4761e6;
+    text-decoration: underline;
+  }
+  .suggestions__aside .roadmap-info__category {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #647196;
+  }
+  .suggestions__aside .roadmap-info__category:not(:last-child) {
+    margin-bottom: .75em;
+  }
+  .suggestions__aside .roadmap-info__category-quantity {
+    font-weight: 700;
   }
   .suggestions__aside .roadmap-info__title {
     font-size: 1.1rem;
+    color: #3a4373;
+  }
+  .suggestions__aside .roadmap-info__detail-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: .5em;
   }
   .suggestions__aside .roadmap-info__detail-icon {
     height: 10px;
@@ -323,13 +370,13 @@ a {
     border-radius: 50%;
   }
   .suggestions__aside .roadmap-info__detail-icon.orange {
-    background-color: orange;
+    background-color: #f49f86;
   }
   .suggestions__aside .roadmap-info__detail-icon.purple {
-    background-color: purple;
+    background-color: #b11fea;
   }
   .suggestions__aside .roadmap-info__detail-icon.light-blue {
-    background-color: blue;
+    background-color: #61bdfa;
   }
 }
 /*# sourceMappingURL=main.css.map */

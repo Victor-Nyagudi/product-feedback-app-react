@@ -52,6 +52,7 @@ $colors: (
 body { 
     font-family: $primary-font; 
     font-size: 1rem;
+    background-color: getColor('light-grey');
 }
 
 ul { list-style: none; }
@@ -259,9 +260,7 @@ a {
                 justify-content: flex-end;
             }
 
-            & > :not(.app-info) {
-                background-color: red;
-            }
+            & > :not(.app-info) { background-color: getColor('white'); }
 
             .tags {
                 display: flex;
@@ -273,34 +272,72 @@ a {
                 &__tag {
                     font-size: .9rem;
                     font-weight: getFontWeight('semi-bold');
+                    color: getColor('blue');
 
-                    background-color: aqua;
+                    background-color: getColor('dark-grey');
                     border-radius: $border-radius;
                     padding: .5em 1.5em;
+                    
+                    &.tag--active {
+                        color: getColor('white');
+                        background-color: getColor('blue');
+                    }
                 }
             }
 
             .roadmap-info { 
+                display: flex;
+                flex-direction: column;
+
                 padding: $aside-card-padding; 
 
-                &__header { @include flex-space-between; }
+                &__header { 
+                    @include flex-space-between; 
 
-                &__title { font-size: 1.1rem; }
+                    margin-bottom: 1.15em;
+                }
 
-                &__detail-icon {
-                    height: 10px;
-                    width: 10px;
-                    border-radius: 50%;
+                &__link { 
+                    font-size: .95rem; 
+                    color: getColor('blue');
+                    text-decoration: underline;
+                }
 
-                    &.orange { background-color: orange; }
+                &__category { 
+                    @include flex-space-between; 
 
-                    &.purple { background-color: purple; }
-                    
-                    &.light-blue { background-color: blue; }
+                    color: getColor('grey-purple');
+
+                    &:not(:last-child) { margin-bottom: .75em; }
+
+                    &-quantity { font-weight: getFontWeight('bold'); }
+                }
+
+                &__title { 
+                    font-size: 1.1rem; 
+                    color: getColor('purple-black');
+                }
+
+                &__detail {
+                    &-container {
+                        display: flex;
+                        align-items: center;
+                        gap: .5em;
+                    }
+
+                    &-icon {
+                        height: 10px;
+                        width: 10px;
+                        border-radius: 50%;
+    
+                        &.orange { background-color: getColor('orange'); }
+    
+                        &.purple { background-color: getColor('purple'); }
+    
+                        &.light-blue { background-color: getColor('light-blue'); }
+                    }
                 }
             }
-
-
         }
     }
 }
