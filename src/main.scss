@@ -266,6 +266,8 @@ a {
                 flex-direction: column;
                 justify-content: flex-end;
 
+                padding: $aside-card-padding 0;
+
                 &__content.container {
                     width: 100%;
                     padding: 0 $aside-card-padding;
@@ -279,6 +281,14 @@ a {
             }
 
             & > :not(.app-info) { background-color: getColor('white'); }
+
+            & > * {
+                height: 23vw;
+                overflow: auto;
+
+                max-width: 250px;
+                max-height: 185px;
+            }
 
             .tags {
                 display: flex;
@@ -329,6 +339,14 @@ a {
                     &:not(:last-child) { margin-bottom: .75em; }
 
                     &-quantity { font-weight: getFontWeight('bold'); }
+                }
+
+                &__categories {
+                    flex: 1 auto;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
                 }
 
                 &__title { 

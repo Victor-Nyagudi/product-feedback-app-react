@@ -288,6 +288,7 @@ a {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+    padding: 1.5em 0;
   }
   .suggestions__aside .app-info__content.container {
     width: 100%;
@@ -300,6 +301,12 @@ a {
   }
   .suggestions__aside > :not(.app-info) {
     background-color: white;
+  }
+  .suggestions__aside > * {
+    height: 23vw;
+    overflow: auto;
+    max-width: 250px;
+    max-height: 185px;
   }
   .suggestions__aside .tags {
     display: -webkit-box;
@@ -366,6 +373,21 @@ a {
   }
   .suggestions__aside .roadmap-info__category-quantity {
     font-weight: 700;
+  }
+  .suggestions__aside .roadmap-info__categories {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 auto;
+            flex: 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
   .suggestions__aside .roadmap-info__title {
     font-size: 1.1rem;
