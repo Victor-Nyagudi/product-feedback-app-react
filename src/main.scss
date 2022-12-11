@@ -231,6 +231,13 @@ a {
 }
 
 @media (min-width: 600px) {
+    .button--main { 
+        font-size: .8rem;
+        padding: .8em 2em; 
+    }
+
+    .feedback-button-svg { margin-right: .4em; }
+
     .suggestions {
         width: 93%;
         max-width: 1200px;
@@ -258,6 +265,17 @@ a {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
+
+                &__content.container {
+                    width: 100%;
+                    padding: 0 $aside-card-padding;
+                    margin: 0;
+                }
+
+                &__title { 
+                    line-height: 1.1; 
+                    margin-bottom: .25em;
+                }
             }
 
             & > :not(.app-info) { background-color: getColor('white'); }
@@ -338,6 +356,31 @@ a {
                     }
                 }
             }
+        }
+
+        &__header {
+            border-radius: $border-radius;
+            
+            &-content.container {
+                width: 100%;
+                margin: 0;
+
+                padding: .6em $aside-card-padding;
+            }
+
+            &-info {
+                display: flex;
+                align-items: center;
+                gap: 2em;
+            }
+
+            &-container {
+                display: flex;
+                align-items: center;
+                gap: 1em;
+            }
+
+            &-data { font-weight: getFontWeight('bold'); }
         }
     }
 }

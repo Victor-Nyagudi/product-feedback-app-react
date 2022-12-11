@@ -247,6 +247,13 @@ a {
 }
 
 @media (min-width: 600px) {
+  .button--main {
+    font-size: .8rem;
+    padding: .8em 2em;
+  }
+  .feedback-button-svg {
+    margin-right: .4em;
+  }
   .suggestions {
     width: 93%;
     max-width: 1200px;
@@ -281,6 +288,15 @@ a {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+  }
+  .suggestions__aside .app-info__content.container {
+    width: 100%;
+    padding: 0 1.5em;
+    margin: 0;
+  }
+  .suggestions__aside .app-info__title {
+    line-height: 1.1;
+    margin-bottom: .25em;
   }
   .suggestions__aside > :not(.app-info) {
     background-color: white;
@@ -377,6 +393,35 @@ a {
   }
   .suggestions__aside .roadmap-info__detail-icon.light-blue {
     background-color: #61bdfa;
+  }
+  .suggestions__header {
+    border-radius: 10px;
+  }
+  .suggestions__header-content.container {
+    width: 100%;
+    margin: 0;
+    padding: 0.6em 1.5em;
+  }
+  .suggestions__header-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2em;
+  }
+  .suggestions__header-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1em;
+  }
+  .suggestions__header-data {
+    font-weight: 700;
   }
 }
 /*# sourceMappingURL=main.css.map */
