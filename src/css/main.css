@@ -244,4 +244,92 @@ a {
   line-height: 1.38;
   margin-bottom: 1.5em;
 }
+
+@media (min-width: 600px) {
+  .suggestions {
+    width: 93%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2.5em;
+    background-color: #f7f8fd;
+  }
+  .suggestions__aside {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: .5em;
+    margin-bottom: 2.25em;
+  }
+  .suggestions__aside > * {
+    border-radius: 10px;
+    height: 100%;
+  }
+  .suggestions__aside .app-info {
+    background-image: url("../assets/suggestions/tablet/background-header.png");
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .suggestions__aside > :not(.app-info) {
+    background-color: red;
+  }
+  .suggestions__aside .tags {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: .5em;
+    padding: 1.5em;
+  }
+  .suggestions__aside .tags__tag {
+    font-size: .9rem;
+    font-weight: 600;
+    background-color: aqua;
+    border-radius: 10px;
+    padding: .5em 1.5em;
+  }
+  .suggestions__aside .roadmap-info {
+    padding: 1.5em;
+  }
+  .suggestions__aside .roadmap-info__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .suggestions__aside .roadmap-info__title {
+    font-size: 1.1rem;
+  }
+  .suggestions__aside .roadmap-info__detail-icon {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+  .suggestions__aside .roadmap-info__detail-icon.orange {
+    background-color: orange;
+  }
+  .suggestions__aside .roadmap-info__detail-icon.purple {
+    background-color: purple;
+  }
+  .suggestions__aside .roadmap-info__detail-icon.light-blue {
+    background-color: blue;
+  }
+}
 /*# sourceMappingURL=main.css.map */

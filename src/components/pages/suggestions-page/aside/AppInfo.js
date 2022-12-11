@@ -1,6 +1,6 @@
 import hamburgerIcon from "../../../../assets/shared/mobile/icon-hamburger.svg";
 
-function AppInfo() {
+function AppInfo({ isMobileScreen }) {
     return ( 
         <section className="app-info">
             <div className="app-info__content container">
@@ -14,9 +14,13 @@ function AppInfo() {
                     </p>
                 </div>
 
-                <button className="app-info__hamburger-button button">
-                    <img src={ hamburgerIcon } alt="" className="app-info__hamburger-img" aria-hidden="true" />
-                </button>
+                {
+                    isMobileScreen &&
+
+                    <button className="app-info__hamburger-button button">
+                        <img src={ hamburgerIcon } alt="" className="app-info__hamburger-img" aria-hidden="true" />
+                    </button>
+                }
             </div>
         </section>
     );

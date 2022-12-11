@@ -5,13 +5,13 @@ import SuggestionsContent from "./main/SuggestionsContent";
 function SuggestionsPage({ sharedProps }) {
     return ( 
         <div className="suggestions">
-            {/* Mobile laayout */}
-            <AppInfo />
+            {
+                sharedProps.isMobileScreen 
 
-            {/* 
-                Render on desktop/tablets
-                <DesktopAside /> 
-            */}
+                ? <AppInfo isMobileScreen={ sharedProps.isMobileScreen } />
+
+                : <SuggestionsAside /> 
+            }
 
             <SuggestionsContent isMobileScreen={ sharedProps.isMobileScreen } />
         </div>

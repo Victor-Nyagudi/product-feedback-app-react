@@ -2,6 +2,7 @@
 
 $primary-font: 'Jost', sans-serif;
 $border-radius: 10px;
+$aside-card-padding: 1.5em;
 
 $font-weights: (
     'light': 300,
@@ -228,3 +229,78 @@ a {
     }
 }
 
+@media (min-width: 600px) {
+    .suggestions {
+        width: 93%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        padding-top: 2.5em;
+        background-color: getColor('light-grey');
+
+        &__aside {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            gap: .5em;
+
+            margin-bottom: 2.25em;
+
+            & > * { 
+                border-radius: $border-radius;
+                height: 100%; 
+            }
+
+            .app-info {
+                background-image: url('../assets/suggestions/tablet/background-header.png');
+
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+
+            & > :not(.app-info) {
+                background-color: red;
+            }
+
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: .5em;
+
+                padding: $aside-card-padding;
+
+                &__tag {
+                    font-size: .9rem;
+                    font-weight: getFontWeight('semi-bold');
+
+                    background-color: aqua;
+                    border-radius: $border-radius;
+                    padding: .5em 1.5em;
+                }
+            }
+
+            .roadmap-info { 
+                padding: $aside-card-padding; 
+
+                &__header { @include flex-space-between; }
+
+                &__title { font-size: 1.1rem; }
+
+                &__detail-icon {
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50%;
+
+                    &.orange { background-color: orange; }
+
+                    &.purple { background-color: purple; }
+                    
+                    &.light-blue { background-color: blue; }
+                }
+            }
+
+
+        }
+    }
+}

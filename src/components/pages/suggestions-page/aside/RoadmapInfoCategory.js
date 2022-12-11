@@ -1,10 +1,8 @@
-function RoadmapInfoCategory({ category, quantity, imgPath }) {
+function RoadmapInfoCategory({ category, quantity, iconColor }) {
     return ( 
         <li className="roadmap-info__category" aria-atomic="true">
             <div className="roadmap-info__detail-container">
-                <div className="roadmap-info__img-container">
-                    <img src={ `${imgPath}` } alt="" className="roadmap-info__img" aria-hidden="true" />
-                </div>
+                <div className={`roadmap-info__detail-icon ${iconColor}`}></div>
            
                 <p className="roadmap-info__category-name">
                     { category }
