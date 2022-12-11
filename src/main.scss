@@ -2,7 +2,9 @@
 
 $primary-font: 'Jost', sans-serif;
 $border-radius: 10px;
+
 $aside-card-padding: 1.5em;
+$aside-max-width: 255px;
 
 $font-weights: (
     'light': 300,
@@ -230,6 +232,8 @@ a {
     }
 }
 
+// ? Tablets styling
+
 @media (min-width: 600px) {
     .button--main { 
         font-size: .8rem;
@@ -286,8 +290,8 @@ a {
                 height: 23vw;
                 overflow: auto;
 
-                max-width: 250px;
-                max-height: 185px;
+                max-width: $aside-max-width;
+                max-height: 190px;
             }
 
             .tags {
@@ -415,6 +419,46 @@ a {
             padding: 8em;
 
             &-message { margin-bottom: 2.5em; }
+        }
+    }
+}
+
+// ? Desktop styling
+
+@media (min-width: 821px) {
+    .suggestions {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.25em;
+
+        padding-bottom: 7em;
+
+        &__aside {
+            flex: 2;
+
+            grid-template-columns: 1fr;
+            gap: 1.75em;
+            margin-bottom: 0;
+
+            max-width: $aside-max-width;
+
+            .app-info {
+                height: 15vh;
+            }
+
+            & > :not(.app-info) { 
+                background-color: getColor('white'); 
+            }
+
+            .tags {
+                height: 100%;
+            }
+        }
+
+        &__content {
+            flex: 4;
+
+            align-self: stretch;
         }
     }
 }
