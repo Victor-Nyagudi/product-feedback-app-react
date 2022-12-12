@@ -652,5 +652,8 @@ a {
         -ms-grid-row-align: stretch;
         align-self: stretch;
   }
+  .add-edit-feedback {
+    padding: 5em 0 12em;
+  }
 }
 /*# sourceMappingURL=main.css.map */
