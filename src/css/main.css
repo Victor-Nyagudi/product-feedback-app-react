@@ -259,7 +259,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 2em 0;
+  padding: 2em 0 6em;
 }
 
 .add-edit-feedback .go-back-header {
@@ -575,7 +575,7 @@ a {
   }
   .add-edit-feedback {
     max-width: 540px;
-    padding: 4em 0;
+    padding: 4em 0 14em;
   }
   .add-edit-feedback .go-back-header {
     margin-bottom: 4.25em;
