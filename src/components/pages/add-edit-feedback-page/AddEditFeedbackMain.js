@@ -1,4 +1,4 @@
-import Button from "../../shared/Button";
+import AddEditFeedbackButton from "./AddEditFeedbackButton";
 import AddEditFeedbackInput from "./AddEditFeedbackInput";
 
 function AddEditFeedbackMain({ title, isEditing }) {
@@ -46,27 +46,22 @@ function AddEditFeedbackMain({ title, isEditing }) {
                     {
                         isEditing &&
 
-                        <div className="add-edit-feedback__button-container">
-                            <Button 
-                                text={ 'Delete' } 
-                                className={ 'button--delete' } 
-                            />
-                        </div>
+                        <AddEditFeedbackButton 
+                            text={ 'Delete' }
+                            className={ 'button--delete' } 
+                        />
+
                     }
 
-                    <div className="add-edit-feedback__button-container">
-                        <Button 
-                            text={ 'Cancel' } 
-                            className={ 'button--cancel' } 
-                        />
-                    </div>
+                    <AddEditFeedbackButton 
+                        text={ 'Cancel' }
+                        className={ 'button--cancel' } 
+                    />
 
-                    <div className="add-edit-feedback__button-container">
-                        <Button 
-                            text={ 'Add Feedback' } 
-                            className={ 'button--add-feedback' } 
-                        />
-                    </div>
+                    <AddEditFeedbackButton 
+                        text={ 'Add Feedback' }
+                        className={ 'button--add-feedback' } 
+                    />
                 </div>
             </form>
         </main>
