@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
 $primary-font: 'Jost', sans-serif;
+
 $border-radius: 10px;
+$input-border-radius: 5px;
 
 $aside-card-padding: 1.5em;
 $aside-max-width: 255px;
@@ -87,14 +89,14 @@ a {
 
     &--main { 
         font-size: .75rem;
+        color: getColor('dark-grey');
+
         padding: .8em 1.2em; 
     }
 
-    &--add-feedback {
-        color: getColor('white');
+    &--add-feedback { background-color: getColor('purple'); }
 
-        background-color: getColor('purple');
-    }
+    &--cancel { background-color: getColor('dark-purple-black'); }
 }
 
 .feedback-button-svg { margin-right: .25em; }
@@ -248,7 +250,8 @@ a {
             display: flex;
             align-items: center;
             gap: 1em;
-    
+            
+            font-size: .9rem;
             color: getColor('grey-purple');
         }
     }
@@ -265,6 +268,65 @@ a {
         border-radius: $border-radius;
 
         position: relative;
+        padding: 3.5em 1.5em 1.5em;
+    }
+
+    &__title { 
+        font-size: 1.3rem; 
+        margin-bottom: 1.25em;
+    }
+
+    &__input-title {
+        font-size: 1rem;
+        margin-bottom: .2em;
+    }
+
+    &__label {
+        display: inline-block;
+
+        margin-bottom: .95em;
+    }
+
+    &__input {
+        font-family: $primary-font;
+        color: getColor('purple-black');
+
+        border: none;
+        border-radius: $input-border-radius;
+        width: 100%;
+
+        background-color: getColor('light-grey');
+
+        padding: 1.25em 2.25em 1.25em 1em;
+
+        margin-bottom: 2em;
+
+        &--icon {
+            @extend .add-edit-feedback__input;
+
+            background-image: url('../assets/shared/icon-arrow-down.svg');
+            background-repeat: no-repeat;
+            background-position: 94%, 50%;
+        }
+    }
+
+    &__textarea {
+        @extend .add-edit-feedback__input;
+
+        margin-bottom: 2.75em;
+        padding-right: 1.25em;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1em;
+    }
+
+    &__button {
+        width: 100%;
+
+        padding: 1.15em 1.2em; 
     }
 }
 

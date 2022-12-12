@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 function AddEditFeedbackInput({ 
-    title, 
-    labelText, 
+    hasIcon = false,
     id, 
     inputName, 
     inputType = 'text',
-    isTextArea = false 
+    isTextArea = false, 
+    labelText ,
+    title 
 }) {
     const [inputValue, setInputValue] = useState('');
 
@@ -34,8 +35,9 @@ function AddEditFeedbackInput({
                 />
 
                 :
-                
+
                 <input 
+                    className={ `${hasIcon ? 'add-edit-feedback__input--icon' : 'add-edit-feedback__input'}` }
                     type={ `${inputType}` } 
                     name={ `${inputName}` } 
                     id={ `${id}` } 

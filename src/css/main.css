@@ -47,12 +47,16 @@ a {
 
 .button--main {
   font-size: .75rem;
+  color: #f0f2ff;
   padding: .8em 1.2em;
 }
 
 .button--add-feedback {
-  color: white;
   background-color: #b11fea;
+}
+
+.button--cancel {
+  background-color: #373f68;
 }
 
 .feedback-button-svg {
@@ -270,6 +274,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   gap: 1em;
+  font-size: .9rem;
   color: #647196;
 }
 
@@ -285,6 +290,60 @@ a {
   background-color: aquamarine;
   border-radius: 10px;
   position: relative;
+  padding: 3.5em 1.5em 1.5em;
+}
+
+.add-edit-feedback__title {
+  font-size: 1.3rem;
+  margin-bottom: 1.25em;
+}
+
+.add-edit-feedback__input-title {
+  font-size: 1rem;
+  margin-bottom: .2em;
+}
+
+.add-edit-feedback__label {
+  display: inline-block;
+  margin-bottom: .95em;
+}
+
+.add-edit-feedback__input, .add-edit-feedback__input--icon, .add-edit-feedback__textarea {
+  font-family: "Jost", sans-serif;
+  color: #3a4373;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  background-color: #f7f8fd;
+  padding: 1.25em 2.25em 1.25em 1em;
+  margin-bottom: 2em;
+}
+
+.add-edit-feedback__input--icon {
+  background-image: url("../assets/shared/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: 94%, 50%;
+}
+
+.add-edit-feedback__textarea {
+  margin-bottom: 2.75em;
+  padding-right: 1.25em;
+}
+
+.add-edit-feedback__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  gap: 1em;
+}
+
+.add-edit-feedback__button {
+  width: 100%;
+  padding: 1.15em 1.2em;
 }
 
 @media (min-width: 600px) {

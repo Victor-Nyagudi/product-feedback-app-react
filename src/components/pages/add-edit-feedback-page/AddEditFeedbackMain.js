@@ -29,12 +29,13 @@ function AddEditFeedbackMain({ title, isEditing }) {
             <form className="add-edit-feedback__form">
                 <AddEditFeedbackInput 
                     title={ 'Feedback Title' }
-                    labelText={ 'Add a short,descriptive headline' }
+                    labelText={ 'Add a short, descriptive headline' }
                     id={ 'feedback-title' }
                     inputName={ 'feedback-title' }
                 />
                 
                 <AddEditFeedbackInput 
+                    hasIcon={ true }
                     title={ 'Category' }
                     labelText={ 'Choose a category for your feedback' }
                     id={ 'feedback-category' }
@@ -55,7 +56,7 @@ function AddEditFeedbackMain({ title, isEditing }) {
                 <AddEditFeedbackInput 
                     isTextArea={ true }
                     title={ 'Feedback Detail' }
-                    labelText={ 'Include any specific comments on what should be improved, added, ect.' }
+                    labelText={ 'Include any specific comments on what should be improved, added, etc.' }
                     id={ 'feedback-detail' }
                     inputName={ 'feedback-detail' }
                 />
@@ -66,19 +67,19 @@ function AddEditFeedbackMain({ title, isEditing }) {
 
                         <AddEditFeedbackButton 
                             text={ 'Delete' }
-                            className={ 'button--delete' } 
+                            className={ 'button--delete add-edit-feedback__button' } 
                         />
 
                     }
 
                     <AddEditFeedbackButton 
                         text={ 'Cancel' }
-                        className={ 'button--cancel' } 
+                        className={ 'button--cancel add-edit-feedback__button' } 
                     />
 
                     <AddEditFeedbackButton 
                         text={ 'Add Feedback' }
-                        className={ 'button--add-feedback' } 
+                        className={ 'button--add-feedback add-edit-feedback__button' } 
                     />
                 </div>
             </form>
