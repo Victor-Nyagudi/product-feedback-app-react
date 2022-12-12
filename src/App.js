@@ -1,6 +1,7 @@
 import SuggestionsPage from './components/pages/suggestions-page/SuggestionsPage';
 import './css/main.css';
 import React, { useState, useEffect } from 'react';
+import AddEditFeedbackPage from './components/pages/add-edit-feedback-page/AddEditFeedbackPage';
 
 
 function App() {
@@ -48,7 +49,8 @@ function App() {
 
   return (
     <>
-      <SuggestionsPage sharedProps={ sharedProps } />
+      {/* <SuggestionsPage sharedProps={ sharedProps } /> */}
+      <AddEditFeedbackPage sharedProps={ sharedProps } />
     </>
   );
 }

@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
-function AddEditFeedbackInput({ title, labelText, id, inputName, inputType = 'text' }) {
+function AddEditFeedbackInput({ 
+    title, 
+    labelText, 
+    id, 
+    inputName, 
+    inputType = 'text',
+    isTextArea = false 
+}) {
     const [inputValue, setInputValue] = useState('');
 
     return (    
@@ -13,13 +20,29 @@ function AddEditFeedbackInput({ title, labelText, id, inputName, inputType = 'te
                 { labelText }
             </label>
 
-            <input 
-                type={ `${inputType}` } 
-                name={ `${inputName}` } 
-                id={ `${id}` } 
-                value={ inputValue }
-                onChange={ e => setInputValue(e.target.value) }
-            />
+            {
+                isTextArea ? 
+
+                <textarea 
+                    className='add-edit-feedback__textarea'
+                    name={ `${inputName}` } 
+                    id={ `${id}` } 
+                    cols="30" 
+                    rows="10"
+                    value={ inputValue }
+                    onChange={ e => setInputValue(e.target.value) }
+                />
+
+                :
+                
+                <input 
+                    type={ `${inputType}` } 
+                    name={ `${inputName}` } 
+                    id={ `${id}` } 
+                    value={ inputValue }
+                    onChange={ e => setInputValue(e.target.value) }
+                />
+            }
         </div>
     );
 }
