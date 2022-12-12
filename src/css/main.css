@@ -287,7 +287,7 @@ a {
   -webkit-box-flex: 1;
       -ms-flex: 1 auto;
           flex: 1 auto;
-  background-color: aquamarine;
+  background-color: white;
   border-radius: 10px;
   position: relative;
   padding: 3.5em 1.5em 1.5em;
@@ -295,16 +295,19 @@ a {
 
 .add-edit-feedback__title {
   font-size: 1.3rem;
+  color: #3a4373;
   margin-bottom: 1.25em;
 }
 
 .add-edit-feedback__input-title {
   font-size: 1rem;
+  color: #3a4373;
   margin-bottom: .2em;
 }
 
 .add-edit-feedback__label {
   display: inline-block;
+  color: #647196;
   margin-bottom: .95em;
 }
 

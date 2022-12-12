@@ -264,7 +264,7 @@ a {
     &__main {
         flex: 1 auto;
 
-        background-color: aquamarine;
+        background-color: getColor('white');
         border-radius: $border-radius;
 
         position: relative;
@@ -273,16 +273,20 @@ a {
 
     &__title { 
         font-size: 1.3rem; 
+        color: getColor('purple-black');
         margin-bottom: 1.25em;
     }
 
     &__input-title {
         font-size: 1rem;
+        color: getColor('purple-black');
         margin-bottom: .2em;
     }
 
     &__label {
         display: inline-block;
+
+        color: getColor('grey-purple');
 
         margin-bottom: .95em;
     }
