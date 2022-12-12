@@ -304,16 +304,23 @@ a {
                 &__tag {
                     font-size: .9rem;
                     font-weight: getFontWeight('semi-bold');
-                    color: getColor('blue');
+                    
 
                     background-color: getColor('dark-grey');
                     border-radius: $border-radius;
-                    padding: .5em 1.5em;
                     
-                    &.tag--active {
-                        color: getColor('white');
-                        background-color: getColor('blue');
+                    &-button { 
+                        color: getColor('blue'); 
+                        padding: .5em 1.5em;
                     }
+
+                    &.tag--active {
+                        background-color: getColor('blue');
+
+                        & > .tags__tag-button { color: getColor('white'); }
+                    }
+
+
                 }
             }
 
@@ -452,6 +459,11 @@ a {
 
             .tags {
                 height: 100%;
+
+                &__tag {
+                    display: flex;
+                    align-items: center;
+                }
             }
         }
 

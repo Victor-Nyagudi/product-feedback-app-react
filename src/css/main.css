@@ -320,14 +320,18 @@ a {
   .suggestions__aside .tags__tag {
     font-size: .9rem;
     font-weight: 600;
-    color: #4761e6;
     background-color: #f0f2ff;
     border-radius: 10px;
+  }
+  .suggestions__aside .tags__tag-button {
+    color: #4761e6;
     padding: .5em 1.5em;
   }
   .suggestions__aside .tags__tag.tag--active {
-    color: white;
     background-color: #4761e6;
+  }
+  .suggestions__aside .tags__tag.tag--active > .tags__tag-button {
+    color: white;
   }
   .suggestions__aside .roadmap-info {
     display: -webkit-box;
@@ -490,6 +494,14 @@ a {
   }
   .suggestions__aside .tags {
     height: 100%;
+  }
+  .suggestions__aside .tags__tag {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .suggestions__content {
     -webkit-box-flex: 4;
