@@ -299,22 +299,25 @@ a {
 
         padding: 1.25em 2.25em 1.25em 1em;
 
-        margin-bottom: 2em;
+        &-info { margin-bottom: 1.5em; }
 
-        &--icon {
-            @extend .add-edit-feedback__input;
+        &--icon { position: relative; }
+    }
 
-            background-image: url('../assets/shared/icon-arrow-down.svg');
-            background-repeat: no-repeat;
-            background-position: 94%, 50%;
-        }
+    &__dropdown-toggle {
+        position: absolute;
+
+        padding: .5em;
+        right: .5em;
+        top: 0;
+        bottom: 0;
     }
 
     &__textarea {
         @extend .add-edit-feedback__input;
 
-        margin-bottom: 2.75em;
         padding-right: 1.25em;
+        margin-bottom: .65em;
     }
 
     &__buttons {

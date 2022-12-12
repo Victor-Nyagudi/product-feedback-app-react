@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Input from './Input';
 
 function AddEditFeedbackInput({ 
     hasIcon = false,
@@ -10,6 +11,10 @@ function AddEditFeedbackInput({
     title 
 }) {
     const [inputValue, setInputValue] = useState('');
+
+    function handleChange(value) {
+        setInputValue(value)
+    }
 
     return (    
         <div className="add-edit-feedback__input-info">
@@ -31,18 +36,27 @@ function AddEditFeedbackInput({
                     cols="30" 
                     rows="10"
                     value={ inputValue }
-                    onChange={ e => setInputValue(e.target.value) }
+                    onChange={ e => handleChange(e.target.value) }
                 />
 
                 :
 
-                <input 
-                    className={ `${hasIcon ? 'add-edit-feedback__input--icon' : 'add-edit-feedback__input'}` }
-                    type={ `${inputType}` } 
-                    name={ `${inputName}` } 
-                    id={ `${id}` } 
+                // <input 
+                //     className={ `${hasIcon ? 'add-edit-feedback__input--icon' : 'add-edit-feedback__input'}` }
+                //     type={ `${inputType}` } 
+                //     name={ `${inputName}` } 
+                //     id={ `${id}` } 
+                //     value={ inputValue }
+                //     onChange={ e => setInputValue(e.target.value) }
+                // />
+
+                <Input 
+                    hasIcon={ hasIcon }
+                    type={ `${ inputType }` }
+                    name={ `${ inputName }` } 
+                    id={ `${ id }` }
                     value={ inputValue }
-                    onChange={ e => setInputValue(e.target.value) }
+                    handleOnChange={ handleChange }
                 />
             }
         </div>
