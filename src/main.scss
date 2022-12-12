@@ -232,6 +232,42 @@ a {
     }
 }
 
+
+.add-edit-feedback {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 2em 0;
+
+    .go-back {
+        &-header { margin-bottom: 3.75em; }
+
+        &__primary-button {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+    
+            color: getColor('grey-purple');
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: -1.75em;
+    }
+
+    &__main {
+        flex: 1 auto;
+
+        background-color: aquamarine;
+        border-radius: $border-radius;
+
+        position: relative;
+    }
+}
+
 // ? Tablets styling
 
 @media (min-width: 600px) {
