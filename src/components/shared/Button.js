@@ -1,6 +1,9 @@
-function Button({ text, className, icon }) {
+function Button({ text, className, icon, type = 'button' }) {
     return ( 
-        <button className={ className ? `${className} button button--main` : 'button--add-feedback button button--main' }>
+        <button 
+            type={ `${type}` }
+            className={ className ? `${className} button button--main` : 'button--add-feedback button button--main' }
+        >
             { icon }
             { text }
         </button>
