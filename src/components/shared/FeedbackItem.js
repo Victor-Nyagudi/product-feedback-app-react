@@ -1,4 +1,4 @@
-function FeedbackMessage() {
+function FeedbackItem() {
     // TODO Remember to make the feedback message keyboard focusable
     
     return ( 
@@ -46,4 +46,4 @@ function FeedbackMessage() {
     );
 }
 
-export default FeedbackMessage;
+export default FeedbackItem;

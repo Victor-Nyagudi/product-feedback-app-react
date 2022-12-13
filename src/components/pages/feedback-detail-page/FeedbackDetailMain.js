@@ -1,11 +1,11 @@
 import FeedbackMessageComments from "./FeedbackMessageComments";
-import FeedbackMessage from "../../shared/FeedbackMessage";
+import FeedbackItem from "../../shared/FeedbackItem";
 import FeedbackDetailAddComment from "./FeedbackDetailAddComment";
 
 function FeedbackDetailMain() {
     return ( 
         <main className="feedback-detail__main">
-            <FeedbackMessage />
+            <FeedbackItem />
             <FeedbackMessageComments />
             <FeedbackDetailAddComment />
         </main>
