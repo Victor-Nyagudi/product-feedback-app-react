@@ -50,7 +50,7 @@ function App() {
   return (
     <>
       {/* <SuggestionsPage sharedProps={ sharedProps } /> */}
-      <AddEditFeedbackPage sharedProps={ sharedProps } />
+      {/* <AddEditFeedbackPage sharedProps={ sharedProps } /> */}
     </>
   );
 }

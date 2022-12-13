@@ -1,6 +1,8 @@
 function FeedbackDetailPage() {
     return ( 
-        <div></div>
+        <div className="feedback-detail">
+            
+        </div>
     );
 }
 

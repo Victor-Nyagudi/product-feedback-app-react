@@ -41,15 +41,6 @@ function AddEditFeedbackInput({
 
                 :
 
-                // <input 
-                //     className={ `${hasIcon ? 'add-edit-feedback__input--icon' : 'add-edit-feedback__input'}` }
-                //     type={ `${inputType}` } 
-                //     name={ `${inputName}` } 
-                //     id={ `${id}` } 
-                //     value={ inputValue }
-                //     onChange={ e => setInputValue(e.target.value) }
-                // />
-
                 <Input 
                     hasIcon={ hasIcon }
                     type={ `${ inputType }` }
