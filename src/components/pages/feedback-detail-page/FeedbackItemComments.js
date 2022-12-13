@@ -1,4 +1,4 @@
-import FeedbackMessageComment from "./FeedbackMessageComment";
+import FeedbackItemComment from "./FeedbackItemComment";
 
 function FeedbackItemComments() {
     return ( 
@@ -12,8 +12,8 @@ function FeedbackItemComments() {
             </h2>
 
             <ul className="feedback-detail__comments">
-                <FeedbackMessageComment />
-                <FeedbackMessageComment />
+                <FeedbackItemComment />
+                <FeedbackItemComment />
             </ul>
         </section>
     );

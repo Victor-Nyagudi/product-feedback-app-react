@@ -1,6 +1,6 @@
 import elijahImg from "../../../assets/user-images/image-elijah.jpg";
 
-function FeedbackMessageComment() {
+function FeedbackItemComment() {
     return (    
         <li className="feedback-detail__comment">
             <div className="comment__img-container">
@@ -38,4 +38,4 @@ function FeedbackMessageComment() {
     );
 }
 
-export default FeedbackMessageComment;
+export default FeedbackItemComment;
