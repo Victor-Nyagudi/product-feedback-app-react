@@ -1,6 +1,6 @@
 import FeedbackMessageComment from "./FeedbackMessageComment";
 
-function FeedbackMessageComments() {
+function FeedbackItemComments() {
     return ( 
         <section className="feedback-detail__comments-container">
             <h2 className="feedback-detail__comments-title">
@@ -19,4 +19,4 @@ function FeedbackMessageComments() {
     );
 }
 
-export default FeedbackMessageComments;
+export default FeedbackItemComments;
