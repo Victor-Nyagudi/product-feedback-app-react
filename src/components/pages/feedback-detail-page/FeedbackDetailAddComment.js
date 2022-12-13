@@ -16,9 +16,7 @@ function FeedbackDetailAddComment() {
 
                 <div className="add-comment__button-container">
                     <p className="add-comment__character-limit-message">
-                        <span className="add-comment__character-limit">250</span>
-
-                        Characters left
+                        <span className="add-comment__character-limit">250</span> Characters left
                     </p>
                     
                     <button type="submit" className="button button--main button--add-feedback">
