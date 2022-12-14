@@ -14,8 +14,14 @@ $tag-padding-mobile: .35em 1.15em;
 
 // #region Feedback Detail Variables
 $feedback-detail-padding: 1.5em;
+$feedback-detail-padding-lg: 2em;
+
 $feedback-detail-heading-mobile: 1.05rem;
 $feedback-detail-heading-lg-mobile: 1.3rem;
+
+$feedback-detail-heading-desktop: 1.1rem;
+$feedback-detail-heading-lg-desktop: 1.3rem;
+
 $feedback-detail-margin-bottom: 1.5em;
 
 // #endregion
@@ -403,7 +409,7 @@ a {
             &__title { 
                 font-size: $feedback-detail-heading-mobile;
                 color: getColor('purple-black');
-                margin-bottom: .6em;
+                margin-bottom: .4em;
             }
 
             &__message { color: getColor('grey-purple'); }
@@ -816,6 +822,42 @@ a {
         }
 
         &__main { padding: 3.5em 2.5em 1.5em; }
+    }
+
+    .feedback-detail {
+        &__feedback-item {
+            padding: $feedback-detail-padding-lg;
+
+            grid-template-areas: 
+            'feedback-item-upvotes feedback-item-text feedback-item-comments'
+            'feedback-item-upvotes  feedback-item-text feedback-item-comments'
+            '. feedback-item-tag-container feedback-item-comments'
+            ;
+
+            .feedback-item {
+                &__title {
+                    font-size: $feedback-detail-heading-desktop;
+                    margin-bottom: .25em;
+                }
+
+                &__upvotes {
+                    flex-direction: column;
+                    align-self: flex-start;
+
+                    padding: .35em .5em;
+                    margin-right: 2em;
+
+                    max-width: 40px;
+                }
+
+                &__comments { 
+                    gap: .65em;
+                    margin-left: 2em; 
+                }
+
+                &__tag-container { margin-bottom: 0; }
+            }
+        }
     }
 }
 
