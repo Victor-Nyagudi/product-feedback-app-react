@@ -9,6 +9,9 @@ $aside-card-padding: 1.5em;
 $aside-max-width: 255px;
 
 $page-padding: 2em 0 6em;
+
+$tag-padding-mobile: .35em 1.15em;
+
 $feedback-detail-padding: 1.5em;
 
 $font-weights: (
@@ -76,8 +79,14 @@ a {
 
 @mixin flex-space-between {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button {
@@ -360,7 +369,86 @@ a {
         background-color: pink;
 
         border-radius: $border-radius;
+        margin-bottom: 1em;
+
         padding: $feedback-detail-padding;
+
+        display: grid;
+
+        grid-template-areas: 
+            'feedback-item-text feedback-item-text feedback-item-text'
+            'feedback-item-tag-container feedback-item-tag-container feedback-item-tag-container'
+            'feedback-item-upvotes . feedback-item-comments'
+            ;
+
+        .feedback-item {
+            &__text { 
+                grid-area: feedback-item-text; 
+                margin-bottom: .65em;
+            }
+
+            &__upvotes { grid-area: feedback-item-upvotes; }
+            
+            &__comments { grid-area: feedback-item-comments; }
+            
+            &__tag-container { grid-area: feedback-item-tag-container; }
+
+            &__title { 
+                font-size: 1.05rem;
+                color: getColor('purple-black');
+                margin-bottom: .6em;
+            }
+
+            &__message { color: getColor('grey-purple'); }
+
+            &__tag {
+                display: inline-block;
+
+                font-size: .95rem;
+                font-weight: getFontWeight('semi-bold');
+                color: getColor('blue');
+
+                border-radius: $border-radius;
+                background-color: getColor('light-grey');
+                padding: $tag-padding-mobile;
+
+                &-container { margin-bottom: .65em; }
+            }
+
+            &__upvotes {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+
+                align-self: center;
+
+                background-color: getColor('light-grey');
+                border-radius: $border-radius;
+                padding: $tag-padding-mobile;
+
+                &-total {
+                    font-size: .95rem;
+                    font-weight: getFontWeight('bold');
+                    color: getColor('purple-black');
+                }
+            }
+
+            &__img-container { @include flex-center; }
+
+            &__comments {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+
+                align-self: center;
+
+                &-total {
+                    font-weight: getFontWeight('semi-bold');
+                    color: getColor('purple-black');
+                }
+            }
+
+        }
     }
 }
 
