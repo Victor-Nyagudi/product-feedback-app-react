@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TextArea from '../../shared/TextArea';
 import Input from './Input';
 
 function AddEditFeedbackInput({ 
@@ -29,14 +30,11 @@ function AddEditFeedbackInput({
             {
                 isTextArea ? 
 
-                <textarea 
-                    className='add-edit-feedback__textarea'
-                    name={ `${inputName}` } 
-                    id={ `${id}` } 
-                    cols="30" 
-                    rows="10"
+                <TextArea 
+                    name={ inputName } 
+                    id={ id } 
                     value={ inputValue }
-                    onChange={ e => handleChange(e.target.value) }
+                    handleOnChange={ handleChange }
                 />
 
                 :

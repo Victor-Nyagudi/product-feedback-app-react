@@ -273,6 +273,16 @@ a {
 }
 
 
+.textarea {
+    @extend .add-edit-feedback__input;
+
+    padding-right: 1.25em;
+    margin-bottom: .65em;
+    resize: vertical;
+    min-height: 120px;
+}
+
+
 .add-edit-feedback {
     min-height: 100vh;
 
@@ -342,14 +352,7 @@ a {
         bottom: 0;
     }
 
-    &__textarea {
-        @extend .add-edit-feedback__input;
-
-        padding-right: 1.25em;
-        margin-bottom: .65em;
-        resize: vertical;
-        min-height: 223px;
-    }
+    
 
     &__buttons {
         display: flex;
@@ -602,6 +605,12 @@ a {
 
     .feedback-button-svg { margin-right: .4em; }
 
+    .textarea { 
+        font-size: 1rem;
+        margin-bottom: 0; 
+        min-height: 96px;
+    }
+
     .suggestions {
         width: 93%;
         max-width: 1200px;
@@ -810,10 +819,7 @@ a {
 
         &__dropdown-toggle { right: 1.15em; }
 
-        &__textarea { 
-            font-size: 1rem;
-            margin-bottom: 0; 
-        }
+        
     }
 }
 

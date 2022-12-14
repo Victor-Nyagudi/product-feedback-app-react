@@ -283,6 +283,13 @@ a {
   margin-bottom: 1.5em;
 }
 
+.textarea {
+  padding-right: 1.25em;
+  margin-bottom: .65em;
+  resize: vertical;
+  min-height: 120px;
+}
+
 .add-edit-feedback {
   min-height: 100vh;
   display: -webkit-box;
@@ -328,7 +335,7 @@ a {
   margin-bottom: .95em;
 }
 
-.add-edit-feedback__input, .add-edit-feedback__textarea {
+.add-edit-feedback__input, .textarea {
   font-family: "Jost", sans-serif;
   color: #3a4373;
   border: none;
@@ -352,13 +359,6 @@ a {
   right: .5em;
   top: 0;
   bottom: 0;
-}
-
-.add-edit-feedback__textarea {
-  padding-right: 1.25em;
-  margin-bottom: .65em;
-  resize: vertical;
-  min-height: 223px;
 }
 
 .add-edit-feedback__buttons {
@@ -652,6 +652,11 @@ a {
   .feedback-button-svg {
     margin-right: .4em;
   }
+  .textarea {
+    font-size: 1rem;
+    margin-bottom: 0;
+    min-height: 96px;
+  }
   .suggestions {
     width: 93%;
     max-width: 1200px;
@@ -879,16 +884,12 @@ a {
   .add-edit-feedback__main {
     padding: 3.5em 2.5em 1.5em;
   }
-  .add-edit-feedback__input, .add-edit-feedback__textarea {
+  .add-edit-feedback__input, .textarea {
     font-size: 1rem;
     padding: .85em 2.25em .85em 1.25em;
   }
   .add-edit-feedback__dropdown-toggle {
     right: 1.15em;
-  }
-  .add-edit-feedback__textarea {
-    font-size: 1rem;
-    margin-bottom: 0;
   }
 }
 
