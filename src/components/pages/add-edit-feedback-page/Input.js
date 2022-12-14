@@ -5,7 +5,7 @@ function Input({ hasIcon = false, id, inputType, inputName, inputValue, handleOn
                 !hasIcon ?
                 
                 <input 
-                    className='add-edit-feedback__input'
+                    className='input'
                     type={ `${inputType}` } 
                     name={ `${inputName}` } 
                     id={ `${id}` } 
@@ -15,9 +15,9 @@ function Input({ hasIcon = false, id, inputType, inputName, inputValue, handleOn
 
                 :
 
-                <div className="add-edit-feedback__input--icon">
+                <div className="input--icon">
                     <input 
-                        className='add-edit-feedback__input'
+                        className='input'
                         type={ `${inputType}` } 
                         name={ `${inputName}` } 
                         id={ `${id}` } 
@@ -25,7 +25,7 @@ function Input({ hasIcon = false, id, inputType, inputName, inputValue, handleOn
                         onChange={ e => handleOnChange(e.target.value) }
                     />
 
-                    <button type="button" className="add-edit-feedback__dropdown-toggle button">
+                    <button type="button" className="input__dropdown-toggle button">
                         <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 1l4 4 4-4" stroke="#4661E6" strokeWidth="2" fill="none" fillRule="evenodd"/>
                         </svg>
