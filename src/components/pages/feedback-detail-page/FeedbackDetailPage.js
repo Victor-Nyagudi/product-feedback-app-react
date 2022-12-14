@@ -3,7 +3,7 @@ import FeedbackDetailMain from "./FeedbackDetailMain";
 
 function FeedbackDetailPage() {
     return ( 
-        <div className="feedback-detail">
+        <div className="feedback-detail container">
             <GoBackHeader 
                 hasSecondaryButton={ true }
                 secButtonText={ 'Edit Feedback' }

@@ -8,6 +8,9 @@ $input-border-radius: 5px;
 $aside-card-padding: 1.5em;
 $aside-max-width: 255px;
 
+$page-padding: 2em 0 6em;
+$feedback-detail-padding: 1.5em;
+
 $font-weights: (
     'light': 300,
     'regular': 400,
@@ -95,6 +98,8 @@ a {
     }
 
     &--add-feedback { background-color: getColor('purple'); }
+    
+    &--edit-feedback { background-color: getColor('blue'); }
 
     &--cancel { background-color: getColor('dark-purple-black'); }
 }
@@ -105,6 +110,24 @@ a {
     width: 87%;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+.go-back {
+    &-header { margin-bottom: 3.75em; }
+
+    &__primary-button {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        
+        font-size: .9rem;
+        color: getColor('grey-purple');
+    }
+
+    &-header--secondary {
+        @include flex-space-between;
+        margin-bottom: 2em;
+    }
 }
 
 .suggestions {
@@ -241,20 +264,7 @@ a {
     display: flex;
     flex-direction: column;
 
-    padding: 2em 0 6em;
-
-    .go-back {
-        &-header { margin-bottom: 3.75em; }
-
-        &__primary-button {
-            display: flex;
-            align-items: center;
-            gap: 1em;
-            
-            font-size: .9rem;
-            color: getColor('grey-purple');
-        }
-    }
+    padding: $page-padding;
 
     &__icon {
         position: absolute;
@@ -336,6 +346,21 @@ a {
         width: 100%;
 
         padding: 1.15em 1.2em; 
+    }
+}
+
+.feedback-detail {
+    padding: $page-padding;
+
+    &__main {
+        background-color: aquamarine;
+    }
+
+    &__feedback-item {
+        background-color: pink;
+
+        border-radius: $border-radius;
+        padding: $feedback-detail-padding;
     }
 }
 

@@ -55,6 +55,10 @@ a {
   background-color: #b11fea;
 }
 
+.button--edit-feedback {
+  background-color: #4761e6;
+}
+
 .button--cancel {
   background-color: #373f68;
 }
@@ -67,6 +71,35 @@ a {
   width: 87%;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.go-back-header {
+  margin-bottom: 3.75em;
+}
+
+.go-back__primary-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+  font-size: .9rem;
+  color: #647196;
+}
+
+.go-back-header--secondary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2em;
 }
 
 .suggestions {
@@ -262,22 +295,6 @@ a {
   padding: 2em 0 6em;
 }
 
-.add-edit-feedback .go-back-header {
-  margin-bottom: 3.75em;
-}
-
-.add-edit-feedback .go-back__primary-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 1em;
-  font-size: .9rem;
-  color: #647196;
-}
-
 .add-edit-feedback__icon {
   position: absolute;
   top: -1.75em;
@@ -358,6 +375,20 @@ a {
 .add-edit-feedback__button {
   width: 100%;
   padding: 1.15em 1.2em;
+}
+
+.feedback-detail {
+  padding: 2em 0 6em;
+}
+
+.feedback-detail__main {
+  background-color: aquamarine;
+}
+
+.feedback-detail__feedback-item {
+  background-color: pink;
+  border-radius: 10px;
+  padding: 1.5em;
 }
 
 @media (min-width: 600px) {

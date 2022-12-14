@@ -2,7 +2,7 @@ import Button from "./Button";
 
 function GoBackHeader({ hasSecondaryButton, secButtonText, secButtonClassName, secButtonIcon }) {
     return ( 
-        <div className="go-back-header">
+        <div className={ hasSecondaryButton ? "go-back-header--secondary" : "go-back-header"}>
             <div className="go-back__primary-container">
                 <button className="go-back__primary-button button">
                     <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
