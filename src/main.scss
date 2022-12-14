@@ -475,6 +475,7 @@ a {
         grid-template-areas: 
         'comment-img-container comment-header'
         'comment-message-container comment-message-container'
+        'comment-replies comment-replies'
         ;
         
         grid-template-columns: 2fr 8fr;
@@ -484,9 +485,21 @@ a {
             padding-bottom: 1.5em;
             margin-bottom: 1.5em;
         }
+
+        &--reply {
+            @extend .feedback-detail__comment;
+            
+            border-bottom: none;
+
+            &:not(:last-child) { padding-bottom: 0; }
+        }
         
         .comment {
-            &__img-container { grid-area: comment-img-container; }
+            &__img-container { 
+                grid-area: comment-img-container; 
+                max-width: 60px;
+                max-height: 60px;
+            }
 
             &__header { 
                 grid-area: comment-header; 
@@ -522,6 +535,33 @@ a {
             }
             
             &__message-container { grid-area: comment-message-container; }
+
+            &__replies { 
+                grid-area: comment-replies; 
+
+                padding-top: 1.5em;
+                padding-left: 1.5em;
+
+                & .feedback-detail__comment--reply {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+// ? Styling for iPhone 5s and smaller
+
+@media (max-width: 330px) {
+    
+}
+
+// ? FeedbackDetailPage small edit
+
+@media (min-width: 425px) {
+    .feedback-detail {
+        &__comment {
+            grid-template-columns: 2fr 12fr;
         }
     }
 }

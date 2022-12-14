@@ -508,31 +508,41 @@ a {
   margin-bottom: 1.3em;
 }
 
-.feedback-detail__comment {
+.feedback-detail__comment, .feedback-detail__comment--reply {
   display: -ms-grid;
   display: grid;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   gap: 0 .85em;
-      grid-template-areas: 'comment-img-container comment-header' 'comment-message-container comment-message-container';
+      grid-template-areas: 'comment-img-container comment-header' 'comment-message-container comment-message-container' 'comment-replies comment-replies';
   -ms-grid-columns: 2fr 8fr;
       grid-template-columns: 2fr 8fr;
 }
 
-.feedback-detail__comment:not(:last-child) {
+.feedback-detail__comment:not(:last-child), .feedback-detail__comment--reply:not(:last-child) {
   border-bottom: 1px solid #8C92B3;
   padding-bottom: 1.5em;
   margin-bottom: 1.5em;
 }
 
-.feedback-detail__comment .comment__img-container {
+.feedback-detail__comment--reply {
+  border-bottom: none;
+}
+
+.feedback-detail__comment--reply:not(:last-child) {
+  padding-bottom: 0;
+}
+
+.feedback-detail__comment .comment__img-container, .feedback-detail__comment--reply .comment__img-container {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: comment-img-container;
+  max-width: 60px;
+  max-height: 60px;
 }
 
-.feedback-detail__comment .comment__header {
+.feedback-detail__comment .comment__header, .feedback-detail__comment--reply .comment__header {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: comment-header;
@@ -548,40 +558,60 @@ a {
   height: 100%;
 }
 
-.feedback-detail__comment .comment__user-img {
+.feedback-detail__comment .comment__user-img, .feedback-detail__comment--reply .comment__user-img {
   border-radius: 50%;
 }
 
-.feedback-detail__comment .comment__user-name {
+.feedback-detail__comment .comment__user-name, .feedback-detail__comment--reply .comment__user-name {
   font-size: .95rem;
   margin-bottom: .3em;
   line-height: 1;
 }
 
-.feedback-detail__comment .comment__user-handle {
+.feedback-detail__comment .comment__user-handle, .feedback-detail__comment--reply .comment__user-handle {
   font-size: .95rem;
   color: #647196;
   line-height: 1;
 }
 
-.feedback-detail__comment .comment__reply-button {
+.feedback-detail__comment .comment__reply-button, .feedback-detail__comment--reply .comment__reply-button {
   color: #4761e6;
 }
 
-.feedback-detail__comment .comment__message {
+.feedback-detail__comment .comment__message, .feedback-detail__comment--reply .comment__message {
   font-size: .95rem;
   color: #647196;
 }
 
-.feedback-detail__comment .comment__message-container {
+.feedback-detail__comment .comment__message-container, .feedback-detail__comment--reply .comment__message-container {
   padding-top: .85em;
 }
 
-.feedback-detail__comment .comment__message-container {
+.feedback-detail__comment .comment__message-container, .feedback-detail__comment--reply .comment__message-container {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: comment-message-container;
+}
+
+.feedback-detail__comment .comment__replies, .feedback-detail__comment--reply .comment__replies {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: comment-replies;
+  padding-top: 1.5em;
+  padding-left: 1.5em;
+}
+
+.feedback-detail__comment .comment__replies .feedback-detail__comment--reply, .feedback-detail__comment--reply .comment__replies .feedback-detail__comment--reply {
+  border-bottom: none;
+}
+
+@media (min-width: 425px) {
+  .feedback-detail__comment, .feedback-detail__comment--reply {
+    -ms-grid-columns: 2fr 12fr;
+        grid-template-columns: 2fr 12fr;
+  }
 }
 
 @media (min-width: 600px) {

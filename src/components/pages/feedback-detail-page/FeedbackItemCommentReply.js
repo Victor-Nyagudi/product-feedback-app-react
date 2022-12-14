@@ -2,7 +2,7 @@ import elijahImg from "../../../assets/user-images/image-elijah.jpg";
 
 function FeedbackItemCommentReply() {
     return ( 
-        <li className="comment__reply">
+        <li className="feedback-detail__comment--reply">
             <div className="comment__img-container">
                 <img src={ elijahImg } alt="Elijah's headshot" className="comment__user-img" />
             </div>

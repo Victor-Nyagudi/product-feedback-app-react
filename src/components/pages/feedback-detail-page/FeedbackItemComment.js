@@ -1,4 +1,5 @@
 import elijahImg from "../../../assets/user-images/image-elijah.jpg";
+import FeedbackItemCommentReply from "./FeedbackItemCommentReply";
 
 function FeedbackItemComment() {
     return (    
@@ -32,7 +33,8 @@ function FeedbackItemComment() {
             </div>
 
             <ul className="comment__replies">
-                
+                <FeedbackItemCommentReply />
+                <FeedbackItemCommentReply />
             </ul>
         </li>
     );
