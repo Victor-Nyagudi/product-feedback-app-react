@@ -12,8 +12,13 @@ $page-padding: 2em 0 6em;
 
 $tag-padding-mobile: .35em 1.15em;
 
+// #region Feedback Detail Variables
 $feedback-detail-padding: 1.5em;
 $feedback-detail-heading-mobile: 1.05rem;
+$feedback-detail-heading-lg-mobile: 1.3rem;
+$feedback-detail-margin-bottom: 1.5em;
+
+// #endregion
 
 $font-weights: (
     'light': 300,
@@ -370,7 +375,7 @@ a {
         background-color: pink;
 
         border-radius: $border-radius;
-        margin-bottom: 1.5em;
+        margin-bottom: $feedback-detail-margin-bottom;
 
         padding: $feedback-detail-padding;
 
@@ -458,10 +463,11 @@ a {
     
             border-radius: $border-radius;
             padding: $feedback-detail-padding;
+            margin-bottom: $feedback-detail-margin-bottom;
         }
 
         &-title {
-            font-size: 1.3rem;
+            font-size: $feedback-detail-heading-lg-mobile;
             color: getColor('purple-black');
             margin-bottom: 1.3em;
         }
@@ -542,10 +548,30 @@ a {
                 padding-top: 1.5em;
                 padding-left: 1.5em;
 
-                & .feedback-detail__comment--reply {
-                    border-bottom: none;
-                }
+                & .feedback-detail__comment--reply { border-bottom: none; }
             }
+        }
+    }
+
+    &__add-comment {
+        background-color: lightsalmon;
+        border-radius: $border-radius;
+        padding: $feedback-detail-padding;
+
+        .add-comment {
+            &__title {
+                font-size: $feedback-detail-heading-lg-mobile;
+                color: getColor('purple-black');
+                margin-bottom: 1em;
+            }
+
+            &__button-container { 
+                @include flex-space-between; 
+                
+                padding-top: .25em;
+            }
+
+            &__character-limit-message { color: getColor('grey-purple'); }
         }
     }
 }
