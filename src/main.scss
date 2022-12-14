@@ -13,6 +13,7 @@ $page-padding: 2em 0 6em;
 $tag-padding-mobile: .35em 1.15em;
 
 $feedback-detail-padding: 1.5em;
+$feedback-detail-heading-mobile: 1.05rem;
 
 $font-weights: (
     'light': 300,
@@ -369,7 +370,7 @@ a {
         background-color: pink;
 
         border-radius: $border-radius;
-        margin-bottom: 1em;
+        margin-bottom: 1.5em;
 
         padding: $feedback-detail-padding;
 
@@ -394,7 +395,7 @@ a {
             &__tag-container { grid-area: feedback-item-tag-container; }
 
             &__title { 
-                font-size: 1.05rem;
+                font-size: $feedback-detail-heading-mobile;
                 color: getColor('purple-black');
                 margin-bottom: .6em;
             }
@@ -448,6 +449,79 @@ a {
                 }
             }
 
+        }
+    }
+
+    &__comments {
+        &-container {
+            background-color: lightcoral;
+    
+            border-radius: $border-radius;
+            padding: $feedback-detail-padding;
+        }
+
+        &-title {
+            font-size: 1.3rem;
+            color: getColor('purple-black');
+            margin-bottom: 1.3em;
+        }
+    }
+
+    &__comment {
+        display: grid;
+        align-items: flex-start;
+        gap: 0 .85em;
+        
+        grid-template-areas: 
+        'comment-img-container comment-header'
+        'comment-message-container comment-message-container'
+        ;
+        
+        grid-template-columns: 2fr 8fr;
+        
+        &:not(:last-child) {
+            border-bottom: 1px solid #8C92B3;
+            padding-bottom: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        
+        .comment {
+            &__img-container { grid-area: comment-img-container; }
+
+            &__header { 
+                grid-area: comment-header; 
+                
+                @include flex-space-between;
+
+                height: 100%;
+            }
+
+            &__user {
+                &-img { border-radius: 50%; }
+
+                &-name { 
+                    font-size: .95rem; 
+                    margin-bottom: .3em;
+                    line-height: 1; 
+                }
+
+                &-handle { 
+                    font-size: .95rem;
+                    color: getColor('grey-purple'); 
+                    line-height: 1;
+                }
+            }
+
+            &__reply-button { color: getColor('blue'); }
+
+            &__message { 
+                font-size: .95rem;
+                color: getColor('grey-purple'); 
+
+                &-container { padding-top: .85em; }
+            }
+            
+            &__message-container { grid-area: comment-message-container; }
         }
     }
 }
