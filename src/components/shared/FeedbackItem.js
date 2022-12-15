@@ -2,7 +2,7 @@ function FeedbackItem() {
     // TODO Remember to make the feedback message keyboard focusable
     
     return ( 
-        <section className="feedback-detail__feedback-item">
+        <section className="feedback-item">
             <div className="feedback-item__text">
                 <h2 className="feedback-item__title">
                     Add a dark theme option

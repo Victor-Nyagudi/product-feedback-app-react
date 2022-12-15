@@ -383,7 +383,7 @@ a {
 .feedback-detail {
     padding: $page-padding;
 
-    &__feedback-item {
+    .feedback-item {
         background-color: getColor('white');
 
         border-radius: $border-radius;
@@ -399,73 +399,70 @@ a {
             'feedback-item-upvotes . feedback-item-comments'
             ;
 
-        .feedback-item {
-            &__text { 
-                grid-area: feedback-item-text; 
-                margin-bottom: .65em;
-            }
+        &__text { 
+            grid-area: feedback-item-text; 
+            margin-bottom: .65em;
+        }
 
-            &__upvotes { grid-area: feedback-item-upvotes; }
-            
-            &__comments { grid-area: feedback-item-comments; }
-            
-            &__tag-container { grid-area: feedback-item-tag-container; }
+        &__upvotes { grid-area: feedback-item-upvotes; }
+        
+        &__comments { grid-area: feedback-item-comments; }
+        
+        &__tag-container { grid-area: feedback-item-tag-container; }
 
-            &__title { 
-                font-size: $feedback-detail-heading-mobile;
-                color: getColor('purple-black');
-                margin-bottom: .4em;
-            }
+        &__title { 
+            font-size: $feedback-detail-heading-mobile;
+            color: getColor('purple-black');
+            margin-bottom: .4em;
+        }
 
-            &__message { color: getColor('grey-purple'); }
+        &__message { color: getColor('grey-purple'); }
 
-            &__tag {
-                display: inline-block;
+        &__tag {
+            display: inline-block;
 
+            font-size: .95rem;
+            font-weight: getFontWeight('semi-bold');
+            color: getColor('blue');
+
+            border-radius: $border-radius;
+            background-color: getColor('light-grey');
+            padding: $tag-padding-mobile;
+
+            &-container { margin-bottom: .65em; }
+        }
+
+        &__upvotes {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+
+            align-self: center;
+
+            background-color: getColor('light-grey');
+            border-radius: $border-radius;
+            padding: $tag-padding-mobile;
+
+            &-total {
                 font-size: .95rem;
+                font-weight: getFontWeight('bold');
+                color: getColor('purple-black');
+            }
+        }
+
+        &__img-container { @include flex-center; }
+
+        &__comments {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+
+            align-self: center;
+
+            &-total {
                 font-weight: getFontWeight('semi-bold');
-                color: getColor('blue');
-
-                border-radius: $border-radius;
-                background-color: getColor('light-grey');
-                padding: $tag-padding-mobile;
-
-                &-container { margin-bottom: .65em; }
+                color: getColor('purple-black');
             }
-
-            &__upvotes {
-                display: flex;
-                align-items: center;
-                gap: .5em;
-
-                align-self: center;
-
-                background-color: getColor('light-grey');
-                border-radius: $border-radius;
-                padding: $tag-padding-mobile;
-
-                &-total {
-                    font-size: .95rem;
-                    font-weight: getFontWeight('bold');
-                    color: getColor('purple-black');
-                }
-            }
-
-            &__img-container { @include flex-center; }
-
-            &__comments {
-                display: flex;
-                align-items: center;
-                gap: .5em;
-
-                align-self: center;
-
-                &-total {
-                    font-weight: getFontWeight('semi-bold');
-                    color: getColor('purple-black');
-                }
-            }
-
         }
     }
 
@@ -833,7 +830,7 @@ a {
     .feedback-detail {
         max-width: 730px;
 
-        &__feedback-item {
+        .feedback-item {
             padding: $feedback-detail-padding-lg;
 
             grid-template-areas: 
@@ -846,28 +843,26 @@ a {
 
             gap: $feedback-detail-column-gap;
 
-            .feedback-item {
-                &__title {
-                    font-size: $feedback-detail-heading-desktop;
-                    margin-bottom: .25em;
-                }
-
-                &__upvotes {
-                    flex-direction: column;
-                    align-self: flex-start;
-
-                    padding: .35em .5em;
-
-                    max-width: 40px;
-                }
-
-                &__comments { 
-                    gap: .65em; 
-                    justify-content: flex-end;
-                }
-
-                &__tag-container { margin-bottom: 0; }
+            &__title {
+                font-size: $feedback-detail-heading-desktop;
+                margin-bottom: .25em;
             }
+
+            &__upvotes {
+                flex-direction: column;
+                align-self: flex-start;
+
+                padding: .35em .5em;
+
+                max-width: 40px;
+            }
+
+            &__comments { 
+                gap: .65em; 
+                justify-content: flex-end;
+            }
+
+            &__tag-container { margin-bottom: 0; }
         }
 
         &__comments-container { padding: $feedback-detail-padding-lg; }

@@ -387,7 +387,7 @@ a {
   padding: 2em 0 6em;
 }
 
-.feedback-detail__feedback-item {
+.feedback-detail .feedback-item {
   background-color: white;
   border-radius: 10px;
   margin-bottom: 1.5em;
@@ -397,7 +397,7 @@ a {
       grid-template-areas: 'feedback-item-text feedback-item-text feedback-item-text' 'feedback-item-tag-container feedback-item-tag-container feedback-item-tag-container' 'feedback-item-upvotes . feedback-item-comments';
 }
 
-.feedback-detail__feedback-item .feedback-item__text {
+.feedback-detail .feedback-item__text {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
@@ -405,36 +405,36 @@ a {
   margin-bottom: .65em;
 }
 
-.feedback-detail__feedback-item .feedback-item__upvotes {
+.feedback-detail .feedback-item__upvotes {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: feedback-item-upvotes;
 }
 
-.feedback-detail__feedback-item .feedback-item__comments {
+.feedback-detail .feedback-item__comments {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: feedback-item-comments;
 }
 
-.feedback-detail__feedback-item .feedback-item__tag-container {
+.feedback-detail .feedback-item__tag-container {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: feedback-item-tag-container;
 }
 
-.feedback-detail__feedback-item .feedback-item__title {
+.feedback-detail .feedback-item__title {
   font-size: 1.05rem;
   color: #3a4373;
   margin-bottom: .4em;
 }
 
-.feedback-detail__feedback-item .feedback-item__message {
+.feedback-detail .feedback-item__message {
   color: #647196;
 }
 
-.feedback-detail__feedback-item .feedback-item__tag {
+.feedback-detail .feedback-item__tag {
   display: inline-block;
   font-size: .95rem;
   font-weight: 600;
@@ -444,11 +444,11 @@ a {
   padding: 0.35em 1.15em;
 }
 
-.feedback-detail__feedback-item .feedback-item__tag-container {
+.feedback-detail .feedback-item__tag-container {
   margin-bottom: .65em;
 }
 
-.feedback-detail__feedback-item .feedback-item__upvotes {
+.feedback-detail .feedback-item__upvotes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -463,13 +463,13 @@ a {
   padding: 0.35em 1.15em;
 }
 
-.feedback-detail__feedback-item .feedback-item__upvotes-total {
+.feedback-detail .feedback-item__upvotes-total {
   font-size: .95rem;
   font-weight: 700;
   color: #3a4373;
 }
 
-.feedback-detail__feedback-item .feedback-item__img-container {
+.feedback-detail .feedback-item__img-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -481,7 +481,7 @@ a {
           justify-content: center;
 }
 
-.feedback-detail__feedback-item .feedback-item__comments {
+.feedback-detail .feedback-item__comments {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -493,7 +493,7 @@ a {
       align-self: center;
 }
 
-.feedback-detail__feedback-item .feedback-item__comments-total {
+.feedback-detail .feedback-item__comments-total {
   font-weight: 600;
   color: #3a4373;
 }
@@ -893,18 +893,18 @@ a {
   .feedback-detail {
     max-width: 730px;
   }
-  .feedback-detail__feedback-item {
+  .feedback-detail .feedback-item {
     padding: 2em;
         grid-template-areas: 'feedback-item-upvotes feedback-item-text feedback-item-comments' 'feedback-item-upvotes  feedback-item-text feedback-item-comments' '. feedback-item-tag-container feedback-item-comments';
     -ms-grid-columns: minmax(40px, 40px) 12fr 1fr;
         grid-template-columns: minmax(40px, 40px) 12fr 1fr;
     gap: 0 2em;
   }
-  .feedback-detail__feedback-item .feedback-item__title {
+  .feedback-detail .feedback-item__title {
     font-size: 1.1rem;
     margin-bottom: .25em;
   }
-  .feedback-detail__feedback-item .feedback-item__upvotes {
+  .feedback-detail .feedback-item__upvotes {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -914,13 +914,13 @@ a {
     padding: .35em .5em;
     max-width: 40px;
   }
-  .feedback-detail__feedback-item .feedback-item__comments {
+  .feedback-detail .feedback-item__comments {
     gap: .65em;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-  .feedback-detail__feedback-item .feedback-item__tag-container {
+  .feedback-detail .feedback-item__tag-container {
     margin-bottom: 0;
   }
   .feedback-detail__comments-container {
