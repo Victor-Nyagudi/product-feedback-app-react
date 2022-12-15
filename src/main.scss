@@ -383,12 +383,8 @@ a {
 .feedback-detail {
     padding: $page-padding;
 
-    &__main {
-        background-color: aquamarine;
-    }
-
     &__feedback-item {
-        background-color: pink;
+        background-color: getColor('white');
 
         border-radius: $border-radius;
         margin-bottom: $feedback-detail-margin-bottom;
@@ -475,7 +471,7 @@ a {
 
     &__comments {
         &-container {
-            background-color: lightcoral;
+            background-color: getColor('white');
     
             border-radius: $border-radius;
             padding: $feedback-detail-padding;
@@ -495,15 +491,15 @@ a {
         gap: 0 .85em;
         
         grid-template-areas: 
-        'comment-img-container comment-header'
-        'comment-message-container comment-message-container'
-        'comment-replies comment-replies'
+            'comment-img-container comment-header'
+            'comment-message-container comment-message-container'
+            'comment-replies comment-replies'
         ;
         
         grid-template-columns: 2fr 8fr;
         
         &:not(:last-child) {
-            border-bottom: 1px solid #8C92B3;
+            border-bottom: 1px solid #d0d5ee;
             padding-bottom: 1.5em;
             margin-bottom: 1.5em;
         }
@@ -553,10 +549,11 @@ a {
                 font-size: .95rem;
                 color: getColor('grey-purple'); 
 
-                &-container { padding-top: .85em; }
+                &-container { 
+                    grid-area: comment-message-container;
+                    padding-top: 1em; 
+                }
             }
-            
-            &__message-container { grid-area: comment-message-container; }
 
             &__replies { 
                 grid-area: comment-replies; 
@@ -570,7 +567,7 @@ a {
     }
 
     &__add-comment {
-        background-color: lightsalmon;
+        background-color: getColor('white');
         border-radius: $border-radius;
         padding: $feedback-detail-padding;
 
@@ -834,6 +831,8 @@ a {
     }
 
     .feedback-detail {
+        max-width: 730px;
+
         &__feedback-item {
             padding: $feedback-detail-padding-lg;
 
@@ -884,6 +883,17 @@ a {
                 'comment-replies comment-replies comment-replies'
             ;
 
+            &:not(:last-child) {
+                padding-bottom: 2em;
+            }
+    
+            &--reply {
+                &:not(:last-child) { 
+                    padding-bottom: 0; 
+                    margin-bottom: 1em;
+                }
+            }
+
             .comment {
                 &__user-img, &__img-container {
                     max-width: 45px;
@@ -891,11 +901,18 @@ a {
                 }
 
                 &__message {  font-size: 1rem; }
+
+                &__replies { 
+                    padding-top: 2em;
+                    padding-left: 2em;
+                }
+
+                &__reply-button { font-size: .9rem; }
             }
         }
 
         &__add-comment {
-            .add-comment__button-container {
+            .add-comment__button-container { 
                 padding-top: .7em;
             }
         }
@@ -947,4 +964,6 @@ a {
     }
 
     .add-edit-feedback { padding: 5em 0 12em; }
+
+    .feedback-detail { padding: 5em 0 8.5em; }
 }

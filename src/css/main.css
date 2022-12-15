@@ -387,12 +387,8 @@ a {
   padding: 2em 0 6em;
 }
 
-.feedback-detail__main {
-  background-color: aquamarine;
-}
-
 .feedback-detail__feedback-item {
-  background-color: pink;
+  background-color: white;
   border-radius: 10px;
   margin-bottom: 1.5em;
   padding: 1.5em;
@@ -503,7 +499,7 @@ a {
 }
 
 .feedback-detail__comments-container {
-  background-color: lightcoral;
+  background-color: white;
   border-radius: 10px;
   padding: 1.5em;
   margin-bottom: 1.5em;
@@ -528,7 +524,7 @@ a {
 }
 
 .feedback-detail__comment:not(:last-child), .feedback-detail__comment--reply:not(:last-child) {
-  border-bottom: 1px solid #8C92B3;
+  border-bottom: 1px solid #d0d5ee;
   padding-bottom: 1.5em;
   margin-bottom: 1.5em;
 }
@@ -591,14 +587,11 @@ a {
 }
 
 .feedback-detail__comment .comment__message-container, .feedback-detail__comment--reply .comment__message-container {
-  padding-top: .85em;
-}
-
-.feedback-detail__comment .comment__message-container, .feedback-detail__comment--reply .comment__message-container {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: comment-message-container;
+  padding-top: 1em;
 }
 
 .feedback-detail__comment .comment__replies, .feedback-detail__comment--reply .comment__replies {
@@ -615,7 +608,7 @@ a {
 }
 
 .feedback-detail__add-comment {
-  background-color: lightsalmon;
+  background-color: white;
   border-radius: 10px;
   padding: 1.5em;
 }
@@ -897,6 +890,9 @@ a {
   .add-edit-feedback__main {
     padding: 3.5em 2.5em 1.5em;
   }
+  .feedback-detail {
+    max-width: 730px;
+  }
   .feedback-detail__feedback-item {
     padding: 2em;
         grid-template-areas: 'feedback-item-upvotes feedback-item-text feedback-item-comments' 'feedback-item-upvotes  feedback-item-text feedback-item-comments' '. feedback-item-tag-container feedback-item-comments';
@@ -938,12 +934,26 @@ a {
     gap: 0 2em;
         grid-template-areas: 'comment-img-container comment-header comment-header' 'comment-img-container comment-message-container comment-message-container' 'comment-replies comment-replies comment-replies';
   }
+  .feedback-detail__comment:not(:last-child), .feedback-detail__comment--reply:not(:last-child) {
+    padding-bottom: 2em;
+  }
+  .feedback-detail__comment--reply:not(:last-child) {
+    padding-bottom: 0;
+    margin-bottom: 1em;
+  }
   .feedback-detail__comment .comment__user-img, .feedback-detail__comment--reply .comment__user-img, .feedback-detail__comment .comment__img-container, .feedback-detail__comment--reply .comment__img-container {
     max-width: 45px;
     max-height: 45px;
   }
   .feedback-detail__comment .comment__message, .feedback-detail__comment--reply .comment__message {
     font-size: 1rem;
+  }
+  .feedback-detail__comment .comment__replies, .feedback-detail__comment--reply .comment__replies {
+    padding-top: 2em;
+    padding-left: 2em;
+  }
+  .feedback-detail__comment .comment__reply-button, .feedback-detail__comment--reply .comment__reply-button {
+    font-size: .9rem;
   }
   .feedback-detail__add-comment .add-comment__button-container {
     padding-top: .7em;
@@ -999,6 +1009,9 @@ a {
   }
   .add-edit-feedback {
     padding: 5em 0 12em;
+  }
+  .feedback-detail {
+    padding: 5em 0 8.5em;
   }
 }
 /*# sourceMappingURL=main.css.map */
