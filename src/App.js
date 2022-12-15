@@ -3,6 +3,7 @@ import './css/main.css';
 import React, { useState, useEffect } from 'react';
 import AddEditFeedbackPage from './components/pages/add-edit-feedback-page/AddEditFeedbackPage';
 import FeedbackDetailPage from './components/pages/feedback-detail-page/FeedbackDetailPage';
+import RoadMapPage from './components/pages/roadmap-page/RoadmapPage';
 
 
 function App() {
@@ -52,7 +53,8 @@ function App() {
     <>
       {/* <SuggestionsPage sharedProps={ sharedProps } /> */}
       {/* <AddEditFeedbackPage sharedProps={ sharedProps } /> */}
-      <FeedbackDetailPage  sharedProps={ sharedProps } />
+      {/* <FeedbackDetailPage sharedProps={ sharedProps } /> */}
+      <RoadMapPage sharedProps={ sharedProps } />
     </>
   );
 }
