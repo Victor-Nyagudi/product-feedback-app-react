@@ -1,6 +1,8 @@
 function RoadMapPage() {
     return ( 
-        <div></div>
+        <div className="roadmap">
+            
+        </div>
     );
 }
 
