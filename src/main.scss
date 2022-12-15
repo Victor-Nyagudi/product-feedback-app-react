@@ -830,7 +830,7 @@ a {
     .feedback-detail {
         max-width: 730px;
 
-        .feedback-item {
+        &__main .feedback-item {
             padding: $feedback-detail-padding-lg;
 
             grid-template-areas: 
