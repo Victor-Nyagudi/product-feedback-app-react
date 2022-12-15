@@ -3,7 +3,7 @@
     * I'm using this grid-template-column sizing and gap twice - once 
     * for the feedback item card and the comments to ensure
     * the leftmost part of the feedback item's message aligns with 
-    * the leftmost part of the subsequent comment
+    * the leftmost part of the subsequent comment's message
 */
 *,
 *::before,
@@ -933,15 +933,14 @@ a {
   .feedback-detail__comment, .feedback-detail__comment--reply {
     -ms-grid-columns: minmax(40px, 40px) 12fr 1fr;
         grid-template-columns: minmax(40px, 40px) 12fr 1fr;
+    -ms-grid-rows: minmax(45px, 45px) auto auto;
+        grid-template-rows: minmax(45px, 45px) auto auto;
     gap: 0 2em;
         grid-template-areas: 'comment-img-container comment-header comment-header' 'comment-img-container comment-message-container comment-message-container' 'comment-replies comment-replies comment-replies';
   }
   .feedback-detail__comment .comment__user-img, .feedback-detail__comment--reply .comment__user-img, .feedback-detail__comment .comment__img-container, .feedback-detail__comment--reply .comment__img-container {
-    max-width: 40px;
-    max-height: 40px;
-  }
-  .feedback-detail__comment .comment__user-name, .feedback-detail__comment--reply .comment__user-name, .feedback-detail__comment .comment__user-handle, .feedback-detail__comment--reply .comment__user-handle {
-    font-size: 1rem;
+    max-width: 45px;
+    max-height: 45px;
   }
   .feedback-detail__comment .comment__message, .feedback-detail__comment--reply .comment__message {
     font-size: 1rem;

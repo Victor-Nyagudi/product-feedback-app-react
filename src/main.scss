@@ -26,7 +26,7 @@ $feedback-detail-heading-lg-desktop: 1.3rem;
     * I'm using this grid-template-column sizing and gap twice - once 
     * for the feedback item card and the comments to ensure
     * the leftmost part of the feedback item's message aligns with 
-    * the leftmost part of the subsequent comment
+    * the leftmost part of the subsequent comment's message
 */
 $feedback-detail-column-sizing: minmax(40px, 40px) 12fr 1fr;
 $feedback-detail-column-gap: 0 2em;
@@ -875,6 +875,7 @@ a {
 
         &__comment {
             grid-template-columns: $feedback-detail-column-sizing;
+            grid-template-rows: minmax(45px, 45px) auto auto;
             gap: $feedback-detail-column-gap;
             
             grid-template-areas: 
@@ -885,12 +886,8 @@ a {
 
             .comment {
                 &__user-img, &__img-container {
-                    max-width: 40px;
-                    max-height: 40px;
-                }
-
-                &__user {
-                    &-name, &-handle { font-size: 1rem; }
+                    max-width: 45px;
+                    max-height: 45px;
                 }
 
                 &__message {  font-size: 1rem; }
