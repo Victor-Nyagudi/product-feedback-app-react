@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap");
+/*
+    * I'm using this grid-template-column sizing and gap twice - once 
+    * for the feedback item card and the comments to ensure
+    * the leftmost part of the feedback item's message aligns with 
+    * the leftmost part of the subsequent comment
+*/
 *,
 *::before,
 *::after {
@@ -894,6 +900,9 @@ a {
   .feedback-detail__feedback-item {
     padding: 2em;
         grid-template-areas: 'feedback-item-upvotes feedback-item-text feedback-item-comments' 'feedback-item-upvotes  feedback-item-text feedback-item-comments' '. feedback-item-tag-container feedback-item-comments';
+    -ms-grid-columns: minmax(40px, 40px) 12fr 1fr;
+        grid-template-columns: minmax(40px, 40px) 12fr 1fr;
+    gap: 0 2em;
   }
   .feedback-detail__feedback-item .feedback-item__title {
     font-size: 1.1rem;
@@ -907,15 +916,38 @@ a {
     -ms-flex-item-align: start;
         align-self: flex-start;
     padding: .35em .5em;
-    margin-right: 2em;
     max-width: 40px;
   }
   .feedback-detail__feedback-item .feedback-item__comments {
     gap: .65em;
-    margin-left: 2em;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
   .feedback-detail__feedback-item .feedback-item__tag-container {
     margin-bottom: 0;
+  }
+  .feedback-detail__comments-container {
+    padding: 2em;
+  }
+  .feedback-detail__comment, .feedback-detail__comment--reply {
+    -ms-grid-columns: minmax(40px, 40px) 12fr 1fr;
+        grid-template-columns: minmax(40px, 40px) 12fr 1fr;
+    gap: 0 2em;
+        grid-template-areas: 'comment-img-container comment-header comment-header' 'comment-img-container comment-message-container comment-message-container' 'comment-replies comment-replies comment-replies';
+  }
+  .feedback-detail__comment .comment__user-img, .feedback-detail__comment--reply .comment__user-img, .feedback-detail__comment .comment__img-container, .feedback-detail__comment--reply .comment__img-container {
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .feedback-detail__comment .comment__user-name, .feedback-detail__comment--reply .comment__user-name, .feedback-detail__comment .comment__user-handle, .feedback-detail__comment--reply .comment__user-handle {
+    font-size: 1rem;
+  }
+  .feedback-detail__comment .comment__message, .feedback-detail__comment--reply .comment__message {
+    font-size: 1rem;
+  }
+  .feedback-detail__add-comment .add-comment__button-container {
+    padding-top: .7em;
   }
 }
 

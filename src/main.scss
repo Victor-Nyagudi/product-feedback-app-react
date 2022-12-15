@@ -22,6 +22,15 @@ $feedback-detail-heading-lg-mobile: 1.3rem;
 $feedback-detail-heading-desktop: 1.1rem;
 $feedback-detail-heading-lg-desktop: 1.3rem;
 
+/*
+    * I'm using this grid-template-column sizing and gap twice - once 
+    * for the feedback item card and the comments to ensure
+    * the leftmost part of the feedback item's message aligns with 
+    * the leftmost part of the subsequent comment
+*/
+$feedback-detail-column-sizing: minmax(40px, 40px) 12fr 1fr;
+$feedback-detail-column-gap: 0 2em;
+
 $feedback-detail-margin-bottom: 1.5em;
 
 // #endregion
@@ -829,10 +838,14 @@ a {
             padding: $feedback-detail-padding-lg;
 
             grid-template-areas: 
-            'feedback-item-upvotes feedback-item-text feedback-item-comments'
-            'feedback-item-upvotes  feedback-item-text feedback-item-comments'
-            '. feedback-item-tag-container feedback-item-comments'
+                'feedback-item-upvotes feedback-item-text feedback-item-comments'
+                'feedback-item-upvotes  feedback-item-text feedback-item-comments'
+                '. feedback-item-tag-container feedback-item-comments'
             ;
+
+            grid-template-columns: $feedback-detail-column-sizing;
+
+            gap: $feedback-detail-column-gap;
 
             .feedback-item {
                 &__title {
@@ -845,17 +858,48 @@ a {
                     align-self: flex-start;
 
                     padding: .35em .5em;
-                    margin-right: 2em;
 
                     max-width: 40px;
                 }
 
                 &__comments { 
-                    gap: .65em;
-                    margin-left: 2em; 
+                    gap: .65em; 
+                    justify-content: flex-end;
                 }
 
                 &__tag-container { margin-bottom: 0; }
+            }
+        }
+
+        &__comments-container { padding: $feedback-detail-padding-lg; }
+
+        &__comment {
+            grid-template-columns: $feedback-detail-column-sizing;
+            gap: $feedback-detail-column-gap;
+            
+            grid-template-areas: 
+                'comment-img-container comment-header comment-header'
+                'comment-img-container comment-message-container comment-message-container'
+                'comment-replies comment-replies comment-replies'
+            ;
+
+            .comment {
+                &__user-img, &__img-container {
+                    max-width: 40px;
+                    max-height: 40px;
+                }
+
+                &__user {
+                    &-name, &-handle { font-size: 1rem; }
+                }
+
+                &__message {  font-size: 1rem; }
+            }
+        }
+
+        &__add-comment {
+            .add-comment__button-container {
+                padding-top: .7em;
             }
         }
     }
