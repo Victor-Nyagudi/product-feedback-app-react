@@ -787,7 +787,7 @@ a {
 }
 
 .roadmap__category-title {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   line-height: 1;
   color: #3a4373;
   margin-bottom: .7em;
@@ -1143,6 +1143,44 @@ a {
   }
   .feedback-detail__add-comment .add-comment__button-container {
     padding-top: .7em;
+  }
+}
+
+/*
+    ? Special breakpoint for RoadmapPage because
+    ? 600ps is too small to house 3 columns
+*/
+@media (min-width: 700px) {
+  .roadmap {
+    padding: 5em 0;
+  }
+  .roadmap__main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: .625em;
+  }
+  .roadmap__header {
+    width: 87%;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 2.15em;
+  }
+  .roadmap__header-content.container {
+    width: 100%;
+    padding: 2em 1.5em;
+  }
+  .roadmap__category-header {
+    min-height: 65px;
+    max-height: 65px;
+    overflow: auto;
+    margin-bottom: 1em;
+  }
+  .roadmap__category-title {
+    font-size: 1.05rem;
   }
 }
 

@@ -9,6 +9,7 @@ $aside-card-padding: 1.5em;
 $aside-max-width: 255px;
 
 $page-padding: 2em 0 6em;
+$container-width: 87%;
 
 $tag-padding-mobile: .35em 1.15em;
 
@@ -139,7 +140,7 @@ a {
 
 // * This container adds spaces to the sides and centrally aligns a container
 .container {
-    width: 87%;
+    width: $container-width;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -684,7 +685,7 @@ a {
         &-header { margin-bottom: 1.6em; }
 
         &-title { 
-            font-size: $heading-mobile;
+            font-size: $heading-mobile-lg;
             line-height: 1;
             color: getColor('purple-black');
 
@@ -1038,6 +1039,48 @@ a {
             .add-comment__button-container { 
                 padding-top: .7em;
             }
+        }
+    }
+}
+
+/*
+    ? Special breakpoint for RoadmapPage because
+    ? 600ps is too small to house 3 columns
+*/
+@media (min-width: 700px) {
+    .roadmap {
+        padding: 5em 0;
+        
+        &__main {
+            display: flex;
+            align-items: flex-start;
+            gap: .625em;
+        }
+
+        &__header {
+            width: $container-width;
+            border-radius: $border-radius;
+
+            margin: 0 auto;
+
+            &-content.container { 
+                width: 100%; 
+                padding: 2em $feedback-detail-padding;
+            }
+
+            margin-bottom: 2.15em;
+        }
+
+        &__category {
+            &-header {
+                min-height: 65px;
+                max-height: 65px;
+                overflow: auto;
+
+                margin-bottom: 1em;
+            }
+
+            &-title { font-size: $heading-mobile; }
         }
     }
 }
