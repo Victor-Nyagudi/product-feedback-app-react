@@ -195,14 +195,38 @@ a {
     min-height: 120px;
 }
 
-.feedback-item {
+.feedback-item { 
+    padding: $feedback-detail-padding; 
+
     background-color: getColor('white');
 
     border-radius: $border-radius;
     margin-bottom: $feedback-detail-margin-bottom;
 
-    padding: $feedback-detail-padding;
+    &__badge {
+        display: flex;
+        align-items: center;
+        gap: .5em;
 
+        margin-bottom: 1.1em;
+
+        &-icon {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+
+            &.feedback-item__badge-icon--purple { background-color: getColor('purple'); }
+            
+            &.feedback-item__badge-icon--orange { background-color: getColor('orange'); }
+            
+            &.feedback-item__badge-icon--light-blue { background-color: getColor('light-blue'); }
+        }
+
+        &-text { font-size: .9rem; }
+    }
+}
+
+.feedback-content {
     display: grid;
 
     grid-template-areas: 
@@ -664,7 +688,7 @@ a {
             line-height: 1;
             color: getColor('purple-black');
 
-            margin-bottom: .6em;
+            margin-bottom: .7em;
         }
 
         &-explanation {
@@ -934,9 +958,9 @@ a {
     .feedback-detail {
         max-width: 730px;
 
-        &__main .feedback-item {
-            padding: $feedback-detail-padding-lg;
+        &__main .feedback-item { padding: $feedback-detail-padding-lg; }
 
+        &__main .feedback-content {
             grid-template-areas: 
                 'feedback-item-upvotes feedback-item-text feedback-item-comments'
                 'feedback-item-upvotes  feedback-item-text feedback-item-comments'

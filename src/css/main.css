@@ -138,16 +138,52 @@ a {
 }
 
 .feedback-item {
+  padding: 1.5em;
   background-color: white;
   border-radius: 10px;
   margin-bottom: 1.5em;
-  padding: 1.5em;
+}
+
+.feedback-item__badge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+  margin-bottom: 1.1em;
+}
+
+.feedback-item__badge-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.feedback-item__badge-icon.feedback-item__badge-icon--purple {
+  background-color: #b11fea;
+}
+
+.feedback-item__badge-icon.feedback-item__badge-icon--orange {
+  background-color: #f49f86;
+}
+
+.feedback-item__badge-icon.feedback-item__badge-icon--light-blue {
+  background-color: #61bdfa;
+}
+
+.feedback-item__badge-text {
+  font-size: .9rem;
+}
+
+.feedback-content {
   display: -ms-grid;
   display: grid;
       grid-template-areas: 'feedback-item-text feedback-item-text feedback-item-text' 'feedback-item-tag-container feedback-item-tag-container feedback-item-tag-container' 'feedback-item-upvotes . feedback-item-comments';
 }
 
-.feedback-item__text {
+.feedback-content__text {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
@@ -155,36 +191,36 @@ a {
   margin-bottom: .65em;
 }
 
-.feedback-item__upvotes {
+.feedback-content__upvotes {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: feedback-item-upvotes;
 }
 
-.feedback-item__comments {
+.feedback-content__comments {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: feedback-item-comments;
 }
 
-.feedback-item__tag-container {
+.feedback-content__tag-container {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: feedback-item-tag-container;
 }
 
-.feedback-item__title {
+.feedback-content__title {
   font-size: 1.05rem;
   color: #3a4373;
   margin-bottom: .4em;
 }
 
-.feedback-item__message {
+.feedback-content__message {
   color: #647196;
 }
 
-.feedback-item__tag {
+.feedback-content__tag {
   display: inline-block;
   font-size: .95rem;
   font-weight: 600;
@@ -194,11 +230,11 @@ a {
   padding: 0.35em 1.15em;
 }
 
-.feedback-item__tag-container {
+.feedback-content__tag-container {
   margin-bottom: .65em;
 }
 
-.feedback-item__upvotes {
+.feedback-content__upvotes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -213,13 +249,13 @@ a {
   padding: 0.35em 1.15em;
 }
 
-.feedback-item__upvotes-total {
+.feedback-content__upvotes-total {
   font-size: .95rem;
   font-weight: 700;
   color: #3a4373;
 }
 
-.feedback-item__img-container {
+.feedback-content__img-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,7 +267,7 @@ a {
           justify-content: center;
 }
 
-.feedback-item__comments {
+.feedback-content__comments {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -243,7 +279,7 @@ a {
       align-self: center;
 }
 
-.feedback-item__comments-total {
+.feedback-content__comments-total {
   font-weight: 600;
   color: #3a4373;
 }
@@ -754,7 +790,7 @@ a {
   font-size: 1.05rem;
   line-height: 1;
   color: #3a4373;
-  margin-bottom: .6em;
+  margin-bottom: .7em;
 }
 
 .roadmap__category-explanation {
@@ -1043,16 +1079,18 @@ a {
   }
   .feedback-detail__main .feedback-item {
     padding: 2em;
+  }
+  .feedback-detail__main .feedback-content {
         grid-template-areas: 'feedback-item-upvotes feedback-item-text feedback-item-comments' 'feedback-item-upvotes  feedback-item-text feedback-item-comments' '. feedback-item-tag-container feedback-item-comments';
     -ms-grid-columns: minmax(40px, 40px) 12fr 1fr;
         grid-template-columns: minmax(40px, 40px) 12fr 1fr;
     gap: 0 2em;
   }
-  .feedback-detail__main .feedback-item__title {
+  .feedback-detail__main .feedback-content__title {
     font-size: 1.1rem;
     margin-bottom: .25em;
   }
-  .feedback-detail__main .feedback-item__upvotes {
+  .feedback-detail__main .feedback-content__upvotes {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1062,13 +1100,13 @@ a {
     padding: .35em .5em;
     max-width: 40px;
   }
-  .feedback-detail__main .feedback-item__comments {
+  .feedback-detail__main .feedback-content__comments {
     gap: .65em;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-  .feedback-detail__main .feedback-item__tag-container {
+  .feedback-detail__main .feedback-content__tag-container {
     margin-bottom: 0;
   }
   .feedback-detail__comments-container {

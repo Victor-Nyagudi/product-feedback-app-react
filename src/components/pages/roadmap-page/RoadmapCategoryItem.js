@@ -1,9 +1,13 @@
 import FeedbackItem from "../../shared/FeedbackItem";
 
-function RoadmapCategoryItem({ color }) {
+function RoadmapCategoryItem({ color, badgeText }) {
     return ( 
         <li className={`roadmap__category-item roadmap__category-item--${color}`}>
-            <FeedbackItem />
+            <FeedbackItem 
+                showBadge={ true } 
+                badgeText={ badgeText }
+                badgeColor={ color }
+            />
         </li>
     );
 }

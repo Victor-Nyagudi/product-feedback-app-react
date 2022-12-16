@@ -12,7 +12,7 @@ function RoadmapMain() {
 
             <RoadmapCategory 
                 title={ 'In Progress' }
-                explanation={ 'Currently being developed' }
+                explanation={ 'Features currently being developed' }
                 totalItems={ '3' }
                 color={ 'purple' }
             />

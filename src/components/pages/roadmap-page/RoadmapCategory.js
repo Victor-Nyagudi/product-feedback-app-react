@@ -14,8 +14,15 @@ function RoadmapCategory({ title, explanation, totalItems, color }) {
             </div>
 
             <ul className="roadmap__category-items">
-                <RoadmapCategoryItem color={ color } />
-                <RoadmapCategoryItem color={ color } />
+                <RoadmapCategoryItem 
+                    color={ color } 
+                    badgeText={ title }
+                />
+                
+                <RoadmapCategoryItem 
+                    color={ color } 
+                    badgeText={ title }
+                />
             </ul>
         </section>
     );
