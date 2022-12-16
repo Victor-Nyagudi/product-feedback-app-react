@@ -1,9 +1,9 @@
 import RoadmapCategory from "./RoadmapCategory";
 import RoadmapMobileNavbar from "./RoadmapMobileNavbar";
 
-function RoadmapMain({ isMobile: isMobileScreen }) {
+function RoadmapMain({ isMobileScreen }) {
     return ( 
-        <main className="roadmap__main">
+        <main className="roadmap__main container">
             {
                 isMobileScreen &&
                 

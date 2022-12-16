@@ -636,6 +636,42 @@ a {
   color: #647196;
 }
 
+.roadmap {
+  padding-bottom: 6em;
+}
+
+.roadmap__header {
+  background-color: #373f68;
+}
+
+.roadmap__header-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.5em 0;
+}
+
+.roadmap__header-link-container {
+  margin-bottom: .5em;
+}
+
+.roadmap__header-title {
+  font-size: 1.05rem;
+  line-height: 1;
+  color: white;
+}
+
+.roadmap__header .go-back__primary-button {
+  font-size: .8rem;
+  color: white;
+}
+
 @media (min-width: 425px) {
   .feedback-detail__comment, .feedback-detail__comment--reply {
     -ms-grid-columns: 2fr 12fr;

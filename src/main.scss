@@ -16,8 +16,8 @@ $tag-padding-mobile: .35em 1.15em;
 $feedback-detail-padding: 1.5em;
 $feedback-detail-padding-lg: 2em;
 
-$feedback-detail-heading-mobile: 1.05rem;
-$feedback-detail-heading-lg-mobile: 1.3rem;
+$heading-mobile: 1.05rem;
+$heading-mobile-lg: 1.3rem;
 
 $feedback-detail-heading-desktop: 1.1rem;
 $feedback-detail-heading-lg-desktop: 1.3rem;
@@ -46,7 +46,7 @@ $font-weights: (
 $colors: (
     'purple': hsl(283, 83, 52), // #AD1FEA
     'blue': hsl(230, 76, 59), // #4661E6
-    'dark-purple-black': hsl(230, 31, 31),
+    'dark-purple-black': hsl(230, 31, 31), // #373F68
     'white': hsl(0, 0, 100), // #FFFFFF
     'dark-grey': hsl(231, 100, 97), // #F2F4FF
     'light-grey': hsl(230, 60, 98), // #F7F8FD
@@ -136,6 +136,7 @@ a {
 
 .feedback-button-svg { margin-right: .25em; }
 
+// * This container adds spaces to the sides and centrally aligns a container
 .container {
     width: 87%;
     max-width: 1000px;
@@ -411,7 +412,7 @@ a {
         &__tag-container { grid-area: feedback-item-tag-container; }
 
         &__title { 
-            font-size: $feedback-detail-heading-mobile;
+            font-size: $heading-mobile;
             color: getColor('purple-black');
             margin-bottom: .4em;
         }
@@ -476,7 +477,7 @@ a {
         }
 
         &-title {
-            font-size: $feedback-detail-heading-lg-mobile;
+            font-size: $heading-mobile-lg;
             color: getColor('purple-black');
             margin-bottom: 1.3em;
         }
@@ -570,7 +571,7 @@ a {
 
         .add-comment {
             &__title {
-                font-size: $feedback-detail-heading-lg-mobile;
+                font-size: $heading-mobile-lg;
                 color: getColor('purple-black');
                 margin-bottom: 1em;
             }
@@ -582,6 +583,33 @@ a {
             }
 
             &__character-limit-message { color: getColor('grey-purple'); }
+        }
+    }
+}
+
+.roadmap {
+    padding-bottom: 6em;
+
+    &__header {
+        &-content { 
+            @include flex-space-between;
+
+            padding: 1.5em 0; 
+        }
+
+        &-link-container { margin-bottom: .5em; }
+
+        &-title { 
+            font-size: $heading-mobile;
+            line-height: 1;
+            color: getColor('white'); 
+        }
+
+        background-color: getColor('dark-purple-black');
+
+        & .go-back__primary-button { 
+            font-size: .8rem;
+            color: getColor('white'); 
         }
     }
 }
