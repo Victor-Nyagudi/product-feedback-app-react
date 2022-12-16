@@ -8,7 +8,7 @@ function RoadMapPage({ sharedProps }) {
             <RoadmapHeader />
 
             {
-                sharedProps.isMobileScreen &&
+                sharedProps.isSmallerThan700px &&
                 
                 <RoadmapMobileNavbar />
             }

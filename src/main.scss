@@ -657,18 +657,18 @@ a {
         &-nav-item { 
             &:first-child { flex: 1; } 
             
-            &:nth-child(2)  { flex: 1.35; }
+            &:nth-child(2)  { flex: 1.25; }
 
-            &:last-child { flex: .75; }
+            /* 
+                * This one isn't 1 because it breaks the
+                * layout at exactly 320px (iPhone 5s and smaller)
+            */
+            &:last-child { flex: .8; }
             
 
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-
-            &:nth-child(2) .roadmap__mobile-nav-button  { align-self: center; }
-
-            &:last-child .roadmap__mobile-nav-button  { align-self: flex-end; }
+            align-items: center;
 
             &--active {
                 @extend .roadmap__mobile-nav-item;
