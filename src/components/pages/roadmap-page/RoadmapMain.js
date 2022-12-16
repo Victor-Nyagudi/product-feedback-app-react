@@ -1,7 +1,6 @@
 import RoadmapCategory from "./RoadmapCategory";
-import RoadmapMobileNavbar from "./RoadmapMobileNavbar";
 
-function RoadmapMain({ isMobileScreen }) {
+function RoadmapMain() {
     return ( 
         <main className="roadmap__main container">
             <RoadmapCategory 
@@ -19,10 +18,10 @@ function RoadmapMain({ isMobileScreen }) {
             />
 
             <RoadmapCategory 
-                title={ 'Planned' }
+                title={ 'Live' }
                 explanation={ 'Released features' }
                 totalItems={ '1' }
-                color={ 'blue' }
+                color={ 'light-blue' }
             />
         </main>
      );
