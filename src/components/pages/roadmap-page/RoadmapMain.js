@@ -4,12 +4,6 @@ import RoadmapMobileNavbar from "./RoadmapMobileNavbar";
 function RoadmapMain({ isMobileScreen }) {
     return ( 
         <main className="roadmap__main container">
-            {
-                isMobileScreen &&
-                
-                <RoadmapMobileNavbar />
-            }
-
             <RoadmapCategory 
                 title={ 'Planned' }
                 explanation={ 'Ideas prioritized for research' }

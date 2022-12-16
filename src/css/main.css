@@ -524,7 +524,7 @@ a {
 }
 
 .feedback-detail__comment:not(:last-child), .feedback-detail__comment--reply:not(:last-child) {
-  border-bottom: 1px solid #d0d5ee;
+  border-bottom: 1px solid #ced3ed;
   padding-bottom: 1.5em;
   margin-bottom: 1.5em;
 }
@@ -661,15 +661,89 @@ a {
   margin-bottom: .5em;
 }
 
+.roadmap__header .go-back__primary-button {
+  font-size: .8rem;
+  color: white;
+}
+
 .roadmap__header-title {
   font-size: 1.05rem;
   line-height: 1;
   color: white;
 }
 
-.roadmap__header .go-back__primary-button {
-  font-size: .8rem;
-  color: white;
+.roadmap__mobile-navbar {
+  border-bottom: 1px solid #ced3ed;
+  padding-right: .25em;
+  margin-bottom: 1.65em;
+}
+
+.roadmap__mobile-nav-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.roadmap__mobile-nav-item, .roadmap__mobile-nav-item--active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.roadmap__mobile-nav-item:first-child, .roadmap__mobile-nav-item--active:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.roadmap__mobile-nav-item:nth-child(2), .roadmap__mobile-nav-item--active:nth-child(2) {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.roadmap__mobile-nav-item:last-child, .roadmap__mobile-nav-item--active:last-child {
+  -webkit-box-flex: .75;
+      -ms-flex: .75;
+          flex: .75;
+}
+
+.roadmap__mobile-nav-item:nth-child(2) .roadmap__mobile-nav-button, .roadmap__mobile-nav-item--active:nth-child(2) .roadmap__mobile-nav-button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.roadmap__mobile-nav-item:last-child .roadmap__mobile-nav-button, .roadmap__mobile-nav-item--active:last-child .roadmap__mobile-nav-button {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.roadmap__mobile-nav-item--active {
+  border-bottom: 4px solid #b11fea;
+}
+
+.roadmap__mobile-nav-item--active .roadmap__mobile-nav-button {
+  color: #3a4373;
+}
+
+.roadmap__mobile-nav-button {
+  display: inline-block;
+  color: #a6aac3;
+  min-height: 64px;
 }
 
 @media (min-width: 425px) {
