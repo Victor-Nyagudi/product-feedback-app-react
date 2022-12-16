@@ -13,7 +13,7 @@ $container-width: 87%;
 
 $tag-padding-mobile: .35em 1.15em;
 
-// #region Feedback Detail Variables
+// #region FeedbackDetailPage variables
 $feedback-detail-padding: 1.5em;
 $feedback-detail-padding-lg: 2em;
 
@@ -33,6 +33,12 @@ $feedback-detail-column-sizing: minmax(40px, 40px) 12fr 1fr;
 $feedback-detail-column-gap: 0 2em;
 
 $feedback-detail-margin-bottom: 1.5em;
+
+// #endregion
+
+// #region RoadmapPage variables
+
+$roadmap-page-max-width: 1110px;
 
 // #endregion
 
@@ -1045,7 +1051,7 @@ a {
 
 /*
     ? Special breakpoint for RoadmapPage because
-    ? 600ps is too small to house 3 columns
+    ? 600px is too small to house 3 columns
 */
 @media (min-width: 700px) {
     .roadmap {
@@ -1055,6 +1061,8 @@ a {
             display: flex;
             align-items: flex-start;
             gap: .625em;
+
+            & > * { flex: 1; }
         }
 
         &__header {
@@ -1063,12 +1071,18 @@ a {
 
             margin: 0 auto;
 
+            margin-bottom: 2.15em;
+
             &-content.container { 
                 width: 100%; 
                 padding: 2em $feedback-detail-padding;
             }
 
-            margin-bottom: 2.15em;
+            &-title { font-size: 1.5rem; }
+
+            & .go-back__primary-button { 
+                font-size: .875rem;
+            }
         }
 
         &__category {
@@ -1088,6 +1102,10 @@ a {
 // ? Desktop styling
 
 @media (min-width: 821px) {
+    .feedback-item {
+        &__badge { margin-bottom: .75em; }
+    }
+
     .suggestions {
         flex-direction: row;
         align-items: flex-start;
@@ -1132,4 +1150,29 @@ a {
     .add-edit-feedback { padding: 5em 0 12em; }
 
     .feedback-detail { padding: 5em 0 8.5em; }
+
+    .roadmap {
+        padding: 5em 0 8.5em;
+        width: $container-width;
+        max-width: $roadmap-page-max-width;
+        margin: 0 auto;
+
+        &__header {
+            min-width: 100%;
+
+            &-content.container {
+                margin: 0;
+                max-width: 100%;
+            }
+        }
+
+        &__main { 
+            gap: 2em; 
+
+            &.container { 
+                min-width: 100%; 
+                max-width: $roadmap-page-max-width;
+            }
+        }
+    }
 }

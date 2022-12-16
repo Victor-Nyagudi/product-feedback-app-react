@@ -1148,7 +1148,7 @@ a {
 
 /*
     ? Special breakpoint for RoadmapPage because
-    ? 600ps is too small to house 3 columns
+    ? 600px is too small to house 3 columns
 */
 @media (min-width: 700px) {
   .roadmap {
@@ -1163,6 +1163,11 @@ a {
             align-items: flex-start;
     gap: .625em;
   }
+  .roadmap__main > * {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
   .roadmap__header {
     width: 87%;
     border-radius: 10px;
@@ -1172,6 +1177,12 @@ a {
   .roadmap__header-content.container {
     width: 100%;
     padding: 2em 1.5em;
+  }
+  .roadmap__header-title {
+    font-size: 1.5rem;
+  }
+  .roadmap__header .go-back__primary-button {
+    font-size: .875rem;
   }
   .roadmap__category-header {
     min-height: 65px;
@@ -1185,6 +1196,9 @@ a {
 }
 
 @media (min-width: 821px) {
+  .feedback-item__badge {
+    margin-bottom: .75em;
+  }
   .suggestions {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1236,6 +1250,26 @@ a {
   }
   .feedback-detail {
     padding: 5em 0 8.5em;
+  }
+  .roadmap {
+    padding: 5em 0 8.5em;
+    width: 87%;
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+  .roadmap__header {
+    min-width: 100%;
+  }
+  .roadmap__header-content.container {
+    margin: 0;
+    max-width: 100%;
+  }
+  .roadmap__main {
+    gap: 2em;
+  }
+  .roadmap__main.container {
+    min-width: 100%;
+    max-width: 1110px;
   }
 }
 /*# sourceMappingURL=main.css.map */
