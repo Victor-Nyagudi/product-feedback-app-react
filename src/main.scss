@@ -291,9 +291,10 @@ a {
             font-weight: getFontWeight('bold');
             color: getColor('purple-black');
         }
-    }
 
-    &__img-container { @include flex-row-center; }
+        // * Up arrow icon needs a little bump up to be centrally aligned
+        &-button { padding-bottom: .15em; }
+    }
 
     &__comments {
         display: flex;
@@ -1049,6 +1050,12 @@ a {
             .add-comment__button-container { 
                 padding-top: .7em;
             }
+        }
+    }
+
+    .feedback-content {
+        &__upvotes {
+            &-button { padding-bottom: 0; }
         }
     }
 }
