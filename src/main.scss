@@ -997,6 +997,8 @@ a {
                 padding: .35em .5em;
 
                 max-width: 40px;
+
+                &-button { padding-bottom: 0; }
             }
 
             &__comments { 
@@ -1059,7 +1061,6 @@ a {
         &__upvotes {
             justify-self: initial;
 
-            &-button { padding-bottom: 0; }
         }
     }
 }

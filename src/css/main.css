@@ -1091,6 +1091,9 @@ a {
     padding: .35em .5em;
     max-width: 40px;
   }
+  .feedback-detail__main .feedback-content__upvotes-button {
+    padding-bottom: 0;
+  }
   .feedback-detail__main .feedback-content__comments {
     gap: .65em;
     -webkit-box-pack: end;
@@ -1138,9 +1141,6 @@ a {
   .feedback-content__upvotes {
     -ms-grid-column-align: initial;
         justify-self: initial;
-  }
-  .feedback-content__upvotes-button {
-    padding-bottom: 0;
   }
 }
 
