@@ -279,9 +279,16 @@ a {
     &__tag-container { grid-area: feedback-item-tag-container; }
 
     &__title { 
+        display: inline-block;
+
         font-size: $heading-mobile;
+        font-weight: getFontWeight('bold');
         color: getColor('purple-black');
+
+
         margin-bottom: .4em;
+
+        &:hover, &:focus { color: getColor('blue'); }
     }
 
     &__message { color: getColor('grey-purple'); }
@@ -786,6 +793,11 @@ a {
 
     .feedback-button-svg { margin-right: .4em; }
 
+    // * Shared styling that will apply on other pages
+    .feedback-content {
+        &__upvotes-button { padding: .75em 1.15em;  }
+    }
+
     .input { 
         font-size: 1rem; 
         padding: .85em 2.25em .85em 1.25em;
@@ -1036,8 +1048,7 @@ a {
 
                 &-button { 
                     flex-direction: column;
-
-                    padding: .75em 1.15em;
+                    
                     max-width: 40px;
                     max-height: 53px;
                 }
@@ -1100,10 +1111,7 @@ a {
     }
 
     .feedback-content {
-        &__upvotes {
-            justify-self: initial;
-
-        }
+        &__upvotes { justify-self: initial; }
     }
 }
 
@@ -1208,6 +1216,12 @@ a {
     .add-edit-feedback { padding: 5em 0 12em; }
 
     .feedback-detail { padding: 5em 0 8.5em; }
+
+    .feedback-content {
+        &__tag-text, &__upvotes-total { 
+            font-size: .9rem; 
+        }
+    }
 
     .roadmap {
         padding: 5em 0 8.5em;

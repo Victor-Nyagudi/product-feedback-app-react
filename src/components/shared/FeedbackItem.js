@@ -17,9 +17,9 @@ function FeedbackItem({ showBadge = false, badgeText, badgeColor }) {
             
             <div className="feedback-content">
                 <div className="feedback-content__text">
-                    <h2 className="feedback-content__title">
+                    <a className="feedback-content__title">
                         Add a dark theme option
-                    </h2>
+                    </a>
 
                     <p className="feedback-content__message">
                         It would help people with light sensitivities and who prefer dark mode.

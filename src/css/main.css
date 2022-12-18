@@ -232,9 +232,15 @@ a {
 }
 
 .feedback-content__title {
+  display: inline-block;
   font-size: 1.05rem;
+  font-weight: 700;
   color: #3a4373;
   margin-bottom: .4em;
+}
+
+.feedback-content__title:hover, .feedback-content__title:focus {
+  color: #4761e6;
 }
 
 .feedback-content__message {
@@ -860,6 +866,9 @@ a {
   .feedback-button-svg {
     margin-right: .4em;
   }
+  .feedback-content__upvotes-button {
+    padding: .75em 1.15em;
+  }
   .input, .textarea {
     font-size: 1rem;
     padding: .85em 2.25em .85em 1.25em;
@@ -1134,7 +1143,6 @@ a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding: .75em 1.15em;
     max-width: 40px;
     max-height: 53px;
   }
@@ -1292,6 +1300,9 @@ a {
   }
   .feedback-detail {
     padding: 5em 0 8.5em;
+  }
+  .feedback-content__tag-text, .feedback-content__upvotes-total {
+    font-size: .9rem;
   }
   .roadmap {
     padding: 5em 0 8.5em;
