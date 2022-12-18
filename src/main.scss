@@ -276,6 +276,8 @@ a {
     }
 
     &__upvotes {
+        justify-self: start;
+
         display: flex;
         align-items: center;
         gap: .5em;
@@ -1055,6 +1057,8 @@ a {
 
     .feedback-content {
         &__upvotes {
+            justify-self: initial;
+
             &-button { padding-bottom: 0; }
         }
     }

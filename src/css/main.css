@@ -235,6 +235,7 @@ a {
 }
 
 .feedback-content__upvotes {
+  justify-self: start;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1133,6 +1134,10 @@ a {
   }
   .feedback-detail__add-comment .add-comment__button-container {
     padding-top: .7em;
+  }
+  .feedback-content__upvotes {
+    -ms-grid-column-align: initial;
+        justify-self: initial;
   }
   .feedback-content__upvotes-button {
     padding-bottom: 0;
