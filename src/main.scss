@@ -53,13 +53,21 @@ $font-weights: (
 $colors: (
     'purple': hsl(283, 83, 52), // #AD1FEA
     'blue': hsl(230, 76, 59), // #4661E6
+    'orange': hsl(14, 83, 74), // #F49F85
+    'dark-grey': hsl(231, 100, 97), // #F2F4FE
+    'purple-black': hsl(231, 33, 34), // #3A4374
+    
+    'purple--hover': hsl(282, 90%, 66%), // #C75AF6
+    'blue--hover-link': hsl(230, 89%, 74%), // #8397F8
+    'blue--hover-button': hsl(230, 91%, 73%), // #7C91F9
+    'orange--hover': hsl(0, 69%, 72%), // #E98888
+    'dark-grey--hover': hsl(230, 100%, 91%), // #CFD7FF
+    'purple-black--hover': hsl(231, 25%, 52%), // #656EA3
+    
     'dark-purple-black': hsl(230, 31, 31), // #373F68
     'white': hsl(0, 0, 100), // #FFFFFF
-    'dark-grey': hsl(231, 100, 97), // #F2F4FF
     'light-grey': hsl(230, 60, 98), // #F7F8FD
-    'purple-black': hsl(231, 33, 34), // #3A4374
     'grey-purple': hsl(224, 20, 49), // #647196
-    'orange': hsl(14, 83, 74), // #F49F85
     'light-blue': hsl(204, 94, 68), // #62BCFA
     'border-bottom-color': hsl(230, 47%, 87%) //#d0d5ee
 );
@@ -135,7 +143,11 @@ a {
         padding: .8em 1.2em; 
     }
 
-    &--add-feedback { background-color: getColor('purple'); }
+    &--add-feedback { 
+        background-color: getColor('purple'); 
+
+        &:hover, &:focus { background-color: getColor('purple--hover'); }
+    }
     
     &--edit-feedback { background-color: getColor('blue'); }
 
@@ -370,6 +382,8 @@ a {
             color: getColor('white');
 
             margin-left: .35em;
+
+            &:hover, &:focus { color: getColor('dark-grey'); }
         }
 
         &-button-text { margin-right: .4em; }
@@ -378,7 +392,7 @@ a {
 
     &__main {
         /* 
-            ? Make .suggestions__main fill remaining space.
+            ? Makes .suggestions__main fill remaining space.
             ? This is a flex child of .suggestions__content
         */
         flex: 1 auto;
@@ -392,7 +406,7 @@ a {
 
     &__main-content { 
         /* 
-            ? Make .suggestions__main-content fill remaining space.
+            ? Makes .suggestions__main-content fill remaining space.
             ? This is a flex child of .suggestions__main
         */
         flex: 1 auto;
@@ -403,7 +417,7 @@ a {
 
     &__empty {
         /* 
-            ? Make .suggestions__empty fill remaining space.
+            ? Makes .suggestions__empty fill remaining space.
             ? This is a flex child of .suggestions__main-content
         */
         flex: 1 auto;
@@ -833,6 +847,9 @@ a {
 
                     background-color: getColor('dark-grey');
                     border-radius: $border-radius;
+
+                    &:hover, &:focus { background-color: getColor('dark-grey--hover'); }
+
                     
                     &-button { 
                         color: getColor('blue'); 
@@ -865,6 +882,8 @@ a {
                     font-size: .95rem; 
                     color: getColor('blue');
                     text-decoration: underline;
+
+                    &:hover, &:focus { color: getColor('blue--hover-link'); }
                 }
 
                 &__category { 
@@ -972,6 +991,10 @@ a {
     .feedback-detail {
         max-width: 730px;
 
+        /*
+            * Since FeedbackItem is a shared component, some styles will only apply
+            * on certain pages.
+        */
         &__main .feedback-item { padding: $feedback-detail-padding-lg; }
 
         &__main .feedback-content {

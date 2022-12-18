@@ -61,6 +61,10 @@ a {
   background-color: #b11fea;
 }
 
+.button--add-feedback:hover, .button--add-feedback:focus {
+  background-color: #c85af6;
+}
+
 .button--edit-feedback {
   background-color: #4761e6;
 }
@@ -377,13 +381,17 @@ a {
   margin-left: .35em;
 }
 
+.suggestions__header-sort:hover, .suggestions__header-sort:focus {
+  color: #f0f2ff;
+}
+
 .suggestions__header-button-text {
   margin-right: .4em;
 }
 
 .suggestions__main {
   /* 
-            ? Make .suggestions__main fill remaining space.
+            ? Makes .suggestions__main fill remaining space.
             ? This is a flex child of .suggestions__content
         */
   -webkit-box-flex: 1;
@@ -402,7 +410,7 @@ a {
 
 .suggestions__main-content {
   /* 
-            ? Make .suggestions__main-content fill remaining space.
+            ? Makes .suggestions__main-content fill remaining space.
             ? This is a flex child of .suggestions__main
         */
   -webkit-box-flex: 1;
@@ -419,7 +427,7 @@ a {
 
 .suggestions__empty {
   /* 
-            ? Make .suggestions__empty fill remaining space.
+            ? Makes .suggestions__empty fill remaining space.
             ? This is a flex child of .suggestions__main-content
         */
   -webkit-box-flex: 1;
@@ -907,6 +915,9 @@ a {
     background-color: #f0f2ff;
     border-radius: 10px;
   }
+  .suggestions__aside .tags__tag:hover, .suggestions__aside .tags__tag:focus {
+    background-color: #d1d9ff;
+  }
   .suggestions__aside .tags__tag-button {
     color: #4761e6;
     padding: .5em 1.5em;
@@ -943,6 +954,9 @@ a {
     font-size: .95rem;
     color: #4761e6;
     text-decoration: underline;
+  }
+  .suggestions__aside .roadmap-info__link:hover, .suggestions__aside .roadmap-info__link:focus {
+    color: #8295f8;
   }
   .suggestions__aside .roadmap-info__category {
     display: -webkit-box;
@@ -1067,6 +1081,10 @@ a {
   }
   .feedback-detail {
     max-width: 730px;
+    /*
+            * Since FeedbackItem is a shared component, some styles will only apply
+            * on certain pages.
+        */
   }
   .feedback-detail__main .feedback-item {
     padding: 2em;
