@@ -762,7 +762,12 @@ a {
 }
 
 .roadmap__mobile-nav-item--active {
-  border-bottom: 4px solid #b11fea;
+  /* 
+                    * Box shadow doesn't increase container size,
+                    * so it's a better option than border-bottom
+                */
+  -webkit-box-shadow: 0 -4px 0 0 #b11fea inset;
+          box-shadow: 0 -4px 0 0 #b11fea inset;
 }
 
 .roadmap__mobile-nav-item--active .roadmap__mobile-nav-button {

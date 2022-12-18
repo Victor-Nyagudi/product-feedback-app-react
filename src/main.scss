@@ -144,7 +144,7 @@ a {
 
 .feedback-button-svg { margin-right: .25em; }
 
-// * This container adds spaces to the sides and centrally aligns a container
+// * This adds spaces to the sides and centrally aligns a container
 .container {
     width: $container-width;
     max-width: 1000px;
@@ -673,7 +673,11 @@ a {
             &--active {
                 @extend .roadmap__mobile-nav-item;
 
-                border-bottom: 4px solid getColor('purple');
+                /* 
+                    * Box shadow doesn't increase container size,
+                    * so it's a better option than border-bottom
+                */ 
+                box-shadow: 0 -4px 0 0 getColor('purple') inset;
 
                 & .roadmap__mobile-nav-button { color: getColor('purple-black'); }
             }
