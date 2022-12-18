@@ -103,6 +103,10 @@ a {
   color: #647196;
 }
 
+.go-back__primary-button-text:hover, .go-back__primary-button-text:focus {
+  text-decoration: underline;
+}
+
 .go-back-header--secondary {
   display: -webkit-box;
   display: -ms-flexbox;

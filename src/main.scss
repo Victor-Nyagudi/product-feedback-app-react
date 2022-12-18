@@ -177,6 +177,8 @@ a {
         
         font-size: .9rem;
         color: getColor('grey-purple');
+
+        &-text:hover, &-text:focus { text-decoration: underline }
     }
 
     &-header--secondary {
