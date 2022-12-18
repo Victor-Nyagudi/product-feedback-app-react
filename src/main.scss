@@ -149,7 +149,11 @@ a {
         &:hover, &:focus { background-color: getColor('purple--hover'); }
     }
     
-    &--edit-feedback { background-color: getColor('blue'); }
+    &--edit-feedback { 
+        background-color: getColor('blue'); 
+
+        &:hover, &:focus { background-color: getColor('blue--hover-button'); }
+    }
 
     &--cancel { 
         background-color: getColor('purple-black'); 
@@ -298,16 +302,16 @@ a {
 
     &__upvotes {
         justify-self: start;
-
-        display: flex;
-        align-items: center;
-        gap: .5em;
-
         align-self: center;
 
-        background-color: getColor('light-grey');
-        border-radius: $border-radius;
-        padding: $tag-padding-mobile;
+        // display: flex;
+        // align-items: center;
+        // gap: .5em;
+
+        // cursor: pointer;
+        // background-color: getColor('light-grey');
+        // border-radius: $border-radius;
+        // padding: $tag-padding-mobile;
 
         &-total {
             font-size: .95rem;
@@ -316,7 +320,17 @@ a {
         }
 
         // * Up arrow icon needs a little bump up to be centrally aligned
-        &-button { padding-bottom: .15em; }
+        &-button { 
+            display: flex;
+            align-items: center;
+            gap: .5em;
+
+            background-color: getColor('light-grey');
+            border-radius: $border-radius;
+            padding: $tag-padding-mobile;
+
+            &:hover, &:focus { background-color: getColor('dark-grey--hover'); }
+        }
     }
 
     &__comments {
@@ -1023,14 +1037,15 @@ a {
             }
 
             &__upvotes {
-                flex-direction: column;
                 align-self: flex-start;
 
-                padding: .35em .5em;
+                &-button { 
+                    flex-direction: column;
 
-                max-width: 40px;
-
-                &-button { padding-bottom: 0; }
+                    padding: .75em 1.15em;
+                    max-width: 40px;
+                    max-height: 53px;
+                }
             }
 
             &__comments { 
