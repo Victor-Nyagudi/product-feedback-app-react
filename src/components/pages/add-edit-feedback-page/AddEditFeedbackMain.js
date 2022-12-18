@@ -32,6 +32,7 @@ function AddEditFeedbackMain({ title, isEditing }) {
                     labelText={ 'Add a short, descriptive headline' }
                     id={ 'feedback-title' }
                     inputName={ 'feedback-title' }
+                    isRequired={ true }
                 />
                 
                 <AddEditFeedbackInput 
@@ -40,6 +41,7 @@ function AddEditFeedbackMain({ title, isEditing }) {
                     labelText={ 'Choose a category for your feedback' }
                     id={ 'feedback-category' }
                     inputName={ 'feedback-category' }
+                    isRequired={ true }
                 />
 
                 {
@@ -50,15 +52,17 @@ function AddEditFeedbackMain({ title, isEditing }) {
                         labelText={ 'Change feedback state' }
                         id={ 'feedback-state' }
                         inputName={ 'feedback-state' }
+                        isRequired={ true }
                     />                    
                 }
 
                 <AddEditFeedbackInput 
-                    isTextArea={ true }
                     title={ 'Feedback Detail' }
                     labelText={ 'Include any specific comments on what should be improved, added, etc.' }
                     id={ 'feedback-detail' }
                     inputName={ 'feedback-detail' }
+                    isTextArea={ true }
+                    isRequired={ true }
                 />
 
                 <div className="add-edit-feedback__buttons">
@@ -79,7 +83,8 @@ function AddEditFeedbackMain({ title, isEditing }) {
 
                     <AddEditFeedbackButton 
                         text={ 'Add Feedback' }
-                        className={ 'button--add-feedback add-edit-feedback__button' } 
+                        className={ 'button--add-feedback add-edit-feedback__button' }
+                        type={ 'submit' } 
                     />
                 </div>
             </form>

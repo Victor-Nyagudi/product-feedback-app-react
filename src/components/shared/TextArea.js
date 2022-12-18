@@ -1,6 +1,7 @@
-function TextArea({ name, id, value, placeholder = '', handleOnChange }) {
+function TextArea({ name, id, value, placeholder = '', handleOnChange, isRequired = false }) {
     return ( 
         <textarea 
+            required={ isRequired }
             className='textarea'
             name={ name } 
             id={ id } 

@@ -70,7 +70,11 @@ a {
 }
 
 .button--cancel {
-  background-color: #373f68;
+  background-color: #3a4373;
+}
+
+.button--cancel:hover, .button--cancel:focus {
+  background-color: #666fa3;
 }
 
 .feedback-button-svg {
@@ -118,8 +122,13 @@ a {
   border: none;
   border-radius: 5px;
   width: 100%;
+  cursor: pointer;
   background-color: #f7f8fd;
   padding: 1.25em 2.25em 1.25em 1em;
+}
+
+.input:hover, .textarea:hover, .input:focus, .textarea:focus {
+  outline: 1px solid #4761e6;
 }
 
 .input--icon {

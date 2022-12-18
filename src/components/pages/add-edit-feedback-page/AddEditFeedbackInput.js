@@ -8,6 +8,7 @@ function AddEditFeedbackInput({
     inputName, 
     inputType = 'text',
     isTextArea = false, 
+    isRequired = false,
     labelText ,
     title 
 }) {
@@ -31,6 +32,7 @@ function AddEditFeedbackInput({
                 isTextArea ? 
 
                 <TextArea 
+                    isRequired={ isRequired }
                     name={ inputName } 
                     id={ id } 
                     value={ inputValue }
@@ -40,6 +42,7 @@ function AddEditFeedbackInput({
                 :
 
                 <Input 
+                    isRequired={ isRequired }
                     hasIcon={ hasIcon }
                     type={ `${ inputType }` }
                     name={ `${ inputName }` } 

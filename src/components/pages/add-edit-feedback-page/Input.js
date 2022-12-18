@@ -1,10 +1,11 @@
-function Input({ hasIcon = false, id, inputType, inputName, inputValue, handleOnChange }) {
+function Input({ hasIcon = false, id, inputType, inputName, inputValue, handleOnChange, isRequired = false }) {
     return (    
         <>
             { 
                 !hasIcon ?
                 
                 <input 
+                    required={ isRequired }
                     className='input'
                     type={ `${inputType}` } 
                     name={ `${inputName}` } 
@@ -17,6 +18,7 @@ function Input({ hasIcon = false, id, inputType, inputName, inputValue, handleOn
 
                 <div className="input--icon">
                     <input 
+                        required={ isRequired }
                         className='input'
                         type={ `${inputType}` } 
                         name={ `${inputName}` } 
