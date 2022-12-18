@@ -304,15 +304,6 @@ a {
         justify-self: start;
         align-self: center;
 
-        // display: flex;
-        // align-items: center;
-        // gap: .5em;
-
-        // cursor: pointer;
-        // background-color: getColor('light-grey');
-        // border-radius: $border-radius;
-        // padding: $tag-padding-mobile;
-
         &-total {
             font-size: .95rem;
             font-weight: getFontWeight('bold');
@@ -613,7 +604,11 @@ a {
                 }
             }
 
-            &__reply-button { color: getColor('blue'); }
+            &__reply-button { 
+                color: getColor('blue'); 
+
+                &:hover, &:focus { text-decoration: underline; }
+            }
 
             &__message { 
                 font-size: .95rem;

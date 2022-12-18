@@ -640,6 +640,10 @@ a {
   color: #4761e6;
 }
 
+.feedback-detail__comment .comment__reply-button:hover, .feedback-detail__comment--reply .comment__reply-button:hover, .feedback-detail__comment .comment__reply-button:focus, .feedback-detail__comment--reply .comment__reply-button:focus {
+  text-decoration: underline;
+}
+
 .feedback-detail__comment .comment__message, .feedback-detail__comment--reply .comment__message {
   font-size: .95rem;
   color: #647196;
