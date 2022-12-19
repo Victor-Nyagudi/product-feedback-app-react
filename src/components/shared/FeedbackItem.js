@@ -1,4 +1,6 @@
-function FeedbackItem({ showBadge = false, badgeText, badgeColor }) {
+import { PropTypes } from "prop-types";
+
+function FeedbackItem({ showBadge, badgeText, badgeColor }) {
     // TODO Remember to make the feedback message keyboard focusable
     
     return ( 
@@ -73,6 +75,16 @@ function FeedbackItem({ showBadge = false, badgeText, badgeColor }) {
             </div>
         </section>
     );
+}
+
+FeedbackItem.defaultProps = {
+    showBadge: false
+}
+
+FeedbackItem.propTypes = {
+    showBadge: PropTypes.bool,
+    badgeText: PropTypes.string,
+    badgeColor: PropTypes.string
 }
 
 export default FeedbackItem;
