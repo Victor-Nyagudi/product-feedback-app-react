@@ -774,7 +774,10 @@ a {
 // ? Styling for iPhone 5s and smaller
 
 @media (max-width: 330px) {
-    
+    .button--main {
+        font-size: .75rem;
+        padding: .8em .95em; 
+    }
 }
 
 // ? FeedbackDetailPage small edit

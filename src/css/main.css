@@ -864,6 +864,13 @@ a {
   border-radius: 0 0 10px 10px;
 }
 
+@media (max-width: 330px) {
+  .button--main {
+    font-size: .75rem;
+    padding: .8em .95em;
+  }
+}
+
 @media (min-width: 425px) {
   .feedback-detail__comment, .feedback-detail__comment--reply {
     -ms-grid-columns: 2fr 12fr;
