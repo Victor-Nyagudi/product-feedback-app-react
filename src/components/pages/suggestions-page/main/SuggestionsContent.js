@@ -1,3 +1,5 @@
+import { PropTypes } from "prop-types";
+
 import SuggestionsHeader from "./SuggestionsHeader";
 import SuggestionsMain from "./SuggestionsMain";
 
@@ -9,5 +11,7 @@ function SuggestionsContent({ isMobileScreen }) {
         </div>
     );
 }
+
+SuggestionsContent.propTypes = { isMobileScreen: PropTypes.bool }
 
 export default SuggestionsContent;
