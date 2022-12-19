@@ -349,6 +349,18 @@ a {
   font-weight: 500;
 }
 
+.suggestions .app-info__hamburger-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .suggestions__content {
   /*
             ? This is a flex child of .suggestions.

@@ -1,4 +1,4 @@
-import hamburgerIcon from "../../../../assets/shared/mobile/icon-hamburger.svg";
+import { PropTypes } from "prop-types";
 
 function AppInfo({ isMobileScreen }) {
     return ( 
@@ -17,13 +17,17 @@ function AppInfo({ isMobileScreen }) {
                 {
                     isMobileScreen &&
 
-                    <button className="app-info__hamburger-button button">
-                        <img src={ hamburgerIcon } alt="" className="app-info__hamburger-img" aria-hidden="true" />
+                    <button className="app-info__hamburger-button button" aria-label="Open menu">
+                        <svg width="20" height="17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <g fill="#FFF" fillRule="evenodd"><path d="M0 0h20v3H0zM0 7h20v3H0zM0 14h20v3H0z"/></g>
+                        </svg>
                     </button>
                 }
             </div>
         </section>
     );
 }
+
+AppInfo.propTypes = { isMobileScreen: PropTypes.bool.isRequired }
 
 export default AppInfo;

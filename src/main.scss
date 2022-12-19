@@ -367,6 +367,8 @@ a {
         &__title { font-size: 1.1rem; }
     
         &__sub-heading { font-weight: getFontWeight('medium'); }
+
+        &__hamburger-button { @include flex-row-center; }
     }
 
     &__content {
