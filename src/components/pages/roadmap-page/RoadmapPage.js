@@ -1,3 +1,5 @@
+import { PropTypes } from "prop-types";
+
 import RoadmapHeader from "./RoadmapHeader";
 import RoadmapMain from "./RoadmapMain";
 import RoadmapMobileNavbar from "./RoadmapMobileNavbar";
@@ -17,5 +19,7 @@ function RoadMapPage({ sharedProps }) {
         </div>
     );
 }
+
+RoadMapPage.propTypes = { sharedProps: PropTypes.object }
 
 export default RoadMapPage;

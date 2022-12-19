@@ -1,4 +1,6 @@
-function RoadmapMobileNavItem({ text, totalFeedbackItems, isActive = false}) {
+import { PropTypes } from "prop-types";
+
+function RoadmapMobileNavItem({ text, totalFeedbackItems, isActive }) {
     return ( 
         <li className={ isActive ? 'roadmap__mobile-nav-item--active' : 'roadmap__mobile-nav-item' }>
             <button className="roadmap__mobile-nav-button button">
@@ -6,6 +8,14 @@ function RoadmapMobileNavItem({ text, totalFeedbackItems, isActive = false}) {
             </button>
         </li>
     );
+}
+
+RoadmapMobileNavItem.defaultProps = { isActive: false }
+
+RoadmapMobileNavItem.propTypes = {
+    text: PropTypes.string.isRequired,
+    totalFeedbackItems: PropTypes.number.isRequired,
+    isActive: PropTypes.bool
 }
 
 export default RoadmapMobileNavItem;
