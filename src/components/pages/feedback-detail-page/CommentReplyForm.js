@@ -31,7 +31,7 @@ function CommentReplyForm() {
 
                 <div className="comment__reply-form-button-container">
                     <Button 
-                        text={ 'Post Comment' }
+                        text={ 'Post Reply' }
                         className={ 'button--add-feedback' }
                         type={ 'submit' }
                     />

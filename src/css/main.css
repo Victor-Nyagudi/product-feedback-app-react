@@ -603,7 +603,7 @@ a {
       -ms-flex-align: start;
           align-items: flex-start;
   gap: 0 .85em;
-      grid-template-areas: 'comment-img-container comment-header' 'comment-message-container comment-message-container' 'comment-replies comment-replies';
+      grid-template-areas: 'comment-img-container comment-header' 'comment-message-container comment-message-container' 'comment-reply-form comment-reply-form' 'comment-replies comment-replies';
   -ms-grid-columns: 2fr 8fr;
       grid-template-columns: 2fr 8fr;
 }
@@ -684,7 +684,7 @@ a {
 }
 
 .feedback-detail__comment .comment__replies, .feedback-detail__comment--reply .comment__replies {
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: comment-replies;
@@ -694,6 +694,26 @@ a {
 
 .feedback-detail__comment .comment__replies .feedback-detail__comment--reply, .feedback-detail__comment--reply .comment__replies .feedback-detail__comment--reply {
   border-bottom: none;
+}
+
+.feedback-detail__comment .comment__reply-form-container, .feedback-detail__comment--reply .comment__reply-form-container {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: comment-reply-form;
+  padding-top: 1em;
+}
+
+.feedback-detail__comment .comment__reply-form-button-container, .feedback-detail__comment--reply .comment__reply-form-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .feedback-detail__add-comment {
@@ -1247,7 +1267,7 @@ a {
     -ms-grid-rows: minmax(45px, 45px) auto auto;
         grid-template-rows: minmax(45px, 45px) auto auto;
     gap: 0 2em;
-        grid-template-areas: 'comment-img-container comment-header comment-header' 'comment-img-container comment-message-container comment-message-container' 'comment-replies comment-replies comment-replies';
+        grid-template-areas: 'comment-img-container comment-header comment-header' 'comment-img-container comment-message-container comment-message-container' '. comment-reply-form comment-reply-form' 'comment-replies comment-replies comment-replies';
   }
   .feedback-detail__comment:not(:last-child), .feedback-detail__comment--reply:not(:last-child) {
     padding-bottom: 2em;
@@ -1266,6 +1286,27 @@ a {
   .feedback-detail__comment .comment__replies, .feedback-detail__comment--reply .comment__replies {
     padding-top: 2em;
     padding-left: 2em;
+  }
+  .feedback-detail__comment .comment__reply-form-container .comment__reply-form, .feedback-detail__comment--reply .comment__reply-form-container .comment__reply-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1em;
+  }
+  .feedback-detail__comment .comment__reply-form-container .comment__reply-form-textarea-container, .feedback-detail__comment--reply .comment__reply-form-container .comment__reply-form-textarea-container {
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+  }
+  .feedback-detail__comment .comment__reply-form-container .comment__reply-form-button-container, .feedback-detail__comment--reply .comment__reply-form-container .comment__reply-form-button-container {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
   }
   .feedback-detail__comment .comment__reply-button, .feedback-detail__comment--reply .comment__reply-button {
     font-size: .9rem;

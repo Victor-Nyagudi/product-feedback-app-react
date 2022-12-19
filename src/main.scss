@@ -617,6 +617,7 @@ a {
         grid-template-areas: 
             'comment-img-container comment-header'
             'comment-message-container comment-message-container'
+            'comment-reply-form comment-reply-form'
             'comment-replies comment-replies'
         ;
         
@@ -690,6 +691,19 @@ a {
                 padding-left: 1.5em;
 
                 & .feedback-detail__comment--reply { border-bottom: none; }
+            }
+
+            &__reply-form { 
+                &-container {
+                    grid-area: comment-reply-form; 
+                    padding-top: 1em;
+                }
+
+                &-button-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
             }
         }
     }
@@ -1114,6 +1128,7 @@ a {
             grid-template-areas: 
                 'comment-img-container comment-header comment-header'
                 'comment-img-container comment-message-container comment-message-container'
+                '. comment-reply-form comment-reply-form'
                 'comment-replies comment-replies comment-replies'
             ;
 
@@ -1139,6 +1154,26 @@ a {
                 &__replies { 
                     padding-top: 2em;
                     padding-left: 2em;
+                }
+
+                &__reply-form { 
+                    &-container {
+                        .comment__reply-form {
+                            display: flex;
+                            align-items: center;
+                            gap: 1em;
+
+                            &-textarea-container {
+                                flex: 4;
+                            }
+
+                            &-button-container {
+                                flex: 0 0 auto;
+
+                                align-self: flex-start;
+                            }
+                        }
+                    }
                 }
 
                 &__reply-button { font-size: .9rem; }
