@@ -1,3 +1,5 @@
+import { PropTypes } from "prop-types";
+
 function RoadmapInfoCategory({ category, quantity, iconColor }) {
     return ( 
         <li className="roadmap-info__category" aria-atomic="true">
@@ -16,6 +18,12 @@ function RoadmapInfoCategory({ category, quantity, iconColor }) {
             </div>
         </li>
     );
+}
+
+RoadmapInfoCategory.propTypes = {
+    category: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    iconColor: PropTypes.string.isRequired
 }
 
 export default RoadmapInfoCategory;

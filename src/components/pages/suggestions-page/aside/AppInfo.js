@@ -28,6 +28,6 @@ function AppInfo({ isMobileScreen }) {
     );
 }
 
-AppInfo.propTypes = { isMobileScreen: PropTypes.bool.isRequired }
+AppInfo.propTypes = { isMobileScreen: PropTypes.bool }
 
 export default AppInfo;

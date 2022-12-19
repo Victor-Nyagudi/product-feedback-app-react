@@ -1,3 +1,5 @@
+import { PropTypes } from "prop-types";
+
 function Tag({ tagName, isSelected }) {
     return ( 
         <li className={ isSelected ? "tags__tag tag--active" : "tags__tag" }>
@@ -6,6 +8,13 @@ function Tag({ tagName, isSelected }) {
             </button>
         </li>
     );
+}
+
+Tag.defaultProps = { isSelected: false }
+
+Tag.propTypes = {
+    tagName: PropTypes.string.isRequired,
+    isSelected: PropTypes.bool
 }
 
 export default Tag;
