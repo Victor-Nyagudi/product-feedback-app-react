@@ -1,4 +1,14 @@
-function Input({ hasIcon = false, id, inputType, inputName, inputValue, handleOnChange, isRequired = false }) {
+import { PropTypes } from "prop-types";
+
+function Input({ 
+    hasIcon, 
+    id, 
+    inputType, 
+    inputName, 
+    inputValue, 
+    handleOnChange, 
+    isRequired }
+) {
     return (    
         <>
             { 
@@ -36,6 +46,21 @@ function Input({ hasIcon = false, id, inputType, inputName, inputValue, handleOn
             }
         </>
     );
+}
+
+Input.defaultProps = {
+    hasIcon: false,
+    isRequired: false
+}
+
+Input.propTypes = {
+    hasIcon: PropTypes.bool,
+    id: PropTypes.string.isRequired,
+    inputType: PropTypes.string.isRequired,
+    inputName: PropTypes.string.isRequired,
+    inputValue: PropTypes.string,
+    handleOnChange: PropTypes.func.isRequired,
+    isRequired: PropTypes.bool
 }
 
 export default Input;

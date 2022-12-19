@@ -1,3 +1,5 @@
+import { PropTypes } from "prop-types";
+
 import AddEditFeedbackButton from "./AddEditFeedbackButton";
 import AddEditFeedbackInput from "./AddEditFeedbackInput";
 
@@ -90,6 +92,13 @@ function AddEditFeedbackMain({ title, isEditing }) {
             </form>
         </main>
     );
+}
+
+AddEditFeedbackMain.defaultProps = { isEditing: false }
+
+AddEditFeedbackMain.propTypes = {
+    title: PropTypes.string,
+    isEditing: PropTypes.bool
 }
 
 export default AddEditFeedbackMain;
