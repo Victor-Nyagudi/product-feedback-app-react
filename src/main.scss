@@ -471,6 +471,14 @@ a {
 
         background-color: getColor('light-grey');
         padding: 2em 0;
+
+        /*
+            * Just played around with this number until I 
+            * found where the page only moves a little but the container
+            * housing the feedback items scrolls
+        */ 
+        max-height: 83vh;
+        overflow: auto;
     }
 
     &__main-content { 
@@ -1054,6 +1062,8 @@ a {
 
         &__main {
             padding: 1.25em 0;
+            
+            max-height: 73vh;
 
             &-content.container {
                 width: 100%;
@@ -1243,6 +1253,8 @@ a {
 
             align-self: stretch;
         }
+
+        &__main { max-height: 90vh; }
     }
 
     .add-edit-feedback { padding: 5em 0 12em; }
