@@ -1,4 +1,6 @@
-function Button({ text, className, icon, type = 'button' }) {
+import { PropTypes } from "prop-types";
+
+function Button({ text, className, icon, type }) {
     return ( 
         <button 
             type={ `${type}` }
@@ -8,6 +10,17 @@ function Button({ text, className, icon, type = 'button' }) {
             { text }
         </button>
     );
+}
+
+Button.defaultProps ={
+    type: 'button'
+}
+
+Button.propTypes = {
+    text: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    className: PropTypes.string,
+    icon: PropTypes.node
 }
 
 export default Button;
