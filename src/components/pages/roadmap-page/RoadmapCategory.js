@@ -1,3 +1,5 @@
+import { PropTypes } from "prop-types";
+
 import RoadmapCategoryItem from "./RoadmapCategoryItem";
 
 function RoadmapCategory({ title, explanation, totalItems, color }) {
@@ -26,6 +28,13 @@ function RoadmapCategory({ title, explanation, totalItems, color }) {
             </ul>
         </section>
     );
+}
+
+RoadmapCategory.propTypes = {
+    title: PropTypes.string.isRequired,
+    explanation: PropTypes.string.isRequired,
+    totalItems: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired
 }
 
 export default RoadmapCategory;

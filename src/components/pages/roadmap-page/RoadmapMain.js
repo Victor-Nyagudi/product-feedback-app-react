@@ -6,21 +6,21 @@ function RoadmapMain() {
             <RoadmapCategory 
                 title={ 'Planned' }
                 explanation={ 'Ideas prioritized for research' }
-                totalItems={ '2' }
+                totalItems={ 2 }
                 color={ 'orange' }
             />
 
             <RoadmapCategory 
                 title={ 'In Progress' }
                 explanation={ 'Features currently being developed' }
-                totalItems={ '3' }
+                totalItems={ 3 }
                 color={ 'purple' }
             />
 
             <RoadmapCategory 
                 title={ 'Live' }
                 explanation={ 'Released features' }
-                totalItems={ '1' }
+                totalItems={ 1 }
                 color={ 'light-blue' }
             />
         </main>

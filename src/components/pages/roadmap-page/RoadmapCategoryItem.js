@@ -1,3 +1,5 @@
+import { PropTypes } from "prop-types";
+
 import FeedbackItem from "../../shared/FeedbackItem";
 
 function RoadmapCategoryItem({ color, badgeText }) {
@@ -10,6 +12,11 @@ function RoadmapCategoryItem({ color, badgeText }) {
             />
         </li>
     );
+}
+
+RoadmapCategoryItem.propTypes = {
+    color: PropTypes.string.isRequired,
+    badgeText: PropTypes.string.isRequired
 }
 
 export default RoadmapCategoryItem;
