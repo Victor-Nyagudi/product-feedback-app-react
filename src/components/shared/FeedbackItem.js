@@ -77,9 +77,7 @@ function FeedbackItem({ showBadge, badgeText, badgeColor }) {
     );
 }
 
-FeedbackItem.defaultProps = {
-    showBadge: false
-}
+FeedbackItem.defaultProps = { showBadge: false }
 
 FeedbackItem.propTypes = {
     showBadge: PropTypes.bool,

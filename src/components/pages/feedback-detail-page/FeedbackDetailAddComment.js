@@ -1,6 +1,13 @@
 import TextArea from "../../shared/TextArea";
 
+// TODO: Remember to implement handleChange function to handle input change
+
 function FeedbackDetailAddComment() {
+    function handleChange(value) {
+        console.log('This will handle textarea change event');
+        console.log(value);
+    }
+
     return ( 
         <section className="feedback-detail__add-comment">
             <h2 className="add-comment__title">
@@ -12,6 +19,7 @@ function FeedbackDetailAddComment() {
                     name={ 'add-feedback-message-comment' }
                     id={ 'add-feedback-message-comment' }
                     placeholder={ 'Type your comment here' }
+                    handleOnChange={ handleChange }
                 />   
 
                 <div className="add-comment__button-container">

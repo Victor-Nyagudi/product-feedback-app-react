@@ -1,4 +1,5 @@
 import Button from "./Button";
+import { PropTypes } from "prop-types";
 
 function GoBackHeader({ hasSecondaryButton, secButtonText, secButtonClassName, secButtonIcon }) {
     return ( 
@@ -28,6 +29,15 @@ function GoBackHeader({ hasSecondaryButton, secButtonText, secButtonClassName, s
             }
         </div>
     );
+}
+
+GoBackHeader.defaultProps = { hasSecondaryButton: false }
+
+GoBackHeader.propTypes = {
+    hasSecondaryButton: PropTypes.bool,
+    secButtonText: PropTypes.string,
+    secButtonClassName: PropTypes.string,
+    secButtonIcon: PropTypes.node
 }
 
 export default GoBackHeader;

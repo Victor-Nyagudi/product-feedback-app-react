@@ -1,4 +1,6 @@
-function GoBackButton({ iconColor = '#4661E6' }) {
+import { PropTypes } from "prop-types";
+
+function GoBackButton({ iconColor }) {
     return (    
         <button className="go-back__primary-button button">
             <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -11,5 +13,9 @@ function GoBackButton({ iconColor = '#4661E6' }) {
         </button>
     );
 }
+
+GoBackButton.defaultProps = { iconColor: '#4661E6' }
+
+GoBackButton.propTypes = { iconColor: PropTypes.string }
 
 export default GoBackButton;

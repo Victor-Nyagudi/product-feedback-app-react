@@ -12,9 +12,7 @@ function Button({ text, className, icon, type }) {
     );
 }
 
-Button.defaultProps ={
-    type: 'button'
-}
+Button.defaultProps = { type: 'button' }
 
 Button.propTypes = {
     text: PropTypes.string.isRequired,
