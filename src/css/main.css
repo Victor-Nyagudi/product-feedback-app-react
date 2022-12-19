@@ -918,6 +918,11 @@ a {
     margin: 0 auto;
     padding-top: 2.5em;
     background-color: #f7f8fd;
+    /*
+        * These styles apply to a feedback item whose ancestor has an element
+        * with a .parent__main e.g. suggestions__main or feedback-detail__main.
+        ! These styles should only applied in the 600px up breakpoint.
+    */
   }
   .suggestions__aside {
     display: -ms-grid;
@@ -1120,6 +1125,40 @@ a {
     width: 100%;
     margin: 0;
   }
+  .suggestions__main .feedback-item {
+    padding: 2em;
+  }
+  .suggestions__main .feedback-content {
+        grid-template-areas: 'feedback-item-upvotes feedback-item-text feedback-item-comments' 'feedback-item-upvotes  feedback-item-text feedback-item-comments' '. feedback-item-tag-container feedback-item-comments';
+    -ms-grid-columns: minmax(40px, 40px) 12fr 1fr;
+        grid-template-columns: minmax(40px, 40px) 12fr 1fr;
+    gap: 0 2em;
+  }
+  .suggestions__main .feedback-content__title {
+    font-size: 1.1rem;
+    margin-bottom: .25em;
+  }
+  .suggestions__main .feedback-content__upvotes {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .suggestions__main .feedback-content__upvotes-button {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 40px;
+    max-height: 53px;
+  }
+  .suggestions__main .feedback-content__comments {
+    gap: .65em;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .suggestions__main .feedback-content__tag-container {
+    margin-bottom: 0;
+  }
   .suggestions__empty {
     padding: 8em;
   }
@@ -1151,6 +1190,11 @@ a {
             * Since FeedbackItem is a shared component, some styles will only apply
             * on certain pages.
         */
+    /*
+        * These styles apply to a feedback item whose ancestor has an element
+        * with a .parent__main e.g. suggestions__main or feedback-detail__main.
+        ! These styles should only applied in the 600px up breakpoint.
+    */
   }
   .feedback-detail__main .feedback-item {
     padding: 2em;

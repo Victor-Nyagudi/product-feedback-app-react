@@ -126,6 +126,50 @@ a {
     justify-content: center;
 }
 
+@mixin feedback-item-600px-up {
+    /*
+        * These styles apply to a feedback item whose ancestor has an element
+        * with a .parent__main e.g. suggestions__main or feedback-detail__main.
+        ! These styles should only applied in the 600px up breakpoint.
+    */
+    &__main .feedback-item { padding: $feedback-detail-padding-lg; }
+
+    &__main .feedback-content {
+        grid-template-areas: 
+            'feedback-item-upvotes feedback-item-text feedback-item-comments'
+            'feedback-item-upvotes  feedback-item-text feedback-item-comments'
+            '. feedback-item-tag-container feedback-item-comments'
+        ;
+
+        grid-template-columns: $feedback-detail-column-sizing;
+
+        gap: $feedback-detail-column-gap;
+
+        &__title {
+            font-size: $feedback-detail-heading-desktop;
+            margin-bottom: .25em;
+        }
+
+        &__upvotes {
+            align-self: flex-start;
+
+            &-button { 
+                flex-direction: column;
+                
+                max-width: 40px;
+                max-height: 53px;
+            }
+        }
+
+        &__comments { 
+            gap: .65em; 
+            justify-content: flex-end;
+        }
+
+        &__tag-container { margin-bottom: 0; }
+    }
+}
+
 .button {
     font-family: $primary-font;
     font-weight: getFontWeight('bold');
@@ -1017,6 +1061,7 @@ a {
             }
         }
 
+        @include feedback-item-600px-up;
 
         &__empty {
             padding: 8em;
@@ -1047,42 +1092,7 @@ a {
             * Since FeedbackItem is a shared component, some styles will only apply
             * on certain pages.
         */
-        &__main .feedback-item { padding: $feedback-detail-padding-lg; }
-
-        &__main .feedback-content {
-            grid-template-areas: 
-                'feedback-item-upvotes feedback-item-text feedback-item-comments'
-                'feedback-item-upvotes  feedback-item-text feedback-item-comments'
-                '. feedback-item-tag-container feedback-item-comments'
-            ;
-
-            grid-template-columns: $feedback-detail-column-sizing;
-
-            gap: $feedback-detail-column-gap;
-
-            &__title {
-                font-size: $feedback-detail-heading-desktop;
-                margin-bottom: .25em;
-            }
-
-            &__upvotes {
-                align-self: flex-start;
-
-                &-button { 
-                    flex-direction: column;
-                    
-                    max-width: 40px;
-                    max-height: 53px;
-                }
-            }
-
-            &__comments { 
-                gap: .65em; 
-                justify-content: flex-end;
-            }
-
-            &__tag-container { margin-bottom: 0; }
-        }
+        @include feedback-item-600px-up;
 
         &__comments-container { padding: $feedback-detail-padding-lg; }
 
