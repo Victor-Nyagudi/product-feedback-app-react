@@ -871,6 +871,15 @@ a {
   .add-edit-feedback__button {
     padding: 1.05em 1.2em;
   }
+  .feedback-detail__comment--reply .comment__user-name, .feedback-detail__comment--reply .comment__user-handle {
+    font-size: .85rem;
+  }
+  .feedback-detail__comment--reply .comment__reply-button {
+    font-size: .75rem;
+  }
+  .feedback-detail__add-comment .add-comment__character-limit-message {
+    font-size: .85rem;
+  }
 }
 
 @media (min-width: 425px) {

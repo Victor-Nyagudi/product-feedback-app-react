@@ -779,6 +779,20 @@ a {
     }
 
     .add-edit-feedback__button { padding: 1.05em 1.2em; }
+
+    .feedback-detail__comment--reply {
+        .comment {
+            &__user-name, &__user-handle{ font-size: .85rem; }
+
+            &__reply-button { font-size: .75rem; }
+        }
+    }
+
+    .feedback-detail__add-comment {
+        .add-comment__character-limit-message {
+            font-size: .85rem;
+        }
+    }
 }
 
 // ? FeedbackDetailPage small edit
