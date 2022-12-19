@@ -1,6 +1,7 @@
 import Button from "../../shared/Button";
+import { PropTypes } from "prop-types";
 
-function AddEditFeedbackButton({ text, className, type = 'button' }) {
+function AddEditFeedbackButton({ text, className, type }) {
     return ( 
         <div className="add-edit-feedback__button-container">
             <Button 
@@ -10,6 +11,14 @@ function AddEditFeedbackButton({ text, className, type = 'button' }) {
             />
         </div>
     );
+}
+
+AddEditFeedbackButton.defaultProps = { type: 'button' }
+
+AddEditFeedbackButton.propTypes = {
+    text: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    type: PropTypes.string
 }
 
 export default AddEditFeedbackButton;
