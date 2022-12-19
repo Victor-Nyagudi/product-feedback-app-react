@@ -239,7 +239,8 @@ a {
   margin-bottom: .4em;
 }
 
-.feedback-content__title:hover, .feedback-content__title:focus {
+.feedback-content a.feedback-content__title:hover,
+.feedback-content a.feedback-content__title:focus {
   color: #4761e6;
 }
 

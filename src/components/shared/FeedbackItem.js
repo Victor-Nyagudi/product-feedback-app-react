@@ -3,6 +3,7 @@ function FeedbackItem({ showBadge = false, badgeText, badgeColor }) {
     
     return ( 
         <section className="feedback-item"> 
+            
             {
                 showBadge && 
 
@@ -17,9 +18,23 @@ function FeedbackItem({ showBadge = false, badgeText, badgeColor }) {
             
             <div className="feedback-content">
                 <div className="feedback-content__text">
-                    <a className="feedback-content__title">
-                        Add a dark theme option
-                    </a>
+                    {
+                        showBadge ?
+
+                        <>
+                            <h2 className="screen-reader-only">Title goes here</h2>
+
+                            <a href="#" className="feedback-content__title" tabIndex="0">
+                                Add a dark theme option
+                            </a>
+                        </>
+
+                        :
+
+                        <h2 className="feedback-content__title">
+                            Add a dark theme option
+                        </h2>
+                    }
 
                     <p className="feedback-content__message">
                         It would help people with light sensitivities and who prefer dark mode.

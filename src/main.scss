@@ -285,10 +285,12 @@ a {
         font-weight: getFontWeight('bold');
         color: getColor('purple-black');
 
-
         margin-bottom: .4em;
+    }
 
-        &:hover, &:focus { color: getColor('blue'); }
+    a.feedback-content__title:hover, 
+    a.feedback-content__title:focus {
+        color: getColor('blue');
     }
 
     &__message { color: getColor('grey-purple'); }
