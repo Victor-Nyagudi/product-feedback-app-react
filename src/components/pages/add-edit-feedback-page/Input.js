@@ -10,6 +10,14 @@ function Input({
     handleOnChange, 
     isRequired }
 ) {
+    const dropdownMenuItems = [
+        { buttonText: 'Feature', isSelected: true },
+        { buttonText: 'UI', isSelected: false },
+        { buttonText: 'UX', isSelected: false },
+        { buttonText: 'Enhancement', isSelected: false },
+        { buttonText: 'Bug', isSelected: false },
+    ];
+
     return (    
         <>
             { 
@@ -44,7 +52,7 @@ function Input({
                         </svg>
                     </button>
 
-                    <DropdownMenu />
+                    <DropdownMenu dropdownItems={ dropdownMenuItems } />
                 </div>
             }
         </>

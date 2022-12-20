@@ -4,6 +4,13 @@ import Button from "../../../shared/Button";
 import DropdownMenu from "../../../shared/DropdownMenu";
 
 function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
+    const dropdownMenuItems = [
+        { buttonText: 'Most Upvotes', isSelected: true }, 
+        { buttonText: 'Least Upvotes', isSelected: false }, 
+        { buttonText: 'Most Comments', isSelected: false }, 
+        { buttonText: 'Least Comments', isSelected: false } 
+    ];
+
     return ( 
         <header className="suggestions__header">
             <div className="suggestions__header-content container">
@@ -33,14 +40,7 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
                             </button>
                         </p>
 
-                        <DropdownMenu dropdownItems={
-                            [ 
-                                { buttonText: 'Most Upvotes', isSelected: true }, 
-                                { buttonText: 'Least Upvotes', isSelected: false }, 
-                                { buttonText: 'Most Comments', isSelected: false }, 
-                                { buttonText: 'Least Comments', isSelected: false }, 
-                            ]
-                        } />
+                        <DropdownMenu dropdownItems={ dropdownMenuItems } />
                     </div>    
                 </div>
 

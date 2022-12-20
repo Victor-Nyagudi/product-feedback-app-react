@@ -11,6 +11,10 @@ import DropdownMenuItem from "./DropdownMenuItem";
 function DropdownMenu({ dropdownItems }) {
     const [items, setItems] = useState(dropdownItems);
 
+    /*
+        * Getting this functionality of toggling the active button took longer than
+        * needed to get done, but I'm glad to get it done
+    */  
     function changeSelectedButton(index) {
         const updatedDropdownItems = items.map((item, i) =>
             {
@@ -24,8 +28,6 @@ function DropdownMenu({ dropdownItems }) {
             
         setItems(updatedDropdownItems);
     }
-
-    console.log(items);
 
     return (
         <ul className="dropdown-menu">
