@@ -1,6 +1,7 @@
 import { PropTypes } from "prop-types";
 
 import Button from "../../../shared/Button";
+import DropdownMenu from "../../../shared/DropdownMenu";
 
 function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
     return ( 
@@ -31,13 +32,15 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
                                 </svg>
                             </button>
                         </p>
+
+                        <DropdownMenu />
                     </div>    
                 </div>
 
                 <div className="suggestions__header-button-container">
                     <Button 
                         className={ 'button--add-feedback' }
-                        icon={ <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg" className="feedback-button-svg"><text transform="translate(-24 -20)" fill="#F2F4FE" fillRule="evenodd" fontFamily="Jost-Bold, Jost" fontSize="14" fontWeight="bold"><tspan x="24" y="27.5">+</tspan></text></svg> } 
+                        icon={ <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg" className="feedback-button-svg" aria-hidden="true"><text transform="translate(-24 -20)" fill="#F2F4FE" fillRule="evenodd" fontFamily="Jost-Bold, Jost" fontSize="14" fontWeight="bold"><tspan x="24" y="27.5">+</tspan></text></svg> } 
                         text={ 'Add Feedback' } 
                     />
                 </div>

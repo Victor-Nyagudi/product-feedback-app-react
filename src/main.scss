@@ -391,6 +391,38 @@ a {
     }
 }
 
+.dropdown-menu {
+    position: absolute;
+
+
+    background-color: getColor('white');
+    border-radius: $border-radius;
+    
+    box-shadow: 0px 10px 40px -7px #373F68;    
+    min-width: 200px;
+
+    &__item:not(:last-child) {
+        border-bottom: 1px solid getColor('border-bottom-color');
+    }
+
+    &__button {
+        font-size: .9rem;
+        font-weight: getFontWeight('regular');
+        color: getColor('grey-purple');
+        
+        width: 100%;
+        padding: 1em 1.5em;
+
+        @include flex-row-space-between;
+
+        &:hover, &:focus { color: getColor('purple') }
+
+        &--active {
+            @extend .dropdown-menu__button;
+        }
+    }
+}
+
 .suggestions {
     min-height: 100vh;
 
@@ -436,6 +468,8 @@ a {
             padding: .6em 0; 
         }
 
+        &-container { position: relative }
+
         &-info { font-size: .8rem; }
 
         &-filter { 
@@ -457,7 +491,6 @@ a {
 
         &-button-text { margin-right: .4em; }
     }
-
 
     &__main {
         /* 
