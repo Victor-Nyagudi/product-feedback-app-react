@@ -393,7 +393,8 @@ a {
 
 .dropdown-menu {
     position: absolute;
-
+    top: 4.25em;
+    left: 0;
 
     background-color: getColor('white');
     border-radius: $border-radius;
@@ -930,6 +931,12 @@ a {
         font-size: 1rem;
         margin-bottom: 0; 
         min-height: 96px;
+    }
+
+    .dropdown-menu { 
+        min-width: 255px; 
+
+        &__button { font-size: 1rem; }
     }
 
     .suggestions {
