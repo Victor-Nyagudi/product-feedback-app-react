@@ -1,9 +1,12 @@
 import { PropTypes } from "prop-types";
 
-function DropdownMenuItem({ isSelected, buttonText }) {
+function DropdownMenuItem({ isSelected, buttonText, setActive, index }) {
     return (
         <li className="dropdown-menu__item">
-            <button className={ isSelected ? 'dropdown-menu__button--active button' : 'dropdown-menu__button button' }>
+            <button 
+                className={ isSelected ? 'dropdown-menu__button--active button' : 'dropdown-menu__button button' }
+                onClick={ () => setActive(index) }
+            >
                 <span className="dropdown-menu__button-text">
                     { buttonText }
                 </span>

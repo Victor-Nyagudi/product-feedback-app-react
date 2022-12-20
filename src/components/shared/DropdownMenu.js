@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { PropTypes } from "prop-types";
+
 import DropdownMenuItem from "./DropdownMenuItem";
 
 /*
@@ -5,21 +8,42 @@ import DropdownMenuItem from "./DropdownMenuItem";
     ? of SuggestionsPage and what goes into the input fields in 
     ? AddEditFeedbackPage that require a dropdown menu
 */
-function DropdownMenu() {
+function DropdownMenu({ dropdownItems }) {
+    const [items, setItems] = useState(dropdownItems);
+
+    function changeSelectedButton(index) {
+        const updatedDropdownItems = items.map((item, i) =>
+            {
+                if (i === index)
+                    return ({ buttonText: item.buttonText, isSelected: true });
+
+                else
+                    return ({ buttonText: item.buttonText, isSelected: false });
+            } 
+        );
+            
+        setItems(updatedDropdownItems);
+    }
+
+    console.log(items);
+
     return (
         <ul className="dropdown-menu">
-            <DropdownMenuItem 
-                isSelected={ true } 
-                buttonText={ 'Most Upvotes' }
-            />
-            
-            <DropdownMenuItem buttonText={ 'Least Upvotes' } />
-            
-            <DropdownMenuItem buttonText={ 'Most Comments' } />
-            
-            <DropdownMenuItem buttonText={ 'Least Comments' } />
+            {
+                items.map((item, index) => 
+                    <DropdownMenuItem 
+                        key={ index }
+                        buttonText={ item.buttonText } 
+                        isSelected={ item.isSelected }
+                        index={ index }
+                        setActive={ changeSelectedButton }
+                    />
+                )
+            }
         </ul>
     );
 }
+
+DropdownMenu.propTypes = { dropdownItems: PropTypes.arrayOf(PropTypes.object) };
 
 export default DropdownMenu;

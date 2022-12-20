@@ -33,7 +33,14 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
                             </button>
                         </p>
 
-                        <DropdownMenu />
+                        <DropdownMenu dropdownItems={
+                            [ 
+                                { buttonText: 'Most Upvotes', isSelected: true }, 
+                                { buttonText: 'Least Upvotes', isSelected: false }, 
+                                { buttonText: 'Most Comments', isSelected: false }, 
+                                { buttonText: 'Least Comments', isSelected: false }, 
+                            ]
+                        } />
                     </div>    
                 </div>
 
