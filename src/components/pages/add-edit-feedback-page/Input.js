@@ -1,4 +1,6 @@
 import { PropTypes } from "prop-types";
+import React, { useState } from 'react';
+
 import DropdownMenu from "../../shared/DropdownMenu";
 
 function Input({ 
@@ -8,8 +10,9 @@ function Input({
     inputName, 
     inputValue, 
     handleOnChange, 
-    isRequired }
-) {
+    isRequired 
+}) {
+
     const dropdownMenuItems = [
         { buttonText: 'Feature', isSelected: true },
         { buttonText: 'UI', isSelected: false },
@@ -17,6 +20,12 @@ function Input({
         { buttonText: 'Enhancement', isSelected: false },
         { buttonText: 'Bug', isSelected: false },
     ];
+
+    const [inputText, setInputText] = useState(dropdownMenuItems[0].buttonText);
+
+    function changeInputValue(value) {
+        setInputText(value);
+    }
 
     return (    
         <>
@@ -37,12 +46,13 @@ function Input({
 
                 <div className="input--dropdown">
                     <input 
+                        readOnly
                         required={ isRequired }
                         className='input'
                         type={ `${inputType}` } 
                         name={ `${inputName}` } 
                         id={ `${id}` } 
-                        value={ inputValue }
+                        value={ inputText }
                         onChange={ e => handleOnChange(e.target.value) }
                     />
 
@@ -52,7 +62,10 @@ function Input({
                         </svg>
                     </button>
 
-                    <DropdownMenu dropdownItems={ dropdownMenuItems } />
+                    <DropdownMenu 
+                        dropdownItems={ dropdownMenuItems } 
+                        updateText={ changeInputValue }
+                    />
                 </div>
             }
         </>
