@@ -38,7 +38,7 @@ function AddEditFeedbackMain({ title, isEditing }) {
                 />
                 
                 <AddEditFeedbackInput 
-                    hasIcon={ true }
+                    hasDropdown={ true }
                     title={ 'Category' }
                     labelText={ 'Choose a category for your feedback' }
                     id={ 'feedback-category' }

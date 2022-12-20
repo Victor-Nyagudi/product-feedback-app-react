@@ -1,5 +1,10 @@
 import DropdownMenuItem from "./DropdownMenuItem";
 
+/*
+    ? This dropdown menu determines the text of the button following the "Sort by"
+    ? of SuggestionsPage and what goes into the input fields in 
+    ? AddEditFeedbackPage that require a dropdown menu
+*/
 function DropdownMenu() {
     return (
         <ul className="dropdown-menu">

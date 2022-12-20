@@ -139,8 +139,12 @@ a {
   outline: 1px solid #4761e6;
 }
 
-.input--icon {
+.input--dropdown {
   position: relative;
+}
+
+.input--dropdown .dropdown-menu {
+  min-width: 100%;
 }
 
 .input__dropdown-toggle {

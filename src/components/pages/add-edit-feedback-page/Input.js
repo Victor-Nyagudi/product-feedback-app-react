@@ -1,7 +1,8 @@
 import { PropTypes } from "prop-types";
+import DropdownMenu from "../../shared/DropdownMenu";
 
 function Input({ 
-    hasIcon, 
+    hasDropdown, 
     id, 
     inputType, 
     inputName, 
@@ -12,7 +13,7 @@ function Input({
     return (    
         <>
             { 
-                !hasIcon ?
+                !hasDropdown ?
                 
                 <input 
                     required={ isRequired }
@@ -26,7 +27,7 @@ function Input({
 
                 :
 
-                <div className="input--icon">
+                <div className="input--dropdown">
                     <input 
                         required={ isRequired }
                         className='input'
@@ -42,6 +43,8 @@ function Input({
                             <path d="M1 1l4 4 4-4" stroke="#4661E6" strokeWidth="2" fill="none" fillRule="evenodd"/>
                         </svg>
                     </button>
+
+                    <DropdownMenu />
                 </div>
             }
         </>

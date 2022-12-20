@@ -250,7 +250,11 @@ a {
 
     &:hover ,&:focus { outline: 1px solid getColor('blue'); }
 
-    &--icon { position: relative; }
+    &--dropdown { 
+        position: relative; 
+
+        & .dropdown-menu { min-width: 100%; }
+    }
     
     &__dropdown-toggle {
         position: absolute;

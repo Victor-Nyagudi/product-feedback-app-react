@@ -5,7 +5,7 @@ import TextArea from '../../shared/TextArea';
 import Input from './Input';
 
 function AddEditFeedbackInput({ 
-    hasIcon,
+    hasDropdown,
     id, 
     inputName, 
     inputType,
@@ -45,7 +45,7 @@ function AddEditFeedbackInput({
 
                 <Input 
                     isRequired={ isRequired }
-                    hasIcon={ hasIcon }
+                    hasDropdown={ hasDropdown }
                     inputType={ `${ inputType }` }
                     inputName={ `${ inputName }` } 
                     id={ `${ id }` }
