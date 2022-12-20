@@ -14,9 +14,18 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
     ];
     
     const [buttonText, setButtonText] = useState(dropdownMenuItems[0].buttonText);
+    const [shouldShowDropdownMenu, setShouldShowDropdownMenu] = useState(false);
 
     function changeButtonText(text) {
         setButtonText(text);
+    }
+
+    function toggleDropdownMenu(isMenuOpen) {
+        if (isMenuOpen)
+            setShouldShowDropdownMenu(false);
+        
+        else
+            setShouldShowDropdownMenu(true);
     }
 
     return ( 
@@ -40,7 +49,11 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
                     <div className="suggestions__header-container">
                         <p className="suggestions__header-filter">
                             Sort by :
-                            <button type="button" className="suggestions__header-sort button">
+                            <button 
+                                type="button" 
+                                className="suggestions__header-sort button"
+                                onClick={ () => toggleDropdownMenu(false) }
+                            >
                                 <span className="suggestions__header-button-text">{ buttonText }</span>
                                 <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path d="M1 1l4 4 4-4" stroke="#FFFFFF" strokeWidth="2" fill="none" fillRule="evenodd"/>
@@ -51,6 +64,8 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
                         <DropdownMenu 
                             dropdownItems={ dropdownMenuItems } 
                             updateText={ changeButtonText }
+                            toggleDropdownMenu={ toggleDropdownMenu }
+                            shouldShow={ shouldShowDropdownMenu }
                         />
                     </div>    
                 </div>

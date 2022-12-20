@@ -8,7 +8,12 @@ import DropdownMenuItem from "./DropdownMenuItem";
     ? of SuggestionsPage and what goes into the input fields in 
     ? AddEditFeedbackPage that require a dropdown menu
 */
-function DropdownMenu({ dropdownItems, updateText }) {
+function DropdownMenu({ 
+    dropdownItems, 
+    updateText, 
+    toggleDropdownMenu,
+    shouldShow 
+}) {
     const [items, setItems] = useState(dropdownItems);
 
     /*
@@ -32,7 +37,7 @@ function DropdownMenu({ dropdownItems, updateText }) {
     }
 
     return (
-        <ul className="dropdown-menu">
+        <ul className={shouldShow ? "dropdown-menu" : "dropdown-menu--hidden" } >
             {
                 items.map((item, index) => 
                     <DropdownMenuItem 
@@ -41,6 +46,7 @@ function DropdownMenu({ dropdownItems, updateText }) {
                         isSelected={ item.isSelected }
                         index={ index }
                         setActive={ changeSelectedButton }
+                        toggleDropdownMenu={ toggleDropdownMenu }
                     />
                 )
             }
@@ -48,6 +54,10 @@ function DropdownMenu({ dropdownItems, updateText }) {
     );
 }
 
-DropdownMenu.propTypes = { dropdownItems: PropTypes.arrayOf(PropTypes.object) };
+DropdownMenu.propTypes = { 
+    dropdownItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+    updateText: PropTypes.func,
+    toggleDropdownMenu: PropTypes.func.isRequired
+};
 
 export default DropdownMenu;

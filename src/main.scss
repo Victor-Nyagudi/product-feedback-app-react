@@ -426,6 +426,12 @@ a {
             @extend .dropdown-menu__button;
         }
     }
+
+    &--hidden {
+        @extend .dropdown-menu;
+
+        display: none;
+    }
 }
 
 .suggestions {

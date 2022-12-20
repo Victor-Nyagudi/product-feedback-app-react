@@ -1,11 +1,23 @@
 import { PropTypes } from "prop-types";
 
-function DropdownMenuItem({ isSelected, buttonText, setActive, index }) {
+function DropdownMenuItem({ 
+    isSelected, 
+    buttonText, 
+    setActive, 
+    index,
+    toggleDropdownMenu 
+}) {
+    function handleClick(index) {
+        setActive(index);
+
+        toggleDropdownMenu(true);
+    }
+
     return (
         <li className="dropdown-menu__item">
             <button 
                 className={ isSelected ? 'dropdown-menu__button--active button' : 'dropdown-menu__button button' }
-                onClick={ () => setActive(index) }
+                onClick={ () => handleClick(index) }
             >
                 <span className="dropdown-menu__button-text">
                     { buttonText }
@@ -27,7 +39,10 @@ DropdownMenuItem.defaultProps = { isSelected: false }
 
 DropdownMenuItem.propTypes = { 
     isSelected: PropTypes.bool, 
-    buttonText: PropTypes.string.isRequired
+    buttonText: PropTypes.string.isRequired,
+    setActive: PropTypes.func,
+    index: PropTypes.number,
+    toggleDropdownMenu: PropTypes.func.isRequired
 }
 
 export default DropdownMenuItem;
