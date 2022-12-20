@@ -1,4 +1,5 @@
 import elijahImg from "../../../assets/user-images/image-elijah.jpg";
+import CommentReplyForm from "./CommentReplyForm";
 
 function FeedbackItemCommentReply() {
     return ( 
@@ -30,6 +31,8 @@ function FeedbackItemCommentReply() {
                     Also, please allow styles to be applied on system preference. I would love to be able to browse Frontend Mentor in the evening after my device's dark mode turns on without the bright background it currently has.
                 </p>
             </div>
+
+            <CommentReplyForm />
         </li>
     );
 }
