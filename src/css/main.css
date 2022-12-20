@@ -939,6 +939,9 @@ a {
   .suggestions .button--main {
     padding: .8em .95em;
   }
+  .suggestions__header-button-container .button--add-feedback {
+    padding: .8em .6em;
+  }
   .add-edit-feedback__button {
     padding: 1.05em 1.2em;
   }

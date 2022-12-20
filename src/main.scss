@@ -880,6 +880,10 @@ a {
 @media (max-width: 330px) {
     .suggestions {
         .button--main { padding: .8em .95em; }
+
+        &__header-button-container .button--add-feedback { 
+            padding: .8em .6em; 
+        }
     }
 
     .add-edit-feedback__button { padding: 1.05em 1.2em; }

@@ -1,15 +1,23 @@
 import { PropTypes } from "prop-types";
+import React, { useState } from 'react';
 
 import Button from "../../../shared/Button";
 import DropdownMenu from "../../../shared/DropdownMenu";
 
 function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
+    
     const dropdownMenuItems = [
         { buttonText: 'Most Upvotes', isSelected: true }, 
         { buttonText: 'Least Upvotes', isSelected: false }, 
         { buttonText: 'Most Comments', isSelected: false }, 
         { buttonText: 'Least Comments', isSelected: false } 
     ];
+    
+    const [buttonText, setButtonText] = useState(dropdownMenuItems[0].buttonText);
+
+    function changeButtonText(text) {
+        setButtonText(text);
+    }
 
     return ( 
         <header className="suggestions__header">
@@ -33,14 +41,17 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
                         <p className="suggestions__header-filter">
                             Sort by :
                             <button type="button" className="suggestions__header-sort button">
-                                <span className="suggestions__header-button-text">Most Upvotes</span>
+                                <span className="suggestions__header-button-text">{ buttonText }</span>
                                 <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path d="M1 1l4 4 4-4" stroke="#FFFFFF" strokeWidth="2" fill="none" fillRule="evenodd"/>
                                 </svg>
                             </button>
                         </p>
 
-                        <DropdownMenu dropdownItems={ dropdownMenuItems } />
+                        <DropdownMenu 
+                            dropdownItems={ dropdownMenuItems } 
+                            updateText={ changeButtonText }
+                        />
                     </div>    
                 </div>
 

@@ -8,7 +8,7 @@ import DropdownMenuItem from "./DropdownMenuItem";
     ? of SuggestionsPage and what goes into the input fields in 
     ? AddEditFeedbackPage that require a dropdown menu
 */
-function DropdownMenu({ dropdownItems }) {
+function DropdownMenu({ dropdownItems, updateText }) {
     const [items, setItems] = useState(dropdownItems);
 
     /*
@@ -26,6 +26,8 @@ function DropdownMenu({ dropdownItems }) {
             } 
         );
             
+        updateText(updatedDropdownItems.filter(item => item.isSelected === true)[0].buttonText);
+        
         setItems(updatedDropdownItems);
     }
 
