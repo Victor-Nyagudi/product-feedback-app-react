@@ -1,7 +1,19 @@
+import React, { useState } from 'react';
+
 import elijahImg from "../../../assets/user-images/image-elijah.jpg";
 import CommentReplyForm from "./CommentReplyForm";
 
 function FeedbackItemCommentReply() {
+    const [shouldShowCommentForm, setShouldShowCommentForm] = useState(false);
+
+    function toggleCommentReplyForm(isMenuOpen) {
+        if (isMenuOpen)
+            setShouldShowCommentForm(false);
+        
+        else
+            setShouldShowCommentForm(true);
+    }
+
     return ( 
         <li className="feedback-detail__comment--reply">
             <div className="comment__img-container">
@@ -20,7 +32,11 @@ function FeedbackItemCommentReply() {
                 </div>
                 
                 <div className="comment__reply-container">
-                    <button type="button" className="comment__reply-button button">
+                    <button 
+                        type="button" 
+                        className="comment__reply-button button"
+                        onClick={ () => toggleCommentReplyForm(false) }
+                    >
                         Reply
                     </button>
                 </div>
@@ -32,7 +48,10 @@ function FeedbackItemCommentReply() {
                 </p>
             </div>
 
-            <CommentReplyForm />
+            <CommentReplyForm 
+                shouldShow={ shouldShowCommentForm }
+                toggleCommentReplyForm={ toggleCommentReplyForm }
+            />
         </li>
     );
 }

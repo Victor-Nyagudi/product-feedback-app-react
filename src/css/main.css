@@ -753,6 +753,11 @@ a {
   padding-top: 1em;
 }
 
+.feedback-detail__comment .comment__reply-form-container--hidden, .feedback-detail__comment--reply .comment__reply-form-container--hidden {
+  max-height: 0;
+  overflow: hidden;
+}
+
 .feedback-detail__comment .comment__reply-form-button-container, .feedback-detail__comment--reply .comment__reply-form-button-container {
   display: -webkit-box;
   display: -ms-flexbox;

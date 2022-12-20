@@ -742,6 +742,12 @@ a {
                 &-container {
                     grid-area: comment-reply-form; 
                     padding-top: 1em;
+
+                    // TODO: Animate revealing the form for the smooth finish
+                    &--hidden { 
+                        max-height: 0; 
+                        overflow: hidden;
+                    }
                 }
 
                 &-button-container {

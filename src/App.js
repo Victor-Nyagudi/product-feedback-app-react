@@ -77,8 +77,8 @@ function App() {
   return (
     <>
       {/* <SuggestionsPage sharedProps={ sharedProps } /> */}
-      <AddEditFeedbackPage sharedProps={ sharedProps } />
-      {/* <FeedbackDetailPage sharedProps={ sharedProps } /> */}
+      {/* <AddEditFeedbackPage sharedProps={ sharedProps } /> */}
+      <FeedbackDetailPage sharedProps={ sharedProps } />
       {/* <RoadMapPage sharedProps={ sharedProps } /> */}
     </>
   );

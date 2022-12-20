@@ -1,8 +1,25 @@
+import React, { useState } from 'react';
+
 import elijahImg from "../../../assets/user-images/image-elijah.jpg";
 import CommentReplyForm from "./CommentReplyForm";
 import FeedbackItemCommentReply from "./FeedbackItemCommentReply";
 
 function FeedbackItemComment() {
+    /*
+        * Similar thing happening here with a comment form instead of 
+        * a dropdown menu like in SuggestionsHeader.js and Input.js
+        * where it's toggled to show/hide it
+    */
+    const [shouldShowCommentForm, setShouldShowCommentForm] = useState(false);
+
+    function toggleCommentReplyForm(isMenuOpen) {
+        if (isMenuOpen)
+            setShouldShowCommentForm(false);
+        
+        else
+            setShouldShowCommentForm(true);
+    }
+
     return (    
         <li className="feedback-detail__comment">
             <div className="comment__img-container">
@@ -21,7 +38,11 @@ function FeedbackItemComment() {
                 </div>
                 
                 <div className="comment__reply-container">
-                    <button type="button" className="comment__reply-button button">
+                    <button 
+                        type="button" 
+                        className="comment__reply-button button"
+                        onClick={ () => toggleCommentReplyForm(false) }
+                    >
                         Reply
                     </button>
                 </div>
@@ -33,7 +54,10 @@ function FeedbackItemComment() {
                 </p>
             </div>
 
-            <CommentReplyForm />
+            <CommentReplyForm 
+                shouldShow={ shouldShowCommentForm }
+                toggleCommentReplyForm={ toggleCommentReplyForm }
+            />
 
             <ul className="comment__replies">
                 <FeedbackItemCommentReply />

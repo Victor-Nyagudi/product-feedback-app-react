@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { PropTypes } from "prop-types";
 
 import Button from "../../shared/Button";
 import TextArea from "../../shared/TextArea";
 
-function CommentReplyForm() {
+function CommentReplyForm({ shouldShow, toggleCommentReplyForm }) {
     const [textAreaValue, setTextAreaValue] = useState('');
 
     function handleChange(value) {
@@ -17,7 +18,7 @@ function CommentReplyForm() {
     }
 
     return ( 
-        <div className="comment__reply-form-container">
+        <div className={ shouldShow ? "comment__reply-form-container" : "comment__reply-form-container--hidden" }>
             <form className="comment__reply-form" onSubmit={ handleSubmit }>
                 <div className="comment__reply-form-textarea-container">
                     <TextArea 
@@ -39,6 +40,11 @@ function CommentReplyForm() {
             </form>
         </div>
     );
+}
+
+CommentReplyForm.propTypes = {
+    shouldShow: PropTypes.bool,
+    toggleCommentReplyForm: PropTypes.func
 }
 
 export default CommentReplyForm;
