@@ -57,7 +57,8 @@ function DropdownMenu({
 DropdownMenu.propTypes = { 
     dropdownItems: PropTypes.arrayOf(PropTypes.object).isRequired,
     updateText: PropTypes.func,
-    toggleDropdownMenu: PropTypes.func.isRequired
+    toggleDropdownMenu: PropTypes.func.isRequired,
+    shouldShow: PropTypes.bool.isRequired
 };
 
 export default DropdownMenu;

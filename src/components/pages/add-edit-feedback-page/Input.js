@@ -27,6 +27,25 @@ function Input({
         setInputText(value);
     }
 
+    /*
+        * shouldShowDropdownMenu state and toggleDropdownMenu function are copied from SuggestionHeader
+        * since both these components have a dropdown. For a project like this
+        * where the dropdown is only used in two pages, this can work, but for
+        * bigger projects, a more robust solution could be better.
+        
+        * Then again, I also thought that giving each component its own state is good so
+        * that it can be controlled independently rather than by a shared parent.
+    */
+    const [shouldShowDropdownMenu, setShouldShowDropdownMenu] = useState(false);
+
+    function toggleDropdownMenu(isMenuOpen) {
+        if (isMenuOpen)
+            setShouldShowDropdownMenu(false);
+        
+        else
+            setShouldShowDropdownMenu(true);
+    }
+
     return (    
         <>
             { 
@@ -56,7 +75,11 @@ function Input({
                         onChange={ e => handleOnChange(e.target.value) }
                     />
 
-                    <button type="button" className="input__dropdown-toggle button">
+                    <button 
+                        type="button" 
+                        className="input__dropdown-toggle button"
+                        onClick={ () => toggleDropdownMenu(false) }
+                    >
                         <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 1l4 4 4-4" stroke="#4661E6" strokeWidth="2" fill="none" fillRule="evenodd"/>
                         </svg>
@@ -65,6 +88,8 @@ function Input({
                     <DropdownMenu 
                         dropdownItems={ dropdownMenuItems } 
                         updateText={ changeInputValue }
+                        toggleDropdownMenu={ toggleDropdownMenu }
+                        shouldShow={ shouldShowDropdownMenu }
                     />
                 </div>
             }
