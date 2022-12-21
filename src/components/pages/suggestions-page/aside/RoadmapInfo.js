@@ -1,6 +1,12 @@
+import { PropTypes } from "prop-types";
+
 import RoadmapInfoCategory from "./RoadmapInfoCategory";
 
-function RoadmapInfo() {
+function RoadmapInfo({ feedbackItems }) {
+    const plannedCategoryName = 'Planned';
+    const inProgressCategoryName = 'In Progress';
+    const liveCategoryName = 'Live';
+
     return ( 
         <section className="roadmap-info">
             <div className="roadmap-info__header">
@@ -17,25 +23,27 @@ function RoadmapInfo() {
 
             <ul className="roadmap-info__categories">
                 <RoadmapInfoCategory 
-                    category={ 'Planned' } 
-                    quantity={ 0 } 
+                    category={ plannedCategoryName } 
+                    quantity={ feedbackItems.filter(item => item.status === plannedCategoryName).length } 
                     iconColor={ 'orange' }
                 />
                 
                 <RoadmapInfoCategory 
-                    category={ 'In Progress' } 
-                    quantity={ 0 } 
+                    category={ inProgressCategoryName } 
+                    quantity={ feedbackItems.filter(item => item.status === inProgressCategoryName).length } 
                     iconColor={ 'purple' }
                 />
                 
                 <RoadmapInfoCategory 
-                    category={ 'Live' } 
-                    quantity={ 0 } 
+                    category={ liveCategoryName } 
+                    quantity={ feedbackItems.filter(item => item.status === liveCategoryName).length } 
                     iconColor={ 'light-blue' }
                 />
             </ul>
         </section>
     );
 }
+
+RoadmapInfo.propTypes = { feedbackItems: PropTypes.arrayOf(PropTypes.object) };
 
 export default RoadmapInfo;
