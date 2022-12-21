@@ -15,7 +15,10 @@ function SuggestionsPage({ sharedProps }) {
                 : <SuggestionsAside /> 
             }
 
-            <SuggestionsContent isMobileScreen={ sharedProps.isMobileScreen } />
+            <SuggestionsContent 
+                isMobileScreen={ sharedProps.isMobileScreen }
+                feedbackItems={ sharedProps.feedbackItems }
+            />
         </div>
     );
 }

@@ -1,6 +1,15 @@
 import { PropTypes } from "prop-types";
 
-function FeedbackItem({ showBadge, badgeText, badgeColor }) {
+function FeedbackItem({ 
+    showBadge, 
+    badgeText, 
+    badgeColor,
+    title,
+    message,
+    tagCategory,
+    totalUpvotes,
+    totalComments
+}) {
     // TODO Remember to make the feedback message keyboard focusable
     
     return ( 
@@ -24,22 +33,22 @@ function FeedbackItem({ showBadge, badgeText, badgeColor }) {
                         showBadge ?
 
                         <>
-                            <h2 className="screen-reader-only">Title goes here</h2>
+                            <h2 className="screen-reader-only">{ title }</h2>
 
                             <a href="#" className="feedback-content__title" tabIndex="0">
-                                Add a dark theme option
+                                { title }
                             </a>
                         </>
 
                         :
 
                         <h2 className="feedback-content__title">
-                            Add a dark theme option
+                            { title }
                         </h2>
                     }
 
                     <p className="feedback-content__message">
-                        It would help people with light sensitivities and who prefer dark mode.
+                        { message }
                     </p>
                 </div>
 
@@ -50,7 +59,7 @@ function FeedbackItem({ showBadge, badgeText, badgeColor }) {
                         </svg>
 
                         <span className="feedback-content__upvotes-total">
-                            99
+                            { totalUpvotes }
                         </span>
                     </button>
                 </div>
@@ -61,14 +70,14 @@ function FeedbackItem({ showBadge, badgeText, badgeColor }) {
                     </svg>
 
                     <p className="feedback-content__comments-total">
-                        4
+                        { totalComments }
                     </p>
                 </div>
                 
                 <div className="feedback-content__tag-container">
                     <div className="feedback-content__tag">
                         <p className="feedback-content__tag-text">
-                            Feature
+                            { tagCategory }
                         </p>
                     </div>
                 </div>
@@ -82,7 +91,12 @@ FeedbackItem.defaultProps = { showBadge: false }
 FeedbackItem.propTypes = {
     showBadge: PropTypes.bool,
     badgeText: PropTypes.string,
-    badgeColor: PropTypes.string
+    badgeColor: PropTypes.string,
+    title: PropTypes.string,
+    message: PropTypes.string,
+    category: PropTypes.string,
+    totalUpvotes: PropTypes.number,
+    totalComments: PropTypes.number,
 }
 
 export default FeedbackItem;

@@ -3,15 +3,18 @@ import { PropTypes } from "prop-types";
 import SuggestionsHeader from "./SuggestionsHeader";
 import SuggestionsMain from "./SuggestionsMain";
 
-function SuggestionsContent({ isMobileScreen }) {
+function SuggestionsContent({ isMobileScreen, feedbackItems }) {
     return ( 
         <div className="suggestions__content">
             <SuggestionsHeader totalSuggestions={ 0 } isMobileScreen={ isMobileScreen } />
-            <SuggestionsMain />
+            <SuggestionsMain feedbackItems={ feedbackItems } />
         </div>
     );
 }
 
-SuggestionsContent.propTypes = { isMobileScreen: PropTypes.bool }
+SuggestionsContent.propTypes = { 
+    isMobileScreen: PropTypes.bool,
+    feedbackItems: PropTypes.arrayOf(PropTypes.object) 
+}
 
 export default SuggestionsContent;
