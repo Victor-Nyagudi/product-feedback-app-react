@@ -1,10 +1,14 @@
 import { PropTypes } from "prop-types";
 import React, { useState } from 'react';
 
-import elijahImg from "../../../assets/user-images/image-elijah.jpg";
 import CommentReplyForm from "./CommentReplyForm";
 
 function FeedbackItemCommentReply({ replyText, personReplying, replyingTo }) {
+    
+    // * Same thing like in FeedbackItemComment with the user's image
+
+    const personReplyingFirstName = personReplying.name.split(' ')[0].toLowerCase();
+
     const [shouldShowCommentForm, setShouldShowCommentForm] = useState(false);
 
     function toggleCommentReplyForm(isMenuOpen) {
@@ -18,7 +22,10 @@ function FeedbackItemCommentReply({ replyText, personReplying, replyingTo }) {
     return ( 
         <li className="feedback-detail__comment--reply">
             <div className="comment__img-container">
-                <img src={ elijahImg } alt="Elijah's headshot" className="comment__user-img" />
+                <img 
+                    src={ require(`../../../assets/user-images/image-${personReplyingFirstName}.jpg`) } alt={`${personReplyingFirstName} headshot`} 
+                    className="comment__user-img" 
+                />
             </div>
 
             <div className="comment__header">
