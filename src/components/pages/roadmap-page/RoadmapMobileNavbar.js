@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { PropTypes } from "prop-types";
 
 import RoadmapMobileNavItem from "./RoadmapMobileNavItem";
 
-function RoadmapMobileNavbar() {
+function RoadmapMobileNavbar({ getActiveMobileNavItem }) {
   /*
     * Now, where I have this kind of implementation before, hmmm..? :)
     * Hint: DropdownMenu.js
@@ -34,6 +35,8 @@ function RoadmapMobileNavbar() {
       }
     )
 
+    getActiveMobileNavItem(updatedNavItems.filter(item => item.isActive === true)[0]);
+    
     setMobileNavItems(updatedNavItems);
   }
 
@@ -56,6 +59,10 @@ function RoadmapMobileNavbar() {
     </nav>
     
   );
+}
+
+RoadmapMobileNavbar.propTypes = { 
+  getActiveMobileNavItem: PropTypes.func 
 }
 
 export default RoadmapMobileNavbar;

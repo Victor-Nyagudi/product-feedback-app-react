@@ -1,10 +1,17 @@
 import { PropTypes } from "prop-types";
+import React, { useState } from 'react';
 
 import RoadmapHeader from "./RoadmapHeader";
 import RoadmapMain from "./RoadmapMain";
 import RoadmapMobileNavbar from "./RoadmapMobileNavbar";
 
 function RoadMapPage({ sharedProps }) {
+    const [activeMobileNavItem, setActiveMobileNavItem] = useState(null);
+
+    function getActiveMobileNavItem(navItem) {
+        setActiveMobileNavItem(navItem);
+    }
+
     return ( 
         <div className="roadmap">
             <RoadmapHeader />
@@ -12,10 +19,13 @@ function RoadMapPage({ sharedProps }) {
             {
                 sharedProps.isSmallerThan700px &&
                 
-                <RoadmapMobileNavbar />
+                <RoadmapMobileNavbar getActiveMobileNavItem={ getActiveMobileNavItem }/>
             }
 
-            <RoadmapMain isMobileScreen={ sharedProps.isMobileScreen } />
+            <RoadmapMain 
+                isSmallerThan700px={ sharedProps.isSmallerThan700px } 
+                activeMobileNavItem={ activeMobileNavItem }
+            />
         </div>
     );
 }
