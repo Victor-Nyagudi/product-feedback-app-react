@@ -5,12 +5,6 @@ import AddEditFeedbackPage from './components/pages/add-edit-feedback-page/AddEd
 import FeedbackDetailPage from './components/pages/feedback-detail-page/FeedbackDetailPage';
 import RoadMapPage from './components/pages/roadmap-page/RoadmapPage';
 
-
-/*
-  TODO: isTabletScreen might not be necessary.
-  TODO: Consider removing it and its functions if no longer needed
-*/ 
-
 function App() {
   const mobileLayoutUpperBound = 600;
   const tabletLayoutUpperBound = 820;
@@ -23,9 +17,6 @@ function App() {
   const roadmapPageUpperBound = 700;
 
   const [isMobileScreen, setIsMobileScreen] = useState(window.outerWidth < mobileLayoutUpperBound);
-  const [isTabletScreen, setIsTabletScreen] = 
-      useState(window.outerWidth > mobileLayoutUpperBound && window.outerWidth < tabletLayoutUpperBound);
-  
   const [isSmallerThan700px, setIsSmallerThan700px] = useState(window.outerWidth < roadmapPageUpperBound);
   
   /* 
@@ -40,16 +31,6 @@ function App() {
     return () => window.removeEventListener('resize', showMobileLayout);
   }, [isMobileScreen]);
 
-  /* 
-    * The behavior is interesting at the 600 and 820 breakpoint.
-    * Log 'isTabletScreen' to the console to see it. Works fine though.
-  */
-  useEffect(() => {
-    window.addEventListener('resize', showTabletLayout);
-
-    return () => window.addEventListener('resize', showTabletLayout);
-  }, [isTabletScreen]);
-
   useEffect(() => {
     window.addEventListener('resize', showRoadmapPageNavbar);
     
@@ -59,10 +40,6 @@ function App() {
 
   function showRoadmapPageNavbar() {
     setIsSmallerThan700px(window.outerWidth < roadmapPageUpperBound);
-  }
-
-  function showTabletLayout() {
-    setIsTabletScreen(window.outerWidth > mobileLayoutUpperBound && window.outerWidth < tabletLayoutUpperBound);
   }
 
   function showMobileLayout() {
@@ -76,10 +53,10 @@ function App() {
 
   return (
     <>
-      {/* <SuggestionsPage sharedProps={ sharedProps } /> */}
+      <SuggestionsPage sharedProps={ sharedProps } />
       {/* <AddEditFeedbackPage sharedProps={ sharedProps } /> */}
       {/* <FeedbackDetailPage sharedProps={ sharedProps } /> */}
-      <RoadMapPage sharedProps={ sharedProps } />
+      {/* <RoadMapPage sharedProps={ sharedProps } /> */}
     </>
   );
 }
