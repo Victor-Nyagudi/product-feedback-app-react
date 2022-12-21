@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { PropTypes } from "prop-types";
 
 import elijahImg from "../../../assets/user-images/image-elijah.jpg";
 import CommentReplyForm from "./CommentReplyForm";
 import FeedbackItemCommentReply from "./FeedbackItemCommentReply";
 
-function FeedbackItemComment() {
+function FeedbackItemComment({ commentText, commenter }) {
     /*
         * Similar thing happening here with a comment form instead of 
         * a dropdown menu like in SuggestionsHeader.js and Input.js
@@ -29,11 +30,11 @@ function FeedbackItemComment() {
             <div className="comment__header">
                 <div className="comment__user-info">
                     <h3 className="comment__user-name">
-                        Elijah Moss
+                        { commenter.name }
                     </h3>
                     
                     <p className="comment__user-handle">
-                        @hexagon.bestagon
+                        { `@${commenter.username}` }
                     </p>
                 </div>
                 
@@ -50,7 +51,7 @@ function FeedbackItemComment() {
             
             <div className="comment__message-container">
                 <p className="comment__message">
-                    Also, please allow styles to be applied on system preference. I would love to be able to browse Frontend Mentor in the evening after my device's dark mode turns on without the bright background it currently has.
+                    { commentText }
                 </p>
             </div>
 
@@ -66,5 +67,10 @@ function FeedbackItemComment() {
         </li>
     );
 }
+
+FeedbackItemComment.propTypes = { 
+    commentText: PropTypes.string.isRequired,
+    commenter: PropTypes.object.isRequired
+};
 
 export default FeedbackItemComment;
