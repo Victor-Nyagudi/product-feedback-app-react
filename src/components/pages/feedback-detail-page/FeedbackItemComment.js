@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import { PropTypes } from "prop-types";
 
-import elijahImg from "../../../assets/user-images/image-elijah.jpg";
 import CommentReplyForm from "./CommentReplyForm";
 import FeedbackItemCommentReply from "./FeedbackItemCommentReply";
 
 function FeedbackItemComment({ commentText, commenter }) {
+    /*
+        * Since the user's first name is used in naming their image, I can
+        * piggyback on this and use it to determine the path to the image using
+        * require('image path here-userFirstName.jpg').
+        
+        * import statements were my first choice, but I saw this as a fragile option
+        * becuase if new users were added, I'd have to remember to add an import statement.
+        * With this approach, as long the user's first name is also used in naming their image,
+        * everything will be fine. It can even be configured to use a user's first and last name
+        * in the event two people share names, or even include a middle name in the mix.
+    */
+    const commenterFirstName = commenter.name.split(' ')[0].toLowerCase();
+    
+//#region Toggle comment form code
     /*
         * Similar thing happening here with a comment form instead of 
         * a dropdown menu like in SuggestionsHeader.js and Input.js
@@ -20,11 +33,12 @@ function FeedbackItemComment({ commentText, commenter }) {
         else
             setShouldShowCommentForm(true);
     }
+//#endregion
 
     return (    
         <li className="feedback-detail__comment">
             <div className="comment__img-container">
-                <img src={ elijahImg } alt="Elijah's headshot" className="comment__user-img" />
+                <img src={ require(`../../../assets/user-images/image-${commenterFirstName}.jpg`) } alt={`${commenterFirstName}'s headshot`} className="comment__user-img" />
             </div>
 
             <div className="comment__header">
