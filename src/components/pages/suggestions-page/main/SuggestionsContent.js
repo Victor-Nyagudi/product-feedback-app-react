@@ -6,7 +6,11 @@ import SuggestionsMain from "./SuggestionsMain";
 function SuggestionsContent({ isMobileScreen, feedbackItems }) {
     return ( 
         <div className="suggestions__content">
-            <SuggestionsHeader totalSuggestions={ 0 } isMobileScreen={ isMobileScreen } />
+            <SuggestionsHeader 
+                totalSuggestions={ feedbackItems.filter(item => item.status === 'suggestion').length } 
+                isMobileScreen={ isMobileScreen } 
+            />
+            
             <SuggestionsMain feedbackItems={ feedbackItems } />
         </div>
     );
