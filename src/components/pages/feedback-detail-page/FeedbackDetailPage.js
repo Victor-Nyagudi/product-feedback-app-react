@@ -1,7 +1,9 @@
+import { PropTypes } from "prop-types";
+
 import GoBackHeader from "../../shared/GoBackHeader";
 import FeedbackDetailMain from "./FeedbackDetailMain";
 
-function FeedbackDetailPage() {
+function FeedbackDetailPage({ sharedProps }) {
     return ( 
         <div className="feedback-detail container">
             <GoBackHeader 
@@ -10,9 +12,11 @@ function FeedbackDetailPage() {
                 secButtonClassName={ 'button--edit-feedback' }
             />
 
-            <FeedbackDetailMain />
+            <FeedbackDetailMain feedbackItems={ sharedProps.feedbackItems } />
         </div>
     );
 }
+
+FeedbackDetailPage.propTypes = { sharedProps: PropTypes.object };
 
 export default FeedbackDetailPage;
