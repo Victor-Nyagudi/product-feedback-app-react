@@ -770,6 +770,11 @@ a {
           justify-content: flex-end;
 }
 
+.feedback-detail__comment .comment__replying-to, .feedback-detail__comment--reply .comment__replying-to {
+  font-weight: 700;
+  color: #b11fea;
+}
+
 .feedback-detail__add-comment {
   background-color: white;
   border-radius: 10px;
@@ -1345,6 +1350,9 @@ a {
   }
   .feedback-detail__comment .comment__message, .feedback-detail__comment--reply .comment__message {
     font-size: 1rem;
+  }
+  .feedback-detail__comment .comment__message-container, .feedback-detail__comment--reply .comment__message-container {
+    padding-top: .85em;
   }
   .feedback-detail__comment .comment__replies, .feedback-detail__comment--reply .comment__replies {
     padding-top: 2em;

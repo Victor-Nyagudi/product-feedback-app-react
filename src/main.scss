@@ -756,6 +756,11 @@ a {
                     justify-content: flex-end;
                 }
             }
+
+            &__replying-to {
+                font-weight: getFontWeight('bold');
+                color: getColor('purple');
+            }
         }
     }
 
@@ -1210,7 +1215,11 @@ a {
                     max-height: 45px;
                 }
 
-                &__message {  font-size: 1rem; }
+                &__message {  
+                    font-size: 1rem; 
+                    
+                    &-container { padding-top: .85em; }
+                }
 
                 &__replies { 
                     padding-top: 2em;

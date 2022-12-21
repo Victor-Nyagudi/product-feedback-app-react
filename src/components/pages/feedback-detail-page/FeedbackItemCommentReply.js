@@ -1,9 +1,10 @@
+import { PropTypes } from "prop-types";
 import React, { useState } from 'react';
 
 import elijahImg from "../../../assets/user-images/image-elijah.jpg";
 import CommentReplyForm from "./CommentReplyForm";
 
-function FeedbackItemCommentReply() {
+function FeedbackItemCommentReply({ replyText, personReplying, replyingTo }) {
     const [shouldShowCommentForm, setShouldShowCommentForm] = useState(false);
 
     function toggleCommentReplyForm(isMenuOpen) {
@@ -23,11 +24,11 @@ function FeedbackItemCommentReply() {
             <div className="comment__header">
                 <div className="comment__user-info">
                     <h3 className="comment__user-name">
-                        Elijah Moss
+                        { personReplying.name }
                     </h3>
                     
                     <p className="comment__user-handle">
-                        @hexagon.bestagon
+                        { `@${personReplying.username}` }
                     </p>
                 </div>
                 
@@ -44,7 +45,8 @@ function FeedbackItemCommentReply() {
             
             <div className="comment__message-container">
                 <p className="comment__message">
-                    Also, please allow styles to be applied on system preference. I would love to be able to browse Frontend Mentor in the evening after my device's dark mode turns on without the bright background it currently has.
+                    <span className="comment__replying-to">{`@${replyingTo} `}</span>
+                    { `${replyText}` }
                 </p>
             </div>
 
@@ -55,5 +57,11 @@ function FeedbackItemCommentReply() {
         </li>
     );
 }
+
+FeedbackItemCommentReply.propTypes = { 
+    replyText: PropTypes.string.isRequired,
+    personReplying: PropTypes.object.isRequired,
+    replyingTo: PropTypes.string.isRequired
+ }
 
 export default FeedbackItemCommentReply;

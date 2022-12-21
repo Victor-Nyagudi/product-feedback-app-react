@@ -9,7 +9,7 @@ function FeedbackDetailMain({ feedbackItems }) {
     const [feedbackItem, setFeedbackItem] = useState(null);
 
     useEffect(() => {
-        setFeedbackItem(feedbackItems[0]);
+        setFeedbackItem(feedbackItems[1]);
     }, [feedbackItem]);
 
     /*

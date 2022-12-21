@@ -18,10 +18,10 @@ function FeedbackItemComments({ comments }) {
                             key={ comment.id }
                             commentText={ comment.content }
                             commenter={ comment.user }
+                            replies={ comment.replies && comment.replies }
                         />
                     )
                 }
-                {/* <FeedbackItemComment /> */}
             </ul>
         </section>
     );
