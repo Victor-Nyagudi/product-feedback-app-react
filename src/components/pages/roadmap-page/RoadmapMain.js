@@ -2,8 +2,8 @@ import { PropTypes } from "prop-types";
 
 import RoadmapCategory from "./RoadmapCategory";
 
-function RoadmapMain({ activeMobileNavItem, isSmallerThan700px }) {
-    const categoryNames = {
+function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems }) {
+    const categoryName = {
         planned: 'Planned',
         inProgress: 'In Progress',
         live: 'Live'
@@ -16,24 +16,30 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px }) {
     */
     let categoryInfo = {
         planned: {
-            title: categoryNames.planned,
+            title: categoryName.planned,
             explanation: 'Ideas prioritized for research',
-            totalItems: 2,
+            totalItems: getTotalItems(categoryName.planned),
             color: 'orange'
         },
         inProgress: {
-            title: categoryNames.inProgress,
+            title: categoryName.inProgress,
             explanation: 'Features currently being developed',
-            totalItems: 3,
+            totalItems: getTotalItems(categoryName.inProgress),
             color: 'purple'
         },
         live: {
-            title: categoryNames.live,
+            title: categoryName.live,
             explanation: 'Released features',
-            totalItems: 1,
+            totalItems: getTotalItems(categoryName.live),
             color: 'light-blue'
         }
     };
+
+    function getTotalItems(categoryName) {
+        if (feedbackItems) {
+            return feedbackItems.filter(item => item.status === categoryName).length;
+        }
+    }
 
     //#region Code to show different category depending on mobile nav item clicked
     /*  
@@ -45,10 +51,10 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px }) {
     let categoryInfoToShow = categoryInfo.inProgress;
 
     if (activeMobileNavItem) {
-        if (activeMobileNavItem.text === categoryNames.planned) 
+        if (activeMobileNavItem.text === categoryName.planned) 
             categoryInfoToShow = categoryInfo.planned;
     
-        else if (activeMobileNavItem.text === categoryNames.inProgress) 
+        else if (activeMobileNavItem.text === categoryName.inProgress) 
             categoryInfoToShow = categoryInfo.inProgress;
     
         else 
@@ -106,7 +112,8 @@ RoadmapMain.defaultProps = {
 
 RoadmapMain.propTypes = {
     activeMobileNavItem: PropTypes.object,
-    isSmallerThan700px: PropTypes.bool
+    isSmallerThan700px: PropTypes.bool,
+    feedbackItems: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default RoadmapMain;

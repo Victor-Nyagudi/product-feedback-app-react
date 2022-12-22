@@ -4,15 +4,21 @@ import { PropTypes } from "prop-types";
 import RoadmapMobileNavItem from "./RoadmapMobileNavItem";
 
 function RoadmapMobileNavbar({ getActiveMobileNavItem, feedbackItems }) {
-  const categoryNames = {
+  const categoryName = {
     planned: 'Planned',
     inProgress: 'In Progress',
     live: 'Live'
   };
 
-  function getTotalItems(category) {
-    if (feedbackItems)
-      return feedbackItems.filter(item => item.status === category).length;
+  function getTotalItems(categoryName) {
+    if (feedbackItems.length > 0) {
+      return feedbackItems.filter(item => item.status === categoryName).length;
+    }
+    
+      else {
+        // * 23 is just a random number to display for debugging purposes
+        return 23;
+      }
   }
 
   //#region Code to toggle active navbar item
@@ -22,21 +28,42 @@ function RoadmapMobileNavbar({ getActiveMobileNavItem, feedbackItems }) {
   */
   const [mobileNavItems, setMobileNavItems] = useState([
     { 
-      text: categoryNames.planned, 
-      totalFeedbackItems: getTotalItems(categoryNames.planned), 
+      text: categoryName.planned, 
+      totalFeedbackItems: getTotalItems(categoryName.planned), 
       isActive: false 
     },
     { 
-      text: categoryNames.inProgress, 
-      totalFeedbackItems: getTotalItems(categoryNames.inProgress), 
+      text: categoryName.inProgress, 
+      totalFeedbackItems: getTotalItems(categoryName.inProgress), 
       isActive: true 
     },
     { 
-      text: categoryNames.live, 
-      totalFeedbackItems: getTotalItems(categoryNames.live), 
+      text: categoryName.live, 
+      totalFeedbackItems: getTotalItems(categoryName.live), 
       isActive: false 
     }
   ]);
+
+  useEffect(() => {
+    setMobileNavItems([
+      { 
+        text: categoryName.planned, 
+        totalFeedbackItems: getTotalItems(categoryName.planned), 
+        isActive: false 
+      },
+      { 
+        text: categoryName.inProgress, 
+        totalFeedbackItems: getTotalItems(categoryName.inProgress), 
+        isActive: true 
+      },
+      { 
+        text: categoryName.live, 
+        totalFeedbackItems: getTotalItems(categoryName.live), 
+        isActive: false 
+      }
+    ])
+  }, [feedbackItems]); // * <- I kept passing mobileNavItems here causing infinite rendering loop
+
 
   function changeActiveNavItem(index) {
     const updatedNavItems = mobileNavItems.map((item, i) => 
