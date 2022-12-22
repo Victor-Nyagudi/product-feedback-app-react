@@ -1,4 +1,5 @@
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 
 import RoadmapInfoCategory from "./RoadmapInfoCategory";
 
@@ -15,9 +16,9 @@ function RoadmapInfo({ feedbackItems }) {
                 </h2>
 
                 <div className="roadmap-info__link-container">
-                    <a href="#" className="roadmap-info__link">
+                    <Link to={ '/roadmap' } className="roadmap-info__link">
                         View
-                    </a>
+                    </Link>
                 </div>
             </div>
 

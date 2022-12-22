@@ -1011,7 +1011,7 @@ a {
     width: 93%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 2.5em;
+    padding-top: 3.5em;
     background-color: #f7f8fd;
     /*
         * These styles apply to a feedback item whose ancestor has an element
@@ -1454,6 +1454,7 @@ a {
             align-items: flex-start;
     gap: 1.25em;
     padding-bottom: 7em;
+    padding-top: 5.875em;
   }
   .suggestions__aside {
     -webkit-box-flex: 2;
