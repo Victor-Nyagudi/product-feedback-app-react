@@ -72,17 +72,17 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
         * clicked yet, hence the check
     */
 
-    let categoryInfoToShow = categoryInfo.inProgress;
+    let categoryInfoToShowMobile = categoryInfo.inProgress;
 
     if (activeMobileNavItem) {
         if (activeMobileNavItem.text === categoryName.planned) 
-            categoryInfoToShow = categoryInfo.planned;
+            categoryInfoToShowMobile = categoryInfo.planned;
     
         else if (activeMobileNavItem.text === categoryName.inProgress) 
-            categoryInfoToShow = categoryInfo.inProgress;
+            categoryInfoToShowMobile = categoryInfo.inProgress;
     
         else 
-            categoryInfoToShow = categoryInfo.live;
+            categoryInfoToShowMobile = categoryInfo.live;
     }
     //#endregion
 
@@ -92,33 +92,33 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                 isSmallerThan700px ? 
 
                 <RoadmapCategory 
-                    title={ categoryInfoToShow.title }
-                    explanation={ categoryInfoToShow.explanation }
-                    totalItems={ categoryInfoToShow.totalItems }
-                    color={ categoryInfoToShow.color }
+                    title={ categoryInfoToShowMobile.title }
+                    explanation={ categoryInfoToShowMobile.explanation }
+                    totalItems={ categoryInfoToShowMobile.totalItems }
+                    color={ categoryInfoToShowMobile.color }
                 />                
 
                 :
                 <>
                     <RoadmapCategory 
-                        title={ 'Planned' }
-                        explanation={ 'Ideas prioritized for research' }
-                        totalItems={ 2 }
-                        color={ 'orange' }
+                        title={ categoryInfo.planned.title }
+                        explanation={ categoryInfo.live.explanation }
+                        totalItems={ categoryInfo.planned.totalItems }
+                        color={ categoryInfo.planned.color }
                     />
         
                     <RoadmapCategory 
-                        title={ 'In Progress' }
-                        explanation={ 'Features currently being developed' }
-                        totalItems={ 3 }
-                        color={ 'purple' }
+                        title={ categoryInfo.inProgress.title }
+                        explanation={ categoryInfo.inProgress.explanation }
+                        totalItems={ categoryInfo.inProgress.totalItems }
+                        color={ categoryInfo.inProgress.color }
                     />
         
                     <RoadmapCategory 
-                        title={ 'Live' }
-                        explanation={ 'Released features' }
-                        totalItems={ 1 }
-                        color={ 'light-blue' }
+                        title={ categoryInfo.live.title }
+                        explanation={ categoryInfo.live.explanation }
+                        totalItems={ categoryInfo.live.totalItems }
+                        color={ categoryInfo.live.color }
                     />
                 </>
             }
