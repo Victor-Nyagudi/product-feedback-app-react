@@ -1,4 +1,5 @@
 import { PropTypes } from "prop-types";
+import React, { useState, useEffect } from 'react';
 
 import RoadmapCategory from "./RoadmapCategory";
 
@@ -9,12 +10,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
         live: 'Live'
     }
 
-    /*
-        * Using a simple variable, categoryInfo, instead of state because doing
-        * so throws an error of too many re-renders. categoryInfo.inProgress is the
-        * default category to show since it's selected by default in the SCSS
-    */
-    let categoryInfo = {
+    const [categoryInfo, setCategoryInfo] = useState({
         planned: {
             title: categoryName.planned,
             explanation: 'Ideas prioritized for research',
@@ -33,11 +29,39 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
             totalItems: getTotalItems(categoryName.live),
             color: 'light-blue'
         }
-    };
+    });
+
+    useEffect(() => {
+        setCategoryInfo({
+            planned: {
+                title: categoryName.planned,
+                explanation: 'Ideas prioritized for research',
+                totalItems: getTotalItems(categoryName.planned),
+                color: 'orange'
+            },
+            inProgress: {
+                title: categoryName.inProgress,
+                explanation: 'Features currently being developed',
+                totalItems: getTotalItems(categoryName.inProgress),
+                color: 'purple'
+            },
+            live: {
+                title: categoryName.live,
+                explanation: 'Released features',
+                totalItems: getTotalItems(categoryName.live),
+                color: 'light-blue'
+            }
+        });
+    }, [feedbackItems]);
 
     function getTotalItems(categoryName) {
-        if (feedbackItems) {
+        if (feedbackItems.length > 0) {
             return feedbackItems.filter(item => item.status === categoryName).length;
+        }
+
+        else {
+            // * 23 is just a random number for debugging purposes
+            return 23;
         }
     }
 
