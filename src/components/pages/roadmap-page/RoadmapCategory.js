@@ -2,7 +2,13 @@ import { PropTypes } from "prop-types";
 
 import RoadmapCategoryItem from "./RoadmapCategoryItem";
 
-function RoadmapCategory({ title, explanation, totalItems, color }) {
+function RoadmapCategory({ 
+    title, 
+    explanation, 
+    totalItems, 
+    color,
+    feedbackItems 
+}) {
     return ( 
         <section className="roadmap__category">
             <div className="roadmap__category-header">
@@ -15,17 +21,26 @@ function RoadmapCategory({ title, explanation, totalItems, color }) {
                 </p>
             </div>
 
-            <ul className="roadmap__category-items">
-                <RoadmapCategoryItem 
-                    color={ color } 
-                    badgeText={ title }
-                />
-                
-                <RoadmapCategoryItem 
-                    color={ color } 
-                    badgeText={ title }
-                />
-            </ul>
+            {
+                feedbackItems &&
+
+                <ul className="roadmap__category-items">
+                    {
+                        feedbackItems.map(item => 
+                            <RoadmapCategoryItem 
+                                key={ item.id }
+                                color={ color } 
+                                badgeText={ title }
+                                title={ item.title }
+                                message={ item.description }
+                                tagCategory={ item.category }
+                                totalUpvotes={ item.upvotes }
+                                totalComments={ item.comments ? item.comments.length : 0 }
+                            />
+                        )
+                    }
+                </ul>
+            }
         </section>
     );
 }
@@ -34,7 +49,8 @@ RoadmapCategory.propTypes = {
     title: PropTypes.string.isRequired,
     explanation: PropTypes.string.isRequired,
     totalItems: PropTypes.number.isRequired,
-    color: PropTypes.string.isRequired
+    color: PropTypes.string.isRequired,
+    feedbackItems: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default RoadmapCategory;

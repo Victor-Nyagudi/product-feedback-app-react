@@ -65,6 +65,15 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
         }
     }
 
+    function getCategoryItems(categoryName) {
+        if (feedbackItems.length > 0) {
+            return feedbackItems.filter(item => item.status === categoryName);
+        }
+
+        else 
+            console.warn('Feedback items not retrieved yet - RoadmapMain');
+    }
+
     //#region Code to show different category depending on mobile nav item clicked
     /*  
         * Show different category depending on mobile nav item clicked.
@@ -96,6 +105,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                     explanation={ categoryInfoToShowMobile.explanation }
                     totalItems={ categoryInfoToShowMobile.totalItems }
                     color={ categoryInfoToShowMobile.color }
+                    feedbackItems={ getCategoryItems(categoryInfoToShowMobile.title) }
                 />                
 
                 :
@@ -105,6 +115,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                         explanation={ categoryInfo.live.explanation }
                         totalItems={ categoryInfo.planned.totalItems }
                         color={ categoryInfo.planned.color }
+                        feedbackItems={ getCategoryItems(categoryInfo.planned.title) }
                     />
         
                     <RoadmapCategory 
@@ -112,6 +123,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                         explanation={ categoryInfo.inProgress.explanation }
                         totalItems={ categoryInfo.inProgress.totalItems }
                         color={ categoryInfo.inProgress.color }
+                        feedbackItems={ getCategoryItems(categoryInfo.inProgress.title) }
                     />
         
                     <RoadmapCategory 
@@ -119,6 +131,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                         explanation={ categoryInfo.live.explanation }
                         totalItems={ categoryInfo.live.totalItems }
                         color={ categoryInfo.live.color }
+                        feedbackItems={ getCategoryItems(categoryInfo.live.title) }
                     />
                 </>
             }
