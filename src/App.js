@@ -8,6 +8,7 @@ import './css/main.css';
 import productRequests from "./data.json";
 
 import React, { useState, useEffect } from 'react';
+import { Routes, Route  } from "react-router-dom";
 
 import SuggestionsPage from './components/pages/suggestions-page/SuggestionsPage';
 import AddEditFeedbackPage from './components/pages/add-edit-feedback-page/AddEditFeedbackPage';
@@ -75,10 +76,24 @@ function App() {
 
   return (
     <>
-      {/* <SuggestionsPage sharedProps={ sharedProps } /> */}
-      {/* <AddEditFeedbackPage sharedProps={ sharedProps } /> */}
-      {/* <FeedbackDetailPage sharedProps={ sharedProps } /> */}
-      <RoadMapPage sharedProps={ sharedProps } />
+      <Routes>
+        <Route index element={ <SuggestionsPage sharedProps={ sharedProps } /> } />
+        
+        <Route 
+          path='/add-edit-feedback' 
+          element={ <AddEditFeedbackPage sharedProps={ sharedProps } /> } 
+        />
+
+        <Route 
+          path='/feedback-detail'
+          element={ <FeedbackDetailPage sharedProps={ sharedProps } /> }
+        />
+
+        <Route 
+          path='roadmap'
+          element={ <RoadMapPage sharedProps={ sharedProps } /> }
+        />
+      </Routes>
     </>
   );
 }
