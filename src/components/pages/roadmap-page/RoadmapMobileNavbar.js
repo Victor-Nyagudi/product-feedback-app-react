@@ -1,17 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PropTypes } from "prop-types";
 
 import RoadmapMobileNavItem from "./RoadmapMobileNavItem";
 
-function RoadmapMobileNavbar({ getActiveMobileNavItem }) {
+function RoadmapMobileNavbar({ getActiveMobileNavItem, feedbackItems }) {
+  const categoryNames = {
+    planned: 'Planned',
+    inProgress: 'In Progress',
+    live: 'Live'
+  };
+
+  function getTotalItems(category) {
+    if (feedbackItems)
+      return feedbackItems.filter(item => item.status === category).length;
+  }
+
+  //#region Code to toggle active navbar item
   /*
     * Now, where I have this kind of implementation before, hmmm..? :)
     * Hint: DropdownMenu.js
   */
   const [mobileNavItems, setMobileNavItems] = useState([
-    { text: 'Planned', totalFeedbackItems: 2, isActive: false },
-    { text: 'In Progress', totalFeedbackItems: 3, isActive: true },
-    { text: 'Live', totalFeedbackItems: 1, isActive: false }
+    { 
+      text: categoryNames.planned, 
+      totalFeedbackItems: getTotalItems(categoryNames.planned), 
+      isActive: false 
+    },
+    { 
+      text: categoryNames.inProgress, 
+      totalFeedbackItems: getTotalItems(categoryNames.inProgress), 
+      isActive: true 
+    },
+    { 
+      text: categoryNames.live, 
+      totalFeedbackItems: getTotalItems(categoryNames.live), 
+      isActive: false 
+    }
   ]);
 
   function changeActiveNavItem(index) {
@@ -27,10 +51,10 @@ function RoadmapMobileNavbar({ getActiveMobileNavItem }) {
 
         else {
           return { 
-              text: item.text,
-              totalFeedbackItems: item.totalFeedbackItems,
-              isActive: false
-           }
+            text: item.text,
+            totalFeedbackItems: item.totalFeedbackItems,
+            isActive: false
+          }
         }
       }
     )
@@ -39,6 +63,7 @@ function RoadmapMobileNavbar({ getActiveMobileNavItem }) {
     
     setMobileNavItems(updatedNavItems);
   }
+  //#endregion
 
   return ( 
     <nav className="roadmap__mobile-navbar">
@@ -62,7 +87,8 @@ function RoadmapMobileNavbar({ getActiveMobileNavItem }) {
 }
 
 RoadmapMobileNavbar.propTypes = { 
-  getActiveMobileNavItem: PropTypes.func 
+  getActiveMobileNavItem: PropTypes.func,
+  feedbackItems: PropTypes.arrayOf(PropTypes.object).isRequired 
 }
 
 export default RoadmapMobileNavbar;

@@ -19,7 +19,10 @@ function RoadMapPage({ sharedProps }) {
             {
                 sharedProps.isSmallerThan700px &&
                 
-                <RoadmapMobileNavbar getActiveMobileNavItem={ getActiveMobileNavItem }/>
+                <RoadmapMobileNavbar 
+                    getActiveMobileNavItem={ getActiveMobileNavItem }
+                    feedbackItems={ sharedProps.feedbackItems }
+                />
             }
 
             <RoadmapMain 
