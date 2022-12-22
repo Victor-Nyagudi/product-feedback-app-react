@@ -171,6 +171,7 @@ a {
 }
 
 .button {
+    display: inline-block;
     font-family: $primary-font;
     font-weight: getFontWeight('bold');
 

@@ -17,6 +17,7 @@ function GoBackHeader({ hasSecondaryButton, secButtonText, secButtonClassName, s
                         text={ secButtonText }
                         icon={ secButtonIcon }
                         className={ secButtonClassName }
+                        isLink={ true }
                     />
                 </div>
             }
