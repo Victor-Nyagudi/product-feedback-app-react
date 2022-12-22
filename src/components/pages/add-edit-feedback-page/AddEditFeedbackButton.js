@@ -1,13 +1,14 @@
 import Button from "../../shared/Button";
 import { PropTypes } from "prop-types";
 
-function AddEditFeedbackButton({ text, className, type }) {
+function AddEditFeedbackButton({ text, className, type, isLink }) {
     return ( 
         <div className="add-edit-feedback__button-container">
             <Button 
                 type={ type }
                 text={ text } 
                 className={ className } 
+                isLink={ isLink }
             />
         </div>
     );
