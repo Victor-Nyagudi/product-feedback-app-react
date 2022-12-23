@@ -12,7 +12,10 @@ function FeedbackDetailPage({ sharedProps }) {
                 secButtonClassName={ 'button--edit-feedback' }
             />
 
-            <FeedbackDetailMain feedbackItems={ sharedProps.feedbackItems } />
+            <FeedbackDetailMain 
+                feedbackItems={ sharedProps.feedbackItems } 
+                feedbackItemDetailToShow={ sharedProps.feedbackItemDetailToShow }
+            />
         </div>
     );
 }

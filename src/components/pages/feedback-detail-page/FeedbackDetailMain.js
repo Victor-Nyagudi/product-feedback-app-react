@@ -5,12 +5,16 @@ import FeedbackItemComments from "./FeedbackItemComments";
 import FeedbackItem from "../../shared/FeedbackItem";
 import FeedbackDetailAddComment from "./FeedbackDetailAddComment";
 
-function FeedbackDetailMain({ feedbackItems }) {
+function FeedbackDetailMain({ feedbackItems, feedbackItemDetailToShow }) {
     const [feedbackItem, setFeedbackItem] = useState(null);
-
+    
     useEffect(() => {
-        setFeedbackItem(feedbackItems[1]);
-    }, [feedbackItem]);
+        if (feedbackItemDetailToShow)
+            setFeedbackItem(feedbackItemDetailToShow);
+
+        else
+            setFeedbackItem(feedbackItems[1])
+    }, [feedbackItemDetailToShow]);
 
     /*
         * For some reason, React doesn't allow me to just check once, hence the
@@ -46,6 +50,9 @@ function FeedbackDetailMain({ feedbackItems }) {
         }
 }
 
-FeedbackDetailMain.propTypes = { feedbackItems: PropTypes.arrayOf(PropTypes.object) };
+FeedbackDetailMain.propTypes = { 
+    feedbackItems: PropTypes.arrayOf(PropTypes.object),
+    feedbackItemDetailToShow: PropTypes.object.isRequired 
+};
 
 export default FeedbackDetailMain;

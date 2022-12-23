@@ -10,7 +10,9 @@ function FeedbackItem({
     tagCategory,
     totalUpvotes,
     totalComments,
-    isLink
+    isLink,
+    id,
+    getSelectedFeedbackItemId
 }) {
     // TODO Remember to make the feedback message keyboard focusable
     
@@ -37,7 +39,11 @@ function FeedbackItem({
                         <>
                             <h2 className="screen-reader-only">{ title }</h2>
 
-                            <Link to={ '/feedback-detail' } className="feedback-content__title" tabIndex="0">
+                            <Link 
+                                to={ '/feedback-detail' } 
+                                className="feedback-content__title" tabIndex="0"
+                                onClick={ () => getSelectedFeedbackItemId(id) }
+                            >
                                 { title }
                             </Link>
                         </>
@@ -94,6 +100,7 @@ FeedbackItem.defaultProps = {
 }
 
 FeedbackItem.propTypes = {
+    id: PropTypes.number,
     showBadge: PropTypes.bool,
     badgeText: PropTypes.string,
     badgeColor: PropTypes.string,
@@ -102,7 +109,8 @@ FeedbackItem.propTypes = {
     category: PropTypes.string,
     totalUpvotes: PropTypes.number,
     totalComments: PropTypes.number,
-    isLink: PropTypes.bool
+    isLink: PropTypes.bool,
+    getSelectedFeedbackItemId: PropTypes.func
 }
 
 export default FeedbackItem;

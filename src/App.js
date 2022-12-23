@@ -18,7 +18,7 @@ import RoadMapPage from './components/pages/roadmap-page/RoadmapPage';
 function App() {
   const mobileLayoutUpperBound = 600;
   
-  // #region States and useEffects for resizing browser window
+  // #region states and useEffects for resizing browser window
 
   /*
     * This is a special breakpoint just for the RoadmapPage so 
@@ -60,6 +60,7 @@ function App() {
   // #endregion
 
   const [feedbackItems, setFeedbackItems] = useState([]);
+  const [feedbackItemDetailToShow, setFeedbackItemDetailToShow] = useState(null);
 
   useEffect(() => {
     setFeedbackItems(productRequests.productRequests);
@@ -68,16 +69,33 @@ function App() {
   }, [feedbackItems]);
   
 
+  // * This is similar to a GET/{id} request
+
+  function showFeedbackItemDetail(feedbackItemId) {
+    const feedbackItemFromDb = productRequests.productRequests.find(items => items.id === feedbackItemId);
+
+    if (feedbackItemFromDb) {
+      setFeedbackItemDetailToShow(feedbackItemFromDb);
+    }
+
+    else
+      console.warn('Feedback item not found');
+  }
+
   const sharedProps = {
     isMobileScreen,
     isSmallerThan700px,
-    feedbackItems
+    feedbackItems,
+    feedbackItemDetailToShow
   }
 
   return (
     <>
       <Routes>
-        <Route index element={ <SuggestionsPage sharedProps={ sharedProps } /> } />
+        <Route 
+          index 
+          element={ <SuggestionsPage sharedProps={ sharedProps } getSelectedFeedbackItemId={ showFeedbackItemDetail } /> }
+        />
         
         <Route 
           path='/add-edit-feedback' 

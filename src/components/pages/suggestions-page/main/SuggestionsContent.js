@@ -3,7 +3,12 @@ import { PropTypes } from "prop-types";
 import SuggestionsHeader from "./SuggestionsHeader";
 import SuggestionsMain from "./SuggestionsMain";
 
-function SuggestionsContent({ isMobileScreen, feedbackItems, getSortByCriteria }) {
+function SuggestionsContent({ 
+    isMobileScreen, 
+    feedbackItems, 
+    getSortByCriteria,
+    getSelectedFeedbackItemId 
+}) {
     return ( 
         <div className="suggestions__content">
             <SuggestionsHeader 
@@ -18,7 +23,10 @@ function SuggestionsContent({ isMobileScreen, feedbackItems, getSortByCriteria }
                 getSortByCriteria={ getSortByCriteria }
             />
             
-            <SuggestionsMain feedbackItems={ feedbackItems } />
+            <SuggestionsMain 
+                feedbackItems={ feedbackItems } 
+                getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+            />
         </div>
     );
 }
@@ -26,7 +34,8 @@ function SuggestionsContent({ isMobileScreen, feedbackItems, getSortByCriteria }
 SuggestionsContent.propTypes = { 
     isMobileScreen: PropTypes.bool,
     feedbackItems: PropTypes.arrayOf(PropTypes.object),
-    getSortByCriteria: PropTypes.func.isRequired 
+    getSortByCriteria: PropTypes.func.isRequired,
+    getSelectedFeedbackItemId: PropTypes.func.isRequired 
 }
 
 export default SuggestionsContent;

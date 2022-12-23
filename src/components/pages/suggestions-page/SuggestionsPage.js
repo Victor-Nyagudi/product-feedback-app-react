@@ -5,7 +5,7 @@ import AppInfo from "./aside/AppInfo";
 import SuggestionsAside from "./aside/SuggestionsAside";
 import SuggestionsContent from "./main/SuggestionsContent";
 
-function SuggestionsPage({ sharedProps }) {
+function SuggestionsPage({ sharedProps, getSelectedFeedbackItemId }) {
     const [feedbackItemsToShow, setFeedbackItemsToShow] = useState(sharedProps.feedbackItems);
     const [sortByCriteria, setSortByCriteria] = useState('Most Upvotes');
 
@@ -78,11 +78,15 @@ function SuggestionsPage({ sharedProps }) {
                 isMobileScreen={ sharedProps.isMobileScreen }
                 feedbackItems={ feedbackItemsToShow }
                 getSortByCriteria={ sortFeedbackItems }
+                getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
             />
         </div>
     );
 }
 
-SuggestionsPage.propTypes = { sharedProps: PropTypes.object }
+SuggestionsPage.propTypes = { 
+    sharedProps: PropTypes.object, 
+    getSelectedFeedbackItemId: PropTypes.func.isRequired
+}
 
 export default SuggestionsPage;
