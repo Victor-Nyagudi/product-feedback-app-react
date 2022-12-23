@@ -7,7 +7,13 @@ function SuggestionsContent({ isMobileScreen, feedbackItems }) {
     return ( 
         <div className="suggestions__content">
             <SuggestionsHeader 
-                totalSuggestions={ feedbackItems.filter(item => item.status === 'suggestion').length } 
+                totalSuggestions={ 
+                    feedbackItems ?
+
+                    feedbackItems.filter(item => item.status === 'suggestion').length 
+
+                    : 0
+                } 
                 isMobileScreen={ isMobileScreen } 
             />
             

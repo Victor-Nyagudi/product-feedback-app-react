@@ -1,7 +1,9 @@
-import Tag from './Tag';
 import React, { useState } from 'react';
+import { PropTypes } from "prop-types";
 
-function Tags() {
+import Tag from './Tag';
+
+function Tags({ getActiveTag }) {
     const [tags, setTags] = useState([
         { name: 'All', isSelected: true },
         { name: 'UI', isSelected: false },
@@ -22,6 +24,8 @@ function Tags() {
             }
         )
 
+        getActiveTag(updatedTags.filter(tag => tag.isSelected === true)[0].name)
+        
         setTags(updatedTags);
     }
 
@@ -47,5 +51,7 @@ function Tags() {
         </section>
      );
 }
+
+Tags.propTypes = { getActiveTag: PropTypes.func.isRequired }
 
 export default Tags;

@@ -8,7 +8,7 @@ function SuggestionsMain({ feedbackItems }) {
         <main className="suggestions__main">
             <div className="suggestions__main-content container">
                 {
-                    feedbackItems ? 
+                    feedbackItems.length > 0 ? 
 
                     feedbackItems.map(item => 
                         <FeedbackItem 
