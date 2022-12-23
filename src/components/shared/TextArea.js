@@ -1,6 +1,14 @@
 import { PropTypes } from "prop-types";
 
-function TextArea({ name, id, value, placeholder, handleOnChange, isRequired }) {
+function TextArea({ 
+    name, 
+    id, 
+    value, 
+    placeholder, 
+    handleOnChange, 
+    isRequired,
+    maxLength 
+}) {
     return ( 
         <textarea 
             required={ isRequired }
@@ -9,6 +17,7 @@ function TextArea({ name, id, value, placeholder, handleOnChange, isRequired }) 
             id={ id } 
             value={ value }
             placeholder={ placeholder }
+            maxLength={ maxLength }
             onChange={ e => handleOnChange(e.target.value) }
         />
     );
@@ -16,7 +25,8 @@ function TextArea({ name, id, value, placeholder, handleOnChange, isRequired }) 
 
 TextArea.defaultProps = {
     placeholder: '',
-    isRequired: false
+    isRequired: false,
+    maxLength: 250
 }
 
 TextArea.propTypes = {
@@ -25,7 +35,8 @@ TextArea.propTypes = {
     value: PropTypes.string,
     placeholder: PropTypes.string,
     handleOnChange: PropTypes.func.isRequired,
-    isRequired: PropTypes.bool
+    isRequired: PropTypes.bool,
+    maxLength: PropTypes.number
 }
 
 export default TextArea;
