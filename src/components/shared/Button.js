@@ -18,8 +18,8 @@ function Button({
     else 
         linkDestination = '/';
 
-    function handleClick() {
-        if (className === 'button--cancel')
+    function handleClick(target) {
+        if (target.classList.contains('button--cancel'))
             navigate(-1);
 
         return;
@@ -36,7 +36,8 @@ function Button({
             ? I understand I should've given them more meaningful names
             ? like 'button--purple', but I missed the fact that the text
             ? inside similarly-colored buttons could differ depending
-            ? on the page in the design. This is tentatively something
+            ? on the page in the design. The current names were based on 
+            ? the text inside each button. This tentatively something
             ? that could be changed in the future.
         */
        <>
@@ -56,7 +57,7 @@ function Button({
             <button 
                 type={ `${type}` }
                 className={ className ? `${className} button button--main` : 'button--add-feedback button button--main' }
-                onClick={ handleClick }
+                onClick={ e => handleClick(e.target) }
             >
                 { icon }
                 { text }

@@ -81,7 +81,6 @@ function AddEditFeedbackMain({ title, isEditing }) {
                     <AddEditFeedbackButton 
                         text={ 'Cancel' }
                         className={ 'button--cancel add-edit-feedback__button' } 
-                        isLink={ true }
                     />
 
                     <AddEditFeedbackButton 
