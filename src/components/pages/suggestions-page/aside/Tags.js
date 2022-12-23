@@ -1,6 +1,30 @@
 import Tag from './Tag';
+import React, { useState } from 'react';
 
 function Tags() {
+    const [tags, setTags] = useState([
+        { name: 'All', isSelected: true },
+        { name: 'UI', isSelected: false },
+        { name: 'UX', isSelected: false },
+        { name: 'Enhancement', isSelected: false },
+        { name: 'Bug', isSelected: false },
+        { name: 'Feature', isSelected: false }
+    ]);
+
+    function changeActiveTag(clickedTagIndex) {
+        const updatedTags = tags.map((tag, index) => 
+            {
+                if (index === clickedTagIndex) 
+                    return tag = { name: tag.name, isSelected: true };
+
+                else 
+                    return tag = { name: tag.name, isSelected: false };
+            }
+        )
+
+        setTags(updatedTags);
+    }
+
     return ( 
         <section className="tags-container">
             <h2 className="screen-reader-only">
@@ -8,12 +32,17 @@ function Tags() {
             </h2>
 
             <ul className="tags">
-                <Tag tagName={ 'All' } isSelected={ true } />
-                <Tag tagName={ 'UI' } />
-                <Tag tagName={ 'UX' } />
-                <Tag tagName={ 'Enhancement' } />
-                <Tag tagName={ 'Bug' } />
-                <Tag tagName={ 'Feature' } />
+                {
+                    tags.map((tag, index) => 
+                        <Tag 
+                            key={ index }
+                            tagName={ tag.name } 
+                            isSelected={ tag.isSelected } 
+                            index={ index }
+                            setActive={ changeActiveTag }
+                        />
+                    )
+                }
             </ul>
         </section>
      );
