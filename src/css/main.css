@@ -228,6 +228,8 @@ a {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: feedback-item-comments;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 .feedback-content__tag-container {

@@ -324,7 +324,10 @@ a {
 
     &__upvotes { grid-area: feedback-item-upvotes; }
     
-    &__comments { grid-area: feedback-item-comments; }
+    &__comments { 
+        grid-area: feedback-item-comments; 
+        justify-self: end;
+    }
     
     &__tag-container { grid-area: feedback-item-tag-container; }
 
