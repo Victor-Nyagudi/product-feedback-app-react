@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Button from "../../../shared/Button";
 import DropdownMenu from "../../../shared/DropdownMenu";
 
-function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
+function SuggestionsHeader({ totalSuggestions, isMobileScreen, getSortByCriteria }) {
     
     const dropdownMenuItems = [
         { buttonText: 'Most Upvotes', isSelected: true }, 
@@ -17,6 +17,8 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
     const [shouldShowDropdownMenu, setShouldShowDropdownMenu] = useState(false);
 
     function changeButtonText(text) {
+        getSortByCriteria(text);
+
         setButtonText(text);
     }
 
@@ -85,7 +87,8 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen }) {
 
 SuggestionsHeader.propTypes = {
     totalSuggestions: PropTypes.number.isRequired,
-    isMobileScreen: PropTypes.bool
+    isMobileScreen: PropTypes.bool,
+    getSortByCriteria: PropTypes.func.isRequired
 }
 
 export default SuggestionsHeader;
