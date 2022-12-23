@@ -43,7 +43,7 @@ function SuggestionsHeader({ totalSuggestions, isMobileScreen, getSortByCriteria
                             </svg>
 
                             <p className="suggestions__header-data">
-                                <span className="suggestions__header-quantity">{ totalSuggestions }</span> Suggestions                        
+                                <span className="suggestions__header-quantity">{ totalSuggestions }</span> { totalSuggestions > 1 || totalSuggestions === 0 ? 'Suggestions' : 'Suggestion'}                        
                             </p>
                         </div>
                     }
