@@ -39,7 +39,7 @@ function FeedbackDetailMain({ feedbackItems, feedbackItemDetailToShow }) {
                     />
     
                     {
-                        feedbackItem.comments &&
+                        feedbackItem.comments.length > 0 &&
     
                         <FeedbackItemComments comments={ feedbackItem.comments } />
                     }
