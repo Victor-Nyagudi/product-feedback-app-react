@@ -1,4 +1,5 @@
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 
 function FeedbackItem({ 
     showBadge, 
@@ -8,7 +9,8 @@ function FeedbackItem({
     message,
     tagCategory,
     totalUpvotes,
-    totalComments
+    totalComments,
+    isLink
 }) {
     // TODO Remember to make the feedback message keyboard focusable
     
@@ -30,14 +32,14 @@ function FeedbackItem({
             <div className="feedback-content">
                 <div className="feedback-content__text">
                     {
-                        showBadge ?
+                        isLink ?
 
                         <>
                             <h2 className="screen-reader-only">{ title }</h2>
 
-                            <a href="#" className="feedback-content__title" tabIndex="0">
+                            <Link to={ '/feedback-detail' } className="feedback-content__title" tabIndex="0">
                                 { title }
-                            </a>
+                            </Link>
                         </>
 
                         :
@@ -86,7 +88,10 @@ function FeedbackItem({
     );
 }
 
-FeedbackItem.defaultProps = { showBadge: false }
+FeedbackItem.defaultProps = { 
+    showBadge: false,
+    isLink: false
+}
 
 FeedbackItem.propTypes = {
     showBadge: PropTypes.bool,
@@ -97,6 +102,7 @@ FeedbackItem.propTypes = {
     category: PropTypes.string,
     totalUpvotes: PropTypes.number,
     totalComments: PropTypes.number,
+    isLink: PropTypes.bool
 }
 
 export default FeedbackItem;

@@ -18,6 +18,7 @@ function SuggestionsMain({ feedbackItems }) {
                             tagCategory={ item.category }
                             totalUpvotes={ item.upvotes }
                             totalComments={ item.comments ? item.comments.length : 0 }
+                            isLink={ true }
                         />    
                     )
 

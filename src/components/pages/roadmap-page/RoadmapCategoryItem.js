@@ -22,6 +22,7 @@ function RoadmapCategoryItem({
                 tagCategory={ tagCategory }
                 totalUpvotes={ totalUpvotes }
                 totalComments={ totalComments }
+                isLink={ true }
             />
         </li>
     );
