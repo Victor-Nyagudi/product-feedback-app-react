@@ -647,7 +647,7 @@ a {
             background-color: getColor('white');
     
             border-radius: $border-radius;
-            padding: $feedback-detail-padding;
+            padding: $feedback-detail-padding $feedback-detail-padding 2em $feedback-detail-padding;
             margin-bottom: $feedback-detail-margin-bottom;
         }
 
@@ -1188,7 +1188,9 @@ a {
         */
         @include feedback-item-600px-up;
 
-        &__comments-container { padding: $feedback-detail-padding-lg; }
+        &__comments-container { 
+            padding: $feedback-detail-padding-lg $feedback-detail-padding-lg 2.5em $feedback-detail-padding-lg; 
+        }
 
         &__comment {
             grid-template-columns: $feedback-detail-column-sizing;
