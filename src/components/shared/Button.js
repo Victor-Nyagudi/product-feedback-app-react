@@ -40,8 +40,6 @@ function Button({
 
         else
             toggleEditPage(false);
-
-        console.log(target.getAttribute('href'));
     }
 
     return ( 
