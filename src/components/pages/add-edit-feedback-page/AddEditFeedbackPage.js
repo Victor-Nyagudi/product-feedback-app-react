@@ -1,13 +1,20 @@
+import { PropTypes } from "prop-types";
+
 import GoBackHeader from "../../shared/GoBackHeader";
 import AddEditFeedbackMain from "./AddEditFeedbackMain";
 
-function AddEditFeedbackPage() {
+function AddEditFeedbackPage({ sharedProps }) {
     return ( 
         <div className="add-edit-feedback container">
             <GoBackHeader />
-            <AddEditFeedbackMain title={ 'Add a dark theme option' } />
+            <AddEditFeedbackMain 
+                title={ sharedProps.feedbackItemDetailToShow.title } 
+                isEditing={ sharedProps.isEditing } 
+            />
         </div>
     );
 }
+
+AddEditFeedbackPage.propTypes = { sharedProps: PropTypes.object }
 
 export default AddEditFeedbackPage;

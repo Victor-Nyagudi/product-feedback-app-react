@@ -6,23 +6,42 @@ function Button({
     className, 
     icon, 
     type,
-    isLink 
+    isLink,
+    toggleEditPage 
 }) {
     const navigate = useNavigate();
     
     let linkDestination;
 
-    if (className === 'button--add-feedback' || className === 'button--edit-feedback')
-        linkDestination = '/add-edit-feedback'; 
+    switch (className) {
+        case 'button--add-feedback':
+            linkDestination = '/add-feedback';
+            break;
+        
+        case 'button--edit-feedback':
+            linkDestination = '/edit-feedback';
+            break;
+    
+        default:
+            linkDestination = '/';
+            break;
+    }
 
-    else 
-        linkDestination = '/';
-
-    function handleClick(target) {
+    function handleButtonClick(target) {
         if (target.classList.contains('button--cancel'))
             navigate(-1);
 
         return;
+    }
+
+    function handleLinkClick(target) {
+        if (target.getAttribute('href') === '/edit-feedback')
+            toggleEditPage(true);
+
+        else
+            toggleEditPage(false);
+
+        console.log(target.getAttribute('href'));
     }
 
     return ( 
@@ -47,6 +66,7 @@ function Button({
             <Link
                 to={ linkDestination } 
                 className={ className ? `${className} button button--main` : 'button--add-feedback button button--main' }
+                onClick={ e => handleLinkClick(e.target) }
             >
                 { icon }
                 { text }
@@ -57,7 +77,7 @@ function Button({
             <button 
                 type={ `${type}` }
                 className={ className ? `${className} button button--main` : 'button--add-feedback button button--main' }
-                onClick={ e => handleClick(e.target) }
+                onClick={ e => handleButtonClick(e.target) }
             >
                 { icon }
                 { text }
@@ -77,7 +97,8 @@ Button.propTypes = {
     type: PropTypes.string,
     className: PropTypes.string,
     icon: PropTypes.node,
-    isLink: PropTypes.bool
+    isLink: PropTypes.bool,
+    toggleEditPage: PropTypes.func
 }
 
 export default Button;

@@ -61,6 +61,7 @@ function App() {
 
   const [feedbackItems, setFeedbackItems] = useState([]);
   const [feedbackItemDetailToShow, setFeedbackItemDetailToShow] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     setFeedbackItems(productRequests.productRequests);
@@ -82,11 +83,24 @@ function App() {
       console.warn('Feedback item not found');
   }
 
+  function toggleIsEditing(shouldShow) {
+    if (shouldShow) {
+      
+      setIsEditing(true);
+    }
+
+    else
+      setIsEditing(false);
+  }
+
+
   const sharedProps = {
     isMobileScreen,
     isSmallerThan700px,
     feedbackItems,
-    feedbackItemDetailToShow
+    feedbackItemDetailToShow,
+    isEditing,
+    toggleIsEditing
   }
 
   return (
@@ -98,13 +112,13 @@ function App() {
         />
         
         <Route 
-          path='/add-edit-feedback' 
+          path={ isEditing ? '/edit-feedback' : '/add-feedback' } 
           element={ <AddEditFeedbackPage sharedProps={ sharedProps } /> } 
         />
 
         <Route 
           path='/feedback-detail'
-          element={ <FeedbackDetailPage sharedProps={ sharedProps } /> }
+          element={ <FeedbackDetailPage sharedProps={ sharedProps } toggleEditPage={ sharedProps.toggleIsEditing } /> }
         />
 
         <Route 
