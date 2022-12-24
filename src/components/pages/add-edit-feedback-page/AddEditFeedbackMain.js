@@ -50,6 +50,7 @@ function AddEditFeedbackMain({ title, isEditing }) {
                     isEditing && 
 
                     <AddEditFeedbackInput 
+                        hasDropdown={ true }
                         title={ 'Update Status' }
                         labelText={ 'Change feedback state' }
                         id={ 'feedback-state' }
