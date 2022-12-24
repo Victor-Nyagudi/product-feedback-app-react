@@ -68,7 +68,7 @@ function AddEditFeedbackMain({ title, isEditing }) {
                     isRequired={ true }
                 />
 
-                <div className="add-edit-feedback__buttons">
+                <div className={ isEditing ? "add-edit-feedback__buttons--editing" : "add-edit-feedback__buttons" }>
                     {
                         isEditing &&
 

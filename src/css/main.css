@@ -82,6 +82,14 @@ a {
   background-color: #666fa3;
 }
 
+.button--delete {
+  background-color: #d73737;
+}
+
+.button--delete-hover, .button--delete-focus {
+  background-color: #e98686;
+}
+
 .feedback-button-svg {
   margin-right: .25em;
 }
@@ -322,6 +330,7 @@ a {
   position: absolute;
   top: 4.25em;
   left: 0;
+  z-index: 1;
   background-color: white;
   border-radius: 10px;
   -webkit-box-shadow: 0px 10px 40px -7px #373F68;
@@ -626,9 +635,36 @@ a {
   gap: 1em;
 }
 
+.add-edit-feedback__buttons--editing {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em 0;
+      grid-template-areas: 'add-button-container' 'cancel-button-container' 'delete-button-container';
+}
+
 .add-edit-feedback__button {
   width: 100%;
   padding: 1.15em 1.2em;
+}
+
+.add-edit-feedback__button-container:first-child {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: delete-button-container;
+}
+
+.add-edit-feedback__button-container:nth-child(2) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: cancel-button-container;
+}
+
+.add-edit-feedback__button-container:last-child {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: add-button-container;
 }
 
 .feedback-detail {
@@ -1271,6 +1307,9 @@ a {
   .add-edit-feedback .go-back-header {
     margin-bottom: 4.25em;
   }
+  .add-edit-feedback__button {
+    width: initial;
+  }
   .add-edit-feedback__buttons {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1279,6 +1318,12 @@ a {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+  }
+  .add-edit-feedback__buttons--editing {
+    -ms-grid-columns: 3fr 1fr auto;
+        grid-template-columns: 3fr 1fr auto;
+    gap: 0 1em;
+        grid-template-areas: 'delete-button-container cancel-button-container add-button-container';
   }
   .add-edit-feedback__main {
     padding: 3.5em 2.5em 1.5em;

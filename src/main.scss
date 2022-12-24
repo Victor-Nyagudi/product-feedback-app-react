@@ -54,13 +54,14 @@ $colors: (
     'purple': hsl(283, 83, 52), // #AD1FEA
     'blue': hsl(230, 76, 59), // #4661E6
     'orange': hsl(14, 83, 74), // #F49F85
+    'dark-orange': hsl(0, 67%, 53%), // #D73737
     'dark-grey': hsl(231, 100, 97), // #F2F4FE
     'purple-black': hsl(231, 33, 34), // #3A4374
     
     'purple--hover': hsl(282, 90%, 66%), // #C75AF6
     'blue--hover-link': hsl(230, 89%, 74%), // #8397F8
     'blue--hover-button': hsl(230, 91%, 73%), // #7C91F9
-    'orange--hover': hsl(0, 69%, 72%), // #E98888
+    'dark-orange--hover': hsl(0, 69%, 72%), // #E98888
     'dark-grey--hover': hsl(230, 100%, 91%), // #CFD7FF
     'purple-black--hover': hsl(231, 25%, 52%), // #656EA3
     
@@ -204,6 +205,12 @@ a {
         background-color: getColor('purple-black'); 
 
         &:hover, &:focus { background-color: getColor('purple-black--hover'); }
+    }
+
+    &--delete {
+        background-color: getColor('dark-orange');
+
+        &-hover, &-focus { background-color: getColor('dark-orange--hover'); }
     }
 }
 
@@ -404,6 +411,7 @@ a {
     position: absolute;
     top: 4.25em;
     left: 0;
+    z-index: 1;
 
     background-color: getColor('white');
     border-radius: $border-radius;
@@ -624,18 +632,34 @@ a {
 
     &__input-info { margin-bottom: 1.5em; }
 
-    
-
     &__buttons {
         display: flex;
         flex-direction: column-reverse;
         gap: 1em;
+
+        &--editing {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 1em 0;
+    
+            grid-template-areas: 
+                'add-button-container'
+                'cancel-button-container'
+                'delete-button-container'
+            ;
+        }
     }
 
     &__button {
         width: 100%;
 
         padding: 1.15em 1.2em; 
+
+        &-container:first-child { grid-area: delete-button-container; }
+        
+        &-container:nth-child(2) { grid-area: cancel-button-container; }
+        
+        &-container:last-child { grid-area: add-button-container; }
     }
 }
 
@@ -1171,9 +1195,20 @@ a {
 
         .go-back-header { margin-bottom: 4.25em; }
 
+        &__button { width: initial; }
+
         &__buttons {
             flex-direction: row;
             justify-content: flex-end;
+
+            &--editing {
+                grid-template-columns: 3fr 1fr auto;
+                gap: 0 1em;
+    
+                grid-template-areas: 
+                    'delete-button-container cancel-button-container add-button-container'
+                ;
+            }
         }
 
         &__main { padding: 3.5em 2.5em 1.5em; }
