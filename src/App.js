@@ -100,7 +100,8 @@ function App() {
     feedbackItems,
     feedbackItemDetailToShow,
     isEditing,
-    toggleIsEditing
+    toggleIsEditing,
+    showFeedbackItemDetail
   }
 
   return (
@@ -108,7 +109,7 @@ function App() {
       <Routes>
         <Route 
           index 
-          element={ <SuggestionsPage sharedProps={ sharedProps } getSelectedFeedbackItemId={ showFeedbackItemDetail } /> }
+          element={ <SuggestionsPage sharedProps={ sharedProps } /> }
         />
         
         <Route 

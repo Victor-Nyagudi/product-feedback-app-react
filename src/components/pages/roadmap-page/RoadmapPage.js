@@ -29,6 +29,7 @@ function RoadMapPage({ sharedProps }) {
                 isSmallerThan700px={ sharedProps.isSmallerThan700px } 
                 activeMobileNavItem={ activeMobileNavItem }
                 feedbackItems={ sharedProps.feedbackItems }
+                getSelectedFeedbackItemId={ sharedProps.showFeedbackItemDetail }
             />
         </div>
     );

@@ -3,17 +3,20 @@ import { PropTypes } from "prop-types";
 import FeedbackItem from "../../shared/FeedbackItem";
 
 function RoadmapCategoryItem({ 
+    id,
     color, 
     badgeText,
     title,
     message,
     tagCategory,
     totalUpvotes,
-    totalComments 
+    totalComments,
+    getSelectedFeedbackItemId 
 }) {
     return ( 
         <li className={`roadmap__category-item roadmap__category-item--${color}`}>
             <FeedbackItem 
+                id={ id }
                 showBadge={ true } 
                 badgeText={ badgeText }
                 badgeColor={ color }
@@ -23,6 +26,7 @@ function RoadmapCategoryItem({
                 totalUpvotes={ totalUpvotes }
                 totalComments={ totalComments }
                 isLink={ true }
+                getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
             />
         </li>
     );
@@ -35,7 +39,9 @@ RoadmapCategoryItem.propTypes = {
     message: PropTypes.string,
     category: PropTypes.string,
     totalUpvotes: PropTypes.number,
-    totalComments: PropTypes.number
+    totalComments: PropTypes.number,
+    getSelectedFeedbackItemId: PropTypes.func,
+    id: PropTypes.number
 }
 
 export default RoadmapCategoryItem;

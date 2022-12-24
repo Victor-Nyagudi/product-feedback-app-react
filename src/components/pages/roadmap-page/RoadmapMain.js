@@ -3,7 +3,12 @@ import React, { useState, useEffect } from 'react';
 
 import RoadmapCategory from "./RoadmapCategory";
 
-function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems }) {
+function RoadmapMain({ 
+    activeMobileNavItem, 
+    isSmallerThan700px, 
+    feedbackItems,
+    getSelectedFeedbackItemId
+}) {
     const categoryName = {
         planned: 'Planned',
         inProgress: 'In Progress',
@@ -106,6 +111,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                     totalItems={ categoryInfoToShowMobile.totalItems }
                     color={ categoryInfoToShowMobile.color }
                     feedbackItems={ getCategoryItems(categoryInfoToShowMobile.title) }
+                    getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
                 />                
 
                 :
@@ -116,6 +122,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                         totalItems={ categoryInfo.planned.totalItems }
                         color={ categoryInfo.planned.color }
                         feedbackItems={ getCategoryItems(categoryInfo.planned.title) }
+                        getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
                     />
         
                     <RoadmapCategory 
@@ -124,6 +131,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                         totalItems={ categoryInfo.inProgress.totalItems }
                         color={ categoryInfo.inProgress.color }
                         feedbackItems={ getCategoryItems(categoryInfo.inProgress.title) }
+                        getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
                     />
         
                     <RoadmapCategory 
@@ -132,6 +140,7 @@ function RoadmapMain({ activeMobileNavItem, isSmallerThan700px, feedbackItems })
                         totalItems={ categoryInfo.live.totalItems }
                         color={ categoryInfo.live.color }
                         feedbackItems={ getCategoryItems(categoryInfo.live.title) }
+                        getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
                     />
                 </>
             }
@@ -150,7 +159,8 @@ RoadmapMain.defaultProps = {
 RoadmapMain.propTypes = {
     activeMobileNavItem: PropTypes.object,
     isSmallerThan700px: PropTypes.bool,
-    feedbackItems: PropTypes.arrayOf(PropTypes.object).isRequired
+    feedbackItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+    getSelectedFeedbackItemId: PropTypes.func
 };
 
 export default RoadmapMain;

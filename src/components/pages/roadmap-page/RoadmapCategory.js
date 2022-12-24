@@ -7,7 +7,8 @@ function RoadmapCategory({
     explanation, 
     totalItems, 
     color,
-    feedbackItems 
+    feedbackItems,
+    getSelectedFeedbackItemId 
 }) {
     return ( 
         <section className="roadmap__category">
@@ -28,6 +29,7 @@ function RoadmapCategory({
                     {
                         feedbackItems.map(item => 
                             <RoadmapCategoryItem 
+                                id={ item.id }
                                 key={ item.id }
                                 color={ color } 
                                 badgeText={ title }
@@ -36,6 +38,7 @@ function RoadmapCategory({
                                 tagCategory={ item.category }
                                 totalUpvotes={ item.upvotes }
                                 totalComments={ item.comments ? item.comments.length : 0 }
+                                getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
                             />
                         )
                     }
@@ -50,7 +53,8 @@ RoadmapCategory.propTypes = {
     explanation: PropTypes.string.isRequired,
     totalItems: PropTypes.number.isRequired,
     color: PropTypes.string.isRequired,
-    feedbackItems: PropTypes.arrayOf(PropTypes.object)
+    feedbackItems: PropTypes.arrayOf(PropTypes.object),
+    getSelectedFeedbackItemId: PropTypes.func
 }
 
 export default RoadmapCategory;
