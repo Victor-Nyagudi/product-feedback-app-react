@@ -62,6 +62,9 @@ function App() {
   const [feedbackItems, setFeedbackItems] = useState([]);
   const [feedbackItemDetailToShow, setFeedbackItemDetailToShow] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  
+  const [dbFeedbackItems, setDbFeedbackItems] = useState([]);
+  const [dbFeedbackItem, setDbFeedbackItem] = useState(null);
 
   useEffect(() => {
     setFeedbackItems(productRequests.productRequests);
@@ -93,6 +96,92 @@ function App() {
       setIsEditing(false);
   }
 
+  //#region API requests
+
+  //#region GET 
+  async function fetchDbFeedbackItems() {
+    const response = await fetch('http://localhost:5000/productRequests');
+    const data = await response.json();
+
+    return data;
+  }
+
+  useEffect(() => {
+    async function getDbFeedbackItems() {
+      const dbFeedbackItems = await fetchDbFeedbackItems();
+
+      setDbFeedbackItems(dbFeedbackItems);
+    }
+    
+    getDbFeedbackItems();
+  }, []);
+  //#endregion
+
+  //#region GET/{id}
+  async function fetchDbFeedbackItem(id) {
+    const response = await fetch(`http://localhost:5000/productRequests/${id}`);
+    const data = await response.json();
+
+    return data;
+  }
+
+  useEffect(() => {
+    // TODO: Remember to check if item is in DB before attempting GET
+    async function getDbFeedbackItem(id) {
+      const dbFeedbackItem = await fetchDbFeedbackItem(id);
+
+      setDbFeedbackItem(dbFeedbackItem);
+    } 
+
+    getDbFeedbackItem(1);
+  }, []);
+  //#endregion
+
+  //#region POST
+  async function addDbFeedbackItem(feedbackItem) {
+    const response = await fetch('http://localhost:5000/productRequests', {
+      'method': 'POST',
+      'headers': { 'Content-type': 'application/json' },
+      'body': JSON.stringify(feedbackItem)
+    });
+
+    const data = await response.json();
+
+    setDbFeedbackItems([...dbFeedbackItems, data]);
+  }
+  //#endregion
+
+  //#region PUT/{id}
+  async function updateDbFeedbackItem(id) {
+    // TODO: Remember to check if item is in DB before attempting update
+    const feedbackItemToUpdate = await fetchDbFeedbackItem(id);
+
+    const response = await fetch(`http://localhost:5000/productRequests/${id}`, {
+      'method': 'PUT',
+      'headers': { 'Content-type': 'application/json' },
+      'body': JSON.stringify(feedbackItemToUpdate)
+    });
+
+    const data = await response.json();
+
+    setDbFeedbackItems(dbFeedbackItems.map(item => item.id === id ? { ...data } : item));
+  }
+  //#endregion
+
+  //#region DELETE/{id}
+  async function deleteDbFeedbackItem(id) {
+    // TODO: Remember to check if item is in DB before attempting delete
+    // * const dbFeedbackItem = await fetchDbFeedbackItem(id);
+
+    await fetch(`http://localhost:5000/productRequests/${id}`, {
+      'method': 'DELETE'
+    });
+
+    setDbFeedbackItems(dbFeedbackItems.filter(item => item.id !== id));
+  }
+  //#endregion
+
+  //#endregion
 
   const sharedProps = {
     isMobileScreen,
