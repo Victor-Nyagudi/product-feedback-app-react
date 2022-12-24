@@ -14,7 +14,7 @@ function RoadMapPage({ sharedProps }) {
 
     return ( 
         <div className="roadmap">
-            <RoadmapHeader />
+            <RoadmapHeader sharedProps={ sharedProps } />
 
             {
                 sharedProps.isSmallerThan700px &&
