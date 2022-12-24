@@ -7,7 +7,8 @@ function SuggestionsContent({
     isMobileScreen, 
     feedbackItems, 
     getSortByCriteria,
-    getSelectedFeedbackItemId 
+    getSelectedFeedbackItemId,
+    sharedProps 
 }) {
     return ( 
         <div className="suggestions__content">
@@ -21,11 +22,13 @@ function SuggestionsContent({
                 } 
                 isMobileScreen={ isMobileScreen } 
                 getSortByCriteria={ getSortByCriteria }
+                sharedProps={ sharedProps }
             />
             
             <SuggestionsMain 
                 feedbackItems={ feedbackItems } 
                 getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+                sharedProps={ sharedProps}
             />
         </div>
     );
@@ -35,7 +38,8 @@ SuggestionsContent.propTypes = {
     isMobileScreen: PropTypes.bool,
     feedbackItems: PropTypes.arrayOf(PropTypes.object),
     getSortByCriteria: PropTypes.func.isRequired,
-    getSelectedFeedbackItemId: PropTypes.func.isRequired 
+    getSelectedFeedbackItemId: PropTypes.func.isRequired,
+    sharedProps: PropTypes.object 
 }
 
 export default SuggestionsContent;

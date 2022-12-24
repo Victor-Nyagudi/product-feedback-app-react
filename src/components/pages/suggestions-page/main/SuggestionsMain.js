@@ -3,7 +3,11 @@ import { PropTypes } from "prop-types";
 import FeedbackItem from "../../../shared/FeedbackItem";
 import SuggestionsEmpty from "./SuggestionsEmpty";
 
-function SuggestionsMain({ feedbackItems, getSelectedFeedbackItemId }) {
+function SuggestionsMain({ 
+    feedbackItems, 
+    getSelectedFeedbackItemId,
+    sharedProps 
+}) {
     return ( 
         <main className="suggestions__main">
             <div className="suggestions__main-content container">
@@ -26,7 +30,7 @@ function SuggestionsMain({ feedbackItems, getSelectedFeedbackItemId }) {
 
                     :
 
-                    <SuggestionsEmpty /> 
+                    <SuggestionsEmpty sharedProps={ sharedProps } /> 
                 }
             </div>
         </main>
@@ -35,7 +39,8 @@ function SuggestionsMain({ feedbackItems, getSelectedFeedbackItemId }) {
 
 SuggestionsMain.propTypes = {
     feedbackItems: PropTypes.arrayOf(PropTypes.object),
-    getSelectedFeedbackItemId: PropTypes.func.isRequired
+    getSelectedFeedbackItemId: PropTypes.func.isRequired,
+    sharedProps: PropTypes.object
 }
 
 export default SuggestionsMain;

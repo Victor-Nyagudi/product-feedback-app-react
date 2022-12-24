@@ -1,6 +1,8 @@
+import { PropTypes } from "prop-types";
+
 import Button from "../../../shared/Button";
 
-function SuggestionsEmpty() {
+function SuggestionsEmpty({ sharedProps }) {
     return (
         <section className="suggestions__empty">
             <div className="suggestions__empty-img-container">
@@ -25,10 +27,13 @@ function SuggestionsEmpty() {
                     className={ 'button--add-feedback' } 
                     icon={ <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg" className="feedback-button-svg"><text transform="translate(-24 -20)" fill="#F2F4FE" fillRule="evenodd" fontFamily="Jost-Bold, Jost" fontSize="14" fontWeight="bold"><tspan x="24" y="27.5">+</tspan></text></svg> }
                     isLink={ true }
+                    toggleEditPage={ sharedProps.toggleIsEditing }
                 />
             </div>
         </section>
     );
 }
+
+SuggestionsEmpty.propTypes = { sharedProps: PropTypes.object };
 
 export default SuggestionsEmpty;

@@ -79,6 +79,7 @@ function SuggestionsPage({ sharedProps, getSelectedFeedbackItemId }) {
                 feedbackItems={ feedbackItemsToShow }
                 getSortByCriteria={ sortFeedbackItems }
                 getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+                sharedProps={ sharedProps }
             />
         </div>
     );
