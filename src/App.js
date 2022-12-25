@@ -172,35 +172,46 @@ function App() {
 
   //#region PUT/{id}
   async function updateDbFeedbackItem(id, updatedFeedbackItem) {
-    // TODO: Remember to check if item is in DB before attempting update
+    // * Checking if item is in DB before attempting update
     const feedbackItemFromDb = await fetchDbFeedbackItem(id);
 
-    const feedbackItemToUpdate = { ...updatedFeedbackItem, id: feedbackItemFromDb.id };
+    if (feedbackItemFromDb) {
+      const feedbackItemToUpdate = { ...updatedFeedbackItem, id: feedbackItemFromDb.id };
+  
+      const response = await fetch(`http://localhost:5000/productRequests/${id}`, {
+        'method': 'PUT',
+        'headers': { 'Content-type': 'application/json' },
+        'body': JSON.stringify(feedbackItemToUpdate)
+      });
+  
+      const data = await response.json();
+  
+      setDbFeedbackItems(dbFeedbackItems.map(item => item.id === id ? { ...data } : item));
+      
+      console.log('Feedback item updated');
+    }
 
-    const response = await fetch(`http://localhost:5000/productRequests/${id}`, {
-      'method': 'PUT',
-      'headers': { 'Content-type': 'application/json' },
-      'body': JSON.stringify(feedbackItemToUpdate)
-    });
-
-    const data = await response.json();
-
-    setDbFeedbackItems(dbFeedbackItems.map(item => item.id === id ? { ...data } : item));
-
-    console.log('Feedback item updated');
+    else
+      console.warn('Feedback item not found. Update failed');
   }
   //#endregion
 
   //#region DELETE/{id}
   async function deleteDbFeedbackItem(id) {
-    // TODO: Remember to check if item is in DB before attempting delete
-    // * const dbFeedbackItem = await fetchDbFeedbackItem(id);
+    // * Checking if item is in DB before attempting delete
+    const dbFeedbackItem = await fetchDbFeedbackItem(id);
 
-    await fetch(`http://localhost:5000/productRequests/${id}`, {
-      'method': 'DELETE'
-    });
+    if (dbFeedbackItem) {
+      await fetch(`http://localhost:5000/productRequests/${id}`, {
+        'method': 'DELETE'
+      });
+      
+      console.log('Feedback item deleted from db');
+      setDbFeedbackItems(dbFeedbackItems.filter(item => item.id !== id));
+    }
 
-    setDbFeedbackItems(dbFeedbackItems.filter(item => item.id !== id));
+    else
+      console.warn('Delete failed. Feedback item not found in db');
   }
   //#endregion
 

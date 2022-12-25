@@ -10,7 +10,8 @@ function AddEditFeedbackMain({
     isEditing,
     feedbackItems,
     addFeedbackItem,
-    updateFeedbackItem
+    updateFeedbackItem,
+    deleteFeedbackItem
 }) {
     const feedbackItemId = isEditing ? feedbackItemFromDb.id : feedbackItems.length + 1;
     const feedbackItemUpvotes = isEditing ? feedbackItemFromDb.upvotes : 0;
@@ -30,13 +31,24 @@ function AddEditFeedbackMain({
 
     function handleSubmit(e) {
         e.preventDefault();
-
-        if (isEditing)
-            updateFeedbackItem(feedbackItemFromDb.id, feedbackItem);
-
-        else 
-            addFeedbackItem(feedbackItem);
         
+        /*
+        * Found this neat way of finding which button submitted the form by first
+        * logging the event object to the console and studying its properties.
+        * This helps because while editing, the form can be submitted by either
+        * the 'Delete' button or 'Add Feedback'.
+        */
+       const formSubmitter = e.nativeEvent.submitter;
+       
+       if (formSubmitter.innerText.toLowerCase() === 'add feedback')
+           updateFeedbackItem(feedbackItemFromDb.id, feedbackItem);
+
+        else if (formSubmitter.innerText.toLowerCase() === 'delete') 
+            deleteFeedbackItem(feedbackItemFromDb.id);
+
+       else 
+           addFeedbackItem(feedbackItem);
+
         setFeedbackItem({
             id: feedbackItems.length + 1,
             title: '',
@@ -183,6 +195,7 @@ function AddEditFeedbackMain({
                         <AddEditFeedbackButton 
                             text={ 'Delete' }
                             className={ 'button--delete add-edit-feedback__button' } 
+                            type={ 'submit' }
                         />
 
                     }
@@ -210,6 +223,7 @@ AddEditFeedbackMain.propTypes = {
     feedbackItems: PropTypes.arrayOf(PropTypes.object),
     addFeedbackItem: PropTypes.func.isRequired,
     updateFeedbackItem: PropTypes.func.isRequired,
+    deleteFeedbackItem: PropTypes.func.isRequired,
     feedbackItemFromDb: PropTypes.object 
 }
 

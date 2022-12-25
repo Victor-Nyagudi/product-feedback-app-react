@@ -12,6 +12,7 @@ function AddEditFeedbackPage({ sharedProps }) {
                 isEditing={ sharedProps.isEditing } 
                 feedbackItems={ sharedProps.dbFeedbackItems }
                 addFeedbackItem={ sharedProps.addDbFeedbackItem }
+                deleteFeedbackItem={ sharedProps.deleteDbFeedbackItem }
                 updateFeedbackItem={ sharedProps.updateDbFeedbackItem }
             />
         </div>
