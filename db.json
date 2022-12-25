@@ -10,7 +10,7 @@
       "title": "Add tags for solutions",
       "category": "Enhancement",
       "upvotes": 112,
-      "status": "suggestion",
+      "status": "Suggestion",
       "description": "Easier to search for solutions based on a specific stack.",
       "comments": [
         {
@@ -38,7 +38,7 @@
       "title": "Add a dark theme option",
       "category": "Feature",
       "upvotes": 99,
-      "status": "suggestion",
+      "status": "Suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
       "comments": [
         {
@@ -86,7 +86,7 @@
       "title": "Q&A within the challenge hubs",
       "category": "Feature",
       "upvotes": 65,
-      "status": "suggestion",
+      "status": "Suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
       "comments": [
         {
@@ -105,7 +105,7 @@
       "title": "Add image/video upload to feedback",
       "category": "Enhancement",
       "upvotes": 51,
-      "status": "suggestion",
+      "status": "Suggestion",
       "description": "Images and screencasts can enhance comments on solutions.",
       "comments": [
         {
@@ -133,7 +133,7 @@
       "title": "Ability to follow others",
       "category": "Feature",
       "upvotes": 42,
-      "status": "suggestion",
+      "status": "Suggestion",
       "description": "Stay updated on comments and solutions other people post.",
       "comments": [
         {
@@ -172,7 +172,7 @@
       "title": "Preview images not loading",
       "category": "Bug",
       "upvotes": 3,
-      "status": "suggestion",
+      "status": "Suggestion",
       "description": "Challenge preview images are missing when you apply a filter.",
       "comments": []
     },
@@ -306,7 +306,7 @@
       "description": "The contrast ratio of the current CTA button is currently too low which isn't good for accessibility.",
       "category": "UX",
       "comments": [],
-      "status": "suggestion",
+      "status": "Suggestion",
       "upvotes": 0
     },
     {
@@ -315,7 +315,7 @@
       "description": "Some of the landscape format images are really small on mobile. I think portrait ones would work better.",
       "category": "UX",
       "comments": [],
-      "status": "suggestion",
+      "status": "Suggestion",
       "upvotes": 0
     },
     {
@@ -324,7 +324,7 @@
       "description": "Clicking the delete button does nothing on the contact page.",
       "category": "Bug",
       "comments": [],
-      "status": "suggestion",
+      "status": "Suggestion",
       "upvotes": 0
     }
   ]

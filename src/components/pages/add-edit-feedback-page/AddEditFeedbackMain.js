@@ -42,7 +42,7 @@ function AddEditFeedbackMain({
             description: '',
             category: '',
             comments: [],
-            status: 'suggestion',
+            status: 'Suggestion',
             upvotes: 0
         });
 

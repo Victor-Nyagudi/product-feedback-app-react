@@ -16,7 +16,7 @@ function SuggestionsContent({
                 totalSuggestions={ 
                     feedbackItems ?
 
-                    feedbackItems.filter(item => item.status === 'suggestion').length 
+                    feedbackItems.filter(item => item.status === 'Suggestion').length 
 
                     : 0
                 } 
