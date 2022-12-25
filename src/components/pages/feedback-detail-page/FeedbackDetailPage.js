@@ -14,7 +14,7 @@ function FeedbackDetailPage({ sharedProps, toggleEditPage }) {
             />
 
             <FeedbackDetailMain 
-                feedbackItems={ sharedProps.feedbackItems } 
+                feedbackItems={ sharedProps.dbFeedbackItems } 
                 feedbackItemDetailToShow={ sharedProps.feedbackItemDetailToShow }
             />
         </div>
