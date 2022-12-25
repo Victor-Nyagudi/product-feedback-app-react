@@ -6,19 +6,19 @@ import SuggestionsAside from "./aside/SuggestionsAside";
 import SuggestionsContent from "./main/SuggestionsContent";
 
 function SuggestionsPage({ sharedProps }) {
-    const [feedbackItemsToShow, setFeedbackItemsToShow] = useState(sharedProps.feedbackItems);
+    const [feedbackItemsToShow, setFeedbackItemsToShow] = useState(sharedProps.dbFeedbackItems);
     const [sortByCriteria, setSortByCriteria] = useState('Most Upvotes');
 
     function showTagFeedbackItems(tagName) {
-        if (sharedProps.feedbackItems) {
+        if (sharedProps.dbFeedbackItems) {
             if (tagName !== 'All') {
-                const tagFeedbackItems = sharedProps.feedbackItems.filter(item => item.category === tagName)
+                const tagFeedbackItems = sharedProps.dbFeedbackItems.filter(item => item.category === tagName)
 
                 setFeedbackItemsToShow(sortBy(tagFeedbackItems, sortByCriteria));
             }
 
             else
-                setFeedbackItemsToShow(sortBy(sharedProps.feedbackItems, sortByCriteria));
+                setFeedbackItemsToShow(sortBy(sharedProps.dbFeedbackItems, sortByCriteria));
         }
     }
 
@@ -52,8 +52,8 @@ function SuggestionsPage({ sharedProps }) {
         // * Found this nice little way to re-render the page once data is fetched
         // * Sort by most upvotes by default
 
-        setFeedbackItemsToShow(sortBy([...sharedProps.feedbackItems], sortByCriteria));
-    }, [sharedProps.feedbackItems]);
+        setFeedbackItemsToShow(sortBy([...sharedProps.dbFeedbackItems], sortByCriteria));
+    }, [sharedProps.dbFeedbackItems]);
 
     useEffect(() => {
         const sortedFeedbackItems = sortBy([...feedbackItemsToShow], sortByCriteria); 
@@ -69,7 +69,7 @@ function SuggestionsPage({ sharedProps }) {
                 ? <AppInfo isMobileScreen={ sharedProps.isMobileScreen } />
 
                 : <SuggestionsAside 
-                    feedbackItems={ sharedProps.feedbackItems }
+                    feedbackItems={ sharedProps.dbFeedbackItems }
                     getActiveTag={ showTagFeedbackItems }
                     /> 
             }

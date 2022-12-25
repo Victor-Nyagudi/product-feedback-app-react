@@ -65,6 +65,7 @@ function App() {
   
   const [dbFeedbackItems, setDbFeedbackItems] = useState([]);
   const [dbFeedbackItem, setDbFeedbackItem] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     setFeedbackItems(productRequests.productRequests);
@@ -114,6 +115,24 @@ function App() {
     }
     
     getDbFeedbackItems();
+  }, []);
+
+  async function fetchCurrentUser() {
+    const response = await fetch('http://localhost:5000/currentUser');
+
+    const data = await response.json();
+
+    return data;
+  }
+
+  useEffect(() => {
+    async function getCurrentUser() {
+      const dbCurrentUser = await fetchCurrentUser();
+
+      setCurrentUser(dbCurrentUser);
+    }
+
+    getCurrentUser();
   }, []);
   //#endregion
 
@@ -190,7 +209,8 @@ function App() {
     feedbackItemDetailToShow,
     isEditing,
     toggleIsEditing,
-    showFeedbackItemDetail
+    showFeedbackItemDetail,
+    dbFeedbackItems
   }
 
   return (
