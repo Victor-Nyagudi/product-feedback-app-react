@@ -18,7 +18,7 @@ function AddEditFeedbackMain({
         description: '',
         category: '',
         comments: [],
-        status: '',
+        status: 'suggestion',
         upvotes: 0
     });
 
@@ -55,7 +55,7 @@ function AddEditFeedbackMain({
             * setFeedbackItem({ ...feedbackItem, [target.name]: target.value});
             
             * However, this isn't working, so I reverted back to checks because it also accounts
-            * for the read-only value that is changed via getReadOnlyValue() function.
+            * for the read-only value that is updated via getReadOnlyValue() function.
             * https://reactjs.org/docs/forms.html, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names
         */
         switch (target.name) {
