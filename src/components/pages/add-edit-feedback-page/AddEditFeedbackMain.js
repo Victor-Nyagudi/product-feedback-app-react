@@ -6,20 +6,23 @@ import AddEditFeedbackButton from "./AddEditFeedbackButton";
 import AddEditFeedbackInput from "./AddEditFeedbackInput";
 
 function AddEditFeedbackMain({ 
-    title, 
+    feedbackItemFromDb,
     isEditing,
     feedbackItems,
     addFeedbackItem,
     updateFeedbackItem
 }) {
+    const feedbackItemId = isEditing ? feedbackItemFromDb.id : feedbackItems.length + 1;
+    const feedbackItemUpvotes = isEditing ? feedbackItemFromDb.upvotes : 0;
+
     const [feedbackItem, setFeedbackItem] = useState({
-        id: feedbackItems.length + 1,
-        title: '',
-        description: '',
-        category: '',
-        comments: [],
-        status: 'suggestion',
-        upvotes: 0
+        id: feedbackItemId,
+        title: `${isEditing ? feedbackItemFromDb.title : ''}`,
+        description: `${isEditing ? feedbackItemFromDb.description : ''}`,
+        category: `${isEditing ? feedbackItemFromDb.category : ''}`,
+        comments: `${isEditing ? feedbackItemFromDb.comments : []}`,
+        status: `${isEditing ? feedbackItemFromDb.status : 'suggestion'}`,
+        upvotes: feedbackItemUpvotes
     });
 
     const navigate = useNavigate();
@@ -27,7 +30,11 @@ function AddEditFeedbackMain({
     function handleSubmit(e) {
         e.preventDefault();
 
-        addFeedbackItem(feedbackItem);
+        if (isEditing)
+            updateFeedbackItem(feedbackItemFromDb.id, feedbackItem);
+
+        else 
+            addFeedbackItem(feedbackItem);
         
         setFeedbackItem({
             id: feedbackItems.length + 1,
@@ -88,6 +95,7 @@ function AddEditFeedbackMain({
     }
 
     console.log(feedbackItem);
+    console.log('FeedbackItem from db');
 
     return ( 
         <main className="add-edit-feedback__main">
@@ -110,7 +118,7 @@ function AddEditFeedbackMain({
             }
 
             <h1 className="add-edit-feedback__title">
-                { isEditing ? `Editing '${title}'` : 'Create New Feedback' }
+                { isEditing ? `Editing '${feedbackItemFromDb.title}'` : 'Create New Feedback' }
             </h1>
 
             <form 
@@ -196,11 +204,11 @@ function AddEditFeedbackMain({
 AddEditFeedbackMain.defaultProps = { isEditing: false }
 
 AddEditFeedbackMain.propTypes = {
-    title: PropTypes.string,
     isEditing: PropTypes.bool,
     feedbackItems: PropTypes.arrayOf(PropTypes.object),
     addFeedbackItem: PropTypes.func.isRequired,
-    updateFeedbackItem: PropTypes.func.isRequired 
+    updateFeedbackItem: PropTypes.func.isRequired,
+    feedbackItemFromDb: PropTypes.object 
 }
 
 export default AddEditFeedbackMain;

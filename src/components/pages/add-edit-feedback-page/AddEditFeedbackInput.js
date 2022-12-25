@@ -45,7 +45,7 @@ function AddEditFeedbackInput({
                     inputType={ `${ inputType }` }
                     inputName={ `${ inputName }` } 
                     id={ `${ id }` }
-                    value={ inputValue }
+                    inputValue={ inputValue }
                     handleOnChange={ handleChange }
                     updateReadOnlyValue={ updateReadOnlyValue }
                 />

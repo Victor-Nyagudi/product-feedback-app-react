@@ -12,8 +12,8 @@ function FeedbackDetailMain({ feedbackItems, feedbackItemDetailToShow }) {
         if (feedbackItemDetailToShow)
             setFeedbackItem(feedbackItemDetailToShow);
 
-        // else
-        //     setFeedbackItem(feedbackItems[1])
+        else
+            setFeedbackItem(feedbackItems[1])
     }, [feedbackItemDetailToShow]);
 
     /*

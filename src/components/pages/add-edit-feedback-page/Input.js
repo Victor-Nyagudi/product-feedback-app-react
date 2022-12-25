@@ -74,7 +74,7 @@ function Input({
                         type={ `${inputType}` } 
                         name={ `${inputName}` } 
                         id={ `${id}` } 
-                        value={ inputText }
+                        value={ inputValue }
                         onChange={ e => handleOnChange(e.target) }
                     />
 

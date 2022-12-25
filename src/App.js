@@ -171,9 +171,11 @@ function App() {
   //#endregion
 
   //#region PUT/{id}
-  async function updateDbFeedbackItem(id) {
+  async function updateDbFeedbackItem(id, updatedFeedbackItem) {
     // TODO: Remember to check if item is in DB before attempting update
-    const feedbackItemToUpdate = await fetchDbFeedbackItem(id);
+    const feedbackItemFromDb = await fetchDbFeedbackItem(id);
+
+    const feedbackItemToUpdate = { ...updatedFeedbackItem, id: feedbackItemFromDb.id };
 
     const response = await fetch(`http://localhost:5000/productRequests/${id}`, {
       'method': 'PUT',
@@ -184,6 +186,8 @@ function App() {
     const data = await response.json();
 
     setDbFeedbackItems(dbFeedbackItems.map(item => item.id === id ? { ...data } : item));
+
+    console.log('Feedback item updated');
   }
   //#endregion
 

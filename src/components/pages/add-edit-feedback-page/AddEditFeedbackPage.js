@@ -8,7 +8,7 @@ function AddEditFeedbackPage({ sharedProps }) {
         <div className="add-edit-feedback container">
             <GoBackHeader />
             <AddEditFeedbackMain 
-                title={ sharedProps.feedbackItemDetailToShow ? sharedProps.feedbackItemDetailToShow.title : 'Test heading' } 
+                feedbackItemFromDb={ sharedProps.dbFeedbackItemToShow }
                 isEditing={ sharedProps.isEditing } 
                 feedbackItems={ sharedProps.dbFeedbackItems }
                 addFeedbackItem={ sharedProps.addDbFeedbackItem }
