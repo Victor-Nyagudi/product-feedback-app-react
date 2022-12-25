@@ -61,26 +61,31 @@ function App() {
 
   const [feedbackItems, setFeedbackItems] = useState([]);
   const [feedbackItemDetailToShow, setFeedbackItemDetailToShow] = useState(null);
+
   const [isEditing, setIsEditing] = useState(false);
   
   const [dbFeedbackItems, setDbFeedbackItems] = useState([]);
-  const [dbFeedbackItem, setDbFeedbackItem] = useState(null);
+  const [dbFeedbackItemToShow, setDbFeedbackItemToShow] = useState(null);
+  
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     setFeedbackItems(productRequests.productRequests);
-
-    console.log(feedbackItems);
   }, [feedbackItems]);
   
+  console.log(dbFeedbackItems);
 
   // * This is similar to a GET/{id} request
 
   function showFeedbackItemDetail(feedbackItemId) {
-    const feedbackItemFromDb = productRequests.productRequests.find(items => items.id === feedbackItemId);
+    const feedbackItemFromJson = productRequests.productRequests.find(items => items.id === feedbackItemId);
+    const feedbackItemFromDb = dbFeedbackItems.find(items => items.id === feedbackItemId);
 
-    if (feedbackItemFromDb) {
-      setFeedbackItemDetailToShow(feedbackItemFromDb);
+    if (feedbackItemFromDb)
+      setDbFeedbackItemToShow(feedbackItemFromDb);
+
+    if (feedbackItemFromJson) {
+      setFeedbackItemDetailToShow(feedbackItemFromJson);
     }
 
     else
@@ -144,16 +149,11 @@ function App() {
     return data;
   }
 
-  useEffect(() => {
-    // TODO: Remember to check if item is in DB before attempting GET
-    async function getDbFeedbackItem(id) {
-      const dbFeedbackItem = await fetchDbFeedbackItem(id);
+  async function getDbFeedbackItem(id) {
+    const dbFeedbackItem = await fetchDbFeedbackItem(id);
 
-      setDbFeedbackItem(dbFeedbackItem);
-    } 
-
-    getDbFeedbackItem(1);
-  }, []);
+    setDbFeedbackItemToShow(dbFeedbackItem);
+  } 
   //#endregion
 
   //#region POST
@@ -209,10 +209,11 @@ function App() {
     feedbackItemDetailToShow,
     isEditing,
     dbFeedbackItems,
+    dbFeedbackItemToShow,
 
     addDbFeedbackItem,
     updateDbFeedbackItem,
-    fetchDbFeedbackItem,
+    getDbFeedbackItem,
     deleteDbFeedbackItem,
 
     toggleIsEditing,
