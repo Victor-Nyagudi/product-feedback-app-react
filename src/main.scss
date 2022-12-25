@@ -389,7 +389,18 @@ a {
             border-radius: $border-radius;
             padding: $tag-padding-mobile;
 
-            &:hover, &:focus { background-color: getColor('dark-grey--hover'); }
+            &:hover, &:focus-visible { background-color: getColor('dark-grey--hover'); }
+
+            &--clicked {
+                @extend .feedback-content__upvotes-button;
+                
+                color: getColor('white');
+                background-color: getColor('blue');
+
+                & .feedback-content__upvotes-total { color: getColor('white'); }
+
+                &:hover, &:focus { background-color: getColor('blue'); }
+            }
         }
     }
 

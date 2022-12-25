@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
+import React, { useState } from 'react';
 
 function FeedbackItem({ 
     showBadge, 
@@ -14,8 +15,8 @@ function FeedbackItem({
     id,
     getSelectedFeedbackItemId
 }) {
-    // TODO Remember to make the feedback message keyboard focusable
-    
+    const [userUpvoted, setUserUpvoted] = useState(false);
+
     return ( 
         <section className="feedback-item"> 
             
@@ -61,9 +62,13 @@ function FeedbackItem({
                 </div>
 
                 <div className="feedback-content__upvotes">
-                    <button type="button" className="feedback-content__upvotes-button button">
+                    <button 
+                        type="button" 
+                        className={`${userUpvoted ? 'feedback-content__upvotes-button--clicked' : 'feedback-content__upvotes-button'} button`}
+                        onClick={ () => setUserUpvoted(!userUpvoted) }
+                    >
                         <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 6l4-4 4 4" stroke="#4661E6" strokeWidth="2" fill="none" fillRule="evenodd"/>
+                            <path d="M1 6l4-4 4 4" stroke={ userUpvoted ? '#FFFFFF' : "#4661E6"} strokeWidth="2" fill="none" fillRule="evenodd"/>
                         </svg>
 
                         <span className="feedback-content__upvotes-total">

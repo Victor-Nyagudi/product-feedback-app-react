@@ -292,7 +292,7 @@ a {
   color: #3a4373;
 }
 
-.feedback-content__upvotes-button {
+.feedback-content__upvotes-button, .feedback-content__upvotes-button--clicked {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -305,8 +305,21 @@ a {
   padding: 0.35em 1.15em;
 }
 
-.feedback-content__upvotes-button:hover, .feedback-content__upvotes-button:focus {
+.feedback-content__upvotes-button:hover, .feedback-content__upvotes-button--clicked:hover, .feedback-content__upvotes-button:focus-visible, .feedback-content__upvotes-button--clicked:focus-visible {
   background-color: #d1d9ff;
+}
+
+.feedback-content__upvotes-button--clicked {
+  color: white;
+  background-color: #4761e6;
+}
+
+.feedback-content__upvotes-button--clicked .feedback-content__upvotes-total {
+  color: white;
+}
+
+.feedback-content__upvotes-button--clicked:hover, .feedback-content__upvotes-button--clicked:focus {
+  background-color: #4761e6;
 }
 
 .feedback-content__comments {
@@ -1025,7 +1038,7 @@ a {
   .feedback-button-svg {
     margin-right: .4em;
   }
-  .feedback-content__upvotes-button {
+  .feedback-content__upvotes-button, .feedback-content__upvotes-button--clicked {
     padding: .75em 1.15em;
   }
   .input, .textarea {
@@ -1277,7 +1290,7 @@ a {
     -ms-flex-item-align: start;
         align-self: flex-start;
   }
-  .suggestions__main .feedback-content__upvotes-button {
+  .suggestions__main .feedback-content__upvotes-button, .suggestions__main .feedback-content__upvotes-button--clicked {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1357,7 +1370,7 @@ a {
     -ms-flex-item-align: start;
         align-self: flex-start;
   }
-  .feedback-detail__main .feedback-content__upvotes-button {
+  .feedback-detail__main .feedback-content__upvotes-button, .feedback-detail__main .feedback-content__upvotes-button--clicked {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
