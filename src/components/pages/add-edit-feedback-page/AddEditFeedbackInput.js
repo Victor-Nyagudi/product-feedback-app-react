@@ -14,7 +14,8 @@ function AddEditFeedbackInput({
     labelText,
     title,
     handleChange,
-    updateReadOnlyValue 
+    updateReadOnlyValue,
+    dropdownItemType 
 }) {
     return (    
         <div className="add-edit-feedback__input-info">
@@ -48,6 +49,7 @@ function AddEditFeedbackInput({
                     inputValue={ inputValue }
                     handleOnChange={ handleChange }
                     updateReadOnlyValue={ updateReadOnlyValue }
+                    dropdownItemType={ dropdownItemType }
                 />
             }
         </div>
@@ -72,7 +74,8 @@ AddEditFeedbackInput.propTypes = {
     inputName: PropTypes.string.isRequired,
     labelText: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
-    updateReadOnlyValue: PropTypes.func
+    updateReadOnlyValue: PropTypes.func,
+    dropdownItemType: PropTypes.string
 }
 
 export default AddEditFeedbackInput;

@@ -14,13 +14,14 @@ function AddEditFeedbackMain({
 }) {
     const feedbackItemId = isEditing ? feedbackItemFromDb.id : feedbackItems.length + 1;
     const feedbackItemUpvotes = isEditing ? feedbackItemFromDb.upvotes : 0;
+    const feedbackItemComments = isEditing ? feedbackItemFromDb.comments : [];
 
     const [feedbackItem, setFeedbackItem] = useState({
         id: feedbackItemId,
         title: `${isEditing ? feedbackItemFromDb.title : ''}`,
         description: `${isEditing ? feedbackItemFromDb.description : ''}`,
         category: `${isEditing ? feedbackItemFromDb.category : ''}`,
-        comments: `${isEditing ? feedbackItemFromDb.comments : []}`,
+        comments: feedbackItemComments,
         status: `${isEditing ? feedbackItemFromDb.status : 'suggestion'}`,
         upvotes: feedbackItemUpvotes
     });
@@ -95,7 +96,6 @@ function AddEditFeedbackMain({
     }
 
     console.log(feedbackItem);
-    console.log('FeedbackItem from db');
 
     return ( 
         <main className="add-edit-feedback__main">
@@ -137,6 +137,7 @@ function AddEditFeedbackMain({
                 
                 <AddEditFeedbackInput 
                     hasDropdown={ true }
+                    dropdownItemType={ 'Category' }
                     title={ 'Category' }
                     labelText={ 'Choose a category for your feedback' }
                     id={ 'feedback-category' }
@@ -152,6 +153,7 @@ function AddEditFeedbackMain({
 
                     <AddEditFeedbackInput 
                         hasDropdown={ true }
+                        dropdownItemType={ 'Status' }
                         title={ 'Update Status' }
                         labelText={ 'Change feedback state' }
                         id={ 'feedback-status' }

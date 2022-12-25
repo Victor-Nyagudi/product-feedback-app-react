@@ -11,23 +11,43 @@ function Input({
     inputValue, 
     isRequired, 
     handleOnChange, 
-    updateReadOnlyValue
+    updateReadOnlyValue,
+    dropdownItemType
 }) {
+    let dropdownMenuItems;
 
-    const dropdownMenuItems = [
-        { buttonText: 'Feature', isSelected: true },
-        { buttonText: 'UI', isSelected: false },
-        { buttonText: 'UX', isSelected: false },
-        { buttonText: 'Enhancement', isSelected: false },
-        { buttonText: 'Bug', isSelected: false },
-    ];
+    if (dropdownItemType.toLowerCase() === 'category') {
+        dropdownMenuItems = [
+            { buttonText: 'Feature', isSelected: true },
+            { buttonText: 'UI', isSelected: false },
+            { buttonText: 'UX', isSelected: false },
+            { buttonText: 'Enhancement', isSelected: false },
+            { buttonText: 'Bug', isSelected: false }
+        ];
+    }
 
-    const [inputText, setInputText] = useState(dropdownMenuItems[0].buttonText);
+    else if (dropdownItemType.toLowerCase() === 'status') {
+        dropdownMenuItems = [
+            { buttonText: 'Suggestion', isSelected: true },
+            { buttonText: 'Planned', isSelected: false },
+            { buttonText: 'In Progress', isSelected: false },
+            { buttonText: 'Live', isSelected: false }
+        ];
+    }
+
+    else {
+        dropdownMenuItems = [
+            { buttonText: 'Feature', isSelected: true },
+            { buttonText: 'UI', isSelected: false },
+            { buttonText: 'UX', isSelected: false },
+            { buttonText: 'Enhancement', isSelected: false },
+            { buttonText: 'Bug', isSelected: false }
+        ];
+    }
+
 
     function changeInputValue(value) {
         updateReadOnlyValue(inputName, value);
-
-        setInputText(value);
     }
 
     /*
@@ -102,7 +122,8 @@ function Input({
 
 Input.defaultProps = {
     hasIcon: false,
-    isRequired: false
+    isRequired: false,
+    dropdownItemType: 'category'
 }
 
 Input.propTypes = {
@@ -113,7 +134,8 @@ Input.propTypes = {
     inputValue: PropTypes.string,
     handleOnChange: PropTypes.func.isRequired,
     isRequired: PropTypes.bool,
-    updateReadOnlyValue: PropTypes.func
+    updateReadOnlyValue: PropTypes.func,
+    dropdownItemType: PropTypes.string
 }
 
 export default Input;

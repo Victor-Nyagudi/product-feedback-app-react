@@ -207,10 +207,8 @@
     {
       "id": 8,
       "title": "Learning paths",
+      "description": "Sequenced projects for different goals to help people improve. Everyone learns at a different pace.",
       "category": "Feature",
-      "upvotes": 28,
-      "status": "Planned",
-      "description": "Sequenced projects for different goals to help people improve.",
       "comments": [
         {
           "id": 12,
@@ -221,7 +219,9 @@
             "username": "soccerviewer8"
           }
         }
-      ]
+      ],
+      "status": "Planned",
+      "upvotes": 28
     },
     {
       "id": 9,
@@ -302,8 +302,8 @@
     },
     {
       "id": 13,
-      "title": "Darken CTA button text",
-      "description": "The contrast ratio of the current CTA button is currently too low which isn't good for accessibility.",
+      "title": "Lighten CTA button background",
+      "description": "The contrast ratio of the current CTA button is currently too low, which isn't good for accessibility. It sits at 4.43.",
       "category": "UX",
       "comments": [],
       "status": "Suggestion",
@@ -315,7 +315,7 @@
       "description": "Some of the landscape format images are really small on mobile. I think portrait ones would work better.",
       "category": "UX",
       "comments": [],
-      "status": "Suggestion",
+      "status": "Planned",
       "upvotes": 0
     },
     {
