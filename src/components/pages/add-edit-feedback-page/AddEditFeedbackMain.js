@@ -1,9 +1,88 @@
 import { PropTypes } from "prop-types";
+import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
 
 import AddEditFeedbackButton from "./AddEditFeedbackButton";
 import AddEditFeedbackInput from "./AddEditFeedbackInput";
 
-function AddEditFeedbackMain({ title, isEditing }) {
+function AddEditFeedbackMain({ 
+    title, 
+    isEditing,
+    feedbackItems,
+    addFeedbackItem,
+    updateFeedbackItem
+}) {
+    const [feedbackItem, setFeedbackItem] = useState({
+        id: feedbackItems.length + 1,
+        title: '',
+        description: '',
+        category: '',
+        comments: [],
+        status: '',
+        upvotes: 0
+    });
+
+    const navigate = useNavigate();
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        console.log('Feedback submitted.');
+        console.log(feedbackItem);
+        setFeedbackItem({
+
+        });
+
+        navigate('/');
+    }
+
+    function getReadOnlyValue(inputName, value) {
+        // * This works for just the two dropdown inputs present: category & status
+        if (inputName === 'feedback-category')
+            setFeedbackItem({ ...feedbackItem, category: value });
+        
+        else if (inputName === 'feedback-status')
+            setFeedbackItem({ ...feedbackItem, status: value });
+    }
+
+    function handleChange(target) {
+        /*
+            * One way to avoid all these checks would've been to make the 'target.name' be the
+            * same as the feedback item's property name e.g. 'feedback-title' becomes
+            * just 'title' and so on, and then use a computed property name i.e [name]: value
+            
+            * The code could've potentially been this one line.
+            * setFeedbackItem({ ...feedbackItem, [target.name]: target.value});
+            
+            * However, this isn't working, so I reverted back to checks because it also accounts
+            * for the read-only value that is changed via getReadOnlyValue() function.
+            * https://reactjs.org/docs/forms.html, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names
+        */
+        switch (target.name) {
+            case 'feedback-title':
+                setFeedbackItem({ ...feedbackItem, title: target.value });                
+                break;
+            
+            case 'feedback-category':
+                setFeedbackItem({ ...feedbackItem, category: target.value });                
+                break;
+            
+            case 'feedback-status':
+                setFeedbackItem({ ...feedbackItem, status: target.value });                
+                break;
+            
+            case 'feedback-description':
+                setFeedbackItem({ ...feedbackItem, description: target.value });                
+                break;
+        
+            default:
+                setFeedbackItem({ ...feedbackItem });
+                break;
+        }
+    }
+
+    console.log(feedbackItem);
+
     return ( 
         <main className="add-edit-feedback__main">
             {
@@ -28,13 +107,18 @@ function AddEditFeedbackMain({ title, isEditing }) {
                 { isEditing ? `Editing '${title}'` : 'Create New Feedback' }
             </h1>
 
-            <form className="add-edit-feedback__form">
+            <form 
+                className="add-edit-feedback__form"
+                onSubmit={ e => handleSubmit(e) }
+            >
                 <AddEditFeedbackInput 
                     title={ 'Feedback Title' }
                     labelText={ 'Add a short, descriptive headline' }
-                    id={ 'feedback-title' }
+                    id={ 'title' }
                     inputName={ 'feedback-title' }
+                    inputValue={ feedbackItem.title }
                     isRequired={ true }
+                    handleChange={ handleChange }
                 />
                 
                 <AddEditFeedbackInput 
@@ -43,7 +127,10 @@ function AddEditFeedbackMain({ title, isEditing }) {
                     labelText={ 'Choose a category for your feedback' }
                     id={ 'feedback-category' }
                     inputName={ 'feedback-category' }
+                    inputValue={ feedbackItem.category }
                     isRequired={ true }
+                    handleChange={ handleChange }
+                    updateReadOnlyValue={ getReadOnlyValue }
                 />
 
                 {
@@ -53,19 +140,24 @@ function AddEditFeedbackMain({ title, isEditing }) {
                         hasDropdown={ true }
                         title={ 'Update Status' }
                         labelText={ 'Change feedback state' }
-                        id={ 'feedback-state' }
-                        inputName={ 'feedback-state' }
+                        id={ 'feedback-status' }
+                        inputName={ 'feedback-status' }
+                        inputValue={ feedbackItem.status }
                         isRequired={ true }
+                        handleChange={ handleChange }
+                        updateReadOnlyValue={ getReadOnlyValue }
                     />                    
                 }
 
                 <AddEditFeedbackInput 
                     title={ 'Feedback Detail' }
                     labelText={ 'Include any specific comments on what should be improved, added, etc.' }
-                    id={ 'feedback-detail' }
-                    inputName={ 'feedback-detail' }
+                    id={ 'feedback-description' }
+                    inputName={ 'feedback-description' }
+                    inputValue={ feedbackItem.description }
                     isTextArea={ true }
                     isRequired={ true }
+                    handleChange={ handleChange }
                 />
 
                 <div className={ isEditing ? "add-edit-feedback__buttons--editing" : "add-edit-feedback__buttons" }>
@@ -99,7 +191,10 @@ AddEditFeedbackMain.defaultProps = { isEditing: false }
 
 AddEditFeedbackMain.propTypes = {
     title: PropTypes.string,
-    isEditing: PropTypes.bool
+    isEditing: PropTypes.bool,
+    feedbackItems: PropTypes.arrayOf(PropTypes.object),
+    addFeedbackItem: PropTypes.func.isRequired,
+    updateFeedbackItem: PropTypes.func.isRequired 
 }
 
 export default AddEditFeedbackMain;

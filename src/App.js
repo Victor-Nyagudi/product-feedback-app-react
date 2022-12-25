@@ -208,9 +208,15 @@ function App() {
     feedbackItems,
     feedbackItemDetailToShow,
     isEditing,
+    dbFeedbackItems,
+
+    addDbFeedbackItem,
+    updateDbFeedbackItem,
+    fetchDbFeedbackItem,
+    deleteDbFeedbackItem,
+
     toggleIsEditing,
-    showFeedbackItemDetail,
-    dbFeedbackItems
+    showFeedbackItemDetail
   }
 
   return (

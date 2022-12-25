@@ -16,6 +16,7 @@ function DropdownMenuItem({
     return (
         <li className="dropdown-menu__item">
             <button 
+                type="button"
                 className={ isSelected ? 'dropdown-menu__button--active button' : 'dropdown-menu__button button' }
                 onClick={ () => handleClick(index) }
             >

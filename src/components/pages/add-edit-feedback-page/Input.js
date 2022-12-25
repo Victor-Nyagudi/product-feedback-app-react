@@ -9,8 +9,9 @@ function Input({
     inputType, 
     inputName, 
     inputValue, 
+    isRequired, 
     handleOnChange, 
-    isRequired 
+    updateReadOnlyValue
 }) {
 
     const dropdownMenuItems = [
@@ -24,6 +25,8 @@ function Input({
     const [inputText, setInputText] = useState(dropdownMenuItems[0].buttonText);
 
     function changeInputValue(value) {
+        updateReadOnlyValue(inputName, value);
+
         setInputText(value);
     }
 
@@ -58,7 +61,7 @@ function Input({
                     name={ `${inputName}` } 
                     id={ `${id}` } 
                     value={ inputValue }
-                    onChange={ e => handleOnChange(e.target.value) }
+                    onChange={ e => handleOnChange(e.target) }
                 />
 
                 :
@@ -72,7 +75,7 @@ function Input({
                         name={ `${inputName}` } 
                         id={ `${id}` } 
                         value={ inputText }
-                        onChange={ e => handleOnChange(e.target.value) }
+                        onChange={ e => handleOnChange(e.target) }
                     />
 
                     <button 
@@ -109,7 +112,8 @@ Input.propTypes = {
     inputName: PropTypes.string.isRequired,
     inputValue: PropTypes.string,
     handleOnChange: PropTypes.func.isRequired,
-    isRequired: PropTypes.bool
+    isRequired: PropTypes.bool,
+    updateReadOnlyValue: PropTypes.func
 }
 
 export default Input;

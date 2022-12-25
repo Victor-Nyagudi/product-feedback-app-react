@@ -18,7 +18,7 @@ function TextArea({
             value={ value }
             placeholder={ placeholder }
             maxLength={ maxLength }
-            onChange={ e => handleOnChange(e.target.value) }
+            onChange={ e => handleOnChange(e.target) }
         />
     );
 }

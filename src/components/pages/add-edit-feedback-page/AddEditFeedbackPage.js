@@ -10,6 +10,9 @@ function AddEditFeedbackPage({ sharedProps }) {
             <AddEditFeedbackMain 
                 title={ sharedProps.feedbackItemDetailToShow ? sharedProps.feedbackItemDetailToShow.title : 'Test heading' } 
                 isEditing={ sharedProps.isEditing } 
+                feedbackItems={ sharedProps.dbFeedbackItems }
+                addFeedbackItem={ sharedProps.addDbFeedbackItem }
+                updateFeedbackItem={ sharedProps.updateDbFeedbackItem }
             />
         </div>
     );

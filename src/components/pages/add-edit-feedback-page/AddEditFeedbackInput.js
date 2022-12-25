@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
 import { PropTypes } from "prop-types";
 
 import TextArea from '../../shared/TextArea';
 import Input from './Input';
 
 function AddEditFeedbackInput({ 
-    hasDropdown,
     id, 
+    hasDropdown,
     inputName, 
     inputType,
+    inputValue,
     isTextArea, 
     isRequired,
     labelText,
-    title 
+    title,
+    handleChange,
+    updateReadOnlyValue 
 }) {
-    const [inputValue, setInputValue] = useState('');
-
-    function handleChange(value) {
-        setInputValue(value)
-    }
-
     return (    
         <div className="add-edit-feedback__input-info">
             <h2 className="add-edit-feedback__input-title">
@@ -51,6 +47,7 @@ function AddEditFeedbackInput({
                     id={ `${ id }` }
                     value={ inputValue }
                     handleOnChange={ handleChange }
+                    updateReadOnlyValue={ updateReadOnlyValue }
                 />
             }
         </div>
@@ -65,14 +62,17 @@ AddEditFeedbackInput.defaultProps = {
 }
 
 AddEditFeedbackInput.propTypes = {
-    hasIcon: PropTypes.bool,
     id: PropTypes.string.isRequired,
-    inputName: PropTypes.string.isRequired,
-    inputType: PropTypes.string,
+    hasIcon: PropTypes.bool,
     isTextArea: PropTypes.bool,
     isRequired: PropTypes.bool,
+    inputType: PropTypes.string,
+    inputValue: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    inputName: PropTypes.string.isRequired,
     labelText: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    handleChange: PropTypes.func.isRequired,
+    updateReadOnlyValue: PropTypes.func
 }
 
 export default AddEditFeedbackInput;
