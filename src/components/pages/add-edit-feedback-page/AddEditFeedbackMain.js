@@ -27,10 +27,16 @@ function AddEditFeedbackMain({
     function handleSubmit(e) {
         e.preventDefault();
 
-        console.log('Feedback submitted.');
-        console.log(feedbackItem);
+        addFeedbackItem(feedbackItem);
+        
         setFeedbackItem({
-
+            id: feedbackItems.length + 1,
+            title: '',
+            description: '',
+            category: '',
+            comments: [],
+            status: 'suggestion',
+            upvotes: 0
         });
 
         navigate('/');
