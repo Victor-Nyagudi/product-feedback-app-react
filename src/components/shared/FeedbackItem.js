@@ -2,6 +2,10 @@ import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 
+/*
+    * In hindsight, I should've passed the whole feedback item object
+    * as a prop instead of individual properties, but that's a story for another day.
+*/ 
 function FeedbackItem({ 
     showBadge, 
     badgeText, 
@@ -13,22 +17,32 @@ function FeedbackItem({
     totalComments,
     isLink,
     id,
-    getSelectedFeedbackItemId
+    getSelectedFeedbackItemId,
+    updateFeedbackItem,
+    feedbackItemObject
 }) {
     const [userUpvoted, setUserUpvoted] = useState(localStorage.getItem(`feedbackItemId: ${id}, upvoteStatus: `));
+    
+    const [feedbackItem, setFeedbackItem] = useState(feedbackItemObject);
 
     function handleUpvoteClick() {
         try {
             // * Set upvote status to false (falsy value) since feedback item was already upvoted
             if (localStorage.getItem(`feedbackItemId: ${id}, upvoteStatus: `)) {
                 localStorage.setItem(`feedbackItemId: ${id}, upvoteStatus: `, '');
+
+                updateFeedbackItem(id, { ...feedbackItem, upvotes: feedbackItem.upvotes });
+                
                 setUserUpvoted('');
             }
 
             // * Item wasn't upvoted before, so we mark it as upvoted
             else {
                 localStorage.setItem(`feedbackItemId: ${id}, upvoteStatus: `, 'upvoted');
+
                 setUserUpvoted('upvoted');
+                
+                updateFeedbackItem(id, { ...feedbackItem, upvotes: feedbackItem.upvotes + 1 });
             }
         } catch (error) {
             console.error(error);
@@ -124,6 +138,7 @@ FeedbackItem.defaultProps = {
 
 FeedbackItem.propTypes = {
     id: PropTypes.number,
+    isLink: PropTypes.bool,
     showBadge: PropTypes.bool,
     badgeText: PropTypes.string,
     badgeColor: PropTypes.string,
@@ -132,8 +147,9 @@ FeedbackItem.propTypes = {
     category: PropTypes.string,
     totalUpvotes: PropTypes.number,
     totalComments: PropTypes.number,
-    isLink: PropTypes.bool,
-    getSelectedFeedbackItemId: PropTypes.func
+    getSelectedFeedbackItemId: PropTypes.func,
+    updateFeedbackItem: PropTypes.func,
+    feedbackItemObject: PropTypes.object
 }
 
 export default FeedbackItem;

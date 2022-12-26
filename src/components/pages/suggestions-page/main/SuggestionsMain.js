@@ -25,6 +25,8 @@ function SuggestionsMain({
                             totalComments={ item.comments ? item.comments.length : 0 }
                             isLink={ true }
                             getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+                            feedbackItemObject={ item }
+                            updateFeedbackItem={ sharedProps.updateDbFeedbackItem }
                         />    
                     )
 

@@ -85,7 +85,7 @@
       "id": 3,
       "title": "Q&A within the challenge hubs",
       "category": "Feature",
-      "upvotes": 65,
+      "upvotes": 66,
       "status": "Suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
       "comments": [
@@ -307,7 +307,7 @@
       "category": "UX",
       "comments": [],
       "status": "Planned",
-      "upvotes": 0
+      "upvotes": 10
     },
     {
       "id": 15,
@@ -316,7 +316,7 @@
       "category": "Bug",
       "comments": [],
       "status": "Suggestion",
-      "upvotes": 0
+      "upvotes": 1
     }
   ]
 }

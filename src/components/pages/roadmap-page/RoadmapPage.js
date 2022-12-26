@@ -30,6 +30,7 @@ function RoadMapPage({ sharedProps }) {
                 activeMobileNavItem={ activeMobileNavItem }
                 feedbackItems={ sharedProps.dbFeedbackItems }
                 getSelectedFeedbackItemId={ sharedProps.showFeedbackItemDetail }
+                updateFeedbackItem={ sharedProps.updateDbFeedbackItem }
             />
         </div>
     );

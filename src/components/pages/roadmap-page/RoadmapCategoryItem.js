@@ -11,7 +11,9 @@ function RoadmapCategoryItem({
     tagCategory,
     totalUpvotes,
     totalComments,
-    getSelectedFeedbackItemId 
+    getSelectedFeedbackItemId,
+    updateFeedbackItem,
+    feedbackItemObject
 }) {
     return ( 
         <li className={`roadmap__category-item roadmap__category-item--${color}`}>
@@ -27,12 +29,15 @@ function RoadmapCategoryItem({
                 totalComments={ totalComments }
                 isLink={ true }
                 getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+                updateFeedbackItem={ updateFeedbackItem }
+                feedbackItemObject={ feedbackItemObject }
             />
         </li>
     );
 }
 
 RoadmapCategoryItem.propTypes = {
+    id: PropTypes.number,
     color: PropTypes.string.isRequired,
     badgeText: PropTypes.string.isRequired,
     title: PropTypes.string,
@@ -41,7 +46,8 @@ RoadmapCategoryItem.propTypes = {
     totalUpvotes: PropTypes.number,
     totalComments: PropTypes.number,
     getSelectedFeedbackItemId: PropTypes.func,
-    id: PropTypes.number
+    updateFeedbackItem: PropTypes.func,
+    feedbackItemObject: PropTypes.object
 }
 
 export default RoadmapCategoryItem;

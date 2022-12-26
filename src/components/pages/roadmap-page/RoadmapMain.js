@@ -7,7 +7,8 @@ function RoadmapMain({
     activeMobileNavItem, 
     isSmallerThan700px, 
     feedbackItems,
-    getSelectedFeedbackItemId
+    getSelectedFeedbackItemId,
+    updateFeedbackItem
 }) {
     const categoryName = {
         planned: 'Planned',
@@ -112,6 +113,7 @@ function RoadmapMain({
                     color={ categoryInfoToShowMobile.color }
                     feedbackItems={ getCategoryItems(categoryInfoToShowMobile.title) }
                     getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+                    updateFeedbackItem={ updateFeedbackItem }
                 />                
 
                 :
@@ -123,6 +125,7 @@ function RoadmapMain({
                         color={ categoryInfo.planned.color }
                         feedbackItems={ getCategoryItems(categoryInfo.planned.title) }
                         getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+                        updateFeedbackItem={ updateFeedbackItem }
                     />
         
                     <RoadmapCategory 
@@ -132,6 +135,7 @@ function RoadmapMain({
                         color={ categoryInfo.inProgress.color }
                         feedbackItems={ getCategoryItems(categoryInfo.inProgress.title) }
                         getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+                        updateFeedbackItem={ updateFeedbackItem }
                     />
         
                     <RoadmapCategory 
@@ -141,6 +145,7 @@ function RoadmapMain({
                         color={ categoryInfo.live.color }
                         feedbackItems={ getCategoryItems(categoryInfo.live.title) }
                         getSelectedFeedbackItemId={ getSelectedFeedbackItemId }
+                        updateFeedbackItem={ updateFeedbackItem }
                     />
                 </>
             }
@@ -160,7 +165,8 @@ RoadmapMain.propTypes = {
     activeMobileNavItem: PropTypes.object,
     isSmallerThan700px: PropTypes.bool,
     feedbackItems: PropTypes.arrayOf(PropTypes.object).isRequired,
-    getSelectedFeedbackItemId: PropTypes.func
+    getSelectedFeedbackItemId: PropTypes.func,
+    updateFeedbackItem: PropTypes.func
 };
 
 export default RoadmapMain;
