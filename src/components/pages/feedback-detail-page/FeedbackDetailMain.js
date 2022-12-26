@@ -31,6 +31,7 @@ function FeedbackDetailMain({ feedbackItems, feedbackItemDetailToShow }) {
             return ( 
                 <main className="feedback-detail__main">
                     <FeedbackItem 
+                        id={ feedbackItem.id }
                         title={ feedbackItem.title }
                         message={ feedbackItem.description }
                         tagCategory={ feedbackItem.category }
