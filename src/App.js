@@ -187,6 +187,7 @@ function App() {
       const data = await response.json();
   
       setDbFeedbackItems(dbFeedbackItems.map(item => item.id === id ? { ...data } : item));
+      setDbFeedbackItemToShow(data);
       
       console.log('Feedback item updated');
     }

@@ -7,7 +7,8 @@ import FeedbackDetailAddComment from "./FeedbackDetailAddComment";
 
 function FeedbackDetailMain({ 
     feedbackItemDetailToShow,
-    getFeedbackItem 
+    getFeedbackItem,
+    updateFeedbackItem 
 }) {
     const [feedbackItem, setFeedbackItem] = useState(null);
     
@@ -52,6 +53,8 @@ function FeedbackDetailMain({
                         tagCategory={ feedbackItem.category }
                         totalUpvotes={ feedbackItem.upvotes }
                         totalComments={ feedbackItem.comments && feedbackItem.comments.length }
+                        updateFeedbackItem={ updateFeedbackItem }
+                        feedbackItemObject={ feedbackItemDetailToShow }
                     />
     
                     {
@@ -68,7 +71,8 @@ function FeedbackDetailMain({
 
 FeedbackDetailMain.propTypes = { 
     feedbackItemDetailToShow: PropTypes.object.isRequired,
-    getFeedbackItem: PropTypes.func 
+    getFeedbackItem: PropTypes.func,
+    updateFeedbackItem: PropTypes.func 
 };
 
 export default FeedbackDetailMain;

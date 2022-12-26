@@ -31,7 +31,8 @@ function FeedbackItem({
             if (localStorage.getItem(`feedbackItemId: ${id}, upvoteStatus: `)) {
                 localStorage.setItem(`feedbackItemId: ${id}, upvoteStatus: `, '');
 
-                updateFeedbackItem(id, { ...feedbackItem, upvotes: feedbackItem.upvotes });
+                setFeedbackItem({ ...feedbackItem, upvotes: feedbackItem.upvotes - 1 });
+                updateFeedbackItem(id, { ...feedbackItem, upvotes: feedbackItem.upvotes - 1});
                 
                 setUserUpvoted('');
             }
@@ -42,6 +43,7 @@ function FeedbackItem({
 
                 setUserUpvoted('upvoted');
                 
+                setFeedbackItem({ ...feedbackItem, upvotes: feedbackItem.upvotes + 1 });
                 updateFeedbackItem(id, { ...feedbackItem, upvotes: feedbackItem.upvotes + 1 });
             }
         } catch (error) {
