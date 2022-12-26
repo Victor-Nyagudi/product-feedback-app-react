@@ -8,7 +8,8 @@ import FeedbackDetailAddComment from "./FeedbackDetailAddComment";
 function FeedbackDetailMain({ 
     feedbackItemDetailToShow,
     getFeedbackItem,
-    updateFeedbackItem 
+    updateFeedbackItem,
+    currentUser 
 }) {
     const [feedbackItem, setFeedbackItem] = useState(null);
     
@@ -63,7 +64,11 @@ function FeedbackDetailMain({
                         <FeedbackItemComments comments={ feedbackItem.comments } />
                     }
     
-                    <FeedbackDetailAddComment />
+                    <FeedbackDetailAddComment 
+                        feedbackItem={ feedbackItem } 
+                        currentUser={ currentUser }
+                        updateFeedbackItem={ updateFeedbackItem }
+                    />
                 </main>
             );
         }
@@ -72,7 +77,8 @@ function FeedbackDetailMain({
 FeedbackDetailMain.propTypes = { 
     feedbackItemDetailToShow: PropTypes.object.isRequired,
     getFeedbackItem: PropTypes.func,
-    updateFeedbackItem: PropTypes.func 
+    updateFeedbackItem: PropTypes.func,
+    currentUser: PropTypes.object
 };
 
 export default FeedbackDetailMain;

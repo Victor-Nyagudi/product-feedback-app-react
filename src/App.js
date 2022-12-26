@@ -220,10 +220,12 @@ function App() {
 
   const sharedProps = {
     isMobileScreen,
+    isEditing,
     isSmallerThan700px,
+
+    currentUser,
     feedbackItems,
     feedbackItemDetailToShow,
-    isEditing,
     dbFeedbackItems,
     dbFeedbackItemToShow,
 
