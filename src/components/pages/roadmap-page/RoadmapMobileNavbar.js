@@ -16,8 +16,8 @@ function RoadmapMobileNavbar({ getActiveMobileNavItem, feedbackItems }) {
     }
     
       else {
-        // * 23 is just a random number to display for debugging purposes
-        return 23;
+        console.warn('No feedback items to show. If feedback items retrieved eventually, ignore this warning.');
+        return 0;
       }
   }
 

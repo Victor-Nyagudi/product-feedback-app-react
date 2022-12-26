@@ -65,8 +65,8 @@ function RoadmapMain({
         }
 
         else {
-            // * 23 is just a random number for debugging purposes
-            return 23;
+            console.warn('No feedback items to show. If feedback items retrieved eventually, ignore this warning.');
+            return 0;
         }
     }
 

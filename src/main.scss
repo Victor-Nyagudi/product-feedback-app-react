@@ -13,6 +13,11 @@ $container-width: 87%;
 
 $tag-padding-mobile: .35em 1.15em;
 
+$tablet-padding: 3.5em 0 6em;
+$tablet-width: 93%;
+
+$desktop-padding: 5.875em 0 8em;
+
 // #region FeedbackDetailPage variables
 $feedback-detail-padding: 1.5em;
 $feedback-detail-padding-lg: 2em;
@@ -25,7 +30,7 @@ $feedback-detail-heading-lg-desktop: 1.3rem;
 
 /*
     * I'm using this grid-template-column sizing and gap twice - once 
-    * for the feedback item card and the comments to ensure
+    * for the feedback item card and again the comments to ensure
     * the leftmost part of the feedback item's message aligns with 
     * the leftmost part of the subsequent comment's message
 */
@@ -186,7 +191,7 @@ a {
         font-size: .75rem;
         color: getColor('dark-grey');
 
-        padding: .8em 1.2em; 
+        padding: .9em 1.2em; 
     }
 
     &--add-feedback { 
@@ -546,7 +551,7 @@ a {
             * housing the feedback items scrolls
         */ 
         max-height: 83vh;
-        overflow: auto;
+        overflow-y: auto;
     }
 
     &__main-content { 
@@ -604,11 +609,31 @@ a {
     display: flex;
     flex-direction: column;
 
-    padding: $page-padding;
+    /*
+        * Initially used $page-padding, but the go-back button on the
+        * FeedbackDetailPage wasn't aligned with that of AddEditFeedbackPage
+        * that doesn't have a secondary button, so I increased the upper padding by .55em
+    */ 
+    padding: 2.6em 0 6em;
 
     &__icon {
         position: absolute;
         top: -1.75em;
+        height: 56px;
+        width: 56px;
+
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        &--edit {
+            @extend .add-edit-feedback__icon;
+            background-image: url('../assets/shared/icon-edit-feedback.svg');
+        }
+        
+        &--add {
+            @extend .add-edit-feedback__icon;
+            background-image: url('../assets/shared/icon-new-feedback.svg');
+        }
     }
 
     &__main {
@@ -835,10 +860,10 @@ a {
         &-content { 
             @include flex-row-space-between;
 
-            padding: 1.5em 0; 
+            padding: 1.75em 0; 
         }
 
-        &-link-container { margin-bottom: .5em; }
+        &-link-container { margin-bottom: .75em; }
 
         & .go-back__primary-button { 
             font-size: .8rem;
@@ -975,14 +1000,14 @@ a {
 @media (min-width: 600px) {
     .button--main { 
         font-size: .8rem;
-        padding: .8em 2em; 
+        padding: 1em 2em; 
     }
 
     .feedback-button-svg { margin-right: .4em; }
 
     // * Shared styling that will apply on other pages
     .feedback-content {
-        &__upvotes-button { padding: .75em 1.15em;  }
+        &__upvotes-button { padding: .4em 1.15em;  }
     }
 
     .input { 
@@ -1005,11 +1030,11 @@ a {
     }
 
     .suggestions {
-        width: 93%;
+        width: $tablet-width;
         max-width: 1200px;
         margin: 0 auto;
 
-        padding-top: 3.5em;
+        padding: $tablet-padding;
         background-color: getColor('light-grey');
 
         &__aside {
@@ -1076,7 +1101,7 @@ a {
                     
                     &-button { 
                         color: getColor('blue'); 
-                        padding: .5em 1.5em;
+                        padding: .435em 1.175em;
                     }
 
                     &.tag--active {
@@ -1161,7 +1186,7 @@ a {
                 width: 100%;
                 margin: 0;
 
-                padding: .6em $aside-card-padding;
+                padding: .865em $aside-card-padding;
             }
 
             &-info {
@@ -1202,7 +1227,8 @@ a {
     .add-edit-feedback {
         max-width: 540px;
 
-        padding: 4em 0 14em;
+        // * $tablet-padding's top value wouldn't work here, so I added to it
+        padding: 4.25em 0 6em;
 
         .go-back-header { margin-bottom: 4.25em; }
 
@@ -1233,6 +1259,7 @@ a {
             * on certain pages.
         */
         @include feedback-item-600px-up;
+        padding: $tablet-padding;
 
         &__comments-container { 
             padding: $feedback-detail-padding-lg $feedback-detail-padding-lg 2.5em $feedback-detail-padding-lg; 
@@ -1320,18 +1347,20 @@ a {
 */
 @media (min-width: 700px) {
     .roadmap {
-        padding: 5em 0;
+        padding: $tablet-padding;
         
         &__main {
             display: flex;
             align-items: flex-start;
             gap: .625em;
 
+            &.container { width: $tablet-width; }
+
             & > * { flex: 1; }
         }
 
         &__header {
-            width: $container-width;
+            width: $tablet-width;
             border-radius: $border-radius;
 
             margin: 0 auto;
@@ -1340,7 +1369,7 @@ a {
 
             &-content.container { 
                 width: 100%; 
-                padding: 2em $feedback-detail-padding;
+                padding: 1.8em $feedback-detail-padding;
             }
 
             &-title { font-size: 1.5rem; }
@@ -1376,8 +1405,7 @@ a {
         align-items: flex-start;
         gap: 1.25em;
 
-        padding-bottom: 7em;
-        padding-top: 5.875em;
+        padding: $desktop-padding;
 
         &__aside {
             flex: 2;
@@ -1389,7 +1417,7 @@ a {
             max-width: $aside-max-width;
 
             .app-info {
-                height: 15vh;
+                height: 16.35vh;
             }
 
             & > :not(.app-info) { 
@@ -1397,7 +1425,9 @@ a {
             }
 
             .tags {
-                height: 100%;
+                gap: .875em;
+
+                &-container { height: auto; }
 
                 &__tag {
                     display: flex;
@@ -1415,9 +1445,10 @@ a {
         &__main { max-height: 90vh; }
     }
 
-    .add-edit-feedback { padding: 5em 0 12em; }
+    // * Adjusting padding-top of $desktop-padding to account for secondary button
+    .add-edit-feedback { padding: 6.6em 0 8em; }
 
-    .feedback-detail { padding: 5em 0 8.5em; }
+    .feedback-detail { padding: $desktop-padding; }
 
     .feedback-content {
         &__tag-text, &__upvotes-total { 
@@ -1426,7 +1457,7 @@ a {
     }
 
     .roadmap {
-        padding: 5em 0 8.5em;
+        padding: $desktop-padding;
         width: $container-width;
         max-width: $roadmap-page-max-width;
         margin: 0 auto;

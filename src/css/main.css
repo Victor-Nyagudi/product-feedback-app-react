@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap");
 /*
     * I'm using this grid-template-column sizing and gap twice - once 
-    * for the feedback item card and the comments to ensure
+    * for the feedback item card and again the comments to ensure
     * the leftmost part of the feedback item's message aligns with 
     * the leftmost part of the subsequent comment's message
 */
@@ -55,7 +55,7 @@ a {
 .button--main {
   font-size: .75rem;
   color: #f0f2ff;
-  padding: .8em 1.2em;
+  padding: .9em 1.2em;
 }
 
 .button--add-feedback {
@@ -527,7 +527,7 @@ a {
             * housing the feedback items scrolls
         */
   max-height: 83vh;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .suggestions__main-content {
@@ -597,12 +597,29 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 2em 0 6em;
+  /*
+        * Initially used $page-padding, but the go-back button on the
+        * FeedbackDetailPage wasn't aligned with that of AddEditFeedbackPage
+        * that doesn't have a secondary button, so I increased the upper padding by .55em
+    */
+  padding: 2.6em 0 6em;
 }
 
-.add-edit-feedback__icon {
+.add-edit-feedback__icon, .add-edit-feedback__icon--edit, .add-edit-feedback__icon--add {
   position: absolute;
   top: -1.75em;
+  height: 56px;
+  width: 56px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.add-edit-feedback__icon--edit {
+  background-image: url("../assets/shared/icon-edit-feedback.svg");
+}
+
+.add-edit-feedback__icon--add {
+  background-image: url("../assets/shared/icon-new-feedback.svg");
 }
 
 .add-edit-feedback__main {
@@ -874,11 +891,11 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 1.5em 0;
+  padding: 1.75em 0;
 }
 
 .roadmap__header-link-container {
-  margin-bottom: .5em;
+  margin-bottom: .75em;
 }
 
 .roadmap__header .go-back__primary-button {
@@ -1033,13 +1050,13 @@ a {
 @media (min-width: 600px) {
   .button--main {
     font-size: .8rem;
-    padding: .8em 2em;
+    padding: 1em 2em;
   }
   .feedback-button-svg {
     margin-right: .4em;
   }
   .feedback-content__upvotes-button, .feedback-content__upvotes-button--clicked {
-    padding: .75em 1.15em;
+    padding: .4em 1.15em;
   }
   .input, .textarea {
     font-size: 1rem;
@@ -1063,7 +1080,7 @@ a {
     width: 93%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 3.5em;
+    padding: 3.5em 0 6em;
     background-color: #f7f8fd;
     /*
         * These styles apply to a feedback item whose ancestor has an element
@@ -1138,7 +1155,7 @@ a {
   }
   .suggestions__aside .tags__tag-button {
     color: #4761e6;
-    padding: .5em 1.5em;
+    padding: .435em 1.175em;
   }
   .suggestions__aside .tags__tag.tag--active {
     background-color: #4761e6;
@@ -1242,7 +1259,7 @@ a {
   .suggestions__header-content.container {
     width: 100%;
     margin: 0;
-    padding: 0.6em 1.5em;
+    padding: 0.865em 1.5em;
   }
   .suggestions__header-info {
     display: -webkit-box;
@@ -1315,7 +1332,7 @@ a {
   }
   .add-edit-feedback {
     max-width: 540px;
-    padding: 4em 0 14em;
+    padding: 4.25em 0 6em;
   }
   .add-edit-feedback .go-back-header {
     margin-bottom: 4.25em;
@@ -1352,6 +1369,7 @@ a {
         * with a .parent__main e.g. suggestions__main or feedback-detail__main.
         ! These styles should only applied in the 600px up breakpoint.
     */
+    padding: 3.5em 0 6em;
   }
   .feedback-detail__main .feedback-item {
     padding: 2em;
@@ -1458,7 +1476,7 @@ a {
 */
 @media (min-width: 700px) {
   .roadmap {
-    padding: 5em 0;
+    padding: 3.5em 0 6em;
   }
   .roadmap__main {
     display: -webkit-box;
@@ -1469,20 +1487,23 @@ a {
             align-items: flex-start;
     gap: .625em;
   }
+  .roadmap__main.container {
+    width: 93%;
+  }
   .roadmap__main > * {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
   }
   .roadmap__header {
-    width: 87%;
+    width: 93%;
     border-radius: 10px;
     margin: 0 auto;
     margin-bottom: 2.15em;
   }
   .roadmap__header-content.container {
     width: 100%;
-    padding: 2em 1.5em;
+    padding: 1.8em 1.5em;
   }
   .roadmap__header-title {
     font-size: 1.5rem;
@@ -1514,8 +1535,7 @@ a {
         -ms-flex-align: start;
             align-items: flex-start;
     gap: 1.25em;
-    padding-bottom: 7em;
-    padding-top: 5.875em;
+    padding: 5.875em 0 8em;
   }
   .suggestions__aside {
     -webkit-box-flex: 2;
@@ -1528,13 +1548,16 @@ a {
     max-width: 255px;
   }
   .suggestions__aside .app-info {
-    height: 15vh;
+    height: 16.35vh;
   }
   .suggestions__aside > :not(.app-info) {
     background-color: white;
   }
   .suggestions__aside .tags {
-    height: 100%;
+    gap: .875em;
+  }
+  .suggestions__aside .tags-container {
+    height: auto;
   }
   .suggestions__aside .tags__tag {
     display: -webkit-box;
@@ -1556,16 +1579,16 @@ a {
     max-height: 90vh;
   }
   .add-edit-feedback {
-    padding: 5em 0 12em;
+    padding: 6.6em 0 8em;
   }
   .feedback-detail {
-    padding: 5em 0 8.5em;
+    padding: 5.875em 0 8em;
   }
   .feedback-content__tag-text, .feedback-content__upvotes-total {
     font-size: .9rem;
   }
   .roadmap {
-    padding: 5em 0 8.5em;
+    padding: 5.875em 0 8em;
     width: 87%;
     max-width: 1110px;
     margin: 0 auto;
