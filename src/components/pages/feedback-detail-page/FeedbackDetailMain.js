@@ -5,15 +5,29 @@ import FeedbackItemComments from "./FeedbackItemComments";
 import FeedbackItem from "../../shared/FeedbackItem";
 import FeedbackDetailAddComment from "./FeedbackDetailAddComment";
 
-function FeedbackDetailMain({ feedbackItems, feedbackItemDetailToShow }) {
+function FeedbackDetailMain({ 
+    feedbackItemDetailToShow,
+    getFeedbackItem 
+}) {
     const [feedbackItem, setFeedbackItem] = useState(null);
     
     useEffect(() => {
-        if (feedbackItemDetailToShow)
+        if (feedbackItemDetailToShow) {
             setFeedbackItem(feedbackItemDetailToShow);
 
+            try {
+                localStorage.setItem('feedbackItemDetailToShowId', feedbackItemDetailToShow.id);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        /*
+            ! Navigating straight to FeedbackDetailPage via the url will throw an
+            ! error because of this 'else' statement
+        */  
         else
-            setFeedbackItem(feedbackItems[1])
+            getFeedbackItem(localStorage.getItem('feedbackItemDetailToShowId'));
     }, [feedbackItemDetailToShow]);
 
     /*
@@ -23,8 +37,9 @@ function FeedbackDetailMain({ feedbackItems, feedbackItemDetailToShow }) {
         
         ! Without the second check, feedbackItem will be undefined and throw errors.
     */
-    if (feedbackItem === null)
+    if (feedbackItem === null) {
         return;
+    }
     
     else 
         if (feedbackItem !== undefined) {
@@ -52,8 +67,8 @@ function FeedbackDetailMain({ feedbackItems, feedbackItemDetailToShow }) {
 }
 
 FeedbackDetailMain.propTypes = { 
-    feedbackItems: PropTypes.arrayOf(PropTypes.object),
-    feedbackItemDetailToShow: PropTypes.object.isRequired 
+    feedbackItemDetailToShow: PropTypes.object.isRequired,
+    getFeedbackItem: PropTypes.func 
 };
 
 export default FeedbackDetailMain;
