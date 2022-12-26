@@ -15,7 +15,25 @@ function FeedbackItem({
     id,
     getSelectedFeedbackItemId
 }) {
-    const [userUpvoted, setUserUpvoted] = useState(false);
+    const [userUpvoted, setUserUpvoted] = useState(localStorage.getItem(`feedbackItemId: ${id}, upvoteStatus: `));
+
+    function handleUpvoteClick() {
+        try {
+            // * Set upvote status to false (falsy value) since feedback item was already upvoted
+            if (localStorage.getItem(`feedbackItemId: ${id}, upvoteStatus: `)) {
+                localStorage.setItem(`feedbackItemId: ${id}, upvoteStatus: `, '');
+                setUserUpvoted('');
+            }
+
+            // * Item wasn't upvoted before, so we mark it as upvoted
+            else {
+                localStorage.setItem(`feedbackItemId: ${id}, upvoteStatus: `, 'upvoted');
+                setUserUpvoted('upvoted');
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return ( 
         <section className="feedback-item"> 
@@ -65,7 +83,7 @@ function FeedbackItem({
                     <button 
                         type="button" 
                         className={`${userUpvoted ? 'feedback-content__upvotes-button--clicked' : 'feedback-content__upvotes-button'} button`}
-                        onClick={ () => setUserUpvoted(!userUpvoted) }
+                        onClick={ () => handleUpvoteClick() }
                     >
                         <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 6l4-4 4 4" stroke={ userUpvoted ? '#FFFFFF' : "#4661E6"} strokeWidth="2" fill="none" fillRule="evenodd"/>
