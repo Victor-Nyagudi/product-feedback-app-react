@@ -19,6 +19,9 @@ $tablet-width: 93%;
 $desktop-padding: 5.875em 0 8em;
 $desktop-max-width: 1110px;
 
+// * Not using 'getColor()' here because Sass functions are not hoisted
+$input-error-outline: 1px solid hsl(0, 67%, 53%);
+
 // #region FeedbackDetailPage variables
 $feedback-detail-padding: 1.5em;
 $feedback-detail-padding-lg: 2em;
@@ -274,15 +277,26 @@ a {
         top: 0;
         bottom: 0;
     }
+
+    &--error {
+        @extend .input;
+
+        outline: $input-error-outline;
+    }
 }
 
 .textarea {
     @extend .input;
 
     padding-right: 1.25em;
-    margin-bottom: .65em;
     resize: vertical;
     min-height: 120px;
+
+    &--error {
+        @extend .textarea;
+
+        outline: $input-error-outline;
+    }
 }
 
 .feedback-item { 
@@ -640,6 +654,8 @@ a {
 
         position: relative;
         padding: 3.5em 1.5em 1.5em;
+
+        &--editing { @extend .add-edit-feedback__main }
     }
 
     &__title { 
@@ -663,6 +679,14 @@ a {
     }
 
     &__input-info { margin-bottom: 1.5em; }
+
+    &__validation {
+        padding-top: .35em;
+
+        &-message { color: getColor('dark-orange'); }
+
+        &--hidden { display: none; }
+    }
 
     &__buttons {
         display: flex;
@@ -1236,6 +1260,7 @@ a {
 
             &--editing {
                 grid-template-columns: 3fr 1fr auto;
+                grid-template-rows: 1fr;
                 gap: 0 1em;
     
                 grid-template-areas: 
@@ -1246,7 +1271,9 @@ a {
 
         &__main { 
             padding: 3.5em 2.5em 1.5em;
-            max-height: 745px; 
+            max-height: 765px; 
+
+            &--editing { max-height: initial; }
         }
     }
 

@@ -133,7 +133,7 @@ a {
   margin-bottom: 2em;
 }
 
-.input, .textarea {
+.input, .input--error, .textarea, .textarea--error {
   font-family: "Jost", sans-serif;
   font-size: 1rem;
   color: #3a4373;
@@ -145,7 +145,7 @@ a {
   padding: 1.25em 2.25em 1.25em 1em;
 }
 
-.input:hover, .textarea:hover, .input:focus, .textarea:focus {
+.input:hover, .input--error:hover, .textarea:hover, .textarea--error:hover, .input:focus, .input--error:focus, .textarea:focus, .textarea--error:focus {
   outline: 1px solid #4761e6;
 }
 
@@ -165,11 +165,18 @@ a {
   bottom: 0;
 }
 
-.textarea {
+.input--error {
+  outline: 1px solid #d73737;
+}
+
+.textarea, .textarea--error {
   padding-right: 1.25em;
-  margin-bottom: .65em;
   resize: vertical;
   min-height: 120px;
+}
+
+.textarea--error {
+  outline: 1px solid #d73737;
 }
 
 .feedback-item {
@@ -622,7 +629,7 @@ a {
   background-image: url("../assets/shared/icon-new-feedback.svg");
 }
 
-.add-edit-feedback__main {
+.add-edit-feedback__main, .add-edit-feedback__main--editing {
   -webkit-box-flex: 1;
       -ms-flex: 1 auto;
           flex: 1 auto;
@@ -652,6 +659,18 @@ a {
 
 .add-edit-feedback__input-info {
   margin-bottom: 1.5em;
+}
+
+.add-edit-feedback__validation {
+  padding-top: .35em;
+}
+
+.add-edit-feedback__validation-message {
+  color: #d73737;
+}
+
+.add-edit-feedback__validation--hidden {
+  display: none;
 }
 
 .add-edit-feedback__buttons {
@@ -1058,14 +1077,14 @@ a {
   .feedback-content__upvotes-button, .feedback-content__upvotes-button--clicked {
     padding: .4em 1.15em;
   }
-  .input, .textarea {
+  .input, .input--error, .textarea, .textarea--error {
     font-size: 1rem;
     padding: .85em 2.25em .85em 1.25em;
   }
   .input__dropdown-toggle {
     right: 1.15em;
   }
-  .textarea {
+  .textarea, .textarea--error {
     font-size: 1rem;
     margin-bottom: 0;
     min-height: 96px;
@@ -1352,12 +1371,17 @@ a {
   .add-edit-feedback__buttons--editing {
     -ms-grid-columns: 3fr 1fr auto;
         grid-template-columns: 3fr 1fr auto;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
     gap: 0 1em;
         grid-template-areas: 'delete-button-container cancel-button-container add-button-container';
   }
-  .add-edit-feedback__main {
+  .add-edit-feedback__main, .add-edit-feedback__main--editing {
     padding: 3.5em 2.5em 1.5em;
-    max-height: 745px;
+    max-height: 765px;
+  }
+  .add-edit-feedback__main--editing {
+    max-height: initial;
   }
   .feedback-detail {
     max-width: 730px;

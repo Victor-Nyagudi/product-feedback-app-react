@@ -7,12 +7,13 @@ function TextArea({
     placeholder, 
     handleOnChange, 
     isRequired,
-    maxLength 
+    maxLength,
+    showValidationMessage 
 }) {
     return ( 
         <textarea 
             required={ isRequired }
-            className='textarea'
+            className={ showValidationMessage ? 'textarea--error' : 'textarea'}
             name={ name } 
             id={ id } 
             value={ value }
@@ -26,7 +27,8 @@ function TextArea({
 TextArea.defaultProps = {
     placeholder: '',
     isRequired: false,
-    maxLength: 250
+    maxLength: 250,
+    showValidationMessage: false
 }
 
 TextArea.propTypes = {
@@ -36,7 +38,8 @@ TextArea.propTypes = {
     placeholder: PropTypes.string,
     handleOnChange: PropTypes.func.isRequired,
     isRequired: PropTypes.bool,
-    maxLength: PropTypes.number
+    maxLength: PropTypes.number,
+    showValidationMessage: PropTypes.bool
 }
 
 export default TextArea;

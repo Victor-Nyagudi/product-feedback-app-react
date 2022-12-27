@@ -158,15 +158,30 @@ function App() {
 
   //#region POST
   async function addDbFeedbackItem(feedbackItem) {
-    const response = await fetch('http://localhost:5000/productRequests', {
-      'method': 'POST',
-      'headers': { 'Content-type': 'application/json' },
-      'body': JSON.stringify(feedbackItem)
-    });
+    const response = await fetch('http://localhost:5000/productRequests/', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(feedbackItem)
+    })
+    .then(response => {
+      if(!response.ok)
+        throw Error(response.statusText);
+
+      return response;
+    })
+    .then(response => response) // * <- Forgetting this line cost me a lot of time
+    .catch(error => console.error(error));
 
     const data = await response.json();
 
     setDbFeedbackItems([...dbFeedbackItems, data]);
+
+    /*
+      * Learned the hard way that with fetch() api, you might need
+      * multiple '.then()' methods. In this case, the first returns the response,
+      * the second returns the fulfilled response which is then assigned to the 'response'
+      * variable which you then call the 'json()' method on to get the data.
+    */
   }
   //#endregion
 
@@ -179,9 +194,9 @@ function App() {
       const feedbackItemToUpdate = { ...updatedFeedbackItem, id: feedbackItemFromDb.id };
   
       const response = await fetch(`http://localhost:5000/productRequests/${id}`, {
-        'method': 'PUT',
-        'headers': { 'Content-type': 'application/json' },
-        'body': JSON.stringify(feedbackItemToUpdate)
+        method: 'PUT',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify(feedbackItemToUpdate)
       });
   
       const data = await response.json();
@@ -204,7 +219,7 @@ function App() {
 
     if (dbFeedbackItem) {
       await fetch(`http://localhost:5000/productRequests/${id}`, {
-        'method': 'DELETE'
+        method: 'DELETE'
       });
       
       console.log('Feedback item deleted from db');

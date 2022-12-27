@@ -12,7 +12,8 @@ function Input({
     isRequired, 
     handleOnChange, 
     updateReadOnlyValue,
-    dropdownItemType
+    dropdownItemType,
+    showValidationMessage
 }) {
     let dropdownMenuItems;
 
@@ -76,7 +77,7 @@ function Input({
                 
                 <input 
                     required={ isRequired }
-                    className='input'
+                    className={ showValidationMessage ? 'input--error' : 'input' }
                     type={ `${inputType}` } 
                     name={ `${inputName}` } 
                     id={ `${id}` } 
@@ -90,7 +91,7 @@ function Input({
                     <input 
                         readOnly
                         required={ isRequired }
-                        className='input'
+                        className={ showValidationMessage ? 'input--error' : 'input' }
                         type={ `${inputType}` } 
                         name={ `${inputName}` } 
                         id={ `${id}` } 
@@ -123,7 +124,8 @@ function Input({
 Input.defaultProps = {
     hasIcon: false,
     isRequired: false,
-    dropdownItemType: 'category'
+    dropdownItemType: 'category',
+    showValidationMessage: false
 }
 
 Input.propTypes = {
@@ -135,7 +137,8 @@ Input.propTypes = {
     handleOnChange: PropTypes.func.isRequired,
     isRequired: PropTypes.bool,
     updateReadOnlyValue: PropTypes.func,
-    dropdownItemType: PropTypes.string
+    dropdownItemType: PropTypes.string,
+    showValidationMessage: PropTypes.bool
 }
 
 export default Input;

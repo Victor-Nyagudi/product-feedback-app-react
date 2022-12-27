@@ -316,8 +316,8 @@
           }
         }
       ],
-      "status": "Planned",
-      "upvotes": 14
+      "status": "Suggestion",
+      "upvotes": 15
     },
     {
       "id": 15,
@@ -336,7 +336,16 @@
         }
       ],
       "status": "Suggestion",
-      "upvotes": 1
+      "upvotes": 0
+    },
+    {
+      "id": 16,
+      "title": "Adding feedback items not working",
+      "description": "The app crashes every time I try to add some feedback items. Would be nice if this worked properly.",
+      "category": "Bug",
+      "comments": [],
+      "status": "Suggestion",
+      "upvotes": 0
     }
   ]
 }

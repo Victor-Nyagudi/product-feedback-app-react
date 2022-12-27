@@ -13,9 +13,15 @@ function AddEditFeedbackMain({
     updateFeedbackItem,
     deleteFeedbackItem
 }) {
-    const feedbackItemId = isEditing ? feedbackItemFromDb.id : feedbackItems.length + 1;
+    const feedbackItemId = isEditing ? feedbackItemFromDb.id : feedbackItems.length + 2;
     const feedbackItemUpvotes = isEditing ? feedbackItemFromDb.upvotes : 0;
     const feedbackItemComments = isEditing ? feedbackItemFromDb.comments : [];
+
+    const [input, setInput] = useState({
+         showTitleError: false, 
+         showCategoryError: false, 
+         showDetailError: false 
+    });
 
     const [feedbackItem, setFeedbackItem] = useState({
         id: feedbackItemId,
@@ -23,43 +29,64 @@ function AddEditFeedbackMain({
         description: `${isEditing ? feedbackItemFromDb.description : ''}`,
         category: `${isEditing ? feedbackItemFromDb.category : ''}`,
         comments: feedbackItemComments,
-        status: `${isEditing ? feedbackItemFromDb.status : 'suggestion'}`,
+        status: `${isEditing ? feedbackItemFromDb.status : 'Suggestion'}`,
         upvotes: feedbackItemUpvotes
     });
 
     const navigate = useNavigate();
 
+    console.log(feedbackItem);
     function handleSubmit(e) {
         e.preventDefault();
         
-        /*
-        * Found this neat way of finding which button submitted the form by first
-        * logging the event object to the console and studying its properties.
-        * This helps because while editing, the form can be submitted by either
-        * the 'Delete' button or 'Add Feedback'.
-        */
-       const formSubmitter = e.nativeEvent.submitter;
-       
-       if (formSubmitter.innerText.toLowerCase() === 'add feedback')
-           updateFeedbackItem(feedbackItemFromDb.id, feedbackItem);
+        if (feedbackItem.title.trim() === '') {
+            setInput({ ...input, showTitleError: true });
 
-        else if (formSubmitter.innerText.toLowerCase() === 'delete') 
-            deleteFeedbackItem(feedbackItemFromDb.id);
+            return;
+        }
 
-       else 
-           addFeedbackItem(feedbackItem);
+        else if (feedbackItem.description.trim() === '') {
+            setInput({ ...input, showDetailError: true });
 
-        setFeedbackItem({
-            id: feedbackItems.length + 1,
-            title: '',
-            description: '',
-            category: '',
-            comments: [],
-            status: 'Suggestion',
-            upvotes: 0
-        });
+            return;
+        }
+        
+        else if (feedbackItem.category.trim() === '') {
+            setInput({ ...input, showCategoryError: true });
 
-        navigate('/');
+            return;
+        }
+
+        else {
+            /*
+                * Found this neat way of finding which button submitted the form by first
+                * logging the event object to the console and studying its properties.
+                * This helps because while editing, the form can be submitted by either
+                * the 'Delete' button or 'Add Feedback'.
+            */
+           const formSubmitter = e.nativeEvent.submitter;
+           
+           if (formSubmitter.innerText.toLowerCase() === 'add feedback' && isEditing)
+               updateFeedbackItem(feedbackItemFromDb.id, feedbackItem);
+    
+            else if (formSubmitter.innerText.toLowerCase() === 'delete') 
+                deleteFeedbackItem(feedbackItemFromDb.id);
+    
+           else 
+               addFeedbackItem(feedbackItem);
+    
+            setFeedbackItem({
+                id: feedbackItems.length + 2,
+                title: '',
+                description: '',
+                category: '',
+                comments: [],
+                status: 'Suggestion',
+                upvotes: 0
+            });
+    
+            navigate('/');
+        }
     }
 
     function getReadOnlyValue(inputName, value) {
@@ -110,7 +137,7 @@ function AddEditFeedbackMain({
     console.log(feedbackItem);
 
     return ( 
-        <main className="add-edit-feedback__main">
+        <main className={ isEditing ? "add-edit-feedback__main--editing" : "add-edit-feedback__main"}>
             <div className={isEditing ? "add-edit-feedback__icon--edit" : "add-edit-feedback__icon--add" }></div>
 
             <h1 className="add-edit-feedback__title">
@@ -127,8 +154,8 @@ function AddEditFeedbackMain({
                     id={ 'title' }
                     inputName={ 'feedback-title' }
                     inputValue={ feedbackItem.title }
-                    isRequired={ true }
                     handleChange={ handleChange }
+                    showValidationMessage={ input.showTitleError }
                 />
                 
                 <AddEditFeedbackInput 
@@ -139,9 +166,9 @@ function AddEditFeedbackMain({
                     id={ 'feedback-category' }
                     inputName={ 'feedback-category' }
                     inputValue={ feedbackItem.category }
-                    isRequired={ true }
                     handleChange={ handleChange }
                     updateReadOnlyValue={ getReadOnlyValue }
+                    showValidationMessage={ input.showCategoryError }
                 />
 
                 {
@@ -168,8 +195,8 @@ function AddEditFeedbackMain({
                     inputName={ 'feedback-description' }
                     inputValue={ feedbackItem.description }
                     isTextArea={ true }
-                    isRequired={ true }
                     handleChange={ handleChange }
+                    showValidationMessage={ input.showDetailError }
                 />
 
                 <div className={ isEditing ? "add-edit-feedback__buttons--editing" : "add-edit-feedback__buttons" }>

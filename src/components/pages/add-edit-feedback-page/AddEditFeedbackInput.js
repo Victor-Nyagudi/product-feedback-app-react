@@ -3,6 +3,11 @@ import { PropTypes } from "prop-types";
 import TextArea from '../../shared/TextArea';
 import Input from './Input';
 
+/*
+    * This is another place where it would've been better to pass an object
+    * with the related properties instead of many props. FeedbackItem.js is the
+    * other culprit. *sigh* Decisions. Decisions.
+*/
 function AddEditFeedbackInput({ 
     id, 
     hasDropdown,
@@ -15,7 +20,8 @@ function AddEditFeedbackInput({
     title,
     handleChange,
     updateReadOnlyValue,
-    dropdownItemType 
+    dropdownItemType,
+    showValidationMessage 
 }) {
     return (    
         <div className="add-edit-feedback__input-info">
@@ -36,6 +42,7 @@ function AddEditFeedbackInput({
                     id={ id } 
                     value={ inputValue }
                     handleOnChange={ handleChange }
+                    showValidationMessage={ showValidationMessage }
                 />
 
                 :
@@ -50,8 +57,13 @@ function AddEditFeedbackInput({
                     handleOnChange={ handleChange }
                     updateReadOnlyValue={ updateReadOnlyValue }
                     dropdownItemType={ dropdownItemType }
+                    showValidationMessage={ showValidationMessage }
                 />
             }
+
+            <div className={ showValidationMessage ? "add-edit-feedback__validation" : "add-edit-feedback__validation--hidden" }>
+                <p className="add-edit-feedback__validation-message">Can't be empty</p>
+            </div>
         </div>
     );
 }
@@ -60,7 +72,8 @@ AddEditFeedbackInput.defaultProps = {
     hasIcon: false,
     inputType: 'text',
     isTextArea: false,
-    isRequired: false
+    isRequired: false,
+    showValidationMessage: false
 }
 
 AddEditFeedbackInput.propTypes = {
@@ -75,7 +88,8 @@ AddEditFeedbackInput.propTypes = {
     labelText: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
     updateReadOnlyValue: PropTypes.func,
-    dropdownItemType: PropTypes.string
+    dropdownItemType: PropTypes.string,
+    showValidationMessage: PropTypes.bool
 }
 
 export default AddEditFeedbackInput;
