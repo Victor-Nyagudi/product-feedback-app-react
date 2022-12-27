@@ -17,6 +17,7 @@ $tablet-padding: 3.5em 0 6em;
 $tablet-width: 93%;
 
 $desktop-padding: 5.875em 0 8em;
+$desktop-max-width: 1110px;
 
 // #region FeedbackDetailPage variables
 $feedback-detail-padding: 1.5em;
@@ -41,11 +42,6 @@ $feedback-detail-margin-bottom: 1.5em;
 
 // #endregion
 
-// #region RoadmapPage variables
-
-$roadmap-page-max-width: 1110px;
-
-// #endregion
 
 $font-weights: (
     'light': 300,
@@ -1031,7 +1027,7 @@ a {
 
     .suggestions {
         width: $tablet-width;
-        max-width: 1200px;
+        max-width: $desktop-max-width;
         margin: 0 auto;
 
         padding: $tablet-padding;
@@ -1248,7 +1244,10 @@ a {
             }
         }
 
-        &__main { padding: 3.5em 2.5em 1.5em; }
+        &__main { 
+            padding: 3.5em 2.5em 1.5em;
+            max-height: 745px; 
+        }
     }
 
     .feedback-detail {
@@ -1458,8 +1457,8 @@ a {
 
     .roadmap {
         padding: $desktop-padding;
-        width: $container-width;
-        max-width: $roadmap-page-max-width;
+        width: $tablet-width;
+        max-width: $desktop-max-width;
         margin: 0 auto;
 
         &__header {
@@ -1476,7 +1475,7 @@ a {
 
             &.container { 
                 min-width: 100%; 
-                max-width: $roadmap-page-max-width;
+                max-width: $desktop-max-width;
             }
         }
     }

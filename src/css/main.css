@@ -1078,7 +1078,7 @@ a {
   }
   .suggestions {
     width: 93%;
-    max-width: 1200px;
+    max-width: 1110px;
     margin: 0 auto;
     padding: 3.5em 0 6em;
     background-color: #f7f8fd;
@@ -1357,6 +1357,7 @@ a {
   }
   .add-edit-feedback__main {
     padding: 3.5em 2.5em 1.5em;
+    max-height: 745px;
   }
   .feedback-detail {
     max-width: 730px;
@@ -1589,7 +1590,7 @@ a {
   }
   .roadmap {
     padding: 5.875em 0 8em;
-    width: 87%;
+    width: 93%;
     max-width: 1110px;
     margin: 0 auto;
   }
