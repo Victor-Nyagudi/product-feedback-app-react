@@ -201,6 +201,15 @@
             "name": "Jackson Barker",
             "username": "countryspirit"
           }
+        },
+        {
+          "id": 3,
+          "content": "Agreed. So much more can be learned from knowing exactly where we went wrong versus where we went right. ",
+          "user": {
+            "name": "Zena Kelley",
+            "username": "velvetround",
+            "image": "./assets/user-images/image-zena.jpg"
+          }
         }
       ]
     },

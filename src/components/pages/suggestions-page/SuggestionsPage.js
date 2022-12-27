@@ -32,9 +32,6 @@ function SuggestionsPage({ sharedProps }) {
     }
 
     function sortBy(items, criteria) {
-        const sortedByComments = 
-            items.sort((item1, item2) => item2.comments.length - item1.comments.length);
-
         const sortedByUpvotes = 
             items.sort((item1, item2) => item2.upvotes - item1.upvotes);
 
@@ -42,11 +39,16 @@ function SuggestionsPage({ sharedProps }) {
             case 'Least Upvotes':
                 return sortedByUpvotes.reverse();
             
-            case 'Most Comments':
-                return sortedByComments;
+            /*
+                * For sorting by deep properties, not storing sorted items in a variable works.
+                * i.e. sorting items in the return statement.
+                * Storing them then returning the variable reversed doesn't work (unlike for upvotes)
+            */ 
+            case 'Most Comments': 
+                return items.sort((item1, item2) => item2.comments.length - item1.comments.length);
             
             case 'Least Comments':
-                return sortedByComments.reverse();
+                return items.sort((item1, item2) => item2.comments.length - item1.comments.length).reverse();
         
             default:
                 return sortedByUpvotes;
