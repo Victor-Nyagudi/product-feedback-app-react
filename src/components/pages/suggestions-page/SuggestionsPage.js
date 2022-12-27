@@ -9,16 +9,21 @@ function SuggestionsPage({ sharedProps }) {
     const [feedbackItemsToShow, setFeedbackItemsToShow] = useState(sharedProps.dbFeedbackItems);
     const [sortByCriteria, setSortByCriteria] = useState('Most Upvotes');
 
+    const [activeTagCategory, setActiveTagCategory] = useState(null);
+
     function showTagFeedbackItems(tagName) {
         if (sharedProps.dbFeedbackItems) {
             if (tagName !== 'All') {
                 const tagFeedbackItems = sharedProps.dbFeedbackItems.filter(item => item.category === tagName)
 
                 setFeedbackItemsToShow(sortBy(tagFeedbackItems, sortByCriteria));
+                setActiveTagCategory(tagName);
             }
 
-            else
+            else {
                 setFeedbackItemsToShow(sortBy(sharedProps.dbFeedbackItems, sortByCriteria));
+                setActiveTagCategory('All');
+            }
         }
     }
 
@@ -53,6 +58,11 @@ function SuggestionsPage({ sharedProps }) {
         // * Sort by most upvotes by default
 
         setFeedbackItemsToShow(sortBy([...sharedProps.dbFeedbackItems], sortByCriteria));
+
+        // * If no tag is selected i.e. when page loads (activeTagCategory still null), show all the feedback items. 
+
+        if (activeTagCategory)
+            setFeedbackItemsToShow(sharedProps.dbFeedbackItems.filter(item => item.category === activeTagCategory));
     }, [sharedProps.dbFeedbackItems]);
 
     useEffect(() => {
