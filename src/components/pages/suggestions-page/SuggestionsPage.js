@@ -1,8 +1,7 @@
 import { PropTypes } from "prop-types";
 import React, { useState, useEffect } from 'react';
-import MobileSideMenu from "../../shared/MobileSideMenu";
 
-import AppInfo from "./aside/AppInfo";
+import MobileNavigation from "../../shared/MobileNavigation";
 import SuggestionsAside from "./aside/SuggestionsAside";
 import SuggestionsContent from "./main/SuggestionsContent";
 
@@ -90,17 +89,13 @@ function SuggestionsPage({ sharedProps }) {
             {
                 sharedProps.isMobileScreen ?
 
-                <>
-                    <AppInfo 
-                        isMobileScreen={ sharedProps.isMobileScreen } 
-                        showHideSideMenu={ showHideSideMenu }
-                    />
-                    
-                    <MobileSideMenu 
-                        getActiveTag={ showTagFeedbackItems }
-                        feedbackItems={ sharedProps.dbFeedbackItems } 
-                    />
-                </>
+                <MobileNavigation 
+                    isMobileScreen={ sharedProps.isMobileScreen }
+                    showHideSideMenu={ showHideSideMenu }
+                    getActiveTag={ showTagFeedbackItems }
+                    feedbackItems={ sharedProps.dbFeedbackItems }
+                    mobileSideMenuOpen={ mobileSideMenuOpen }
+                />
 
                 : <SuggestionsAside 
                     feedbackItems={ sharedProps.dbFeedbackItems }

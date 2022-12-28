@@ -601,6 +601,12 @@ a {
         background-color: getColor('white'); 
         border-radius: $border-radius;
     }
+
+    &--hidden {
+        @extend .mobile-side-menu;
+
+        display: none;
+    }
 }
 
 .suggestions {

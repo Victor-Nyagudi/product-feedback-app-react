@@ -1,10 +1,14 @@
 import { PropTypes } from "prop-types";
 
+import AppInfo from "../pages/suggestions-page/aside/AppInfo";
+import MobileSideMenu from "./MobileSideMenu";
+
 function MobileNavigation({ 
     isMobileScreen,
     showHideSideMenu,
-    showTagFeedbackItems,
-    feedbackItems  
+    getActiveTag,
+    feedbackItems,
+    mobileSideMenuOpen  
 }) {
     return (  
         <>
@@ -14,18 +18,22 @@ function MobileNavigation({
             />
             
             <MobileSideMenu 
-                getActiveTag={ showTagFeedbackItems }
+                getActiveTag={ getActiveTag }
                 feedbackItems={ feedbackItems } 
+                mobileSideMenuOpen={ mobileSideMenuOpen }
             />
         </>    
     );
 }
 
+MobileNavigation.defaultProps = { shouldShowSideMenu: false };
+
 MobileNavigation.propTypes = {
     isMobileScreen: PropTypes.bool,
     showHideSideMenu: PropTypes.func,
-    showTagFeedbackItems: PropTypes.func,
-    feedbackItems: PropTypes.arrayOf(PropTypes.object)
+    getActiveTag: PropTypes.func,
+    feedbackItems: PropTypes.arrayOf(PropTypes.object),
+    MobileSideMenuOpen: PropTypes.bool
 }
 
 export default MobileNavigation;
