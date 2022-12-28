@@ -21,6 +21,7 @@ function FeedbackItemComments({ comments }) {
                             commentText={ comment.content }
                             commenter={ comment.user }
                             replies={ comment.replies && comment.replies }
+                            commentId={ comment.id }
                         />
                     )
                 }

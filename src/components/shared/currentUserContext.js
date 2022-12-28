@@ -13,4 +13,6 @@ const CurrentUserContext = React.createContext({});
 
 export const FeedbackItemToShowContext = React.createContext({});
 
+export const UpdateFeedbackItemContext = React.createContext(null);
+
 export default  CurrentUserContext;

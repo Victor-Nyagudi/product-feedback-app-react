@@ -4,7 +4,12 @@ import { PropTypes } from "prop-types";
 import CommentReplyForm from "./CommentReplyForm";
 import FeedbackItemCommentReply from "./FeedbackItemCommentReply";
 
-function FeedbackItemComment({ commentText, commenter, replies }) {
+function FeedbackItemComment({ 
+    commentText, 
+    commenter, 
+    replies,
+    commentId 
+}) {
     /*
         * Since the user's first name is used in naming their image, I can
         * piggyback on this and use it to determine the path to the image using
@@ -72,6 +77,7 @@ function FeedbackItemComment({ commentText, commenter, replies }) {
             <CommentReplyForm 
                 shouldShow={ shouldShowCommentForm }
                 toggleCommentReplyForm={ toggleCommentReplyForm }
+                commentId={ commentId }
             />
 
             {
@@ -98,7 +104,8 @@ function FeedbackItemComment({ commentText, commenter, replies }) {
 FeedbackItemComment.propTypes = { 
     commentText: PropTypes.string.isRequired,
     commenter: PropTypes.object.isRequired,
-    replies: PropTypes.arrayOf(PropTypes.object)
+    replies: PropTypes.arrayOf(PropTypes.object),
+    commentId: PropTypes.number.isRequired
 };
 
 export default FeedbackItemComment;
