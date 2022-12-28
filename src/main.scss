@@ -878,6 +878,8 @@ a {
 .feedback-detail {
     padding: $page-padding;
 
+    .textarea { margin-bottom: .5em; }
+
     &__comments {
         &-container {
             background-color: getColor('white');
@@ -1349,6 +1351,8 @@ a {
         */
         @include feedback-item-600px-up;
         padding: $tablet-padding;
+
+        .textarea { margin-bottom: 0; }
 
         &__comments-container { 
             padding: $feedback-detail-padding-lg $feedback-detail-padding-lg 2.5em $feedback-detail-padding-lg; 

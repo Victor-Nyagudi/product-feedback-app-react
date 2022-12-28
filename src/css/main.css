@@ -945,6 +945,10 @@ a {
   padding: 2em 0 6em;
 }
 
+.feedback-detail .textarea, .feedback-detail .textarea--error {
+  margin-bottom: .5em;
+}
+
 .feedback-detail__comments-container {
   background-color: white;
   border-radius: 10px;
@@ -1653,6 +1657,9 @@ a {
             justify-content: flex-end;
   }
   .feedback-detail__main .feedback-content__tag-container {
+    margin-bottom: 0;
+  }
+  .feedback-detail .textarea, .feedback-detail .textarea--error {
     margin-bottom: 0;
   }
   .feedback-detail__comments-container {
