@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { PropTypes } from "prop-types";
+import CurrentUserContext from '../../shared/currentUserContext';
 
 import Button from "../../shared/Button";
 import TextArea from "../../shared/TextArea";
 
 function CommentReplyForm({ shouldShow, toggleCommentReplyForm }) {
     const [textAreaValue, setTextAreaValue] = useState('');
+
+    const currentUser = useContext(CurrentUserContext);
+
+    console.log(currentUser);
 
     function handleChange(value) {
         setTextAreaValue(value);

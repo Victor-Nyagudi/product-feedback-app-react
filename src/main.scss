@@ -622,6 +622,8 @@ a {
         border-radius: $border-radius;
     }
 
+    .tags { gap: .875em }
+
     &--hidden {
         @extend .mobile-side-menu;
 

@@ -553,6 +553,10 @@ a {
   border-radius: 10px;
 }
 
+.mobile-side-menu .tags, .mobile-side-menu--hidden .tags {
+  gap: .875em;
+}
+
 .mobile-side-menu--hidden {
   display: none;
 }
