@@ -63,6 +63,7 @@
           },
           "replies": [
             {
+              "id": 1,
               "content": "While waiting for dark mode, there are browser extensions that will also do the job. Search for 'dark theme' followed by your browser. There might be a need to turn off the extension for sites with naturally black backgrounds though.",
               "replyingTo": "hummingbird1",
               "user": {
@@ -72,6 +73,7 @@
               }
             },
             {
+              "id": 2,
               "content": "Good point! Using any kind of style extension is great and can be highly customizable, like the ability to change contrast and brightness. I'd prefer not to use one of such extensions, however, for security and privacy reasons.",
               "replyingTo": "annev1990",
               "user": {
@@ -102,6 +104,7 @@
           },
           "replies": [
             {
+              "id": 1,
               "content": "I'd learn so much from a dev if I could some answers as they're working on the challenge.",
               "replyingTo": "soccerviewer8",
               "user": {
@@ -162,6 +165,7 @@
           },
           "replies": [
             {
+              "id": 1,
               "content": "Bumping this. It would be good to have a tab with a feed of people I follow so it's easy to see what challenges they’ve done lately. I learn a lot by reading good developers' code.",
               "replyingTo": "arlen_the_marlin",
               "user": {
@@ -271,6 +275,7 @@
           },
           "replies": [
             {
+              "id": 1,
               "content": "It would save me so much time.",
               "replyingTo": "voyager.344",
               "user": {
@@ -330,6 +335,7 @@
           },
           "replies": [
             {
+              "id": 1,
               "content": "Me too! I'd also love to see celebrations at specific points as well. It would help people take a moment to celebrate their achievements!",
               "replyingTo": "arlen_the_marlin",
               "user": {
@@ -339,6 +345,7 @@
               }
             },
             {
+              "id": 2,
               "content": "Makes for a great user experience too.",
               "replyingTo": "arlen_the_marlin",
               "user": {
