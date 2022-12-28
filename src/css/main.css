@@ -407,7 +407,7 @@ a {
   max-width: 72%;
   height: calc(100vh - 81px);
   padding: 1.5em;
-  background-color: lightpink;
+  background-color: #f7f8fd;
 }
 
 .mobile-side-menu .tags, .mobile-side-menu--hidden .tags {
