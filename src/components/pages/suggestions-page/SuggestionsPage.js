@@ -12,6 +12,16 @@ function SuggestionsPage({ sharedProps }) {
 
     const [activeTagCategory, setActiveTagCategory] = useState(null);
 
+    const [mobileSideMenuOpen, setMobileSideMenuOpen] = useState(false);
+
+    function showHideSideMenu(hamburgerButtonIsVisible) {
+        if (hamburgerButtonIsVisible)
+            setMobileSideMenuOpen(true);
+
+        else 
+            setMobileSideMenuOpen(false);
+    }
+
     function showTagFeedbackItems(tagName) {
         if (sharedProps.dbFeedbackItems) {
             if (tagName !== 'All') {
@@ -74,13 +84,17 @@ function SuggestionsPage({ sharedProps }) {
         setFeedbackItemsToShow(sortedFeedbackItems);
     }, [sortByCriteria]);
     
+
     return ( 
         <div className="suggestions">
             {
                 sharedProps.isMobileScreen ?
 
                 <>
-                    <AppInfo isMobileScreen={ sharedProps.isMobileScreen } />
+                    <AppInfo 
+                        isMobileScreen={ sharedProps.isMobileScreen } 
+                        showHideSideMenu={ showHideSideMenu }
+                    />
                     
                     <MobileSideMenu 
                         getActiveTag={ showTagFeedbackItems }

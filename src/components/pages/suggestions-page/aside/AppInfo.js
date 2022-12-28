@@ -1,8 +1,14 @@
 import { PropTypes } from "prop-types";
 import React, { useState } from 'react';
 
-function AppInfo({ isMobileScreen }) {
+function AppInfo({ isMobileScreen, showHideSideMenu }) {
     const [shouldShowHamburgerButton, setShouldShowHamburgerButton] = useState(true);
+
+    function toggleSideMenu() {
+        setShouldShowHamburgerButton(!shouldShowHamburgerButton);
+
+        showHideSideMenu(shouldShowHamburgerButton);
+    }
 
     return ( 
         <section className="app-info">
@@ -23,7 +29,7 @@ function AppInfo({ isMobileScreen }) {
                     <button 
                         className="app-info__hamburger-button button" 
                         aria-label="Open menu"
-                        onClick={ () => setShouldShowHamburgerButton(!shouldShowHamburgerButton) }
+                        onClick={ () => toggleSideMenu() }
                     >
                         {
                             shouldShowHamburgerButton ?
@@ -45,6 +51,9 @@ function AppInfo({ isMobileScreen }) {
     );
 }
 
-AppInfo.propTypes = { isMobileScreen: PropTypes.bool }
+AppInfo.propTypes = { 
+    isMobileScreen: PropTypes.bool,
+    showHideSideMenu: PropTypes.func 
+}
 
 export default AppInfo;
