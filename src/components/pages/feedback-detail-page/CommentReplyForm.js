@@ -7,7 +7,13 @@ import { FeedbackItemToShowContext, UpdateFeedbackItemContext } from '../../shar
 import Button from "../../shared/Button";
 import TextArea from "../../shared/TextArea";
 
-function CommentReplyForm({ shouldShow, commentId, toggleCommentReplyForm }) {
+function CommentReplyForm({ 
+    shouldShow, 
+    commentId, 
+    toggleCommentReplyForm,
+    replyUsername,
+    replyingToReply 
+}) {
     const currentUser = useContext(CurrentUserContext);
     const currentFeedbackItem = useContext(FeedbackItemToShowContext);
     const updateFeedbackItem = useContext(UpdateFeedbackItemContext);
@@ -23,13 +29,16 @@ function CommentReplyForm({ shouldShow, commentId, toggleCommentReplyForm }) {
             .filter(comment => comment.id === commentId) // * <- Get the current comment
             .map(comment => comment.user)[0]; // * <- Get the user who made the comment
 
-        if (originalCommentUser) {
-            setReply({
-                content: target.value,
-                replyingTo: originalCommentUser.username,
-                user: currentUser
-            });
-        }
+        /*
+            * Since the way replies are added is the same,
+            * the 'replyingToReply' bool just changes the @ in the reply. 
+        */
+
+        setReply({
+            content: target.value,
+            replyingTo: replyingToReply ? replyUsername : originalCommentUser.username,
+            user: currentUser
+        });
     }
 
     console.log(reply);
@@ -37,32 +46,25 @@ function CommentReplyForm({ shouldShow, commentId, toggleCommentReplyForm }) {
     function handleSubmit(e) {
         e.preventDefault();
         
-        // * If id supplied, then user is replying to a comment
-        if (commentId) {
-            const currentComment = currentFeedbackItem.comments
-                .filter(comment => comment.id === commentId)[0];
+        const currentComment = currentFeedbackItem.comments
+            .filter(comment => comment.id === commentId)[0];
 
-            /*
-                * Referencing the to-do list I built after following Traversy's React 
-                * tutorial helped immensely with figuring out how to navigate down to the 
-                * nested property and still update the entire feedback item.
-                * https://youtu.be/w7ejDZ8SWv8?t=5511
-                
-                * Replies are deeply nested inside a comment hence the
-                * complicated 'map()' function. 
-            */ 
-            updateFeedbackItem(currentFeedbackItem.id, { 
-                ...currentFeedbackItem, 
-                comments: currentFeedbackItem.comments
-                            .map(comment => comment.id === currentComment.id ? 
-                                    { ...comment, replies: [...comment.replies, reply] } : comment
-                                ) 
-            })
-        }
-
-        else {
-            console.log('Replying to a reply');
-        }
+        /*
+            * Referencing the to-do list I built after following Traversy's React 
+            * tutorial helped immensely with figuring out how to navigate down to the 
+            * nested property and still update the entire feedback item.
+            * https://youtu.be/w7ejDZ8SWv8?t=5511
+            
+            * Replies are deeply nested inside a comment hence the
+            * complicated 'map()' function. 
+        */ 
+        updateFeedbackItem(currentFeedbackItem.id, { 
+            ...currentFeedbackItem, 
+            comments: currentFeedbackItem.comments
+                .map(comment => comment.id === currentComment.id ? 
+                    { ...comment, replies: [...comment.replies, reply] } : comment
+                ) 
+        });
 
         setReply({
             content: '',
@@ -100,7 +102,11 @@ function CommentReplyForm({ shouldShow, commentId, toggleCommentReplyForm }) {
 }
 
 CommentReplyForm.propTypes = {
-    shouldShow: PropTypes.bool
+    shouldShow: PropTypes.bool,
+    replyUsername: PropTypes.string,
+    commentId: PropTypes.number,
+    toggleCommentReplyForm: PropTypes.func,
+    replyingToReply: PropTypes.bool
 }
 
 export default CommentReplyForm;

@@ -91,10 +91,10 @@ function FeedbackItemComment({
                                 replyText={ reply.content }
                                 replyingTo={ reply.replyingTo }
                                 personReplying={ reply.user }
+                                topLevelCommentId={ commentId }
                             />
                         )
                     }
-                    {/* <FeedbackItemCommentReply /> */}
                 </ul>
             }
         </li>

@@ -108,7 +108,7 @@ function FeedbackDetailAddComment({
 
 FeedbackDetailAddComment.propTypes = { 
     feedbackItem: PropTypes.object.isRequired, 
-    currentUser: PropTypes.object.isRequired,
+    currentUser: PropTypes.object,
     updateFeedbackItem: PropTypes.func
 };
 

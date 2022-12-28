@@ -3,7 +3,12 @@ import React, { useState } from 'react';
 
 import CommentReplyForm from "./CommentReplyForm";
 
-function FeedbackItemCommentReply({ replyText, personReplying, replyingTo }) {
+function FeedbackItemCommentReply({ 
+    replyText, 
+    personReplying, 
+    replyingTo,
+    topLevelCommentId 
+}) {
     
     // * Same thing like in FeedbackItemComment with the user's image
 
@@ -60,6 +65,9 @@ function FeedbackItemCommentReply({ replyText, personReplying, replyingTo }) {
             <CommentReplyForm 
                 shouldShow={ shouldShowCommentForm }
                 toggleCommentReplyForm={ toggleCommentReplyForm }
+                replyUsername={ personReplying.username }
+                commentId={ topLevelCommentId }
+                replyingToReply={ true }
             />
         </li>
     );
@@ -68,7 +76,8 @@ function FeedbackItemCommentReply({ replyText, personReplying, replyingTo }) {
 FeedbackItemCommentReply.propTypes = { 
     replyText: PropTypes.string.isRequired,
     personReplying: PropTypes.object.isRequired,
-    replyingTo: PropTypes.string.isRequired
+    replyingTo: PropTypes.string.isRequired,
+    topLevelCommentId: PropTypes.number
  }
 
 export default FeedbackItemCommentReply;
