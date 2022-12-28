@@ -21,7 +21,7 @@
             "name": "Suzanne Chang",
             "username": "upbeat1811"
           },
-          "replies":[]
+          "replies": []
         },
         {
           "id": 2,
@@ -31,7 +31,7 @@
             "name": "Thomas Hood",
             "username": "brawnybrave"
           },
-          "replies":[]
+          "replies": []
         }
       ]
     },
@@ -51,7 +51,7 @@
             "name": "Elijah Moss",
             "username": "hexagon.bestagon"
           },
-          "replies":[]
+          "replies": []
         },
         {
           "id": 4,
@@ -100,7 +100,17 @@
             "name": "George Partridge",
             "username": "soccerviewer8"
           },
-          "replies":[]
+          "replies": [
+            {
+              "content": "I'd learn so much from a dev if I could some answers as they're working on the challenge.",
+              "replyingTo": "soccerviewer8",
+              "user": {
+                "image": "./assets/user-images/image-zena.jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
         }
       ]
     },
@@ -120,7 +130,7 @@
             "name": "Javier Pollard",
             "username": "warlikeduke"
           },
-          "replies":[]
+          "replies": []
         },
         {
           "id": 7,
@@ -130,7 +140,7 @@
             "name": "Roxanne Travis",
             "username": "peppersprime32"
           },
-          "replies":[]
+          "replies": []
         }
       ]
     },
@@ -170,7 +180,7 @@
             "name": "Jackson Barker",
             "username": "countryspirit"
           },
-          "replies":[]
+          "replies": []
         }
       ]
     },
@@ -199,7 +209,7 @@
             "name": "Victoria Mejia",
             "username": "arlen_the_marlin"
           },
-          "replies":[]
+          "replies": []
         },
         {
           "id": 11,
@@ -209,7 +219,7 @@
             "name": "Jackson Barker",
             "username": "countryspirit"
           },
-          "replies":[]
+          "replies": []
         },
         {
           "id": 3,
@@ -219,7 +229,7 @@
             "username": "velvetround",
             "image": "./assets/user-images/image-zena.jpg"
           },
-          "replies":[]
+          "replies": []
         }
       ]
     },
@@ -237,7 +247,7 @@
             "name": "George Partridge",
             "username": "soccerviewer8"
           },
-          "replies":[]
+          "replies": []
         }
       ],
       "status": "Planned",
@@ -259,7 +269,17 @@
             "name": "Ryan Welles",
             "username": "voyager.344"
           },
-          "replies":[]
+          "replies": [
+            {
+              "content": "It would save me so much time.",
+              "replyingTo": "voyager.344",
+              "user": {
+                "image": "./assets/user-images/image-zena.jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
         }
       ]
     },
@@ -279,7 +299,7 @@
             "name": "Suzanne Chang",
             "username": "upbeat1811"
           },
-          "replies":[]
+          "replies": []
         }
       ]
     },
@@ -317,6 +337,15 @@
                 "name": "Suzanne Chang",
                 "username": "upbeat1811"
               }
+            },
+            {
+              "content": "Makes for a great user experience too.",
+              "replyingTo": "arlen_the_marlin",
+              "user": {
+                "image": "./assets/user-images/image-zena.jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
             }
           ]
         }
@@ -336,7 +365,7 @@
             "username": "velvetround",
             "image": "./assets/user-images/image-zena.jpg"
           },
-          "replies":[]
+          "replies": []
         }
       ],
       "status": "Planned",
@@ -356,7 +385,7 @@
             "username": "velvetround",
             "image": "./assets/user-images/image-zena.jpg"
           },
-          "replies":[]
+          "replies": []
         }
       ],
       "status": "Suggestion",

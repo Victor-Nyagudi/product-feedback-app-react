@@ -31,8 +31,8 @@ function FeedbackItemComment({
     */
     const [shouldShowCommentForm, setShouldShowCommentForm] = useState(false);
 
-    function toggleCommentReplyForm(isMenuOpen) {
-        if (isMenuOpen)
+    function toggleCommentReplyForm(commentFormIsVisible) {
+        if (commentFormIsVisible)
             setShouldShowCommentForm(false);
         
         else
@@ -81,7 +81,7 @@ function FeedbackItemComment({
             />
 
             {
-                replies && 
+                replies.length > 0 && 
 
                 <ul className="comment__replies">
                     {

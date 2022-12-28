@@ -7,7 +7,7 @@ import { FeedbackItemToShowContext, UpdateFeedbackItemContext } from '../../shar
 import Button from "../../shared/Button";
 import TextArea from "../../shared/TextArea";
 
-function CommentReplyForm({ shouldShow, commentId }) {
+function CommentReplyForm({ shouldShow, commentId, toggleCommentReplyForm }) {
     const currentUser = useContext(CurrentUserContext);
     const currentFeedbackItem = useContext(FeedbackItemToShowContext);
     const updateFeedbackItem = useContext(UpdateFeedbackItemContext);
@@ -17,13 +17,6 @@ function CommentReplyForm({ shouldShow, commentId }) {
         replyingTo: '',
         user: currentUser
     });
-
-
-    console.log(currentFeedbackItem.comments
-        .filter(comment => comment.id === commentId)
-        .map(comment => comment.user)[0]);
-
-        console.log(currentFeedbackItem);
 
     function handleChange(target) {
         const originalCommentUser = currentFeedbackItem.comments
@@ -42,30 +35,33 @@ function CommentReplyForm({ shouldShow, commentId }) {
     console.log(reply);
 
     function handleSubmit(e) {
-        // * If id supplied, then user is replying to a comment
         e.preventDefault();
         
+        // * If id supplied, then user is replying to a comment
         if (commentId) {
             const currentComment = currentFeedbackItem.comments
                 .filter(comment => comment.id === commentId)[0];
 
             /*
+                * Referencing the to-do list I built after following Traversy's React 
+                * tutorial helped immensely with figuring out how to navigate down to the 
+                * nested property and still update the entire feedback item.
+                * https://youtu.be/w7ejDZ8SWv8?t=5511
+                
                 * Replies are deeply nested inside a comment hence the
-                * complicated 'map()' function
+                * complicated 'map()' function. 
             */ 
-            // updateFeedbackItem(currentFeedbackItem.id, { 
-            //     ...currentFeedbackItem, 
-            //     comments: [ 
-            //         currentFeedbackItem.comments
-            //             .map(comment => comment.id === currentComment.id ? 
-            //                     { ...comment, replies: [...comment.replies, reply] } : comment
-            //                 ) 
-            //     ] 
-            // })
+            updateFeedbackItem(currentFeedbackItem.id, { 
+                ...currentFeedbackItem, 
+                comments: currentFeedbackItem.comments
+                            .map(comment => comment.id === currentComment.id ? 
+                                    { ...comment, replies: [...comment.replies, reply] } : comment
+                                ) 
+            })
+        }
 
-            console.log(currentComment.replies);
-
-            updateFeedbackItem(currentFeedbackItem.id, { ...currentFeedbackItem });
+        else {
+            console.log('Replying to a reply');
         }
 
         setReply({
@@ -73,6 +69,8 @@ function CommentReplyForm({ shouldShow, commentId }) {
             replyingTo: '',
             user: currentUser
         });
+
+        toggleCommentReplyForm(true);
     }
 
     return ( 
