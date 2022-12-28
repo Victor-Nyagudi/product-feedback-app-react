@@ -672,6 +672,7 @@ a {
 }
 
 .suggestions__content--dark {
+  height: 100vh;
   -webkit-filter: brightness(70%);
           filter: brightness(70%);
 }
