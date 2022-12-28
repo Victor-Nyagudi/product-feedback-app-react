@@ -387,6 +387,172 @@ a {
   display: none;
 }
 
+.mobile-side-menu {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5em;
+  /*
+        * 81px is the height of the banner with the gradient
+        * background, so moving the menu to be directly below it
+    */
+  top: 81px;
+  right: 0;
+  z-index: 1;
+  max-width: 72%;
+  min-height: 100vh;
+  padding: 1.5em;
+  background-color: lightpink;
+}
+
+.mobile-side-menu .tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: .5em;
+  padding: 1.5em;
+}
+
+.mobile-side-menu .tags__tag {
+  font-size: .9rem;
+  font-weight: 600;
+  background-color: #f0f2ff;
+  border-radius: 10px;
+}
+
+.mobile-side-menu .tags__tag:hover, .mobile-side-menu .tags__tag:focus {
+  background-color: #d1d9ff;
+}
+
+.mobile-side-menu .tags__tag-button {
+  color: #4761e6;
+  padding: .435em 1.175em;
+}
+
+.mobile-side-menu .tags__tag.tag--active {
+  background-color: #4761e6;
+}
+
+.mobile-side-menu .tags__tag.tag--active > .tags__tag-button {
+  color: white;
+}
+
+.mobile-side-menu .roadmap-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1.5em;
+}
+
+.mobile-side-menu .roadmap-info__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1.15em;
+}
+
+.mobile-side-menu .roadmap-info__link {
+  font-size: .95rem;
+  color: #4761e6;
+  text-decoration: underline;
+}
+
+.mobile-side-menu .roadmap-info__link:hover, .mobile-side-menu .roadmap-info__link:focus {
+  color: #8295f8;
+}
+
+.mobile-side-menu .roadmap-info__category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #647196;
+}
+
+.mobile-side-menu .roadmap-info__category:not(:last-child) {
+  margin-bottom: .75em;
+}
+
+.mobile-side-menu .roadmap-info__category-quantity {
+  font-weight: 700;
+}
+
+.mobile-side-menu .roadmap-info__categories {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.mobile-side-menu .roadmap-info__title {
+  font-size: 1.1rem;
+  color: #3a4373;
+}
+
+.mobile-side-menu .roadmap-info__detail-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+}
+
+.mobile-side-menu .roadmap-info__detail-icon {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.mobile-side-menu .roadmap-info__detail-icon.orange {
+  background-color: #f49f86;
+}
+
+.mobile-side-menu .roadmap-info__detail-icon.purple {
+  background-color: #b11fea;
+}
+
+.mobile-side-menu .roadmap-info__detail-icon.light-blue {
+  background-color: #61bdfa;
+}
+
+.mobile-side-menu .tags, .mobile-side-menu .roadmap-info {
+  background-color: white;
+  border-radius: 10px;
+}
+
 .suggestions {
   min-height: 100vh;
   display: -webkit-box;
@@ -1574,6 +1740,7 @@ a {
   }
   .suggestions__aside .app-info {
     height: 16.35vh;
+    min-height: 137px;
   }
   .suggestions__aside > :not(.app-info) {
     background-color: white;

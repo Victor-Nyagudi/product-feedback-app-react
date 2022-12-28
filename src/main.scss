@@ -175,6 +175,105 @@ a {
     }
 }
 
+@mixin aside-sidemenu-tags-styling {
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5em;
+
+        padding: $aside-card-padding;
+
+        &__tag {
+            font-size: .9rem;
+            font-weight: getFontWeight('semi-bold');
+            
+
+            background-color: getColor('dark-grey');
+            border-radius: $border-radius;
+
+            &:hover, &:focus { background-color: getColor('dark-grey--hover'); }
+
+            
+            &-button { 
+                color: getColor('blue'); 
+                padding: .435em 1.175em;
+            }
+
+            &.tag--active {
+                background-color: getColor('blue');
+
+                & > .tags__tag-button { color: getColor('white'); }
+            }
+        }
+    }
+}
+
+@mixin aside-sidemenu-roadmap-info-styling {
+    .roadmap-info { 
+        display: flex;
+        flex-direction: column;
+
+        padding: $aside-card-padding; 
+
+        &__header { 
+            @include flex-row-space-between; 
+
+            margin-bottom: 1.15em;
+        }
+
+        &__link { 
+            font-size: .95rem; 
+            color: getColor('blue');
+            text-decoration: underline;
+
+            &:hover, &:focus { color: getColor('blue--hover-link'); }
+        }
+
+        &__category { 
+            @include flex-row-space-between; 
+
+            color: getColor('grey-purple');
+
+            &:not(:last-child) { margin-bottom: .75em; }
+
+            &-quantity { font-weight: getFontWeight('bold'); }
+        }
+
+        &__categories {
+            flex: 1 auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        &__title { 
+            font-size: 1.1rem; 
+            color: getColor('purple-black');
+        }
+
+        &__detail {
+            &-container {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+            }
+
+            &-icon {
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+
+                &.orange { background-color: getColor('orange'); }
+
+                &.purple { background-color: getColor('purple'); }
+
+                &.light-blue { background-color: getColor('light-blue'); }
+            }
+        }
+    }
+}
+
 .button {
     display: inline-block;
     font-family: $primary-font;
@@ -470,6 +569,37 @@ a {
         @extend .dropdown-menu;
 
         display: none;
+    }
+}
+
+.mobile-side-menu {
+    position: absolute;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    /*
+        * 81px is the height of the banner with the gradient
+        * background, so moving the menu to be directly below it
+    */ 
+    top: 81px;
+    right: 0;
+
+    z-index: 1;
+    max-width: 72%;
+    min-height: 100vh;
+    padding: 1.5em;
+
+    background-color: lightpink;
+
+    @include aside-sidemenu-tags-styling;
+
+    @include aside-sidemenu-roadmap-info-styling;
+
+    .tags, .roadmap-info { 
+        background-color: getColor('white'); 
+        border-radius: $border-radius;
     }
 }
 
@@ -1101,102 +1231,9 @@ a {
                 max-height: 190px;
             }
 
-            .tags {
-                display: flex;
-                flex-wrap: wrap;
-                gap: .5em;
+            @include aside-sidemenu-tags-styling;
 
-                padding: $aside-card-padding;
-
-                &__tag {
-                    font-size: .9rem;
-                    font-weight: getFontWeight('semi-bold');
-                    
-
-                    background-color: getColor('dark-grey');
-                    border-radius: $border-radius;
-
-                    &:hover, &:focus { background-color: getColor('dark-grey--hover'); }
-
-                    
-                    &-button { 
-                        color: getColor('blue'); 
-                        padding: .435em 1.175em;
-                    }
-
-                    &.tag--active {
-                        background-color: getColor('blue');
-
-                        & > .tags__tag-button { color: getColor('white'); }
-                    }
-
-
-                }
-            }
-
-            .roadmap-info { 
-                display: flex;
-                flex-direction: column;
-
-                padding: $aside-card-padding; 
-
-                &__header { 
-                    @include flex-row-space-between; 
-
-                    margin-bottom: 1.15em;
-                }
-
-                &__link { 
-                    font-size: .95rem; 
-                    color: getColor('blue');
-                    text-decoration: underline;
-
-                    &:hover, &:focus { color: getColor('blue--hover-link'); }
-                }
-
-                &__category { 
-                    @include flex-row-space-between; 
-
-                    color: getColor('grey-purple');
-
-                    &:not(:last-child) { margin-bottom: .75em; }
-
-                    &-quantity { font-weight: getFontWeight('bold'); }
-                }
-
-                &__categories {
-                    flex: 1 auto;
-
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                }
-
-                &__title { 
-                    font-size: 1.1rem; 
-                    color: getColor('purple-black');
-                }
-
-                &__detail {
-                    &-container {
-                        display: flex;
-                        align-items: center;
-                        gap: .5em;
-                    }
-
-                    &-icon {
-                        height: 10px;
-                        width: 10px;
-                        border-radius: 50%;
-    
-                        &.orange { background-color: getColor('orange'); }
-    
-                        &.purple { background-color: getColor('purple'); }
-    
-                        &.light-blue { background-color: getColor('light-blue'); }
-                    }
-                }
-            }
+            @include aside-sidemenu-roadmap-info-styling;
         }
 
         &__header {
@@ -1444,6 +1481,7 @@ a {
 
             .app-info {
                 height: 16.35vh;
+                min-height: 137px;
             }
 
             & > :not(.app-info) { 
