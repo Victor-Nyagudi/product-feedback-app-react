@@ -85,7 +85,7 @@ function SuggestionsPage({ sharedProps }) {
     
 
     return ( 
-        <div className="suggestions">
+        <div className={ mobileSideMenuOpen ? "suggestions--scroll-lock" : "suggestions"}>
             {
                 sharedProps.isMobileScreen ?
 
@@ -109,6 +109,7 @@ function SuggestionsPage({ sharedProps }) {
                 getSortByCriteria={ sortFeedbackItems }
                 getSelectedFeedbackItemId={ sharedProps.showFeedbackItemDetail }
                 sharedProps={ sharedProps }
+                mobileSideMenuOpen={ mobileSideMenuOpen }
             />
         </div>
     );

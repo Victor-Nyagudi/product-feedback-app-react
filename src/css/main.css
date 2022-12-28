@@ -405,7 +405,7 @@ a {
   right: 0;
   z-index: 1;
   max-width: 72%;
-  min-height: 100vh;
+  height: calc(100vh - 81px);
   padding: 1.5em;
   background-color: lightpink;
 }
@@ -568,6 +568,51 @@ a {
           flex-direction: column;
 }
 
+.suggestions--scroll-lock {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.suggestions--scroll-lock .app-info {
+  color: white;
+  background-image: url("../assets/suggestions/mobile/background-header.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1em 0;
+}
+
+.suggestions--scroll-lock .app-info__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.suggestions--scroll-lock .app-info__title {
+  font-size: 1.1rem;
+}
+
+.suggestions--scroll-lock .app-info__sub-heading {
+  font-weight: 500;
+}
+
+.suggestions--scroll-lock .app-info__hamburger-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .suggestions .app-info {
   color: white;
   background-image: url("../assets/suggestions/mobile/background-header.png");
@@ -608,7 +653,7 @@ a {
           justify-content: center;
 }
 
-.suggestions__content {
+.suggestions__content, .suggestions__content--dark {
   /*
             ? This is a flex child of .suggestions.
             ? Adding flex property to make it occupy remaining space
@@ -624,6 +669,11 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.suggestions__content--dark {
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
 }
 
 .suggestions__header {
@@ -703,7 +753,7 @@ a {
             * found where the page only moves a little but the container
             * housing the feedback items scrolls
         */
-  max-height: 83vh;
+  max-height: 100vh;
   overflow-y: auto;
 }
 
@@ -1763,7 +1813,7 @@ a {
         -ms-flex-align: center;
             align-items: center;
   }
-  .suggestions__content {
+  .suggestions__content, .suggestions__content--dark {
     -webkit-box-flex: 4;
         -ms-flex: 4;
             flex: 4;

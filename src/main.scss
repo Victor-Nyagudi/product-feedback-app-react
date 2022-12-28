@@ -274,6 +274,26 @@ a {
     }
 }
 
+@mixin app-info-mobile {
+    .app-info {
+        color: getColor('white');
+    
+        background-image: url('../assets/suggestions/mobile/background-header.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+        padding: 1em 0;
+    
+        &__content { @include flex-row-space-between; }
+    
+        &__title { font-size: 1.1rem; }
+    
+        &__sub-heading { font-weight: getFontWeight('medium'); }
+
+        &__hamburger-button { @include flex-row-center; }
+    }
+}
+
 .button {
     display: inline-block;
     font-family: $primary-font;
@@ -588,7 +608,7 @@ a {
 
     z-index: 1;
     max-width: 72%;
-    min-height: 100vh;
+    height: calc(100vh - 81px);
     padding: 1.5em;
 
     background-color: lightpink;
@@ -615,23 +635,14 @@ a {
     display: flex;
     flex-direction: column;
 
-    .app-info {
-        color: getColor('white');
-    
-        background-image: url('../assets/suggestions/mobile/background-header.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-    
-        padding: 1em 0;
-    
-        &__content { @include flex-row-space-between; }
-    
-        &__title { font-size: 1.1rem; }
-    
-        &__sub-heading { font-weight: getFontWeight('medium'); }
+    &--scroll-lock {
+        max-height: 100vh;
+        overflow: hidden;
 
-        &__hamburger-button { @include flex-row-center; }
+        @include app-info-mobile;
     }
+    
+    @include app-info-mobile;
 
     &__content {
         /*
@@ -643,6 +654,12 @@ a {
 
         display: flex;
         flex-direction: column;
+
+        &--dark {
+            @extend .suggestions__content;
+
+            filter: brightness(70%);
+        }
     }
 
     &__header {
@@ -696,7 +713,7 @@ a {
             * found where the page only moves a little but the container
             * housing the feedback items scrolls
         */ 
-        max-height: 83vh;
+        max-height: 100vh;
         overflow-y: auto;
     }
 

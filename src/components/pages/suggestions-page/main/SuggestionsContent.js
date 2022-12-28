@@ -8,10 +8,11 @@ function SuggestionsContent({
     feedbackItems, 
     getSortByCriteria,
     getSelectedFeedbackItemId,
-    sharedProps 
+    sharedProps,
+    mobileSideMenuOpen 
 }) {
     return ( 
-        <div className="suggestions__content">
+        <div className={ mobileSideMenuOpen ? "suggestions__content--dark" : "suggestions__content" }>
             <SuggestionsHeader 
                 totalSuggestions={ 
                     feedbackItems ?
@@ -39,7 +40,8 @@ SuggestionsContent.propTypes = {
     feedbackItems: PropTypes.arrayOf(PropTypes.object),
     getSortByCriteria: PropTypes.func.isRequired,
     getSelectedFeedbackItemId: PropTypes.func.isRequired,
-    sharedProps: PropTypes.object 
+    sharedProps: PropTypes.object,
+    mobileSideMenuOpen: PropTypes.bool 
 }
 
 export default SuggestionsContent;
