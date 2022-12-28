@@ -1,16 +1,25 @@
 import React, { useState, useContext } from 'react';
 import { PropTypes } from "prop-types";
+
 import CurrentUserContext from '../../shared/currentUserContext';
+import { FeedbackItemToShowContext } from '../../shared/currentUserContext';
 
 import Button from "../../shared/Button";
 import TextArea from "../../shared/TextArea";
 
 function CommentReplyForm({ shouldShow, toggleCommentReplyForm }) {
-    const [textAreaValue, setTextAreaValue] = useState('');
-
     const currentUser = useContext(CurrentUserContext);
+    const currentFeedbackItem = useContext(FeedbackItemToShowContext);
+    
+    const [textAreaValue, setTextAreaValue] = useState('');
+    const [reply, setReply] = useState({
+        content: '',
+        replyingTo: '',
+        user: currentUser
+    });
 
-    console.log(currentUser);
+
+    console.log(currentFeedbackItem);
 
     function handleChange(value) {
         setTextAreaValue(value);

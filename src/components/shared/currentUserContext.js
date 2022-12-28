@@ -11,4 +11,6 @@ import React from 'react';
 
 const CurrentUserContext = React.createContext({});
 
+export const FeedbackItemToShowContext = React.createContext({});
+
 export default  CurrentUserContext;

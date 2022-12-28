@@ -10,6 +10,7 @@ import productRequests from "./data.json";
 import React, { useState, useEffect } from 'react';
 import { Routes, Route  } from "react-router-dom";
 import CurrentUserContext from './components/shared/currentUserContext';
+import { FeedbackItemToShowContext } from './components/shared/currentUserContext';
 
 import SuggestionsPage from './components/pages/suggestions-page/SuggestionsPage';
 import AddEditFeedbackPage from './components/pages/add-edit-feedback-page/AddEditFeedbackPage';
@@ -271,7 +272,9 @@ function App() {
           path='/feedback-detail'
           element={ 
             <CurrentUserContext.Provider value={ currentUser }>
-              <FeedbackDetailPage sharedProps={ sharedProps } toggleEditPage={ sharedProps.toggleIsEditing } /> 
+              <FeedbackItemToShowContext.Provider value={ dbFeedbackItemToShow } >
+                <FeedbackDetailPage sharedProps={ sharedProps } toggleEditPage={ sharedProps.toggleIsEditing } /> 
+              </FeedbackItemToShowContext.Provider>
             </CurrentUserContext.Provider>
           }
         />
