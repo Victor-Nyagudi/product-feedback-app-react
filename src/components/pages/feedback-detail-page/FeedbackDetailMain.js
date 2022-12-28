@@ -75,7 +75,7 @@ function FeedbackDetailMain({
 }
 
 FeedbackDetailMain.propTypes = { 
-    feedbackItemDetailToShow: PropTypes.object.isRequired,
+    feedbackItemDetailToShow: PropTypes.object,
     getFeedbackItem: PropTypes.func,
     updateFeedbackItem: PropTypes.func,
     currentUser: PropTypes.object
