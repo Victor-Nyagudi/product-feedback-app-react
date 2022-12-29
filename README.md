@@ -67,8 +67,8 @@ I've included 6 screenshots in the `/src/screenshots` folder: desktop implementa
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution](https://www.frontendmentor.io/solutions/product-feedback-app--J1n6KJ6Bs)
+- [Live Site](https://react-product-feedback-app.netlify.app/)
 
 ## My process
 
