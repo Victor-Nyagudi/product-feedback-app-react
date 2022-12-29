@@ -1,10 +1,15 @@
 # Frontend Mentor - Product feedback app solution
 
-This is a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). 
+
+It's the hardest challenge on Frontend Mentor and is currently marked "Level 5 - Guru". The Figma files were provided, and I aimed for a pixel-perfect implementation with this one.  
+
+Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
 - [Overview](#overview)
+  - [Using this repo](#using-this-repo)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
@@ -16,9 +21,29 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
+
+### Using this repo
+
+If you do decide to fork this repo, let me know how you used it on [LinkedIn](https://www.linkedin.com/in/victor-nyagudi-016063148/) or [Twitter](https://twitter.com/Vicktor_Oti). 
+
+I'd love to hear about what you used it for and how it helped you. 😊
+
+You can use the code to practice working with a backend, or even use it as a foundation for teaching students how to use a backend with a professional-looking front end already set up.
+
+I used JSON server to mock a REST API, so you'll need to run the `npm run json-server` script after `npm start` in the terminal to see any feedback items, otherwise the app will prompt you to add suggestions, which you also won't be able to do until JSON server is running or you hook up your own back end.
+
+Alternatively, you could change the feedback items passed down to the pages in `App.js` from `db.json` (the one JSON server uses) to `data.json` (the default JSON data that came with the challenge).
+
+Here's a [demo of the app working with json server](https://youtu.be/4LcdKqsm5e0).
+
+I made some changes to the original JSON data provided so that it's more line with the actual data you'd get from a database. For example, in the original data, if a feedback item didn't have any comments, the `comments` property was omitted instead of it being equal to an empty array.
+
+With the `id` also not being database-generated, I resorted to a poor man's system of creating them, so you could run into the issue of identical id's.
+
+With the way I've set things up, I do believe if you returned data from a backend that's exactly like the one in `db.json`, you'd have to do minimal set up to get things working, but if issues arise, feel free to let me know in the [issues tab](https://github.com/Victor-Nyagudi/product-feedback-app-react/issues);
+
+Happy coding!
 
 ### The challenge
 
@@ -36,15 +61,9 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./src/screenshots/product-feedback-app-desktop.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+I've included 6 screenshots in the `/src/screenshots` folder: desktop implementation, tablet (portrait and landscape), and mobile (portrait and landscape).
 
 ### Links
 
@@ -55,66 +74,54 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- [React](https://reactjs.org/) - JS library
+- [React Router](https://reactrouter.com/en/main)
+- [Json Server](https://www.npmjs.com/package/json-server#https) - Mock REST API
+- SCSS
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- BEM Naming Convention
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I initially set a 14-day deadline to complete this challenge, but it turns out there was much more to do than what could be achieved in that timeline, especially considering my aim was a pixel-perfect implementation.
 
-To see how you can add code snippets, see below:
+It ended up taking about 19 days to get to a satisfactory state, but after taking on a project this size, I learned that there will always be little things popping up that need fixing. 
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+Earlier solutions were simpler and had a finite ending, but a larger project with more interactions will often have some unexpected bugs. This is reminiscent of the big applications that exist today, whether corporate or even video games - the more things you add, the likelier you are to introduce/encounter bugs.
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+That's why there are developers constantly working on them, otherwise, the app would be built once, and developers would have to look for work elsewhere when done. 
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
+I also learned a lot about patience and getting out of the mindset of "there's just this one little thing left, and I'm done". 
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+Granted, with a robust structure to an app, small adjustments shouldn't be breaking changes, but in larger projects, many areas could be depending on the area being changed, so caution has to be taken to ensure those other areas aren't adversely affected.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+On the coding side of things, I'm glad I got some practice using [Context](https://reactjs.org/docs/context.html#consuming-multiple-contexts) in React. It saved me from the headaches that come with [prop drilling](https://www.geeksforgeeks.org/what-is-prop-drilling-and-how-to-avoid-it/), which almost happened once where I had to pass the currently authenticated user to a component deep in the UI tree. 
+
+I'm also happy I got some practice with React Router, JSON server, and using JavaScript's `fetch` API to get data from the local JSON server. 
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+I learned a great deal about deadlines, so I'll use this knowledge to pace myself better and make more informed decisions (maybe not code for basically 21 days straight 😂). 
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+Despite working with Context in this project, there are still some advanced React concepts I'd like to get some more experience with, but that should come the more I use the framework.
+
+I'm happy with the way I planned and structured everything from the beginning, and I'd like to build on this by implementing some things early on rather than doing one large pass through towards the end e.g. accounting for accessibility as I'm building, adding `prop` restrictions with `prop-type` while coding the component instead of after, etc.
+
+Finally, I'd like to improve on just the awareness of simple concepts e.g. not being confused why the property returned is `undefined` when the variable is actually an array and not an object 😂. It's not an issue, but I do have some occassional [brain farts](https://www.dictionary.com/browse/brain-fart) every now and then.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Traversy React Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8&t=5511s) - I watched this last year and recreated the to-do list. It's a simple project, but it laid a great foundation for some of the concepts I used in this product feedback app e.g. fetching data, updating state with that data, etc.
+- [Using Context with function components](https://medium.com/@danfyfe/using-react-context-with-functional-components-153cbd9ba214) - A Medium article that gave me good insight on using context with function components. The official React docs used class components. 
+- [React Router docs](https://reactrouter.com/en/main) - I referenced this every now then to learn more about routing in React.
+- [Handling Failed HTTP Responses](https://www.tjvantoll.com/2015/09/13/fetch-and-errors/) - This helped me when I had trouble using the `fetch` API i.e. responses being `undefined` instead of returning a promise, etc.
+- [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem) - This came in handy for multiple things, particularly working with local storage to persist state when page refreshes. I also learned about the [minmax](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax) CSS grid property I heard about but never really used that came in handy in making sure the feedback items' columns aligned perfectly with the comments' columns below it.
+- [W3 Schools](https://www.w3schools.com/) - Of course, where would developers be without W3 schools? We don't deserve them. I referenced their helpful articles and played around with their demos whenever I needed clarity on certain topics.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - https://www.victornyagudi.com/
+- Frontend Mentor - [@Victor-Nyagudi](https://www.frontendmentor.io/profile/Victor-Nyagudi)
+- Twitter - [@Vicktor_Oti](https://twitter.com/Vicktor_Oti)
