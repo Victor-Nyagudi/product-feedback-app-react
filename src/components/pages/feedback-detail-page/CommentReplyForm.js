@@ -41,8 +41,6 @@ function CommentReplyForm({
         });
     }
 
-    console.log(reply);
-
     function handleSubmit(e) {
         e.preventDefault();
         

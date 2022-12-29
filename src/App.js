@@ -75,8 +75,6 @@ function App() {
   useEffect(() => {
     setFeedbackItems(productRequests.productRequests);
   }, [feedbackItems]);
-  
-  console.log(dbFeedbackItems);
 
   // * This is similar to a GET/{id} request
 
