@@ -37,11 +37,11 @@ Alternatively, you could change the feedback items passed down to the pages in `
 
 Here's a [demo of the app working with json server](https://youtu.be/4LcdKqsm5e0).
 
-I made some changes to the original JSON data provided so that it's more line with the actual data you'd get from a database. For example, in the original data, if a feedback item didn't have any comments, the `comments` property was omitted instead of it being equal to an empty array.
+I made some changes to the original JSON data provided so that it's more in line with the actual data you'd get from a database. For example, in the original data, if a feedback item didn't have any comments, the `comments` property was omitted instead of it being equal to an empty array.
 
 With the `id` also not being database-generated, I resorted to a poor man's system of creating them, so you could run into the issue of identical id's.
 
-With the way I've set things up, I do believe if you returned data from a backend that's exactly like the one in `db.json`, you'd have to do minimal set up to get things working, but if issues arise, feel free to let me know in the [issues tab](https://github.com/Victor-Nyagudi/product-feedback-app-react/issues);
+With the way I've set things up, I do believe if you returned data from a backend that's exactly like the one in `db.json`, you'd have to do minimal set up to get things working, but if issues arise, feel free to let me know in the [issues tab](https://github.com/Victor-Nyagudi/product-feedback-app-react/issues).
 
 Happy coding!
 
