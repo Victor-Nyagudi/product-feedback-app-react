@@ -146,7 +146,7 @@ FeedbackItem.propTypes = {
     badgeColor: PropTypes.string,
     title: PropTypes.string,
     message: PropTypes.string,
-    category: PropTypes.string,
+    tagCategory: PropTypes.string,
     totalUpvotes: PropTypes.number,
     totalComments: PropTypes.number,
     getSelectedFeedbackItemId: PropTypes.func,
