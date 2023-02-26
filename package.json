@@ -18,6 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-storybook": "test-storybook",
     "eject": "react-scripts eject",
     "json-server": "json-server --watch db.json --port 5000",
     "storybook": "start-storybook -p 6006 -s public",
@@ -62,6 +63,7 @@
     "@storybook/node-logger": "^6.5.16",
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.16",
+    "@storybook/test-runner": "^0.9.4",
     "@storybook/testing-library": "^0.0.13",
     "babel-plugin-named-exports-order": "^0.0.2",
     "webpack": "^5.75.0"

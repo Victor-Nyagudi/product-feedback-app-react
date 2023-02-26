@@ -21,6 +21,15 @@ const Template = (args) => <FeedbackItem {...args} />;
 
 export const NoBadge = Template.bind({});
 
+const hoverInteraction = async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // * Simulate hover interaction
+    await userEvent.hover(canvas.getByRole("button"));
+
+    await expect(canvas.getByRole("button")).toBeInTheDocument();
+};
+
 NoBadge.args = {
     id: 1,
     title: "Improve contrast ratio of buttons",
@@ -28,7 +37,9 @@ NoBadge.args = {
     tagCategory: "UX",
     totalUpvotes: 15,
     totalComments: 3,
-}
+};
+
+NoBadge.play = hoverInteraction;
 
 export const HasBadge = Template.bind({});
 
@@ -43,3 +54,5 @@ HasBadge.args = {
     badgeColor: "light-blue",
     tagCategory: "Feature"
 }
+
+HasBadge.play = hoverInteraction;
