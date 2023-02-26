@@ -21,29 +21,44 @@ const Template = (args) => <FeedbackItem {...args} />;
 
 export const NoBadge = Template.bind({});
 
-const hoverInteraction = async ({ canvasElement }) => {
-    /*
-        ? The play function in Storybook uses its version of
-        ? Testing Library to simulate user interaction.
-        
-        ? More on that in this blog post explaining testing 
-        ? component interactions using Storybook.
-        ? https://storybook.js.org/blog/test-component-interactions-with-storybook/
+//#region Why testing hover states isn't straightforward in Storybook
 
-        ? Read more on Testing Library
-        ? https://testing-library.com/docs/guide-disappearance/
-    */
+/*
+    The :hover event is seen as a trusted event by browsers,
+    so it can't be tested using the "play" function in  Storybook.
+    https://www.chromatic.com/docs/hoverfocus
+*/
+// const hoverInteraction = async ({ canvasElement }) => {
+//     /*
+//         ? The play function in Storybook uses its version of
+//         ? Testing Library to simulate user interaction.
+        
+//         ? More on that in this blog post explaining testing 
+//         ? component interactions using Storybook.
+//         ? https://storybook.js.org/blog/test-component-interactions-with-storybook/
+
+//         ? Read more on Testing Library
+//         ? https://testing-library.com/docs/guide-disappearance/
+//     */
+//     const canvas = within(canvasElement);
+
+//     // * Simulate hover interaction
+//     await userEvent.hover(canvas.getByRole("button"));
+
+//     /*
+//         * For a full list of matchers provided by jest-dom e.g. toBeInTheDocument(),
+//         * toHaveClass(), etc., go here.
+//         * https://github.com/testing-library/jest-dom#usage
+//     */
+//     await expect(canvas.getByRole("button")).toHaveClass("feedback-content__upvotes-button--clicked");
+// };
+
+//#endregion
+
+const focusInteraction = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // * Simulate hover interaction
-    await userEvent.hover(canvas.getByRole("button"));
-
-    /*
-        * For a full list of matchers provided by jest-dom e.g. toBeInTheDocument(),
-        * toHaveClass(), etc., go here.
-        * https://github.com/testing-library/jest-dom#usage
-    */
-    await expect(canvas.getByRole("button")).toHaveClass("feedback-content__upvotes-button--clicked");
+    await canvas.getByRole("button").focus();
 };
 
 NoBadge.args = {
@@ -55,7 +70,7 @@ NoBadge.args = {
     totalComments: 3,
 };
 
-NoBadge.play = hoverInteraction;
+NoBadge.play = focusInteraction;
 
 export const HasBadge = Template.bind({});
 
@@ -71,4 +86,4 @@ HasBadge.args = {
     tagCategory: "Feature"
 }
 
-HasBadge.play = hoverInteraction;
+HasBadge.play = focusInteraction;   
