@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button  from "../../components/shared/Button";
+import Button  from "../../../components/shared/Button";
 
 export default {
     title: "Project/Shared/Button",

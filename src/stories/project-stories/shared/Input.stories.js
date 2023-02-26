@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Input from '../../components/pages/add-edit-feedback-page/Input';
+import Input from '../../../components/pages/add-edit-feedback-page/Input';
 
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
