@@ -22,12 +22,28 @@ const Template = (args) => <FeedbackItem {...args} />;
 export const NoBadge = Template.bind({});
 
 const hoverInteraction = async ({ canvasElement }) => {
+    /*
+        ? The play function in Storybook uses its version of
+        ? Testing Library to simulate user interaction.
+        
+        ? More on that in this blog post explaining testing 
+        ? component interactions using Storybook.
+        ? https://storybook.js.org/blog/test-component-interactions-with-storybook/
+
+        ? Read more on Testing Library
+        ? https://testing-library.com/docs/guide-disappearance/
+    */
     const canvas = within(canvasElement);
 
     // * Simulate hover interaction
     await userEvent.hover(canvas.getByRole("button"));
 
-    await expect(canvas.getByRole("button")).toBeInTheDocument();
+    /*
+        * For a full list of matchers provided by jest-dom e.g. toBeInTheDocument(),
+        * toHaveClass(), etc., go here.
+        * https://github.com/testing-library/jest-dom#usage
+    */
+    await expect(canvas.getByRole("button")).toHaveClass("feedback-content__upvotes-button--clicked");
 };
 
 NoBadge.args = {
