@@ -122,14 +122,12 @@ function Input({
 }
 
 Input.defaultProps = {
-    hasIcon: false,
     isRequired: false,
     dropdownItemType: 'category',
     showValidationMessage: false
 }
 
 Input.propTypes = {
-    hasIcon: PropTypes.bool,
     id: PropTypes.string.isRequired,
     inputType: PropTypes.string.isRequired,
     inputName: PropTypes.string.isRequired,
