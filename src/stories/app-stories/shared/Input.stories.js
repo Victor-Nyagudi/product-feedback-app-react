@@ -6,7 +6,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 export default {
-    title: "Project/Shared/Input",
+    title: "App/Shared/Input",
     component: Input
 }
 

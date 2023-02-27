@@ -5,7 +5,7 @@ import FeedbackItem from '../../../components/shared/FeedbackItem';
 import { within } from "@storybook/testing-library";
 
 export default {
-    title: "Project/Shared/FeedbackItem",
+    title: "App/Shared/FeedbackItem",
     component: FeedbackItem,
     decorators: [
         (Story) => (

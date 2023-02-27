@@ -3,7 +3,7 @@ import React from 'react';
 import Button  from "../../../components/shared/Button";
 
 export default {
-    title: "Project/Shared/Button",
+    title: "App/Shared/Button",
     component: Button
 }
 
