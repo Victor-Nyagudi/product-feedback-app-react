@@ -4,7 +4,16 @@ import TextArea from "../../../components/shared/TextArea";
 
 export default {
     title: "App/Shared/Textarea",
-    component: TextArea
+    component: TextArea,
+    parameters: {
+        backgrounds: {
+            default: "white",
+            values: [
+                { name: "white", value: "#ffffff" },
+                { name: "dark-grey", value: "#3b3b3b" }
+            ]
+        }
+    }
 }
 
 const Template = (args) => <TextArea { ...args } />

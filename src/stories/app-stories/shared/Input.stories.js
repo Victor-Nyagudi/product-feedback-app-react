@@ -17,6 +17,20 @@ export default {
         isRequired: true,
         showValidationMessage: false,
         handleOnChange: (target) => console.log(target)
+    },
+    /*
+        * Parameters are metadata about a story typically used to control
+        * Storybook features & add-ons e.g. background (an add-on) of the
+        * story on the website
+    */
+    parameters: {
+        backgrounds: {
+            default: "white",
+            values: [
+                { name: "white", value: "#ffffff" },
+                { name: "dark-grey", value: "#3b3b3b" }
+            ]
+        }
     }
 }
 
@@ -32,7 +46,10 @@ Error.args = { showValidationMessage: true };
 
 HasCategoryDropdown.args = { hasDropdown: true };
 
-HasStatusDropdown.args = { dropdownItemType: "status" };
+HasStatusDropdown.args = {
+    hasDropdown: true,
+    dropdownItemType: "status"
+};
 
 const openDropdownInteraction = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
