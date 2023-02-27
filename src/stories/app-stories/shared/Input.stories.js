@@ -7,9 +7,18 @@ import { expect } from '@storybook/jest';
 
 export default {
     title: "App/Shared/Input",
-    component: Input
+    component: Input,
+    args: {
+        id: "sample-input",
+        inputType: "text",
+        dropdownItemType: "category",
+        inputName: "sample-input",
+        hasDropdown: false,
+        isRequired: true,
+        showValidationMessage: false,
+        handleOnChange: (target) => console.log(target)
+    }
 }
-
 
 const Template = (args) => <Input {...args} />
 
@@ -19,31 +28,11 @@ export const HasCategoryDropdown = Template.bind({});
 export const HasStatusDropdown = Template.bind({});
 
 
-Default.args = {
-    id: "sample-input",
-    inputType: "text",
-    dropdownItemType: "category",
-    inputName: "sample-input",
-    hasDropdown: false,
-    isRequired: true,
-    showValidationMessage: false,
-    handleOnChange: (target) => console.log(target)
-};
+Error.args = { showValidationMessage: true };
 
-Error.args = { 
-    ...Default.args,
-    showValidationMessage: true
-};
+HasCategoryDropdown.args = { hasDropdown: true };
 
-HasCategoryDropdown.args = {
-    ...Default.args,
-    hasDropdown: true
-};
-
-HasStatusDropdown.args = {
-    ...HasCategoryDropdown.args,
-    dropdownItemType: "status"  
-};
+HasStatusDropdown.args = { dropdownItemType: "status" };
 
 const openDropdownInteraction = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
