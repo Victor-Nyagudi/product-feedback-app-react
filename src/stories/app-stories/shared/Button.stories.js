@@ -1,18 +1,10 @@
 import React from 'react';
-import { BrowserRouter } from "react-router-dom";
 
 import Button  from "../../../components/shared/Button";
 
 export default {
     title: "App/Shared/Button",
     component: Button,
-    decorators: [
-        (Story) => (
-            <BrowserRouter>
-                <Story />
-            </BrowserRouter>
-        )
-    ],
     args: {
         isLink: false,
         type: "button"        
