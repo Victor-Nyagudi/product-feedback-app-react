@@ -1,4 +1,5 @@
 import "../src/css/main.css";
+import { BrowserRouter } from "react-router-dom";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -9,3 +10,11 @@ export const parameters = {
     },
   },
 }
+
+export const decorators = [
+  (Story) => (
+    <BrowserRouter>
+      <Story />
+    </BrowserRouter>
+  )
+];
