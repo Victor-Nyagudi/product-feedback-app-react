@@ -9,7 +9,14 @@ export default {
         buttonText: "Feature",
         isSelected: true,
         index: 0
-    }
+    },
+    decorators: [
+        (Story) => (
+            <ul>
+                <Story />
+            </ul>
+        )
+    ]
 }
 
 const Template = (args) => <DropdownMenuItem {...args} />
