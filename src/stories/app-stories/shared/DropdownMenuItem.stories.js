@@ -53,5 +53,12 @@ SelectedWrappedByListTag.decorators = [
 UnselectedWrappedByListTag.args = { isSelected: false, buttonText: "Bug" };
 SelectedWrappedByListTag.args = { isSelected: true, buttonText: "Bug" };
 
+/*
+    ? These two stories are imported into other stories, therefore, are 
+    ? not wrapped in with "ul" because this interferes with styling, hence
+    ? the existence of the stories above to see how each item will look in a
+    ? more "natural" state i.e. inside a list. Also removes accessibility warning
+    ? in Storybook.  
+*/
 Unselected.args = { isSelected: false, buttonText: "Feature" };
 Selected.args = { isSelected: true, buttonText: "UI" };
