@@ -49,6 +49,7 @@ function Button({
             * Purple - 'button--add-feedback'
             * Blue - 'button--edit-feedback'
             * Black - 'button--cancel'
+            * Orange - 'button--delete
             
             ? I understand I should've given them more meaningful names
             ? like 'button--purple', but I missed the fact that the text
@@ -93,7 +94,12 @@ Button.defaultProps = {
 Button.propTypes = {
     text: PropTypes.string.isRequired,
     type: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.oneOf([
+        "button--add-feedback", 
+        "button--edit-feedback", 
+        "button--cancel",
+        "button--delete"
+    ]),
     icon: PropTypes.node,
     isLink: PropTypes.bool,
     toggleEditPage: PropTypes.func
