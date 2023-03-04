@@ -13,6 +13,9 @@ export default {
                 { name: "dark-grey", value: "#3b3b3b" }
             ]
         }
+    },
+    argTypes: {
+        handleOnChange: { action: "handleOnChange" }
     }
 }
 
@@ -27,8 +30,7 @@ Default.args = {
     placeholder: "Tell us about yourself...",
     isRequired: false,
     maxLength: 250,
-    showValidationMessage: false,
-    handleOnChange: () => {}
+    showValidationMessage: false
 };
 
 Error.args = {
