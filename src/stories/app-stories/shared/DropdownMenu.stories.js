@@ -14,6 +14,10 @@ export default {
             { buttonText: 'Enhancement', isSelected: false },
             { buttonText: 'Bug', isSelected: false }
         ]
+    },
+    argTypes: {
+        updateText: { action: "updateText" },
+        toggleDropdownMenu: { action: "toggleDropdownMenu" }
     }
 }
 
