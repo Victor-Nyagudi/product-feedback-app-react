@@ -7,6 +7,42 @@ import { within } from "@storybook/testing-library";
 export default {
     title: "App/Shared/FeedbackItem",
     component: FeedbackItem,
+    args: {
+        feedbackItemObject: {
+            "id": 1,
+            "title": "Add tags for solutions",
+            "category": "Enhancement",
+            "upvotes": 112,
+            "status": "suggestion",
+            "description": "Easier to search for solutions based on a specific stack.",
+            "comments": [
+                {
+                    "id": 1,
+                    "content": "Awesome idea! Trying to find framework-specific projects within the hubs can be tedious",
+                    "user": {
+                        "image": "./assets/user-images/image-suzanne.jpg",
+                        "name": "Suzanne Chang",
+                        "username": "upbeat1811"
+                    }
+                },
+                {
+                    "id": 2,
+                    "content": "Please use fun, color-coded labels to easily identify them at a glance",
+                    "user": {
+                        "image": "./assets/user-images/image-thomas.jpg",
+                        "name": "Thomas Hood",
+                        "username": "brawnybrave"
+                    }
+                }
+            ]
+        }
+    },
+    argTypes: {
+        updateFeedbackItem: { action: "updateFeedbackItem" },
+        getSelectedFeedbackItemId: {
+            action: "getSelectedFeedbackItemId"
+        }
+    },
     decorators: [
         (Story) => (
             <div className="suggestions__main">
@@ -19,6 +55,11 @@ export default {
 const Template = (args) => <FeedbackItem {...args} />;
 
 export const NoBadge = Template.bind({});
+export const NoBadgeLink = Template.bind({});
+
+export const HasBadge = Template.bind({});
+export const HasBadgeLink = Template.bind({});
+
 
 //#region Why testing hover states isn't straightforward in Storybook
 
@@ -31,7 +72,7 @@ export const NoBadge = Template.bind({});
 //     /*
 //         ? The play function in Storybook uses its version of
 //         ? Testing Library to simulate user interaction.
-        
+
 //         ? More on that in this blog post explaining testing 
 //         ? component interactions using Storybook.
 //         ? https://storybook.js.org/blog/test-component-interactions-with-storybook/
@@ -67,11 +108,14 @@ NoBadge.args = {
     tagCategory: "UX",
     totalUpvotes: 15,
     totalComments: 3,
+    showBadge: false,
+    isLink: false
 };
 
-NoBadge.play = focusInteraction;
-
-export const HasBadge = Template.bind({});
+NoBadgeLink.args = {
+    ...NoBadge.args,
+    isLink: true
+};
 
 HasBadge.args = {
     id: 2,
@@ -82,7 +126,14 @@ HasBadge.args = {
     showBadge: true,
     badgeText: "Live",
     badgeColor: "light-blue",
-    tagCategory: "Feature"
+    tagCategory: "Feature",
+    isLink: false
 }
 
-HasBadge.play = focusInteraction;   
+HasBadgeLink.args = {
+    ...HasBadge.args,
+    isLink: true
+};
+
+HasBadge.play = focusInteraction;
+NoBadge.play = focusInteraction;
