@@ -11,12 +11,15 @@ export default {
     args: {
         id: "sample-input",
         inputType: "text",
-        dropdownItemType: "category",
         inputName: "sample-input",
+        dropdownItemType: "category",
         hasDropdown: false,
         isRequired: true,
-        showValidationMessage: false,
-        handleOnChange: (target) => console.log(target)
+        showValidationMessage: false
+    },
+    argTypes: {
+        handleOnChange: { action: "handleOnChange" },
+        updateReadOnlyValue: { action: "updateReadOnlyValue" }
     },
     /*
         * Parameters are metadata about a story typically used to control
@@ -44,14 +47,19 @@ export const HasStatusDropdown = Template.bind({});
 
 Error.args = { showValidationMessage: true };
 
-HasCategoryDropdown.args = { hasDropdown: true };
+HasCategoryDropdown.args = { 
+    hasDropdown: true,
+    dropdownItemType: "category",
+    inputValue: "Feature" 
+};
 
 HasStatusDropdown.args = {
     hasDropdown: true,
-    dropdownItemType: "status"
+    dropdownItemType: "status",
+    inputValue: "Suggestion"
 };
 
-const openDropdownInteraction = async ({ canvasElement }) => {
+HasStatusDropdown.play = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     // * Simulate user clicking button to reveal dropdown
@@ -59,7 +67,36 @@ const openDropdownInteraction = async ({ canvasElement }) => {
 
     // * Ensure DropdownMenu is rendered after click
     await expect(canvas.getByRole("list")).toBeInTheDocument();
+
+    // * Simulate user choosing an option 
+    await userEvent.click(canvas.getByText("Planned"));
+
+    // * Ensure DropdownMenu is not rendred
+    /*
+        ? To check if an element is not in the DOM, you'll need to 
+        ? use "queryByRole" instead of "getByRole" or "findByRole"
+        ? which produce errors. 
+    */
+    await expect(canvas.queryByRole("list")).not.toBeInTheDocument();
 };
 
-HasStatusDropdown.play = openDropdownInteraction;
-HasCategoryDropdown.play = openDropdownInteraction;
+HasCategoryDropdown.play = async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // * Simulate user clicking button to reveal dropdown
+    await userEvent.click(canvas.getByRole("button"));
+
+    // * Ensure DropdownMenu is rendered after click
+    await expect(canvas.getByRole("list")).toBeInTheDocument();
+
+    // * Simulate user choosing an option 
+    await userEvent.click(canvas.getByText("UI"));
+
+    // * Ensure DropdownMenu is not rendred
+    /*
+        ? To check if an element is not in the DOM, you'll need to 
+        ? use "queryByRole" instead of "getByRole" or "findByRole"
+        ? which produce errors. 
+    */
+    await expect(canvas.queryByRole("list")).not.toBeInTheDocument();
+};
