@@ -17,13 +17,17 @@ export default {
 const Template = (args) => <Button {...args} />
 
 export const AddFeedback = Template.bind({});
+export const AddFeedbackMobile = Template.bind({});
 export const AddFeedbackLink = Template.bind({});
 
 export const EditFeedback = Template.bind({});
 export const EditFeedbackLink = Template.bind({});
 
 export const Cancel = Template.bind({});
+export const CancelMobile = Template.bind({});
+
 export const Delete = Template.bind({});
+export const DeleteMobile = Template.bind({});
 
 AddFeedback.args = {
     text: "Add feedback",
@@ -35,6 +39,11 @@ AddFeedbackLink.args = {
     isLink: true, 
     icon: <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg" className="feedback-button-svg"><text transform="translate(-24 -20)" fill="#F2F4FE" fillRule="evenodd" fontFamily="Jost-Bold, Jost" fontSize="14" fontWeight="bold"><tspan x="24" y="27.5">+</tspan></text></svg>
 }
+
+AddFeedbackMobile.args = { 
+    ...AddFeedback.args,
+    className: "button--add-feedback add-edit-feedback__button" 
+};
 
 EditFeedback.args = {
     text: "Edit feedback",
@@ -51,7 +60,17 @@ Cancel.args = {
     className: "button--cancel"
 }
 
+CancelMobile.args = { 
+    ...Cancel.args,
+    className: "button--cancel add-edit-feedback__button" 
+};
+
 Delete.args = {
     text: "Delete",
     className: "button--delete"
+}
+
+DeleteMobile.args = {
+    ...Delete.args,
+    className: "button--delete add-edit-feedback__button"
 }
