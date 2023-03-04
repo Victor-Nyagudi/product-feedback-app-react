@@ -7,8 +7,11 @@ export default {
     component: DropdownMenuItem,
     args: {
         buttonText: "Feature",
-        isSelected: true,
-        index: 0
+        index: 1
+    },
+    argTypes: { 
+        setActive: { action: "setActive" },
+        toggleDropdownMenu: { action: "toggleDropdownMenu" } 
     },
     decorators: [
         (Story) => (
@@ -21,4 +24,8 @@ export default {
 
 const Template = (args) => <DropdownMenuItem {...args} />
 
-export const Default = Template.bind({});
+export const Unselected = Template.bind({});
+export const Selected = Template.bind({});
+
+Unselected.args = { isSelected: false }
+Selected.args = { isSelected: true }
