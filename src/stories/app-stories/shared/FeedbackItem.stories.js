@@ -41,7 +41,8 @@ export default {
         updateFeedbackItem: { action: "updateFeedbackItem" },
         getSelectedFeedbackItemId: {
             action: "getSelectedFeedbackItemId"
-        }
+        },
+        badgeColor: { control: "text" }
     },
     decorators: [
         (Story) => (
