@@ -2,17 +2,19 @@ import React from "react";
 
 import DropdownMenu from "../../../components/shared/DropdownMenu";
 
+import * as DropdownMenuItemStories from "./DropdownMenuItem.stories";
+
 export default {
     title: "App/Shared/DropdownMenu",
     component: DropdownMenu,
     args: {
         shouldShow: true,
         dropdownItems: [
-            { buttonText: 'Feature', isSelected: true },
-            { buttonText: 'UI', isSelected: false },
-            { buttonText: 'UX', isSelected: false },
-            { buttonText: 'Enhancement', isSelected: false },
-            { buttonText: 'Bug', isSelected: false }
+            { ...DropdownMenuItemStories.Unselected.args },
+            { ...DropdownMenuItemStories.Selected.args },
+            { ...DropdownMenuItemStories.Unselected.args },
+            { ...DropdownMenuItemStories.Unselected.args },
+            { ...DropdownMenuItemStories.Unselected.args }
         ]
     },
     argTypes: {
