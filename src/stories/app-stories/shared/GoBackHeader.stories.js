@@ -4,7 +4,10 @@ import GoBackHeader from "../../../components/shared/GoBackHeader";
 
 export default {
     title: "App/Shared/GoBackHeader",
-    component: GoBackHeader
+    component: GoBackHeader,
+    argTypes: {
+        toggleEditPage: { action: "toggleEditPage" }
+    }
 }
 
 const Template = (args) => <GoBackHeader {...args} />
