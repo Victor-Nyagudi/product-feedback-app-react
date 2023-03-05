@@ -23,7 +23,11 @@ function RoadmapInfoCategory({ category, quantity, iconColor }) {
 RoadmapInfoCategory.propTypes = {
     category: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
-    iconColor: PropTypes.string.isRequired
+    iconColor: PropTypes.oneOf([
+        "orange",
+        "purple",
+        "light-blue"
+    ])
 }
 
 export default RoadmapInfoCategory;
