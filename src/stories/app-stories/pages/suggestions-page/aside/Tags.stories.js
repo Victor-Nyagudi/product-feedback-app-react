@@ -43,7 +43,7 @@ const clickTagInteraction = async ({ canvasElement }) => {
     */
     const fourthListItem = canvas.getAllByRole("listitem")[3];
 
-    await userEvent.click(within(fourthListItem).getByRole("button"));
+    await userEvent.click(within(fourthListItem).getByRole("button", { name: "Enhancement" }));
 
     await expect(fourthListItem).toHaveClass("tag--active");
 }
