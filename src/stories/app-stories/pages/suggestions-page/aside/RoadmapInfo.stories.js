@@ -2,6 +2,8 @@ import React from "react";
 
 import RoadmapInfo from "../../../../../components/pages/suggestions-page/aside/RoadmapInfo";
 
+import * as MobileNavigationStories from "../../../shared/MobileNavigation.stories";
+
 export default {
     title: "App/Pages/Suggestions/Aside/RoadmapInfo",
     component: RoadmapInfo,
@@ -51,3 +53,6 @@ MobileSideMenu.decorators = [
         </div>
     )
 ];
+
+Desktop.play = MobileNavigationStories.Default.play;
+MobileSideMenu.play = MobileNavigationStories.Default.play;
