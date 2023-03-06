@@ -2,6 +2,8 @@ import React from "react";
 
 import GoBackHeader from "../../../components/shared/GoBackHeader";
 
+import { EditFeedbackLink } from "./Button.stories";
+
 export default {
     title: "App/Shared/GoBackHeader",
     component: GoBackHeader,
@@ -28,3 +30,5 @@ HasSecondaryButton.args = {
     secButtonClassName: "button--edit-feedback",
     secButtonIcon: null
 };
+
+HasSecondaryButton.play = EditFeedbackLink.play;
