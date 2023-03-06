@@ -65,8 +65,11 @@ HasStatusDropdown.play = async ({ canvasElement }) => {
     // * Simulate user clicking button to reveal dropdown
     await userEvent.click(canvas.getByRole("button"));
 
+    const dropdownMenu = canvas.getAllByRole("list")
+        .find(item => item.classList.contains("dropdown-menu"));
+
     // * Ensure DropdownMenu is rendered after click
-    await expect(canvas.getByRole("list")).toBeInTheDocument();
+    await expect(dropdownMenu).toBeVisible();
 
     // * Simulate user choosing an option 
     await userEvent.click(canvas.getByText("Planned"));
@@ -77,7 +80,7 @@ HasStatusDropdown.play = async ({ canvasElement }) => {
         ? use "queryByRole" instead of "getByRole" or "findByRole"
         ? which produce errors. 
     */
-    await expect(canvas.queryByRole("list")).not.toBeInTheDocument();
+    await expect(dropdownMenu).not.toBeVisible();
 };
 
 HasCategoryDropdown.play = async ({ canvasElement }) => {
@@ -86,8 +89,11 @@ HasCategoryDropdown.play = async ({ canvasElement }) => {
     // * Simulate user clicking button to reveal dropdown
     await userEvent.click(canvas.getByRole("button"));
 
+    const dropdownMenu = canvas.getAllByRole("list")
+        .find(item => item.classList.contains("dropdown-menu"));
+
     // * Ensure DropdownMenu is rendered after click
-    await expect(canvas.getByRole("list")).toBeInTheDocument();
+    await expect(dropdownMenu).toBeVisible();
 
     // * Simulate user choosing an option 
     await userEvent.click(canvas.getByText("UI"));
@@ -98,5 +104,5 @@ HasCategoryDropdown.play = async ({ canvasElement }) => {
         ? use "queryByRole" instead of "getByRole" or "findByRole"
         ? which produce errors. 
     */
-    await expect(canvas.queryByRole("list")).not.toBeInTheDocument();
+    await expect(dropdownMenu).not.toBeVisible();
 };

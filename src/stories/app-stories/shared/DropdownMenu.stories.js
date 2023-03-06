@@ -35,5 +35,5 @@ Default.play = async ({ canvasElement }) => {
 
     await userEvent.click(button);
 
-    await expect(within(button).getByTestId("checkmark")).toBeInTheDocument();
+    await expect(within(button).getByTestId("checkmark")).toBeVisible();
 }
