@@ -30,8 +30,11 @@ const Template = (args) => <DropdownMenuItem {...args} />
 export const UnselectedWrappedByListTag = Template.bind({});
 export const SelectedWrappedByListTag = Template.bind({});
 
-export const Unselected = Template.bind({});
-export const Selected = Template.bind({});
+export const UnselectedFeature = Template.bind({});
+export const UnselectedBug = Template.bind({});
+export const UnselectedUX = Template.bind({});
+
+export const SelectedUI = Template.bind({});
 
 
 UnselectedWrappedByListTag.decorators = [
@@ -60,5 +63,8 @@ SelectedWrappedByListTag.args = { isSelected: true, buttonText: "Bug" };
     ? more "natural" state i.e. inside a list. Also removes accessibility warning
     ? in Storybook.  
 */
-Unselected.args = { isSelected: false, buttonText: "Feature" };
-Selected.args = { isSelected: true, buttonText: "UI" };
+UnselectedFeature.args = { isSelected: false, buttonText: "Feature" };
+UnselectedBug.args = { isSelected: false, buttonText: "Bug" };
+UnselectedUX.args = { isSelected: false, buttonText: "UX" };
+
+SelectedUI.args = { isSelected: true, buttonText: "UI" };
