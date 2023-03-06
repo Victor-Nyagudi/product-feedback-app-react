@@ -2,7 +2,8 @@ import React from 'react';
 
 import FeedbackItem from '../../../components/shared/FeedbackItem';
 
-import { within } from "@storybook/testing-library";
+import { userEvent, within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 export default {
     title: "App/Shared/FeedbackItem",
@@ -96,11 +97,6 @@ export const HasBadgeLink = Template.bind({});
 
 //#endregion
 
-const focusInteraction = async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    await canvas.getByRole("button").focus();
-};
 
 NoBadge.args = {
     id: 1,
@@ -115,6 +111,7 @@ NoBadge.args = {
 
 NoBadgeLink.args = {
     ...NoBadge.args,
+    title: "Buttons need better contrast ratio",
     isLink: true
 };
 
@@ -133,8 +130,48 @@ HasBadge.args = {
 
 HasBadgeLink.args = {
     ...HasBadge.args,
+    title: "Dark mode when?",
     isLink: true
 };
 
-HasBadge.play = focusInteraction;
-NoBadge.play = focusInteraction;
+const upvoteButtonClick = async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const upvoteButton = canvas.getByRole("button");
+
+    await userEvent.click(upvoteButton);
+
+    // * See comment on unexpected behavior in function below
+    await expect(upvoteButton).toHaveClass("feedback-content__upvotes-button--clicked");
+};
+
+const otherInteractions = async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const titleLink = canvas.getByRole("link");
+
+    await userEvent.click(titleLink);
+
+    await expect(titleLink).toHaveAttribute("href", "/feedback-detail");
+
+    const upvoteButton = canvas.getByRole("button");
+
+    await userEvent.click(upvoteButton);
+
+    /*
+        ? This one behaves in an interesting way because when the storybook
+        ? loads, the test passes, but when trying to step through from the clicking
+        ? the upvote button to this assertion, it fails. 
+
+        ? I believe this is due to the state of the button being checked in local storage
+        ? which could be interfering with the play ineraction.
+    */
+    await expect(upvoteButton).toHaveClass("feedback-content__upvotes-button--clicked");
+};
+
+
+HasBadge.play = upvoteButtonClick;
+NoBadge.play = upvoteButtonClick;
+
+HasBadgeLink.play = otherInteractions;
+NoBadgeLink.play = otherInteractions;
