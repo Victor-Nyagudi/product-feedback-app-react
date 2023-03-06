@@ -2,6 +2,9 @@ import React from 'react';
 
 import Button  from "../../../components/shared/Button";
 
+import { within, userEvent } from "@storybook/testing-library";
+import { expect } from '@storybook/jest';
+
 export default {
     title: "App/Shared/Button",
     component: Button,
@@ -74,3 +77,24 @@ DeleteMobile.args = {
     ...Delete.args,
     className: "button--delete add-edit-feedback__button"
 }
+
+AddFeedbackLink.play = async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const link = canvas.getByRole("link", { name: "+Add feedback" });
+
+    await userEvent.click(link);
+
+    await expect(link).toHaveAttribute("href", "/add-feedback");
+}
+
+EditFeedbackLink.play = async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const link = canvas.getByRole("link", { name: "Edit feedback" });
+
+    await userEvent.click(link);
+
+    await expect(link).toHaveAttribute("href", "/edit-feedback");
+}
+
