@@ -2,6 +2,8 @@ import React from "react";
 
 import MobileSideMenu from "../../../components/shared/MobileSideMenu";
 
+import * as MobileNavigationStories from "./MobileNavigation.stories";
+
 export default {
     title: "App/Shared/MobileSideMenu",
     component: MobileSideMenu,
@@ -38,3 +40,5 @@ export default {
 const Template = (args) => <MobileSideMenu {...args} />
 
 export const Default = Template.bind({});
+
+Default.play = MobileNavigationStories.Default.play;
