@@ -111,12 +111,13 @@ NoBadge.args = {
 
 NoBadgeLink.args = {
     ...NoBadge.args,
+    id: 2,
     title: "Buttons need better contrast ratio",
     isLink: true
 };
 
 HasBadge.args = {
-    id: 2,
+    id: 3,
     title: "Add dark mode",
     message: "Much easier on the eyes, especially at night after a long day of looking at screens all the time",
     totalUpvotes: 123,
@@ -130,6 +131,7 @@ HasBadge.args = {
 
 HasBadgeLink.args = {
     ...HasBadge.args,
+    id: 4,
     title: "Dark mode when?",
     isLink: true
 };
@@ -137,12 +139,16 @@ HasBadgeLink.args = {
 const upvoteButtonClick = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const upvoteButton = canvas.getByRole("button");
+    const upvoteButton = canvas.getAllByRole("button")
+        .find(btn => btn.classList.contains("feedback-content__upvotes-button"));
 
     await userEvent.click(upvoteButton);
 
-    // * See comment on unexpected behavior in function below
     await expect(upvoteButton).toHaveClass("feedback-content__upvotes-button--clicked");
+    
+    await userEvent.click(upvoteButton);
+
+    await expect(upvoteButton).not.toHaveClass("feedback-content__upvotes-button--clicked");
 };
 
 const otherInteractions = async ({ canvasElement }) => {
@@ -154,19 +160,16 @@ const otherInteractions = async ({ canvasElement }) => {
 
     await expect(titleLink).toHaveAttribute("href", "/feedback-detail");
 
-    const upvoteButton = canvas.getByRole("button");
+    const upvoteButton = canvas.getAllByRole("button")
+        .find(btn => btn.classList.contains("feedback-content__upvotes-button"));
 
     await userEvent.click(upvoteButton);
 
-    /*
-        ? This one behaves in an interesting way because when the storybook
-        ? loads, the test passes, but when trying to step through from the clicking
-        ? the upvote button to this assertion, it fails. 
-
-        ? I believe this is due to the state of the button being checked in local storage
-        ? which could be interfering with the play ineraction.
-    */
     await expect(upvoteButton).toHaveClass("feedback-content__upvotes-button--clicked");
+    
+    await userEvent.click(upvoteButton);
+
+    await expect(upvoteButton).not.toHaveClass("feedback-content__upvotes-button--clicked");
 };
 
 
