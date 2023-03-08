@@ -34,13 +34,16 @@ MobileWithMenuButton.args = { isMobileScreen: true };
 MobileWithMenuButton.play = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await userEvent.click(canvas.getByRole("button"));
+    const toggleMenuButton = canvas.getAllByRole("button")
+        .find(btn => btn.classList.contains("app-info__hamburger-button"));
 
-    await expect(canvas.getByTestId("close-menu-button")).toBeInTheDocument();
+    await userEvent.click(toggleMenuButton);
+
+    await expect(canvas.getByTestId("close-menu-button")).toBeVisible();
     await expect(canvas.queryByTestId("hamburger-button")).not.toBeInTheDocument();
 
-    await userEvent.click(canvas.getByRole("button"));
+    await userEvent.click(toggleMenuButton);
 
-    await expect(canvas.getByTestId("hamburger-button")).toBeInTheDocument();
+    await expect(canvas.getByTestId("hamburger-button")).toBeVisible();
     await expect(canvas.queryByTestId("close-menu-button")).not.toBeInTheDocument();
 }

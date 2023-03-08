@@ -60,7 +60,9 @@ const Template = (args) => <MobileNavigation {...args} />;
 */
 export const Default = Template.bind({});
 
-Default.play = async ({ canvasElement }) => {
+Default.play = async (objectWithCanvasElement) => {
+    const { canvasElement } = objectWithCanvasElement;
+
     const canvas = within(canvasElement);
 
     const viewLink = canvas.getByRole("link", { name: "View" });

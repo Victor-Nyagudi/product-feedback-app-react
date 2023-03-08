@@ -162,12 +162,13 @@ const upvoteButtonClick = async ({ canvasElement }) => {
     await testUpvoteButton(upvoteButton);
 };
 
-const otherInteractions = async (objectWithCanvasElement) => {
+export const otherInteractions = async (objectWithCanvasElement) => {
     const { canvasElement } = objectWithCanvasElement;
 
     const canvas = within(canvasElement);
 
-    const titleLink = canvas.getByRole("link");
+    const titleLink = canvas.getAllByRole("link")
+        .filter(link => link.classList.contains("feedback-content__title"))[0];
 
     await testFeedbackItemLink(titleLink);
 

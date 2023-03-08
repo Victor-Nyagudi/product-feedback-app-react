@@ -17,7 +17,8 @@ export default {
                 <Story />
             </div>
         )
-    ]
+    ],
+    includeStories: /^[A-Z]/
 }
 
 const Template = (args) => <Tags {...args} />
@@ -33,19 +34,24 @@ DesktopSuggestionsAside.decorators = [
     )
 ]
 
-const clickTagInteraction = async ({ canvasElement }) => {
+export const clickTagInteraction = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
+    const tagsList = canvas
+        .getAllByRole("list")
+        .find(list => list.classList.contains("tags"))
+    
     /*
-        * No special reason for using the fourth item. 
-        * Any item except the first that's already 
+        * No special reason for using the fourth tag. 
+        * Any tag except the first that's already 
         * active will do. 
     */
-    const fourthListItem = canvas.getAllByRole("listitem")[3];
+    const fourthTag = within(tagsList)
+        .getAllByRole("listitem")[3];
 
-    await userEvent.click(within(fourthListItem).getByRole("button", { name: "Enhancement" }));
+    await userEvent.click(within(fourthTag).getByRole("button", { name: "Enhancement" }));
 
-    await expect(fourthListItem).toHaveClass("tag--active");
+    await expect(fourthTag).toHaveClass("tag--active");
 }
 
 MobileSideMenu.play = clickTagInteraction;
