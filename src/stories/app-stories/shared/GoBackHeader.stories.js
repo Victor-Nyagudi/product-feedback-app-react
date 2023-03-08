@@ -26,7 +26,7 @@ NoSecondaryButton.args = {
 
 HasSecondaryButton.args = {
     hasSecondaryButton: true,
-    secButtonText: "Edit feedback",
+    secButtonText: "Edit Feedback",
     secButtonClassName: "button--edit-feedback",
     secButtonIcon: null
 };
