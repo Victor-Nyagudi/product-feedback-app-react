@@ -33,7 +33,7 @@ export const Delete = Template.bind({});
 export const DeleteMobile = Template.bind({});
 
 AddFeedback.args = {
-    text: "Add feedback",
+    text: "Add Feedback",
     className: "button--add-feedback",
 }
 
@@ -49,7 +49,7 @@ AddFeedbackMobile.args = {
 };
 
 EditFeedback.args = {
-    text: "Edit feedback",
+    text: "Edit Feedback",
     className: "button--edit-feedback"
 }
 
@@ -81,9 +81,7 @@ DeleteMobile.args = {
 AddFeedbackLink.play = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const link = canvas.getByRole("link", { name: "+Add feedback" });
-
-    await userEvent.click(link);
+    const link = canvas.getByRole("link", { name: "+Add Feedback" });
 
     await expect(link).toHaveAttribute("href", "/add-feedback");
 }
@@ -91,9 +89,7 @@ AddFeedbackLink.play = async ({ canvasElement }) => {
 EditFeedbackLink.play = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const link = canvas.getByRole("link", { name: "Edit feedback" });
-
-    await userEvent.click(link);
+    const link = canvas.getByRole("link", { name: "Edit Feedback" });
 
     await expect(link).toHaveAttribute("href", "/edit-feedback");
 }
