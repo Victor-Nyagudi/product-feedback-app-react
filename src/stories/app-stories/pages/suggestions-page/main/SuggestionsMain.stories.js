@@ -3,6 +3,7 @@ import React from "react";
 import SuggestionsMain from "../../../../../components/pages/suggestions-page/main/SuggestionsMain";
 
 import { AddFeedbackLink } from "../../../shared/Button.stories";
+import { testUpvoteButton, testFeedbackItemLink } from "../../../shared/FeedbackItem.stories";
 
 import { within, userEvent } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
@@ -134,19 +135,11 @@ WithItems.play = async ({ canvasElement }) => {
 
     const titleLink = canvas.getByRole("link", { name: "Add micro-interactions" });
 
-    await userEvent.click(titleLink);
-
-    await expect(titleLink).toHaveAttribute("href", "/feedback-detail");
+    await testFeedbackItemLink(titleLink);
 
     const upvoteButton = canvas.getByRole("button", { name: "71" });
 
-    await userEvent.click(upvoteButton);
-
-    await expect(upvoteButton).toHaveClass("feedback-content__upvotes-button--clicked");
-
-    await userEvent.click(upvoteButton);
-
-    await expect(upvoteButton).not.toHaveClass("feedback-content__upvotes-button--clicked");
+    await testUpvoteButton(upvoteButton);
 };
 
 Empty.play = AddFeedbackLink.play;

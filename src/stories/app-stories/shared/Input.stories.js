@@ -59,7 +59,7 @@ HasStatusDropdown.args = {
     inputValue: "Suggestion"
 };
 
-HasStatusDropdown.play = async ({ canvasElement }) => {
+const interactions = async (canvasElement, option) => {
     const canvas = within(canvasElement);
 
     // * Simulate user clicking button to reveal dropdown
@@ -72,7 +72,7 @@ HasStatusDropdown.play = async ({ canvasElement }) => {
     await expect(dropdownMenu).toBeVisible();
 
     // * Simulate user choosing an option 
-    await userEvent.click(canvas.getByText("Planned"));
+    await userEvent.click(canvas.getByText(option));
 
     // * Ensure DropdownMenu is not rendred
     /*
@@ -81,28 +81,12 @@ HasStatusDropdown.play = async ({ canvasElement }) => {
         ? which produce errors. 
     */
     await expect(dropdownMenu).not.toBeVisible();
+}
+
+HasStatusDropdown.play = async ({ canvasElement }) => {
+    await interactions(canvasElement, "Planned");
 };
 
 HasCategoryDropdown.play = async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    // * Simulate user clicking button to reveal dropdown
-    await userEvent.click(canvas.getByRole("button"));
-
-    const dropdownMenu = canvas.getAllByRole("list")
-        .find(item => item.classList.contains("dropdown-menu"));
-
-    // * Ensure DropdownMenu is rendered after click
-    await expect(dropdownMenu).toBeVisible();
-
-    // * Simulate user choosing an option 
-    await userEvent.click(canvas.getByText("UI"));
-
-    // * Ensure DropdownMenu is not rendred
-    /*
-        ? To check if an element is not in the DOM, you'll need to 
-        ? use "queryByRole" instead of "getByRole" or "findByRole"
-        ? which produce errors. 
-    */
-    await expect(dropdownMenu).not.toBeVisible();
+    await interactions(canvasElement,  "UI");
 };

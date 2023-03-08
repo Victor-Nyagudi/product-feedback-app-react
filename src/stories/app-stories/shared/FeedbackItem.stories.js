@@ -51,7 +51,8 @@ export default {
                 <Story />
             </div>
         )
-    ]
+    ],
+    includeStories: /^[A-Z]/
 }
 
 const Template = (args) => <FeedbackItem {...args} />;
@@ -132,9 +133,25 @@ HasBadge.args = {
 HasBadgeLink.args = {
     ...HasBadge.args,
     id: 4,
-    title: "Dark mode when?",
+    title: "Dark mode, when?",
     isLink: true
 };
+
+export const testUpvoteButton =  async (upvoteButton) => {
+    await userEvent.click(upvoteButton);
+
+    await expect(upvoteButton).toHaveClass("feedback-content__upvotes-button--clicked");
+    
+    await userEvent.click(upvoteButton);
+
+    await expect(upvoteButton).not.toHaveClass("feedback-content__upvotes-button--clicked");
+}
+
+export const testFeedbackItemLink =  async (titleLink) => {
+    await userEvent.click(titleLink);
+
+    await expect(titleLink).toHaveAttribute("href", "/feedback-detail");
+}
 
 const upvoteButtonClick = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -142,34 +159,19 @@ const upvoteButtonClick = async ({ canvasElement }) => {
     const upvoteButton = canvas.getAllByRole("button")
         .find(btn => btn.classList.contains("feedback-content__upvotes-button"));
 
-    await userEvent.click(upvoteButton);
-
-    await expect(upvoteButton).toHaveClass("feedback-content__upvotes-button--clicked");
-    
-    await userEvent.click(upvoteButton);
-
-    await expect(upvoteButton).not.toHaveClass("feedback-content__upvotes-button--clicked");
+    await testUpvoteButton(upvoteButton);
 };
 
-const otherInteractions = async ({ canvasElement }) => {
+const otherInteractions = async (objectWithCanvasElement) => {
+    const { canvasElement } = objectWithCanvasElement;
+
     const canvas = within(canvasElement);
 
     const titleLink = canvas.getByRole("link");
 
-    await userEvent.click(titleLink);
+    await testFeedbackItemLink(titleLink);
 
-    await expect(titleLink).toHaveAttribute("href", "/feedback-detail");
-
-    const upvoteButton = canvas.getAllByRole("button")
-        .find(btn => btn.classList.contains("feedback-content__upvotes-button"));
-
-    await userEvent.click(upvoteButton);
-
-    await expect(upvoteButton).toHaveClass("feedback-content__upvotes-button--clicked");
-    
-    await userEvent.click(upvoteButton);
-
-    await expect(upvoteButton).not.toHaveClass("feedback-content__upvotes-button--clicked");
+    await upvoteButtonClick(objectWithCanvasElement);
 };
 
 

@@ -26,6 +26,7 @@ export default {
     argTypes: {
         getSortByCriteria: { action: "getSortByCriteria" }
     },
+    includeStories: /^[A-Z]/
 }
 
 const Template = (args) => <SuggestionsHeader {...args} />;
