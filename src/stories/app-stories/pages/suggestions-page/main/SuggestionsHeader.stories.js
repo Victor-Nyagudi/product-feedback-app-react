@@ -37,7 +37,7 @@ Desktop.args = { isMobileScreen: false }
 
 Mobile.args = { isMobileScreen: true }
 
-const interactions = async ({ canvasElement }) => {
+export const interactions = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     const openDropdownbutton = canvas.getAllByRole("button")

@@ -124,6 +124,7 @@ WithItems.args = {
         "upvotes": -1
     }
     ],
+    sharedProps: { updateDbFeedbackItem: () => { } }
 }
 
 Empty.args = { feedbackItems: [] }

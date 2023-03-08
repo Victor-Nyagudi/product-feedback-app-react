@@ -11,7 +11,7 @@ export default {
     args: {
         feedbackItems: SuggestionsMain.WithItems.args.feedbackItems,
         mobileSideMenuOpen: false,
-        sharedProps: { }
+        sharedProps: SuggestionsMain.WithItems.args.sharedProps
     },
     argTypes: {
         getSortByCriteria: { action: "getSortByCriteria" },
@@ -48,3 +48,13 @@ Desktop.args = {
 MobileSideMenuClosed.args = { isMobileScreen: SuggestionsHeader.Mobile.args.isMobileScreen }
 
 MobileSideMenuOpen.args = { isMobileScreen: true, mobileSideMenuOpen: true }
+
+const interactions = async (canvasElement) => {
+    await SuggestionsHeader.interactions(canvasElement);
+
+    await SuggestionsMain.WithItems.play(canvasElement);
+}
+
+Desktop.play = interactions;
+
+MobileSideMenuClosed.play = interactions;
