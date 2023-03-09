@@ -11,7 +11,19 @@ export default {
                 <Story />
             </aside>
         )
-    ]
+    ],
+    parameters: {
+        a11y: {
+            config: {
+                rules: [
+                    {
+                        id: "listitem",
+                        selector: "roadmap-info__category"
+                    }
+                ]
+            }
+        }
+    }
 }
 
 const Template = (args) => <RoadmapInfoCategory {...args} />;

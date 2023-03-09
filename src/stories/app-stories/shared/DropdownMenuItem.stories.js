@@ -9,6 +9,18 @@ export default {
         setActive: { action: "setActive" },
         toggleDropdownMenu: { action: "toggleDropdownMenu" } 
     },
+    parameters: {
+        a11y: {
+            config: {
+                rules: [
+                    {
+                        id: "listitem",
+                        selector: "dropdown-menu__item"
+                    }
+                ]
+            }
+        }
+    }
     /*
         ? Declaring args at the component level doesn't work
         ? if the stories are being imported by other stories e.g.

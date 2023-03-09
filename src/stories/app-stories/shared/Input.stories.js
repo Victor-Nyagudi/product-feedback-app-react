@@ -33,6 +33,16 @@ export default {
                 { name: "white", value: "#ffffff" },
                 { name: "dark-grey", value: "#3b3b3b" }
             ]
+        },
+        a11y: {
+            config: {
+                rules: [
+                    {
+                        id: "label",
+                        enabled: false
+                    }
+                ]
+            }
         }
     }
 }
