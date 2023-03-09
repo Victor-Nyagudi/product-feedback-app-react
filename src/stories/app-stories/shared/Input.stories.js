@@ -8,15 +8,6 @@ import { expect } from '@storybook/jest';
 export default {
     title: "App/Shared/Input",
     component: Input,
-    args: {
-        id: "sample-input",
-        inputType: "text",
-        inputName: "sample-input",
-        dropdownItemType: "category",
-        hasDropdown: false,
-        isRequired: true,
-        showValidationMessage: false
-    },
     argTypes: {
         handleOnChange: { action: "handleOnChange" },
         updateReadOnlyValue: { action: "updateReadOnlyValue" }
@@ -55,15 +46,45 @@ export const HasCategoryDropdown = Template.bind({});
 export const HasStatusDropdown = Template.bind({});
 
 
-Error.args = { showValidationMessage: true };
+Default.args = {
+    id: "sample-input",
+    inputType: "text",
+    inputName: "sample-input",
+    dropdownItemType: "category",
+    hasDropdown: false,
+    isRequired: true,
+    showValidationMessage: false
+}
 
-HasCategoryDropdown.args = { 
+Error.args = {
+    id: "sample-input",
+    inputType: "text",
+    inputName: "sample-input",
+    dropdownItemType: "category",
+    hasDropdown: false,
+    isRequired: true,
+    showValidationMessage: true
+};
+
+HasCategoryDropdown.args = {
+    id: "sample-input",
+    inputType: "text",
+    inputName: "sample-input",
+    dropdownItemType: "category",
+    isRequired: true,
+    showValidationMessage: false,
     hasDropdown: true,
     dropdownItemType: "category",
-    inputValue: "Feature" 
+    inputValue: "Feature"
 };
 
 HasStatusDropdown.args = {
+    id: "sample-input",
+    inputType: "text",
+    inputName: "sample-input",
+    dropdownItemType: "category",
+    isRequired: true,
+    showValidationMessage: false,
     hasDropdown: true,
     dropdownItemType: "status",
     inputValue: "Suggestion"
@@ -98,5 +119,5 @@ HasStatusDropdown.play = async ({ canvasElement }) => {
 };
 
 HasCategoryDropdown.play = async ({ canvasElement }) => {
-    await interactions(canvasElement,  "UI");
+    await interactions(canvasElement, "UI");
 };
