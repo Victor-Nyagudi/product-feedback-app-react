@@ -35,7 +35,8 @@ export default {
                 ]
             }
         }
-    }
+    },
+    includeStories: /^[A-Z]/
 }
 
 const Template = (args) => <Input {...args} />
@@ -90,11 +91,11 @@ HasStatusDropdown.args = {
     inputValue: "Suggestion"
 };
 
-const interactions = async (canvasElement, option) => {
+export const dropdownMenuInteractions = async (canvasElement, option, index) => {
     const canvas = within(canvasElement);
 
     // * Simulate user clicking button to reveal dropdown
-    await userEvent.click(canvas.getByRole("button"));
+    await userEvent.click(canvas.getAllByLabelText("Open dropdown")[index]);
 
     const dropdownMenu = canvas.getAllByRole("list")
         .find(item => item.classList.contains("dropdown-menu"));
@@ -105,7 +106,7 @@ const interactions = async (canvasElement, option) => {
     // * Simulate user choosing an option 
     await userEvent.click(canvas.getByText(option));
 
-    // * Ensure DropdownMenu is not rendred
+    // * Ensure DropdownMenu is not rendered
     /*
         ? To check if an element is not in the DOM, you'll need to 
         ? use "queryByRole" instead of "getByRole" or "findByRole"
@@ -115,9 +116,9 @@ const interactions = async (canvasElement, option) => {
 }
 
 HasStatusDropdown.play = async ({ canvasElement }) => {
-    await interactions(canvasElement, "Planned");
+    await dropdownMenuInteractions(canvasElement, "Planned", 0);
 };
 
 HasCategoryDropdown.play = async ({ canvasElement }) => {
-    await interactions(canvasElement, "UI");
+    await dropdownMenuInteractions(canvasElement, "UI", 1);
 };
