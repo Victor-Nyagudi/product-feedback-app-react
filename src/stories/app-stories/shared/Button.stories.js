@@ -20,7 +20,9 @@ export default {
 const Template = (args) => <Button {...args} />
 
 export const AddFeedback = Template.bind({});
+export const AddFeedbackSubmit = Template.bind({});
 export const AddFeedbackMobile = Template.bind({});
+export const AddFeedbackMobileSubmit = Template.bind({});
 export const AddFeedbackLink = Template.bind({});
 
 export const EditFeedback = Template.bind({});
@@ -30,11 +32,18 @@ export const Cancel = Template.bind({});
 export const CancelMobile = Template.bind({});
 
 export const Delete = Template.bind({});
+export const DeleteSubmit = Template.bind({});
 export const DeleteMobile = Template.bind({});
+export const DeleteMobileSubmit = Template.bind({});
 
 AddFeedback.args = {
     text: "Add Feedback",
     className: "button--add-feedback",
+}
+
+AddFeedbackSubmit.args = {
+    ...AddFeedback.args,
+    type: "submit"
 }
 
 AddFeedbackLink.args = {
@@ -47,6 +56,11 @@ AddFeedbackMobile.args = {
     ...AddFeedback.args,
     className: "button--add-feedback add-edit-feedback__button" 
 };
+
+AddFeedbackMobileSubmit.args = {
+    ...AddFeedbackMobile.args,
+    type: "submit"
+}
 
 EditFeedback.args = {
     text: "Edit Feedback",
@@ -73,9 +87,19 @@ Delete.args = {
     className: "button--delete"
 }
 
+DeleteSubmit.args = {
+    ...Delete.args,
+    type: "submit"
+}
+
 DeleteMobile.args = {
     ...Delete.args,
     className: "button--delete add-edit-feedback__button"
+}
+
+DeleteMobileSubmit.args = {
+    ...DeleteMobile.args,
+    type: "submit"
 }
 
 AddFeedbackLink.play = async ({ canvasElement }) => {
