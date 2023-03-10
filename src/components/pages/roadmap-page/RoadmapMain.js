@@ -120,7 +120,7 @@ function RoadmapMain({
                 <>
                     <RoadmapCategory 
                         title={ categoryInfo.planned.title }
-                        explanation={ categoryInfo.live.explanation }
+                        explanation={ categoryInfo.planned.explanation }
                         totalItems={ categoryInfo.planned.totalItems }
                         color={ categoryInfo.planned.color }
                         feedbackItems={ getCategoryItems(categoryInfo.planned.title) }
