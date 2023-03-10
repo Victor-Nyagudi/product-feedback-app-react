@@ -7,7 +7,14 @@ export default {
     component: RoadmapMobileNavItem,
     argTypes: {
         setActive: { action: "setActive" }
-    }
+    },
+    decorators: [
+        (Story) => (
+            <ul className="roadmap__mobile-nav-items container">
+                <Story />
+            </ul>
+        )
+    ]
 }
 
 const Template = (args) => <RoadmapMobileNavItem {...args} />;
