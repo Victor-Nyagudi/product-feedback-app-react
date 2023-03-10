@@ -27,21 +27,23 @@ const Template = (args) => <SuggestionsPage {...args} />;
 export const Mobile = Template.bind({});
 export const Desktop = Template.bind({});
 
+const sharedArgs = {
+    dbFeedbackItems: WithItems.args.feedbackItems,
+    showFeedbackItemDetail: () => { },
+    updateDbFeedbackItem: SuggestionsMainStories.args.sharedProps.updateDbFeedbackItem
+}
+
 Mobile.args = {
     sharedProps: {
-        dbFeedbackItems: WithItems.args.feedbackItems,
-        showFeedbackItemDetail: () => {},
-        updateDbFeedbackItem: SuggestionsMainStories.args.sharedProps.updateDbFeedbackItem,
-        isMobileScreen: true
+        isMobileScreen: true,
+        ...sharedArgs
     }
 }
 
 Desktop.args = {
     sharedProps: {
-        dbFeedbackItems: WithItems.args.feedbackItems,
-        showFeedbackItemDetail: () => {},
-        updateDbFeedbackItem: SuggestionsMainStories.args.sharedProps.updateDbFeedbackItem,
-        isMobileScreen: false
+        isMobileScreen: false,
+        ...sharedArgs
     }
 }
 

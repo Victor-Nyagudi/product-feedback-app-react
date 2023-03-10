@@ -46,33 +46,27 @@ export const Error = Template.bind({});
 export const HasCategoryDropdown = Template.bind({});
 export const HasStatusDropdown = Template.bind({});
 
-
-Default.args = {
+const sharedArgs = {
     id: "sample-input",
     inputType: "text",
     inputName: "sample-input",
     dropdownItemType: "category",
     hasDropdown: false,
     isRequired: true,
+}
+
+Default.args = {
+    ...sharedArgs,
     showValidationMessage: false
 }
 
 Error.args = {
-    id: "sample-input",
-    inputType: "text",
-    inputName: "sample-input",
-    dropdownItemType: "category",
-    hasDropdown: false,
-    isRequired: true,
+    ...sharedArgs,
     showValidationMessage: true
 };
 
 HasCategoryDropdown.args = {
-    id: "sample-input",
-    inputType: "text",
-    inputName: "sample-input",
-    dropdownItemType: "category",
-    isRequired: true,
+    ...sharedArgs,
     showValidationMessage: false,
     hasDropdown: true,
     dropdownItemType: "category",
@@ -80,11 +74,7 @@ HasCategoryDropdown.args = {
 };
 
 HasStatusDropdown.args = {
-    id: "sample-input",
-    inputType: "text",
-    inputName: "sample-input",
-    dropdownItemType: "category",
-    isRequired: true,
+    ...sharedArgs,
     showValidationMessage: false,
     hasDropdown: true,
     dropdownItemType: "status",
@@ -120,5 +110,5 @@ HasStatusDropdown.play = async ({ canvasElement }) => {
 };
 
 HasCategoryDropdown.play = async ({ canvasElement }) => {
-    await dropdownMenuInteractions(canvasElement, "UI", 1);
+    await dropdownMenuInteractions(canvasElement, "UI", 0);
 };

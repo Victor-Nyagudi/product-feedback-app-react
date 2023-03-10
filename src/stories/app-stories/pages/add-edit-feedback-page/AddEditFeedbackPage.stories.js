@@ -14,14 +14,18 @@ const Template = (args) => <AddEditFeedbackPage {...args} />
 export const AddFeedback = Template.bind({});
 export const EditFeedback = Template.bind({});
 
+const crudMethods = {
+    addDbFeedbackItem: () => { },
+    updateDbFeedbackItem: () => { },
+    deleteDbFeedbackItem: () => { }
+}
+
 AddFeedback.args = {
     sharedProps: {
         isEditing: AddEditFeedbackMain.AddFeedback.args.isEditing,
         dbFeedbackItems: AddEditFeedbackMain.AddFeedback.args.feedbackItems,
         dbFeedbackItemToShow: AddEditFeedbackMain.AddFeedback.args.feedbackItemFromDb,
-        addDbFeedbackItem: () => { },
-        updateDbFeedbackItem: () => { },
-        deleteDbFeedbackItem: () => { }
+        ...crudMethods
     }
 }
 
@@ -30,9 +34,7 @@ EditFeedback.args = {
         isEditing: AddEditFeedbackMain.EditFeedback.args.isEditing,
         dbFeedbackItems: AddEditFeedbackMain.EditFeedback.args.feedbackItems,
         dbFeedbackItemToShow: AddEditFeedbackMain.EditFeedback.args.feedbackItemFromDb,
-        addDbFeedbackItem: () => { },
-        updateDbFeedbackItem: () => { },
-        deleteDbFeedbackItem: () => { }
+        ...crudMethods
     }
 }
 
