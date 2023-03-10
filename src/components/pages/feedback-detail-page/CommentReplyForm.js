@@ -74,7 +74,10 @@ function CommentReplyForm({
     }
 
     return ( 
-        <div className={ shouldShow ? "comment__reply-form-container" : "comment__reply-form-container--hidden" }>
+        <div 
+            className={ shouldShow ? "comment__reply-form-container" : "comment__reply-form-container--hidden" }
+            data-testid="comment-reply-form"
+        >
             <form className="comment__reply-form" onSubmit={ e => handleSubmit(e) }>
                 <div className="comment__reply-form-textarea-container">
                     <TextArea 
