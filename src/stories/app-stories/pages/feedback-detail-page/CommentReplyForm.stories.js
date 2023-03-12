@@ -25,7 +25,7 @@ export const Default = Template.bind({});
 
 Default.args = {
     shouldShow: true,
-    commentId: 1,
+    commentId: 3,
     replyUsername: "tonystark"
 }
 
