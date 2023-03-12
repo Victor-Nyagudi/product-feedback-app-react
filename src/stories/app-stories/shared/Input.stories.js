@@ -84,6 +84,10 @@ HasStatusDropdown.args = {
 export const dropdownMenuInteractions = async (canvasElement, option, index) => {
     const canvas = within(canvasElement);
 
+    const inputWithDropdown= canvas.getAllByTestId("input-with-dropdown")[index];
+
+    await expect(within(inputWithDropdown).getByRole("textbox")).toHaveAttribute("readonly");
+
     // * Simulate user clicking button to reveal dropdown
     await userEvent.click(canvas.getAllByLabelText("Open dropdown")[index]);
 

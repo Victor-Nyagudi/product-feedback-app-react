@@ -87,7 +87,10 @@ function Input({
 
                 :
 
-                <div className="input--dropdown">
+                <div 
+                    className="input--dropdown"
+                    data-testid="input-with-dropdown"
+                >
                     <input 
                         readOnly
                         required={ isRequired }
