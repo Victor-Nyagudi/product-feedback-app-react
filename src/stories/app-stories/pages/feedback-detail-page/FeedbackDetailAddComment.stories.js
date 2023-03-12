@@ -20,11 +20,7 @@ const Template = (args) => <FeedbackDetailAddComment {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
-    currentUser: {
-        image: "./assets/user-images/image-zena.jpg",
-        name: "Zena Kelley",
-        username: "velvetround"
-    },
+    currentUser: FeedbackDetailMainStories.Default.args.currentUser,
     feedbackItem: FeedbackDetailMainStories.Default.args.feedbackItemDetailToShow
 }
 
