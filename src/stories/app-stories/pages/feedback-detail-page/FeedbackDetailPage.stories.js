@@ -26,6 +26,17 @@ Default.args =  {
     }
 }
 
+/*
+    * The upvote button interaction test may fail 
+    * when you run "npm run test-storybook" because of the delay
+    * before local storage is updated. Clicking the upvote button
+    * first checks if the button has been clicked before in local 
+    * storage before doing anything.
+    
+    * The same "issue" persists in FeedbackDetailMain stories, however,
+    * manually testing the interaction in Storybook works fine most of the
+    * time. I wouldn't regard this as a failing test knowing these facts.
+*/
 Default.play = async (objectWithCanvasElement) => {
     await EditFeedbackLink.play(objectWithCanvasElement);
 
