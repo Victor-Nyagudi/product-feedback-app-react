@@ -5,6 +5,7 @@ import FeedbackDetailMain from "../../../../components/pages/feedback-detail-pag
 import * as FeedbackItemCommentsStories from "./FeedbackItemComments.stories"; 
 
 import { upvoteButtonClick } from "../../shared/FeedbackItem.stories";
+import * as FeedbackDetailAddCommentStories from"./FeedbackDetailAddComment.stories";
 
 export default {
     title: "App/Pages/FeedbackDetail/FeedbackDetailMain",
@@ -91,4 +92,6 @@ Default.play = async (objectWithCanvasElement) => {
     await upvoteButtonClick(objectWithCanvasElement);
 
     await FeedbackItemCommentsStories.Default.play(objectWithCanvasElement);
+
+    await FeedbackDetailAddCommentStories.Default.play(objectWithCanvasElement)
 }
