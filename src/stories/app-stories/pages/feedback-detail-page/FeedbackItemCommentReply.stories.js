@@ -22,7 +22,8 @@ export default {
                 <Story />
             </ul>
         )
-    ]
+    ],
+    includeStories: /^[A-Z]/
 }
 
 const Template = (args) => <FeedbackItemCommentReply {...args} />;
@@ -40,14 +41,16 @@ Default.args = {
     topLevelCommentId: CommentReplyFormStories.Default.args.commentId
 }
 
-Default.play = async ({ canvasElement }) => {
+export const addCommentInteraction = async (objectWithCanvasElement, index) => {
+    const { canvasElement } = objectWithCanvasElement;
+
     const canvas = within(canvasElement);
 
-    const commentReplyForm = canvas.getByTestId("comment-reply-form");
-    const textBox = canvas.getAllByPlaceholderText("Write a reply")[0];
-    const postReplyBtn = canvas.getAllByRole("button", { name: "Post Reply" })[0];
+    const commentReplyForm = canvas.getAllByTestId("comment-reply-form")[index];
+    const textBox = canvas.getAllByPlaceholderText("Write a reply")[index];
+    const postReplyBtn = canvas.getAllByRole("button", { name: "Post Reply" })[index];
 
-    await userEvent.click(canvas.getAllByRole("button", { name: "Reply" })[0]);
+    await userEvent.click(canvas.getAllByRole("button", { name: "Reply" })[index]);
 
     await expect(commentReplyForm).not.toHaveClass("comment__reply-form-container--hidden");
 
@@ -58,4 +61,8 @@ Default.play = async ({ canvasElement }) => {
     await userEvent.click(postReplyBtn);
 
     await expect(commentReplyForm).toHaveClass("comment__reply-form-container--hidden");
+}
+
+Default.play = async (canvasElement) => {
+    await addCommentInteraction(canvasElement, 0);
 }
