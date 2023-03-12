@@ -29,9 +29,9 @@ export const parameters = {
 }
 
 const currentUser = {
-  "image": "./assets/user-images/image-zena.jpg",
-  "name": "Zena Kelley",
-  "username": "velvetround"
+  image: "./assets/user-images/image-zena.jpg",
+  name: "Zena Kelley",
+  username: "velvetround"
 }
 
 const dbFeedbackItemToShow = {

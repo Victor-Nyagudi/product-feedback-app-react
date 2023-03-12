@@ -181,7 +181,7 @@ export const testFeedbackItemLink =  async (titleLink) => {
     await expect(titleLink).toHaveAttribute("href", "/feedback-detail");
 }
 
-const upvoteButtonClick = async ({ canvasElement }) => {
+export const upvoteButtonClick = async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     const upvoteButton = canvas.getAllByRole("button")
