@@ -10,7 +10,7 @@ function DropdownMenuItem({
     function handleClick(index) {
         setActive(index);
 
-        toggleDropdownMenu(true);
+        toggleDropdownMenu(false);
     }
 
     return (

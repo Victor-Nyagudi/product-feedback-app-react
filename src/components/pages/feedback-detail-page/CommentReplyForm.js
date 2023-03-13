@@ -70,7 +70,7 @@ function CommentReplyForm({
             user: currentUser
         });
 
-        toggleCommentReplyForm(true);
+        toggleCommentReplyForm(false);
     }
 
     return ( 
