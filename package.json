@@ -22,7 +22,8 @@
     "eject": "react-scripts eject",
     "json-server": "json-server --watch db.json --port 5000",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token=a81ed8edf41a"
   },
   "eslintConfig": {
     "extends": [
@@ -69,6 +70,9 @@
     "@storybook/testing-library": "^0.0.13",
     "axe-playwright": "^1.2.3",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.17.1",
     "webpack": "^5.75.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "product-feedback-app-react@0.1.0"
 }
