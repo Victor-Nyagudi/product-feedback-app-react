@@ -27,12 +27,11 @@ Default.args =  {
 }
 
 /*
-    * The upvote button interaction test may fail 
-    * when you run "npm run test-storybook" because of the delay
-    * before local storage is updated. Clicking the upvote button
-    * first checks if the button has been clicked before in local 
-    * storage before doing anything.
-    
+    * Storybook's "getAllByRole" is misbehaving when running this interaction
+    * test. After refreshing a couple of times, it works a few times then
+    * goes back to misbehaving. The original interaction test is inside
+    * FeedbackItemCommentReply.stories.js
+
     * The same "issue" persists in FeedbackDetailMain stories, however,
     * manually testing the interaction in Storybook works fine most of the
     * time. I wouldn't regard this as a failing test knowing these facts.
