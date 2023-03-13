@@ -94,12 +94,7 @@ Button.defaultProps = {
 Button.propTypes = {
     text: PropTypes.string.isRequired,
     type: PropTypes.string,
-    className: PropTypes.oneOf([
-        "button--add-feedback", 
-        "button--edit-feedback", 
-        "button--cancel",
-        "button--delete"
-    ]),
+    className: PropTypes.string,
     icon: PropTypes.node,
     isLink: PropTypes.bool,
     toggleEditPage: PropTypes.func
