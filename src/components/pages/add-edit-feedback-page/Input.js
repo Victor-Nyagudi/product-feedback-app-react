@@ -1,6 +1,8 @@
 import { PropTypes } from "prop-types";
 import React, { useState } from 'react';
 
+import useToggle from "../../../hooks/useToggle";
+
 import DropdownMenu from "../../shared/DropdownMenu";
 
 function Input({ 
@@ -16,6 +18,8 @@ function Input({
     showValidationMessage
 }) {
     let dropdownMenuItems;
+
+    const toggler = useToggle();
 
     if (dropdownItemType.toLowerCase() === 'category') {
         dropdownMenuItems = [
@@ -51,24 +55,6 @@ function Input({
         updateReadOnlyValue(inputName, value);
     }
 
-    /*
-        * shouldShowDropdownMenu state and toggleDropdownMenu function are copied from SuggestionHeader
-        * since both these components have a dropdown. For a project like this
-        * where the dropdown is only used in two pages, this can work, but for
-        * bigger projects, a more robust solution could be better.
-        
-        * Then again, I also thought that giving each component its own state is good so
-        * that it can be controlled independently rather than by a shared parent.
-    */
-    const [shouldShowDropdownMenu, setShouldShowDropdownMenu] = useState(false);
-
-    function toggleDropdownMenu(isMenuOpen) {
-        if (isMenuOpen)
-            setShouldShowDropdownMenu(false);
-        
-        else
-            setShouldShowDropdownMenu(true);
-    }
 
     return (    
         <>
@@ -87,7 +73,10 @@ function Input({
 
                 :
 
-                <div className="input--dropdown">
+                <div 
+                    className="input--dropdown"
+                    data-testid="input-with-dropdown"
+                >
                     <input 
                         readOnly
                         required={ isRequired }
@@ -102,7 +91,8 @@ function Input({
                     <button 
                         type="button" 
                         className="input__dropdown-toggle button"
-                        onClick={ () => toggleDropdownMenu(false) }
+                        onClick={ () => toggler.toggleComponent(true) }
+                        aria-label="Open dropdown"
                     >
                         <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 1l4 4 4-4" stroke="#4661E6" strokeWidth="2" fill="none" fillRule="evenodd"/>
@@ -112,8 +102,8 @@ function Input({
                     <DropdownMenu 
                         dropdownItems={ dropdownMenuItems } 
                         updateText={ changeInputValue }
-                        toggleDropdownMenu={ toggleDropdownMenu }
-                        shouldShow={ shouldShowDropdownMenu }
+                        toggleDropdownMenu={ toggler.toggleComponent }
+                        shouldShow={ toggler.shouldShowComponent }
                     />
                 </div>
             }
@@ -122,14 +112,12 @@ function Input({
 }
 
 Input.defaultProps = {
-    hasIcon: false,
     isRequired: false,
     dropdownItemType: 'category',
     showValidationMessage: false
 }
 
 Input.propTypes = {
-    hasIcon: PropTypes.bool,
     id: PropTypes.string.isRequired,
     inputType: PropTypes.string.isRequired,
     inputName: PropTypes.string.isRequired,

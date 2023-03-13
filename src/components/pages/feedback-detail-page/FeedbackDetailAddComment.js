@@ -83,6 +83,10 @@ function FeedbackDetailAddComment({
                 className="add-comment__form"
                 onSubmit={ e => handleSubmit(e) }
             >
+                <label htmlFor="add-feedback-message-comment" className="screen-reader-only">
+                    Type your comment here
+                </label>
+
                 <TextArea 
                     name={ 'add-feedback-message-comment' }
                     id={ 'add-feedback-message-comment' }
@@ -93,8 +97,11 @@ function FeedbackDetailAddComment({
                 />   
 
                 <div className="add-comment__button-container">
-                    <p className="add-comment__character-limit-message">
-                        <span className="add-comment__character-limit">{ maxLength }</span> Characters left
+                    <p 
+                        className="add-comment__character-limit-message"
+                        aria-live="polite"
+                    >
+                        <span className="add-comment__character-limit" data-testid="comment-character-limit">{ maxLength }</span> Characters left
                     </p>
                     
                     <button type="submit" className="button button--main button--add-feedback">

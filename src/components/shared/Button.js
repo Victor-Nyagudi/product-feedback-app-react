@@ -49,6 +49,7 @@ function Button({
             * Purple - 'button--add-feedback'
             * Blue - 'button--edit-feedback'
             * Black - 'button--cancel'
+            * Orange - 'button--delete
             
             ? I understand I should've given them more meaningful names
             ? like 'button--purple', but I missed the fact that the text

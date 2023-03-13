@@ -8,7 +8,10 @@ function MobileSideMenu({
     mobileSideMenuOpen 
 }) {
     return ( 
-        <div className={ mobileSideMenuOpen ? "mobile-side-menu" : "mobile-side-menu--hidden" }>
+        <div 
+            className={ mobileSideMenuOpen ? "mobile-side-menu" : "mobile-side-menu--hidden" }
+            data-testid="mobile-side-menu"
+        >
             <Tags getActiveTag={ getActiveTag } />
             <RoadmapInfo feedbackItems={ feedbackItems } />
         </div>

@@ -10,7 +10,7 @@ function DropdownMenuItem({
     function handleClick(index) {
         setActive(index);
 
-        toggleDropdownMenu(true);
+        toggleDropdownMenu(false);
     }
 
     return (
@@ -27,7 +27,7 @@ function DropdownMenuItem({
                 {
                     isSelected &&
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11" aria-hidden="true" data-testid="checkmark">
                         <path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1" />
                     </svg>
                 }

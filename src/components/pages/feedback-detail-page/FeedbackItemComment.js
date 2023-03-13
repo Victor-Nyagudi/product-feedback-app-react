@@ -3,6 +3,7 @@ import { PropTypes } from "prop-types";
 
 import CommentReplyForm from "./CommentReplyForm";
 import FeedbackItemCommentReply from "./FeedbackItemCommentReply";
+import useToggle from '../../../hooks/useToggle';
 
 function FeedbackItemComment({ 
     commentText, 
@@ -16,19 +17,15 @@ function FeedbackItemComment({
         * require('image path here-userFirstName.jpg').
         
         * import statements were my first choice, but I saw this as a fragile option
-        * becuase if new users were added, I'd have to remember to add an import statement.
+        * because if new users were added, I'd have to remember to add an import statement.
         * With this approach, as long the user's first name is also used in naming their image,
         * everything will be fine. It can even be configured to use a user's first and last name
         * in the event two people share names, or even include a middle name in the mix.
     */
     const commenterFirstName = commenter.name.split(' ')[0].toLowerCase();
     
-//#region Toggle comment form code
-    /*
-        * Similar thing happening here with a comment form instead of 
-        * a dropdown menu like in SuggestionsHeader.js and Input.js
-        * where it's toggled to show/hide it
-    */
+    const toggler = useToggle();
+
     const [shouldShowCommentForm, setShouldShowCommentForm] = useState(false);
 
     function toggleCommentReplyForm(commentFormIsVisible) {
@@ -38,7 +35,7 @@ function FeedbackItemComment({
         else
             setShouldShowCommentForm(true);
     }
-//#endregion
+
 
     return (    
         <li className="feedback-detail__comment">
@@ -61,7 +58,7 @@ function FeedbackItemComment({
                     <button 
                         type="button" 
                         className="comment__reply-button button"
-                        onClick={ () => toggleCommentReplyForm(false) }
+                        onClick={ () => toggler.toggleComponent(true) }
                     >
                         Reply
                     </button>
@@ -75,8 +72,8 @@ function FeedbackItemComment({
             </div>
 
             <CommentReplyForm 
-                shouldShow={ shouldShowCommentForm }
-                toggleCommentReplyForm={ toggleCommentReplyForm }
+                shouldShow={ toggler.shouldShowComponent }
+                toggleCommentReplyForm={ toggler.toggleComponent }
                 commentId={ commentId }
             />
 

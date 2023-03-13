@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 import React, { useState } from 'react';
+import useToggle from "../../../hooks/useToggle";
 
 import CommentReplyForm from "./CommentReplyForm";
 
@@ -14,15 +15,8 @@ function FeedbackItemCommentReply({
 
     const personReplyingFirstName = personReplying.name.split(' ')[0].toLowerCase();
 
-    const [shouldShowCommentForm, setShouldShowCommentForm] = useState(false);
+    const toggler = useToggle();
 
-    function toggleCommentReplyForm(isMenuOpen) {
-        if (isMenuOpen)
-            setShouldShowCommentForm(false);
-        
-        else
-            setShouldShowCommentForm(true);
-    }
 
     return ( 
         <li className="feedback-detail__comment--reply">
@@ -48,7 +42,7 @@ function FeedbackItemCommentReply({
                     <button 
                         type="button" 
                         className="comment__reply-button button"
-                        onClick={ () => toggleCommentReplyForm(false) }
+                        onClick={ () => toggler.toggleComponent(true) }
                     >
                         Reply
                     </button>
@@ -63,8 +57,8 @@ function FeedbackItemCommentReply({
             </div>
 
             <CommentReplyForm 
-                shouldShow={ shouldShowCommentForm }
-                toggleCommentReplyForm={ toggleCommentReplyForm }
+                shouldShow={ toggler.shouldShowComponent }
+                toggleCommentReplyForm={ toggler.toggleComponent }
                 replyUsername={ personReplying.username }
                 commentId={ topLevelCommentId }
                 replyingToReply={ true }

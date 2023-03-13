@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 import React, { useState } from 'react';
+import useToggle from "../../../../hooks/useToggle";
 
 import Button from "../../../shared/Button";
 import DropdownMenu from "../../../shared/DropdownMenu";
@@ -11,6 +12,8 @@ function SuggestionsHeader({
     sharedProps 
 }) {
     
+    const toggler = useToggle();
+
     const dropdownMenuItems = [
         { buttonText: 'Most Upvotes', isSelected: true }, 
         { buttonText: 'Least Upvotes', isSelected: false }, 
@@ -19,7 +22,6 @@ function SuggestionsHeader({
     ];
     
     const [buttonText, setButtonText] = useState(dropdownMenuItems[0].buttonText);
-    const [shouldShowDropdownMenu, setShouldShowDropdownMenu] = useState(false);
 
     function changeButtonText(text) {
         getSortByCriteria(text);
@@ -27,13 +29,6 @@ function SuggestionsHeader({
         setButtonText(text);
     }
 
-    function toggleDropdownMenu(isMenuOpen) {
-        if (isMenuOpen)
-            setShouldShowDropdownMenu(false);
-        
-        else
-            setShouldShowDropdownMenu(true);
-    }
 
     return ( 
         <header className="suggestions__header">
@@ -59,7 +54,7 @@ function SuggestionsHeader({
                             <button 
                                 type="button" 
                                 className="suggestions__header-sort button"
-                                onClick={ () => toggleDropdownMenu(false) }
+                                onClick={ () => toggler.toggleComponent(true) }
                             >
                                 <span className="suggestions__header-button-text">{ buttonText }</span>
                                 <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -71,8 +66,8 @@ function SuggestionsHeader({
                         <DropdownMenu 
                             dropdownItems={ dropdownMenuItems } 
                             updateText={ changeButtonText }
-                            toggleDropdownMenu={ toggleDropdownMenu }
-                            shouldShow={ shouldShowDropdownMenu }
+                            toggleDropdownMenu={ toggler.toggleComponent }
+                            shouldShow={ toggler.shouldShowComponent }
                         />
                     </div>    
                 </div>
