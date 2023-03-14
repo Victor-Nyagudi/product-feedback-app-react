@@ -88,7 +88,12 @@ function AddEditFeedbackMain({
             navigate('/');
         }
     }
-
+    
+    /**
+     * @param {String} inputName - The input's name
+     * @param {String} value - The input's value
+     * @return {void}
+    */
     function getReadOnlyValue(inputName, value) {
         // * This works for just the two dropdown inputs present: category & status
         if (inputName === 'feedback-category')
