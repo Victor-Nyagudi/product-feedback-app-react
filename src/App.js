@@ -17,9 +17,15 @@ import SuggestionsPage from './components/pages/suggestions-page/SuggestionsPage
 import AddEditFeedbackPage from './components/pages/add-edit-feedback-page/AddEditFeedbackPage';
 import FeedbackDetailPage from './components/pages/feedback-detail-page/FeedbackDetailPage';
 import RoadMapPage from './components/pages/roadmap-page/RoadmapPage';
+import useToggle from './hooks/useToggle';
 
 function App() {
   const mobileLayoutUpperBound = 600;
+  
+  const toggler = useToggle();
+
+  const isEditing = toggler.shouldShowComponent;
+  const toggleIsEditing = toggler.toggleComponent;
   
   // #region states and useEffects for resizing browser window
 
@@ -65,8 +71,6 @@ function App() {
   const [feedbackItems, setFeedbackItems] = useState([]);
   const [feedbackItemDetailToShow, setFeedbackItemDetailToShow] = useState(null);
 
-  const [isEditing, setIsEditing] = useState(false);
-  
   const [dbFeedbackItems, setDbFeedbackItems] = useState([]);
   const [dbFeedbackItemToShow, setDbFeedbackItemToShow] = useState(null);
   
@@ -93,15 +97,6 @@ function App() {
       console.warn('Feedback item not found');
   }
 
-  function toggleIsEditing(shouldShow) {
-    if (shouldShow) {
-      
-      setIsEditing(true);
-    }
-
-    else
-      setIsEditing(false);
-  }
 
   //#region API requests
 
